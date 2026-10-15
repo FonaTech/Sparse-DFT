@@ -1,0 +1,7 @@
+Optional fonts for the Sparse-DFT GUI.
+
+Every .ttf, .otf or .ttc file in this directory is registered with Qt at
+start-up and placed ahead of the platform font chain (Microsoft YaHei UI /
+JhengHei UI / Yu Gothic UI on Windows, PingFang / Hiragino on macOS,
+Noto Sans CJK on Linux). No fonts are shipped; add only fonts whose licence
+allows redistribution (for example Noto Sans CJK under the SIL OFL 1.1).

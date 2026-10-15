@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use Sparse-DFT, cite the exact release and the archive checksum. No software DOI has been assigned yet."
+title: "Sparse-DFT: a plane-wave PAW-PBE code with certified density and projector sparsification"
+type: software
+version: "1.0.0"
+date-released: "2026-10-15"
+license: Apache-2.0
+authors:
+  - family-names: "Zhan"
+    given-names: "Yufeng"
+copyright: "Copyright 2026 Yufeng Zhan"
+keywords:
+  - density functional theory
+  - projector augmented wave
+  - plane waves
+  - sparsification
+  - band structure

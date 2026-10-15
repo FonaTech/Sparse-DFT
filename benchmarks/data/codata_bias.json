@@ -1,0 +1,134 @@
+{
+ "schema_version": "sparse-dft-release-data-1",
+ "dataset": "codata_bias",
+ "label": "measured (bias), estimated (Hartree-ratio column)",
+ "definition": "bias = [E_total(codata) - E_total(vasp_legacy)] / natoms, same input, default vs matched tier",
+ "hartree_relative_difference": -9.766184427273394e-06,
+ "constants": {
+  "codata": {
+   "bohr_per_angstrom": 1.8897261254578281,
+   "ev_per_hartree": 27.211386245988
+  },
+  "vasp_legacy": {
+   "angstrom_per_bohr": 0.529177249,
+   "ev_per_rydberg": 13.605826
+  }
+ },
+ "rows": [
+  {
+   "system": "Si",
+   "natoms": 2,
+   "bias_mev_per_atom": 1.230015801098716,
+   "atomic_reference_ev_per_atom": 103.0669,
+   "total_minus_reference_ev_per_atom": -108.47352893652472,
+   "hartree_ratio_estimate_mev_per_atom": 1.0593724890712777
+  },
+  {
+   "system": "GaAs",
+   "natoms": 2,
+   "bias_mev_per_atom": 1.288903544967468,
+   "atomic_reference_ev_per_atom": 114.52775,
+   "total_minus_reference_ev_per_atom": -118.6443482263135,
+   "hartree_ratio_estimate_mev_per_atom": 1.1587025860318245
+  },
+  {
+   "system": "MgO",
+   "natoms": 2,
+   "bias_mev_per_atom": 3.317895209818289,
+   "atomic_reference_ev_per_atom": 227.70785,
+   "total_minus_reference_ev_per_atom": -233.65813681774398,
+   "hartree_ratio_estimate_mev_per_atom": 2.2819484570951674
+  },
+  {
+   "system": "LiF",
+   "natoms": 2,
+   "bias_mev_per_atom": 5.10111593391116,
+   "atomic_reference_ev_per_atom": 332.47380000000004,
+   "total_minus_reference_ev_per_atom": -337.2842833049595,
+   "hartree_ratio_estimate_mev_per_atom": 3.293980515176963
+  },
+  {
+   "system": "Al",
+   "natoms": 1,
+   "bias_mev_per_atom": 0.6743876732180354,
+   "atomic_reference_ev_per_atom": 53.5387,
+   "total_minus_reference_ev_per_atom": -57.2734965628363,
+   "hartree_ratio_estimate_mev_per_atom": 0.5593435302274682
+  },
+  {
+   "system": "Ni",
+   "natoms": 1,
+   "bias_mev_per_atom": 21.369413862745823,
+   "atomic_reference_ev_per_atom": 1077.6739,
+   "total_minus_reference_ev_per_atom": -1083.178075843327,
+   "hartree_ratio_estimate_mev_per_atom": 10.57851685626506
+  },
+  {
+   "system": "Fe",
+   "natoms": 1,
+   "bias_mev_per_atom": 11.990150271353528,
+   "atomic_reference_ev_per_atom": 594.3153,
+   "total_minus_reference_ev_per_atom": -602.5815383077208,
+   "hartree_ratio_estimate_mev_per_atom": 5.884922435583309
+  },
+  {
+   "system": "Al_slab",
+   "natoms": 5,
+   "bias_mev_per_atom": 0.6736314024777812,
+   "atomic_reference_ev_per_atom": 53.53869999999999,
+   "total_minus_reference_ev_per_atom": -57.09139356514159,
+   "hartree_ratio_estimate_mev_per_atom": 0.5575650787672223
+  },
+  {
+   "system": "MoS2",
+   "natoms": 3,
+   "bias_mev_per_atom": 3.232970363721203,
+   "atomic_reference_ev_per_atom": 257.0545333333333,
+   "total_minus_reference_ev_per_atom": -264.30793246222737,
+   "hartree_ratio_estimate_mev_per_atom": 2.581280014017433
+  },
+  {
+   "system": "CO",
+   "natoms": 2,
+   "bias_mev_per_atom": 4.117903921439847,
+   "atomic_reference_ev_per_atom": 289.7674,
+   "total_minus_reference_ev_per_atom": -297.1601941711812,
+   "hartree_ratio_estimate_mev_per_atom": 2.902121260720128
+  }
+ ],
+ "fit_bias_vs_atomic_reference": {
+  "n": 10,
+  "slope": 0.02074425477428913,
+  "intercept": -1.1386826051916437,
+  "r2": 0.990464186497983,
+  "x": "atomic_reference_ev_per_atom",
+  "y": "bias_mev_per_atom"
+ },
+ "ratio_measured_over_hartree_estimate": {
+  "min": 1.1123678849993242,
+  "max": 2.03743556565076
+ },
+ "note": "The Hartree-ratio estimate (relative constant change times E_total - sum EATOM) gives the sign and the trend but under-predicts the measured bias by the ratio range given here.",
+ "sources_sha256": {
+  "<anchor_engine_runs>/default/Al/scf/scf.json": "104e62e9277feb3d4fef99b29d4ecd80b26342b637ff9196a89abdcdad367010",
+  "<anchor_engine_runs>/default/Al_slab/scf/scf.json": "ba01345ab5c9947c13b2fc8ed88a232de85835b1de94bcfcbff2276770416e96",
+  "<anchor_engine_runs>/default/CO/scf/scf.json": "cad6fd03b12934d0cf1a04f9e644be2900735f93ad16b34bacbea81930d32279",
+  "<anchor_engine_runs>/default/Fe/scf/scf.json": "44de7739da0f2c282b76a68416737d86764879d67e5e92c3aa2ca3aa14a3a6d8",
+  "<anchor_engine_runs>/default/GaAs/scf/scf.json": "f8f8de1efdd664bbc03cb26f4667a6743aaa5bd97947b2efea752992acc809e2",
+  "<anchor_engine_runs>/default/LiF/scf/scf.json": "153c78dd1894890c79ed689bd720755dc7882ef91ca59d9239f6fdc0ef1066d2",
+  "<anchor_engine_runs>/default/MgO/scf/scf.json": "ddaa2da0da884babb062cbfd72de8c18ea372d21202d19d3ad4d6fefd9f629d4",
+  "<anchor_engine_runs>/default/MoS2/scf/scf.json": "97a87152d7cb6a2103b770826797fe89875090ba1a1e1de64a4d269a98ee40cd",
+  "<anchor_engine_runs>/default/Ni/scf/scf.json": "66ff559a0582693aa3b9ec2290a6d5d88e0b6d4d5c9df5b696d48cca63c0ca3d",
+  "<anchor_engine_runs>/default/Si/scf/scf.json": "70c2c12a4552177b044bf4a7f8392e2a93656f01e74eb8663ab7966104a12b23",
+  "<anchor_engine_runs>/matched/Al/scf/scf.json": "acb33fcbb029429822bfa9a45dae6e6a51358459bc6e5fbc84355950364db719",
+  "<anchor_engine_runs>/matched/Al_slab/scf/scf.json": "08fc368b29caefac2942660e4e8918d20cd18ec95be742d8f15866fb9a470168",
+  "<anchor_engine_runs>/matched/CO/scf/scf.json": "fcaa5c0e486e474f6e25721b1b2da5d5d03f363115f8860d9341239cc874d68e",
+  "<anchor_engine_runs>/matched/Fe/scf/scf.json": "e772be3f8f62a3b2ec3b3de9bfb7873e1f4d89bf3edf3189c7925c7df984a54f",
+  "<anchor_engine_runs>/matched/GaAs/scf/scf.json": "0c3cca4d804d5b5e0a69a19aef00d58b7b8d727ae859230e0144691863422c78",
+  "<anchor_engine_runs>/matched/LiF/scf/scf.json": "631cef5441192224e87e0ed919aef30395ec820c2b5e3494c55773b356068ff8",
+  "<anchor_engine_runs>/matched/MgO/scf/scf.json": "1083e2e8dddc8b3c69a385c6ff7c3543549b37bb61bf9cf9be6aa51ed01f4abe",
+  "<anchor_engine_runs>/matched/MoS2/scf/scf.json": "f08efb6619c282364973fe83801322d683948235e7d0cec72c11b33d0f21c13a",
+  "<anchor_engine_runs>/matched/Ni/scf/scf.json": "ade190c9a8616197c6566e0d708d7968d9e67037f03dfcc6680e63ced72951fc",
+  "<anchor_engine_runs>/matched/Si/scf/scf.json": "da928c173021f38bfdad97ea350754db879d8d8f22ee32368ed615a4c7b048b4"
+ }
+}

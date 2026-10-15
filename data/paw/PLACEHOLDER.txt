@@ -1,0 +1,13 @@
+Reserved directory for PAW datasets bundled with a Sparse-DFT build.
+
+Sparse-DFT does not distribute PAW data. VASP POTCAR files and archives derived
+from them are licensed to VASP users and must not be redistributed.
+Import a PAW root you are licensed to use with the GUI (PAW datasets >
+"Import into user library") or pass --paw-root on the command line.
+Imported roots are stored in the per-user data directory:
+
+  Windows  %APPDATA%\Sparse-DFT\paw\
+  macOS    ~/Library/Application Support/Sparse-DFT/paw/
+  Linux    $XDG_DATA_HOME/sparse_dft/paw/ (default ~/.local/share/sparse_dft/paw/)
+
+A PAW root contains manifest.json, index.json and potentials.jsonl.xz.

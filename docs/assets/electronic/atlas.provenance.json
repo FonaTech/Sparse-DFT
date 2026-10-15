@@ -1,0 +1,3107 @@
+{
+ "dpi": 600,
+ "figures": [
+  {
+   "figure": "GaAs_atlas",
+   "files": [
+    "GaAs_atlas.png",
+    "GaAs_atlas.pdf"
+   ],
+   "inputs_sha256": {
+    "bands_result.json": "0c5837919a1824123d69d22c3d52f6126d1254cb5aafa7edad529793d00ce722",
+    "dos.json": "0c68ba27b0576db0ca53d6374e789118c45f387306e137f44e5157159dffa16c",
+    "vasprun.xml": "6b5ce7c7bf267bb89b5663edde9e66a312b10c43cbf7d964d6ccfa5dfd6371b6"
+   },
+   "lang": "en",
+   "layout_issues": [],
+   "notes": [],
+   "size_mm": [
+    250.0,
+    190.0
+   ],
+   "values": {
+    "analysis": {
+     "cbm_band": 5,
+     "cbm_ev": 3.259974073175615,
+     "cbm_k_label": "Γ",
+     "channel": "total",
+     "classification": "direct-gap semiconductor",
+     "conduction_valleys": [
+      {
+       "energy_rel_ev": 0.46282367778841493,
+       "kindex": 0,
+       "label": "Γ"
+      },
+      {
+       "energy_rel_ev": 0.9291198828955478,
+       "kindex": 128,
+       "label": "L"
+      },
+      {
+       "energy_rel_ev": 1.380457675675268,
+       "kindex": 176,
+       "label": "X"
+      }
+     ],
+     "direct": true,
+     "direct_gap_ev": 0.46282367778841493,
+     "effective_mass_definition": "band-edge m*/m0 = (hbar^2/2m0)/c2, c2 = lim (E-E0)/q^2 by Richardson extrapolation along one path direction, |q| Cartesian (1/Å)",
+     "electron_masses": [
+      {
+       "band": 5,
+       "c2_ev_a2": 120.6368969723466,
+       "carrier": "electron",
+       "direction": "Γ→K",
+       "energy_window_ev": 0.46704993312863596,
+       "k_window_inv_a": 0.08815598663498295,
+       "kindex": 94,
+       "linear_slope_ev_a": 0.0,
+       "mass_m0": 0.03158222911580157,
+       "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+       "samples_per_side": 3,
+       "uncertainty_m0": 0.0007712677318879452
+      },
+      {
+       "band": 5,
+       "c2_ev_a2": 117.35210680917658,
+       "carrier": "electron",
+       "direction": "Γ→L",
+       "energy_window_ev": 0.4472254076663149,
+       "k_window_inv_a": 0.08739384963515566,
+       "kindex": 94,
+       "linear_slope_ev_a": 0.0,
+       "mass_m0": 0.03246624388427316,
+       "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+       "samples_per_side": 3,
+       "uncertainty_m0": 0.0007691611654276759
+      },
+      {
+       "band": 5,
+       "c2_ev_a2": 114.94676496832193,
+       "carrier": "electron",
+       "direction": "Γ→X",
+       "energy_window_ev": 0.486043264481403,
+       "k_window_inv_a": 0.0874455015069601,
+       "kindex": 0,
+       "linear_slope_ev_a": 0.0,
+       "mass_m0": 0.03314562285463179,
+       "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+       "samples_per_side": 3,
+       "uncertainty_m0": 0.0006799941845451879
+      }
+     ],
+     "energy_zero": "VBM",
+     "energy_zero_ev": 2.7971503953872,
+     "gap_ev": 0.46282367778841493,
+     "gap_status_source": "inferred",
+     "hole_masses": [
+      {
+       "band": 4,
+       "c2_ev_a2": -19.2097620182941,
+       "carrier": "hole",
+       "direction": "Γ→K",
+       "energy_window_ev": 0.07137481314506422,
+       "k_window_inv_a": 0.08815598663498295,
+       "kindex": 94,
+       "linear_slope_ev_a": 0.0,
+       "mass_m0": -0.19833572723970377,
+       "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+       "samples_per_side": 3,
+       "uncertainty_m0": 0.008203526084128998
+      },
+      {
+       "band": 4,
+       "c2_ev_a2": -5.044334174170022,
+       "carrier": "hole",
+       "direction": "Γ→L",
+       "energy_window_ev": 0.035175716278161406,
+       "k_window_inv_a": 0.08739384963515566,
+       "kindex": 94,
+       "linear_slope_ev_a": 0.0,
+       "mass_m0": -0.7552993097700317,
+       "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+       "samples_per_side": 3,
+       "uncertainty_m0": 0.004293346488870697
+      },
+      {
+       "band": 4,
+       "c2_ev_a2": -11.370117494046191,
+       "carrier": "hole",
+       "direction": "Γ→X",
+       "energy_window_ev": 0.08350623227109999,
+       "k_window_inv_a": 0.0874455015069601,
+       "kindex": 0,
+       "linear_slope_ev_a": 0.0,
+       "mass_m0": -0.33508731303744627,
+       "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+       "samples_per_side": 3,
+       "uncertainty_m0": 0.00020317378676448783
+      }
+     ],
+     "vbm_band": 4,
+     "vbm_ev": 2.7971503953872,
+     "vbm_k_label": "Γ"
+    },
+    "bands_complete_below_ev": 3.71902270960226,
+    "energy_window_ev": [
+     -13.549293173415313,
+     3.66902270960226
+    ],
+    "energy_zero": "energy_rel_vbm",
+    "mesh_conditions": {
+     "grid_points": 216,
+     "mesh_kind": "nscf mesh",
+     "same_frozen_scf_density": true
+    },
+    "omitted_panels": {},
+    "orbital_colour": {
+     "definition": "f_s = w_s / sum_l w_l of the PAW-sphere lm weights per state; line width ~ sphere weight",
+     "l": "s"
+    },
+    "panels": {
+     "bands": {},
+     "bz": {
+      "channel": "total",
+      "definition": "E_cb - E_vb per mesh point, bands 5/4; the minimum is a mesh value, never interpolated",
+      "grid": [
+       6,
+       6
+      ],
+      "interpolation": "periodic trigonometric interpolation (x8) through 36 mesh points",
+      "n_points": 36,
+      "plane": "k3 = 0 (fractional), one reciprocal cell",
+      "quantity": "direct",
+      "sampled_min_ev": 0.46282367778818667,
+      "sampled_min_k_fractional": [
+       0.0,
+       0.0,
+       0.0
+      ]
+     },
+     "composition": {
+      "channels": {
+       "total": {
+        "bands": [
+         1,
+         2,
+         3,
+         4,
+         5,
+         6,
+         7,
+         8,
+         9
+        ],
+        "k_average": "mesh k weights",
+        "shares_percent": {
+         "As $d$": [
+          0.04446167102122538,
+          0.6901161834008598,
+          0.7461169847139257,
+          0.6968029419627737,
+          5.998943395289123,
+          8.73402144455455,
+          11.48498406101798,
+          9.494743217887857,
+          13.546948612590803
+         ],
+         "As $p$": [
+          0.5117501579512239,
+          23.011666540095188,
+          49.843261948237284,
+          54.90020015549159,
+          23.27739509295375,
+          23.95614335599593,
+          23.556585087663205,
+          26.664591315492334,
+          33.14912127963122
+         ],
+         "As $s$": [
+          74.0089603789664,
+          9.614580623418101,
+          1.4337638098460264,
+          0.06001634594716129,
+          11.279404700761967,
+          7.2939705808009245,
+          2.041488761081221,
+          3.4111728800153966,
+          2.548277634823709
+         ],
+         "Ga $d$": [
+          1.454352240095351,
+          1.5366364601202016,
+          3.6825595883464026,
+          4.243576666999747,
+          8.636397006524591,
+          9.740223448292294,
+          12.60315042829755,
+          12.003875833126564,
+          26.04609899974998
+         ],
+         "Ga $p$": [
+          8.138149408089806,
+          8.438981535381602,
+          39.62472712252913,
+          39.92033726050999,
+          21.14300044686547,
+          38.37506604262247,
+          47.84393311948638,
+          45.80209087653226,
+          19.300984399688232
+         ],
+         "Ga $s$": [
+          15.842326143875976,
+          56.70801865758405,
+          4.6695705463272175,
+          0.1790666290887279,
+          29.664859357605092,
+          11.900575127733827,
+          2.46985854245367,
+          2.6235258769456045,
+          5.4085690735160625
+         ]
+        },
+        "sphere_weight": [
+         0.7125767794673832,
+         0.7067720086252626,
+         0.5844788197596058,
+         0.6291346637386646,
+         0.5482182676602463,
+         0.5208730494901546,
+         0.5397861690936655,
+         0.5714769022206948,
+         0.4635098931467434
+        ]
+       }
+      },
+      "definition": "share = sum_k w_k sum_(atoms of element, m of l) w_lm / sum over all groups; w_lm = PAW-sphere lm weights",
+      "sphere_weight_definition": "BZ-weighted sum of lm weights over atoms and orbitals per band (< 1: part of the state lies outside the PAW spheres)",
+      "valence_conduction_divider": 4.5
+     },
+     "edges": {
+      "cbm_k": "Γ",
+      "definition": "band-edge m*/m0 = (hbar^2/2m0)/c2, c2 = lim (E-E0)/q^2 by Richardson extrapolation along one path direction, |q| Cartesian (1/Å)",
+      "electron_masses": [
+       {
+        "band": 5,
+        "c2_ev_a2": 120.6368969723466,
+        "carrier": "electron",
+        "direction": "Γ→K",
+        "energy_window_ev": 0.46704993312863596,
+        "k_window_inv_a": 0.08815598663498295,
+        "kindex": 94,
+        "linear_slope_ev_a": 0.0,
+        "mass_m0": 0.03158222911580157,
+        "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+        "samples_per_side": 3,
+        "uncertainty_m0": 0.0007712677318879452
+       },
+       {
+        "band": 5,
+        "c2_ev_a2": 117.35210680917658,
+        "carrier": "electron",
+        "direction": "Γ→L",
+        "energy_window_ev": 0.4472254076663149,
+        "k_window_inv_a": 0.08739384963515566,
+        "kindex": 94,
+        "linear_slope_ev_a": 0.0,
+        "mass_m0": 0.03246624388427316,
+        "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+        "samples_per_side": 3,
+        "uncertainty_m0": 0.0007691611654276759
+       },
+       {
+        "band": 5,
+        "c2_ev_a2": 114.94676496832193,
+        "carrier": "electron",
+        "direction": "Γ→X",
+        "energy_window_ev": 0.486043264481403,
+        "k_window_inv_a": 0.0874455015069601,
+        "kindex": 0,
+        "linear_slope_ev_a": 0.0,
+        "mass_m0": 0.03314562285463179,
+        "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+        "samples_per_side": 3,
+        "uncertainty_m0": 0.0006799941845451879
+       }
+      ],
+      "hole_masses": [
+       {
+        "band": 4,
+        "c2_ev_a2": -19.2097620182941,
+        "carrier": "hole",
+        "direction": "Γ→K",
+        "energy_window_ev": 0.07137481314506422,
+        "k_window_inv_a": 0.08815598663498295,
+        "kindex": 94,
+        "linear_slope_ev_a": 0.0,
+        "mass_m0": -0.19833572723970377,
+        "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+        "samples_per_side": 3,
+        "uncertainty_m0": 0.008203526084128998
+       },
+       {
+        "band": 4,
+        "c2_ev_a2": -5.044334174170022,
+        "carrier": "hole",
+        "direction": "Γ→L",
+        "energy_window_ev": 0.035175716278161406,
+        "k_window_inv_a": 0.08739384963515566,
+        "kindex": 94,
+        "linear_slope_ev_a": 0.0,
+        "mass_m0": -0.7552993097700317,
+        "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+        "samples_per_side": 3,
+        "uncertainty_m0": 0.004293346488870697
+       },
+       {
+        "band": 4,
+        "c2_ev_a2": -11.370117494046191,
+        "carrier": "hole",
+        "direction": "Γ→X",
+        "energy_window_ev": 0.08350623227109999,
+        "k_window_inv_a": 0.0874455015069601,
+        "kindex": 0,
+        "linear_slope_ev_a": 0.0,
+        "mass_m0": -0.33508731303744627,
+        "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+        "samples_per_side": 3,
+        "uncertainty_m0": 0.00020317378676448783
+       }
+      ],
+      "plotted_samples": "all path points within 0.32 1/A of the extremum; filled = fitted points",
+      "uncertainty_format": "0.0316(8) = 0.0316 +/- 0.0008: |order 2 - order 1| Richardson",
+      "vbm_k": "Γ"
+     },
+     "parity": {
+      "definition": "lm PAW-sphere weights per (k, band, atom, orbital); R^2 = 1 - sum (w_c - w_r)^2 / sum (w_r - mean w_r)^2 against y = x; near-degenerate: |E_n - E_n±1| < 40 meV in the reference",
+      "mae_dw": 2.8114388033035227e-05,
+      "max_abs_dw": 0.004270888130837869,
+      "max_abs_dw_non_degenerate": 0.0012778908628962304,
+      "max_abs_dw_pair_summed": 0.0003081536319982092,
+      "n_bands": 6,
+      "n_kpoints": 177,
+      "n_values": 19116,
+      "near_degenerate_ev": 0.04,
+      "near_degenerate_values": 252,
+      "orbitals": [
+       "s",
+       "py",
+       "pz",
+       "px",
+       "dxy",
+       "dyz",
+       "dz2",
+       "dxz",
+       "dx2-y2"
+      ],
+      "r2_identity": 0.9999989766293033
+     },
+     "pdos": {
+      "complete_below_ev": 18.78513498830143,
+      "group_threshold": "element+l groups holding >= 2.5 % of the PDOS integral in the window",
+      "groups_shown": [
+       "Ga s",
+       "Ga p",
+       "Ga d",
+       "As s",
+       "As p"
+      ],
+      "origin": "sdft_nscf_mesh",
+      "pdos_integral_below_zero_states": {
+       "As p": 1.60224856507583,
+       "As s": 1.2081628821824517,
+       "Ga d": 0.13824213206604288,
+       "Ga p": 1.1997667861771275,
+       "Ga s": 1.0842086451797912
+      },
+      "sigma_ev": 0.1,
+      "warnings": [
+       "Gaussian DOS (sigma 0.1 eV) on a 216-point NSCF mesh; mesh and broadening convergence are unverified",
+       "DOS above 18.79 eV is incomplete: the highest solved band starts there (raise --bands to extend it)"
+      ]
+     },
+     "residual": {
+      "align": "none",
+      "conditions": {
+       "candidate": {
+        "atomic_units": "vasp_legacy",
+        "cutoff_ev": 300.0,
+        "engine": "Sparse-DFT",
+        "paw_titles": {
+         "As": "PAW_PBE As 22Sep2009",
+         "Ga": "PAW_PBE Ga 08Apr2002"
+        },
+        "xc": "PBE"
+       },
+       "checks": {
+        "cutoff_ev": true,
+        "kpoints": true,
+        "paw_titles": true,
+        "reciprocal_basis": true,
+        "species": true,
+        "xc": true
+       },
+       "differences": [],
+       "matched": true,
+       "reference": {
+        "cutoff_ev": 300.0,
+        "engine": "VASP",
+        "paw_titles": {
+         "As": "PAW_PBE As 22Sep2009",
+         "Ga": "PAW_PBE Ga 08Apr2002"
+        },
+        "version": "6.4.1",
+        "xc": "PBE"
+       },
+       "shared_kpoints": 177
+      },
+      "definition": "Delta E = E_candidate - E_reference at k points equal modulo G (1e-5), bands 1..n_bands, no energy shift (shared PAW energy zero)",
+      "mae_mev": 0.42474770490264085,
+      "max_abs_mev": 0.998951116014446,
+      "mean_mev": -0.3560592552561396,
+      "n_bands": 6,
+      "n_channels": 1,
+      "n_kpoints": 177,
+      "rmse_mev": 0.49570444821688137,
+      "shift_ev": 0.0
+     }
+    }
+   }
+  },
+  {
+   "figure": "GaAs_atlas",
+   "files": [
+    "GaAs_atlas.zh-CN.png",
+    "GaAs_atlas.zh-CN.pdf"
+   ],
+   "inputs_sha256": {
+    "bands_result.json": "0c5837919a1824123d69d22c3d52f6126d1254cb5aafa7edad529793d00ce722",
+    "dos.json": "0c68ba27b0576db0ca53d6374e789118c45f387306e137f44e5157159dffa16c",
+    "vasprun.xml": "6b5ce7c7bf267bb89b5663edde9e66a312b10c43cbf7d964d6ccfa5dfd6371b6"
+   },
+   "lang": "zh_CN",
+   "layout_issues": [],
+   "notes": [],
+   "size_mm": [
+    250.0,
+    190.0
+   ],
+   "values": {
+    "analysis": {
+     "cbm_band": 5,
+     "cbm_ev": 3.259974073175615,
+     "cbm_k_label": "Γ",
+     "channel": "total",
+     "classification": "direct-gap semiconductor",
+     "conduction_valleys": [
+      {
+       "energy_rel_ev": 0.46282367778841493,
+       "kindex": 0,
+       "label": "Γ"
+      },
+      {
+       "energy_rel_ev": 0.9291198828955478,
+       "kindex": 128,
+       "label": "L"
+      },
+      {
+       "energy_rel_ev": 1.380457675675268,
+       "kindex": 176,
+       "label": "X"
+      }
+     ],
+     "direct": true,
+     "direct_gap_ev": 0.46282367778841493,
+     "effective_mass_definition": "band-edge m*/m0 = (hbar^2/2m0)/c2, c2 = lim (E-E0)/q^2 by Richardson extrapolation along one path direction, |q| Cartesian (1/Å)",
+     "electron_masses": [
+      {
+       "band": 5,
+       "c2_ev_a2": 120.6368969723466,
+       "carrier": "electron",
+       "direction": "Γ→K",
+       "energy_window_ev": 0.46704993312863596,
+       "k_window_inv_a": 0.08815598663498295,
+       "kindex": 94,
+       "linear_slope_ev_a": 0.0,
+       "mass_m0": 0.03158222911580157,
+       "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+       "samples_per_side": 3,
+       "uncertainty_m0": 0.0007712677318879452
+      },
+      {
+       "band": 5,
+       "c2_ev_a2": 117.35210680917658,
+       "carrier": "electron",
+       "direction": "Γ→L",
+       "energy_window_ev": 0.4472254076663149,
+       "k_window_inv_a": 0.08739384963515566,
+       "kindex": 94,
+       "linear_slope_ev_a": 0.0,
+       "mass_m0": 0.03246624388427316,
+       "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+       "samples_per_side": 3,
+       "uncertainty_m0": 0.0007691611654276759
+      },
+      {
+       "band": 5,
+       "c2_ev_a2": 114.94676496832193,
+       "carrier": "electron",
+       "direction": "Γ→X",
+       "energy_window_ev": 0.486043264481403,
+       "k_window_inv_a": 0.0874455015069601,
+       "kindex": 0,
+       "linear_slope_ev_a": 0.0,
+       "mass_m0": 0.03314562285463179,
+       "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+       "samples_per_side": 3,
+       "uncertainty_m0": 0.0006799941845451879
+      }
+     ],
+     "energy_zero": "VBM",
+     "energy_zero_ev": 2.7971503953872,
+     "gap_ev": 0.46282367778841493,
+     "gap_status_source": "inferred",
+     "hole_masses": [
+      {
+       "band": 4,
+       "c2_ev_a2": -19.2097620182941,
+       "carrier": "hole",
+       "direction": "Γ→K",
+       "energy_window_ev": 0.07137481314506422,
+       "k_window_inv_a": 0.08815598663498295,
+       "kindex": 94,
+       "linear_slope_ev_a": 0.0,
+       "mass_m0": -0.19833572723970377,
+       "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+       "samples_per_side": 3,
+       "uncertainty_m0": 0.008203526084128998
+      },
+      {
+       "band": 4,
+       "c2_ev_a2": -5.044334174170022,
+       "carrier": "hole",
+       "direction": "Γ→L",
+       "energy_window_ev": 0.035175716278161406,
+       "k_window_inv_a": 0.08739384963515566,
+       "kindex": 94,
+       "linear_slope_ev_a": 0.0,
+       "mass_m0": -0.7552993097700317,
+       "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+       "samples_per_side": 3,
+       "uncertainty_m0": 0.004293346488870697
+      },
+      {
+       "band": 4,
+       "c2_ev_a2": -11.370117494046191,
+       "carrier": "hole",
+       "direction": "Γ→X",
+       "energy_window_ev": 0.08350623227109999,
+       "k_window_inv_a": 0.0874455015069601,
+       "kindex": 0,
+       "linear_slope_ev_a": 0.0,
+       "mass_m0": -0.33508731303744627,
+       "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+       "samples_per_side": 3,
+       "uncertainty_m0": 0.00020317378676448783
+      }
+     ],
+     "vbm_band": 4,
+     "vbm_ev": 2.7971503953872,
+     "vbm_k_label": "Γ"
+    },
+    "bands_complete_below_ev": 3.71902270960226,
+    "energy_window_ev": [
+     -13.549293173415313,
+     3.66902270960226
+    ],
+    "energy_zero": "energy_rel_vbm",
+    "mesh_conditions": {
+     "grid_points": 216,
+     "mesh_kind": "nscf mesh",
+     "same_frozen_scf_density": true
+    },
+    "omitted_panels": {},
+    "orbital_colour": {
+     "definition": "f_s = w_s / sum_l w_l of the PAW-sphere lm weights per state; line width ~ sphere weight",
+     "l": "s"
+    },
+    "panels": {
+     "bands": {},
+     "bz": {
+      "channel": "total",
+      "definition": "E_cb - E_vb per mesh point, bands 5/4; the minimum is a mesh value, never interpolated",
+      "grid": [
+       6,
+       6
+      ],
+      "interpolation": "periodic trigonometric interpolation (x8) through 36 mesh points",
+      "n_points": 36,
+      "plane": "k3 = 0 (fractional), one reciprocal cell",
+      "quantity": "direct",
+      "sampled_min_ev": 0.46282367778818667,
+      "sampled_min_k_fractional": [
+       0.0,
+       0.0,
+       0.0
+      ]
+     },
+     "composition": {
+      "channels": {
+       "total": {
+        "bands": [
+         1,
+         2,
+         3,
+         4,
+         5,
+         6,
+         7,
+         8,
+         9
+        ],
+        "k_average": "mesh k weights",
+        "shares_percent": {
+         "As $d$": [
+          0.04446167102122538,
+          0.6901161834008598,
+          0.7461169847139257,
+          0.6968029419627737,
+          5.998943395289123,
+          8.73402144455455,
+          11.48498406101798,
+          9.494743217887857,
+          13.546948612590803
+         ],
+         "As $p$": [
+          0.5117501579512239,
+          23.011666540095188,
+          49.843261948237284,
+          54.90020015549159,
+          23.27739509295375,
+          23.95614335599593,
+          23.556585087663205,
+          26.664591315492334,
+          33.14912127963122
+         ],
+         "As $s$": [
+          74.0089603789664,
+          9.614580623418101,
+          1.4337638098460264,
+          0.06001634594716129,
+          11.279404700761967,
+          7.2939705808009245,
+          2.041488761081221,
+          3.4111728800153966,
+          2.548277634823709
+         ],
+         "Ga $d$": [
+          1.454352240095351,
+          1.5366364601202016,
+          3.6825595883464026,
+          4.243576666999747,
+          8.636397006524591,
+          9.740223448292294,
+          12.60315042829755,
+          12.003875833126564,
+          26.04609899974998
+         ],
+         "Ga $p$": [
+          8.138149408089806,
+          8.438981535381602,
+          39.62472712252913,
+          39.92033726050999,
+          21.14300044686547,
+          38.37506604262247,
+          47.84393311948638,
+          45.80209087653226,
+          19.300984399688232
+         ],
+         "Ga $s$": [
+          15.842326143875976,
+          56.70801865758405,
+          4.6695705463272175,
+          0.1790666290887279,
+          29.664859357605092,
+          11.900575127733827,
+          2.46985854245367,
+          2.6235258769456045,
+          5.4085690735160625
+         ]
+        },
+        "sphere_weight": [
+         0.7125767794673832,
+         0.7067720086252626,
+         0.5844788197596058,
+         0.6291346637386646,
+         0.5482182676602463,
+         0.5208730494901546,
+         0.5397861690936655,
+         0.5714769022206948,
+         0.4635098931467434
+        ]
+       }
+      },
+      "definition": "share = sum_k w_k sum_(atoms of element, m of l) w_lm / sum over all groups; w_lm = PAW-sphere lm weights",
+      "sphere_weight_definition": "BZ-weighted sum of lm weights over atoms and orbitals per band (< 1: part of the state lies outside the PAW spheres)",
+      "valence_conduction_divider": 4.5
+     },
+     "edges": {
+      "cbm_k": "Γ",
+      "definition": "band-edge m*/m0 = (hbar^2/2m0)/c2, c2 = lim (E-E0)/q^2 by Richardson extrapolation along one path direction, |q| Cartesian (1/Å)",
+      "electron_masses": [
+       {
+        "band": 5,
+        "c2_ev_a2": 120.6368969723466,
+        "carrier": "electron",
+        "direction": "Γ→K",
+        "energy_window_ev": 0.46704993312863596,
+        "k_window_inv_a": 0.08815598663498295,
+        "kindex": 94,
+        "linear_slope_ev_a": 0.0,
+        "mass_m0": 0.03158222911580157,
+        "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+        "samples_per_side": 3,
+        "uncertainty_m0": 0.0007712677318879452
+       },
+       {
+        "band": 5,
+        "c2_ev_a2": 117.35210680917658,
+        "carrier": "electron",
+        "direction": "Γ→L",
+        "energy_window_ev": 0.4472254076663149,
+        "k_window_inv_a": 0.08739384963515566,
+        "kindex": 94,
+        "linear_slope_ev_a": 0.0,
+        "mass_m0": 0.03246624388427316,
+        "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+        "samples_per_side": 3,
+        "uncertainty_m0": 0.0007691611654276759
+       },
+       {
+        "band": 5,
+        "c2_ev_a2": 114.94676496832193,
+        "carrier": "electron",
+        "direction": "Γ→X",
+        "energy_window_ev": 0.486043264481403,
+        "k_window_inv_a": 0.0874455015069601,
+        "kindex": 0,
+        "linear_slope_ev_a": 0.0,
+        "mass_m0": 0.03314562285463179,
+        "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+        "samples_per_side": 3,
+        "uncertainty_m0": 0.0006799941845451879
+       }
+      ],
+      "hole_masses": [
+       {
+        "band": 4,
+        "c2_ev_a2": -19.2097620182941,
+        "carrier": "hole",
+        "direction": "Γ→K",
+        "energy_window_ev": 0.07137481314506422,
+        "k_window_inv_a": 0.08815598663498295,
+        "kindex": 94,
+        "linear_slope_ev_a": 0.0,
+        "mass_m0": -0.19833572723970377,
+        "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+        "samples_per_side": 3,
+        "uncertainty_m0": 0.008203526084128998
+       },
+       {
+        "band": 4,
+        "c2_ev_a2": -5.044334174170022,
+        "carrier": "hole",
+        "direction": "Γ→L",
+        "energy_window_ev": 0.035175716278161406,
+        "k_window_inv_a": 0.08739384963515566,
+        "kindex": 94,
+        "linear_slope_ev_a": 0.0,
+        "mass_m0": -0.7552993097700317,
+        "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+        "samples_per_side": 3,
+        "uncertainty_m0": 0.004293346488870697
+       },
+       {
+        "band": 4,
+        "c2_ev_a2": -11.370117494046191,
+        "carrier": "hole",
+        "direction": "Γ→X",
+        "energy_window_ev": 0.08350623227109999,
+        "k_window_inv_a": 0.0874455015069601,
+        "kindex": 0,
+        "linear_slope_ev_a": 0.0,
+        "mass_m0": -0.33508731303744627,
+        "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+        "samples_per_side": 3,
+        "uncertainty_m0": 0.00020317378676448783
+       }
+      ],
+      "plotted_samples": "all path points within 0.32 1/A of the extremum; filled = fitted points",
+      "uncertainty_format": "0.0316(8) = 0.0316 +/- 0.0008: |order 2 - order 1| Richardson",
+      "vbm_k": "Γ"
+     },
+     "parity": {
+      "definition": "lm PAW-sphere weights per (k, band, atom, orbital); R^2 = 1 - sum (w_c - w_r)^2 / sum (w_r - mean w_r)^2 against y = x; near-degenerate: |E_n - E_n±1| < 40 meV in the reference",
+      "mae_dw": 2.8114388033035227e-05,
+      "max_abs_dw": 0.004270888130837869,
+      "max_abs_dw_non_degenerate": 0.0012778908628962304,
+      "max_abs_dw_pair_summed": 0.0003081536319982092,
+      "n_bands": 6,
+      "n_kpoints": 177,
+      "n_values": 19116,
+      "near_degenerate_ev": 0.04,
+      "near_degenerate_values": 252,
+      "orbitals": [
+       "s",
+       "py",
+       "pz",
+       "px",
+       "dxy",
+       "dyz",
+       "dz2",
+       "dxz",
+       "dx2-y2"
+      ],
+      "r2_identity": 0.9999989766293033
+     },
+     "pdos": {
+      "complete_below_ev": 18.78513498830143,
+      "group_threshold": "element+l groups holding >= 2.5 % of the PDOS integral in the window",
+      "groups_shown": [
+       "Ga s",
+       "Ga p",
+       "Ga d",
+       "As s",
+       "As p"
+      ],
+      "origin": "sdft_nscf_mesh",
+      "pdos_integral_below_zero_states": {
+       "As p": 1.60224856507583,
+       "As s": 1.2081628821824517,
+       "Ga d": 0.13824213206604288,
+       "Ga p": 1.1997667861771275,
+       "Ga s": 1.0842086451797912
+      },
+      "sigma_ev": 0.1,
+      "warnings": [
+       "Gaussian DOS (sigma 0.1 eV) on a 216-point NSCF mesh; mesh and broadening convergence are unverified",
+       "DOS above 18.79 eV is incomplete: the highest solved band starts there (raise --bands to extend it)"
+      ]
+     },
+     "residual": {
+      "align": "none",
+      "conditions": {
+       "candidate": {
+        "atomic_units": "vasp_legacy",
+        "cutoff_ev": 300.0,
+        "engine": "Sparse-DFT",
+        "paw_titles": {
+         "As": "PAW_PBE As 22Sep2009",
+         "Ga": "PAW_PBE Ga 08Apr2002"
+        },
+        "xc": "PBE"
+       },
+       "checks": {
+        "cutoff_ev": true,
+        "kpoints": true,
+        "paw_titles": true,
+        "reciprocal_basis": true,
+        "species": true,
+        "xc": true
+       },
+       "differences": [],
+       "matched": true,
+       "reference": {
+        "cutoff_ev": 300.0,
+        "engine": "VASP",
+        "paw_titles": {
+         "As": "PAW_PBE As 22Sep2009",
+         "Ga": "PAW_PBE Ga 08Apr2002"
+        },
+        "version": "6.4.1",
+        "xc": "PBE"
+       },
+       "shared_kpoints": 177
+      },
+      "definition": "Delta E = E_candidate - E_reference at k points equal modulo G (1e-5), bands 1..n_bands, no energy shift (shared PAW energy zero)",
+      "mae_mev": 0.42474770490264085,
+      "max_abs_mev": 0.998951116014446,
+      "mean_mev": -0.3560592552561396,
+      "n_bands": 6,
+      "n_channels": 1,
+      "n_kpoints": 177,
+      "rmse_mev": 0.49570444821688137,
+      "shift_ev": 0.0
+     }
+    }
+   }
+  },
+  {
+   "figure": "Ni_atlas",
+   "files": [
+    "Ni_atlas.png",
+    "Ni_atlas.pdf"
+   ],
+   "inputs_sha256": {
+    "bands_result.json": "cf81ba83d85df513ab0899c4ebf4ece1313ca907d0db728a3b1750fb06df4cc7",
+    "dos.json": "499a43faf81cac50c128fed7a62d1eb5ffcdeff6e000e883f32b7577a7f766a5",
+    "vasprun.xml": "3caae4869ca197fc51765487a99ac1774d239d4323b28e9c92c1f299833f2304"
+   },
+   "lang": "en",
+   "layout_issues": [],
+   "notes": [
+    "omitted edges: metal: no band edges to fit"
+   ],
+   "size_mm": [
+    250.0,
+    190.0
+   ],
+   "values": {
+    "analysis": {
+     "channel": "down",
+     "classification": "metal",
+     "energy_zero": "F",
+     "energy_zero_ev": 9.261874444838842,
+     "gap_status_source": "metal"
+    },
+    "bands_complete_below_ev": 33.21428799930548,
+    "energy_window_ev": [
+     -9.787873071561421,
+     6.0
+    ],
+    "energy_zero": "energy_rel_ef",
+    "mesh_conditions": {
+     "grid_points": 1000,
+     "mesh_kind": "nscf mesh",
+     "same_frozen_scf_density": true
+    },
+    "omitted_panels": {
+     "edges": "metal: no band edges to fit"
+    },
+    "orbital_colour": {
+     "definition": "f_d = w_d / sum_l w_l of the PAW-sphere lm weights per state; line width ~ sphere weight",
+     "l": "d"
+    },
+    "panels": {
+     "bands": {},
+     "bz": {
+      "channel": "down",
+      "definition": "E_n(k) - E_F = 0 contour of the trigonometric interpolation of band-index-ordered mesh energies; approximate near band crossings",
+      "fermi_cuts": [
+       {
+        "band": 3,
+        "channel": "down"
+       },
+       {
+        "band": 4,
+        "channel": "down"
+       },
+       {
+        "band": 5,
+        "channel": "down"
+       },
+       {
+        "band": 6,
+        "channel": "down"
+       },
+       {
+        "band": 6,
+        "channel": "up"
+       }
+      ],
+      "grid": [
+       10,
+       10
+      ],
+      "interpolation": "periodic trigonometric interpolation (x8) through 100 mesh points",
+      "n_points": 100,
+      "plane": "k3 = 0 (fractional), one reciprocal cell",
+      "quantity": "fermi"
+     },
+     "composition": {
+      "channels": {
+       "down": {
+        "bands": [
+         1,
+         2,
+         3,
+         4,
+         5,
+         6
+        ],
+        "k_average": "mesh k weights",
+        "shares_percent": {
+         "Ni $d$": [
+          59.55845341157976,
+          93.13717005782702,
+          91.9112052030575,
+          96.90050527557179,
+          99.44333231211182,
+          70.37739979300189
+         ],
+         "Ni $p$": [
+          12.552800081837633,
+          6.468725267629215,
+          6.748023712864172,
+          2.856335433815163,
+          0.41797246519932935,
+          23.835217534087334
+         ],
+         "Ni $s$": [
+          27.888746506582596,
+          0.3941046745437629,
+          1.3407710840783307,
+          0.24315929061304406,
+          0.13869522268884635,
+          5.787382672910785
+         ]
+        },
+        "sphere_weight": [
+         0.8240118488329404,
+         0.9206152571906042,
+         0.940063106339291,
+         0.9642612351331932,
+         0.9859581286607237,
+         0.8999024325206553
+        ]
+       },
+       "up": {
+        "bands": [
+         1,
+         2,
+         3,
+         4,
+         5,
+         6
+        ],
+        "k_average": "mesh k weights",
+        "shares_percent": {
+         "Ni $d$": [
+          64.01870890194918,
+          93.95116870520988,
+          92.87343521697296,
+          97.54831133271867,
+          99.23914487898442,
+          65.33512620082864
+         ],
+         "Ni $p$": [
+          10.289663966401864,
+          5.581348036136367,
+          5.914262560173025,
+          2.214821877343443,
+          0.4926225344456136,
+          27.37625246237493
+         ],
+         "Ni $s$": [
+          25.691627131648957,
+          0.4674832586537434,
+          1.2123022228539961,
+          0.23686678993789087,
+          0.26823258656996374,
+          7.288621336796448
+         ]
+        },
+        "sphere_weight": [
+         0.8384410105336786,
+         0.9253120341315587,
+         0.9440535464289265,
+         0.9673884539071593,
+         0.985024740188912,
+         0.8849794400696676
+        ]
+       }
+      },
+      "definition": "share = sum_k w_k sum_(atoms of element, m of l) w_lm / sum over all groups; w_lm = PAW-sphere lm weights",
+      "sphere_weight_definition": "BZ-weighted sum of lm weights over atoms and orbitals per band (< 1: part of the state lies outside the PAW spheres)",
+      "valence_conduction_divider": null
+     },
+     "parity": {
+      "definition": "lm PAW-sphere weights per (k, band, atom, orbital); R^2 = 1 - sum (w_c - w_r)^2 / sum (w_r - mean w_r)^2 against y = x; near-degenerate: |E_n - E_n±1| < 40 meV in the reference",
+      "mae_dw": 1.8814167502485935e-05,
+      "max_abs_dw": 0.0005721402168478162,
+      "max_abs_dw_non_degenerate": 0.00014440291947886985,
+      "max_abs_dw_pair_summed": 0.00012686962090024956,
+      "n_bands": 12,
+      "n_kpoints": 277,
+      "n_values": 59832,
+      "near_degenerate_ev": 0.04,
+      "near_degenerate_values": 6714,
+      "orbitals": [
+       "s",
+       "py",
+       "pz",
+       "px",
+       "dxy",
+       "dyz",
+       "dz2",
+       "dxz",
+       "dx2-y2"
+      ],
+      "r2_identity": 0.9999999796015782
+     },
+     "pdos": {
+      "complete_below_ev": 54.64245620637716,
+      "group_threshold": "element+l groups holding >= 2.5 % of the PDOS integral in the window",
+      "groups_shown": [
+       "Ni s",
+       "Ni p",
+       "Ni d"
+      ],
+      "origin": "sdft_nscf_mesh",
+      "pdos_integral_below_zero_states": {
+       "Ni d (down)": 3.7636018450944566,
+       "Ni d (up)": 4.516539659486478,
+       "Ni p (down)": 0.25757649491411005,
+       "Ni p (up)": 0.23554488364193663,
+       "Ni s (down)": 0.25000180202910666,
+       "Ni s (up)": 0.24627810750315698
+      },
+      "sigma_ev": 0.1,
+      "warnings": [
+       "Gaussian DOS (sigma 0.1 eV) on a 1000-point NSCF mesh; mesh and broadening convergence are unverified",
+       "DOS above 54.64 eV is incomplete: the highest solved band starts there (raise --bands to extend it)"
+      ]
+     },
+     "residual": {
+      "align": "none",
+      "conditions": {
+       "candidate": {
+        "atomic_units": "vasp_legacy",
+        "cutoff_ev": 355.0,
+        "engine": "Sparse-DFT",
+        "paw_titles": {
+         "Ni": "PAW_PBE Ni 02Aug2007"
+        },
+        "xc": "PBE"
+       },
+       "checks": {
+        "cutoff_ev": true,
+        "kpoints": true,
+        "paw_titles": true,
+        "reciprocal_basis": true,
+        "species": true,
+        "xc": true
+       },
+       "differences": [],
+       "matched": true,
+       "reference": {
+        "cutoff_ev": 355.0,
+        "engine": "VASP",
+        "paw_titles": {
+         "Ni": "PAW_PBE Ni 02Aug2007"
+        },
+        "version": "6.4.1",
+        "xc": "PBE"
+       },
+       "shared_kpoints": 277
+      },
+      "definition": "Delta E = E_candidate - E_reference at k points equal modulo G (1e-5), bands 1..n_bands, no energy shift (shared PAW energy zero)",
+      "mae_mev": 0.02699669917322813,
+      "max_abs_mev": 0.07875779464683319,
+      "mean_mev": -0.012454622633550062,
+      "n_bands": 12,
+      "n_channels": 2,
+      "n_kpoints": 277,
+      "rmse_mev": 0.0321059693835357,
+      "shift_ev": 0.0
+     }
+    }
+   }
+  },
+  {
+   "figure": "Ni_atlas",
+   "files": [
+    "Ni_atlas.zh-CN.png",
+    "Ni_atlas.zh-CN.pdf"
+   ],
+   "inputs_sha256": {
+    "bands_result.json": "cf81ba83d85df513ab0899c4ebf4ece1313ca907d0db728a3b1750fb06df4cc7",
+    "dos.json": "499a43faf81cac50c128fed7a62d1eb5ffcdeff6e000e883f32b7577a7f766a5",
+    "vasprun.xml": "3caae4869ca197fc51765487a99ac1774d239d4323b28e9c92c1f299833f2304"
+   },
+   "lang": "zh_CN",
+   "layout_issues": [],
+   "notes": [
+    "omitted edges: metal: no band edges to fit"
+   ],
+   "size_mm": [
+    250.0,
+    190.0
+   ],
+   "values": {
+    "analysis": {
+     "channel": "down",
+     "classification": "metal",
+     "energy_zero": "F",
+     "energy_zero_ev": 9.261874444838842,
+     "gap_status_source": "metal"
+    },
+    "bands_complete_below_ev": 33.21428799930548,
+    "energy_window_ev": [
+     -9.787873071561421,
+     6.0
+    ],
+    "energy_zero": "energy_rel_ef",
+    "mesh_conditions": {
+     "grid_points": 1000,
+     "mesh_kind": "nscf mesh",
+     "same_frozen_scf_density": true
+    },
+    "omitted_panels": {
+     "edges": "metal: no band edges to fit"
+    },
+    "orbital_colour": {
+     "definition": "f_d = w_d / sum_l w_l of the PAW-sphere lm weights per state; line width ~ sphere weight",
+     "l": "d"
+    },
+    "panels": {
+     "bands": {},
+     "bz": {
+      "channel": "down",
+      "definition": "E_n(k) - E_F = 0 contour of the trigonometric interpolation of band-index-ordered mesh energies; approximate near band crossings",
+      "fermi_cuts": [
+       {
+        "band": 3,
+        "channel": "down"
+       },
+       {
+        "band": 4,
+        "channel": "down"
+       },
+       {
+        "band": 5,
+        "channel": "down"
+       },
+       {
+        "band": 6,
+        "channel": "down"
+       },
+       {
+        "band": 6,
+        "channel": "up"
+       }
+      ],
+      "grid": [
+       10,
+       10
+      ],
+      "interpolation": "periodic trigonometric interpolation (x8) through 100 mesh points",
+      "n_points": 100,
+      "plane": "k3 = 0 (fractional), one reciprocal cell",
+      "quantity": "fermi"
+     },
+     "composition": {
+      "channels": {
+       "down": {
+        "bands": [
+         1,
+         2,
+         3,
+         4,
+         5,
+         6
+        ],
+        "k_average": "mesh k weights",
+        "shares_percent": {
+         "Ni $d$": [
+          59.55845341157976,
+          93.13717005782702,
+          91.9112052030575,
+          96.90050527557179,
+          99.44333231211182,
+          70.37739979300189
+         ],
+         "Ni $p$": [
+          12.552800081837633,
+          6.468725267629215,
+          6.748023712864172,
+          2.856335433815163,
+          0.41797246519932935,
+          23.835217534087334
+         ],
+         "Ni $s$": [
+          27.888746506582596,
+          0.3941046745437629,
+          1.3407710840783307,
+          0.24315929061304406,
+          0.13869522268884635,
+          5.787382672910785
+         ]
+        },
+        "sphere_weight": [
+         0.8240118488329404,
+         0.9206152571906042,
+         0.940063106339291,
+         0.9642612351331932,
+         0.9859581286607237,
+         0.8999024325206553
+        ]
+       },
+       "up": {
+        "bands": [
+         1,
+         2,
+         3,
+         4,
+         5,
+         6
+        ],
+        "k_average": "mesh k weights",
+        "shares_percent": {
+         "Ni $d$": [
+          64.01870890194918,
+          93.95116870520988,
+          92.87343521697296,
+          97.54831133271867,
+          99.23914487898442,
+          65.33512620082864
+         ],
+         "Ni $p$": [
+          10.289663966401864,
+          5.581348036136367,
+          5.914262560173025,
+          2.214821877343443,
+          0.4926225344456136,
+          27.37625246237493
+         ],
+         "Ni $s$": [
+          25.691627131648957,
+          0.4674832586537434,
+          1.2123022228539961,
+          0.23686678993789087,
+          0.26823258656996374,
+          7.288621336796448
+         ]
+        },
+        "sphere_weight": [
+         0.8384410105336786,
+         0.9253120341315587,
+         0.9440535464289265,
+         0.9673884539071593,
+         0.985024740188912,
+         0.8849794400696676
+        ]
+       }
+      },
+      "definition": "share = sum_k w_k sum_(atoms of element, m of l) w_lm / sum over all groups; w_lm = PAW-sphere lm weights",
+      "sphere_weight_definition": "BZ-weighted sum of lm weights over atoms and orbitals per band (< 1: part of the state lies outside the PAW spheres)",
+      "valence_conduction_divider": null
+     },
+     "parity": {
+      "definition": "lm PAW-sphere weights per (k, band, atom, orbital); R^2 = 1 - sum (w_c - w_r)^2 / sum (w_r - mean w_r)^2 against y = x; near-degenerate: |E_n - E_n±1| < 40 meV in the reference",
+      "mae_dw": 1.8814167502485935e-05,
+      "max_abs_dw": 0.0005721402168478162,
+      "max_abs_dw_non_degenerate": 0.00014440291947886985,
+      "max_abs_dw_pair_summed": 0.00012686962090024956,
+      "n_bands": 12,
+      "n_kpoints": 277,
+      "n_values": 59832,
+      "near_degenerate_ev": 0.04,
+      "near_degenerate_values": 6714,
+      "orbitals": [
+       "s",
+       "py",
+       "pz",
+       "px",
+       "dxy",
+       "dyz",
+       "dz2",
+       "dxz",
+       "dx2-y2"
+      ],
+      "r2_identity": 0.9999999796015782
+     },
+     "pdos": {
+      "complete_below_ev": 54.64245620637716,
+      "group_threshold": "element+l groups holding >= 2.5 % of the PDOS integral in the window",
+      "groups_shown": [
+       "Ni s",
+       "Ni p",
+       "Ni d"
+      ],
+      "origin": "sdft_nscf_mesh",
+      "pdos_integral_below_zero_states": {
+       "Ni d (down)": 3.7636018450944566,
+       "Ni d (up)": 4.516539659486478,
+       "Ni p (down)": 0.25757649491411005,
+       "Ni p (up)": 0.23554488364193663,
+       "Ni s (down)": 0.25000180202910666,
+       "Ni s (up)": 0.24627810750315698
+      },
+      "sigma_ev": 0.1,
+      "warnings": [
+       "Gaussian DOS (sigma 0.1 eV) on a 1000-point NSCF mesh; mesh and broadening convergence are unverified",
+       "DOS above 54.64 eV is incomplete: the highest solved band starts there (raise --bands to extend it)"
+      ]
+     },
+     "residual": {
+      "align": "none",
+      "conditions": {
+       "candidate": {
+        "atomic_units": "vasp_legacy",
+        "cutoff_ev": 355.0,
+        "engine": "Sparse-DFT",
+        "paw_titles": {
+         "Ni": "PAW_PBE Ni 02Aug2007"
+        },
+        "xc": "PBE"
+       },
+       "checks": {
+        "cutoff_ev": true,
+        "kpoints": true,
+        "paw_titles": true,
+        "reciprocal_basis": true,
+        "species": true,
+        "xc": true
+       },
+       "differences": [],
+       "matched": true,
+       "reference": {
+        "cutoff_ev": 355.0,
+        "engine": "VASP",
+        "paw_titles": {
+         "Ni": "PAW_PBE Ni 02Aug2007"
+        },
+        "version": "6.4.1",
+        "xc": "PBE"
+       },
+       "shared_kpoints": 277
+      },
+      "definition": "Delta E = E_candidate - E_reference at k points equal modulo G (1e-5), bands 1..n_bands, no energy shift (shared PAW energy zero)",
+      "mae_mev": 0.02699669917322813,
+      "max_abs_mev": 0.07875779464683319,
+      "mean_mev": -0.012454622633550062,
+      "n_bands": 12,
+      "n_channels": 2,
+      "n_kpoints": 277,
+      "rmse_mev": 0.0321059693835357,
+      "shift_ev": 0.0
+     }
+    }
+   }
+  },
+  {
+   "figure": "MoS2_atlas",
+   "files": [
+    "MoS2_atlas.png",
+    "MoS2_atlas.pdf"
+   ],
+   "inputs_sha256": {
+    "bands_result.json": "20ddeaaee45af70cf82644a531e8028dac44e1f48390899779c4382eb4ebced8",
+    "scf.json": "6fe95de7702c81e8e622fb3ae54929472d557300efa03f5c81b47ede7532be3d",
+    "vasprun.xml": "8b1ecbfdf7780fb75facc516484a023176ecdf9ab7dcf2f947aad6c45e921cb2"
+   },
+   "lang": "en",
+   "layout_issues": [],
+   "notes": [],
+   "size_mm": [
+    250.0,
+    190.0
+   ],
+   "values": {
+    "analysis": {
+     "cbm_band": 10,
+     "cbm_ev": -0.5884261547255174,
+     "cbm_k_label": "K",
+     "channel": "total",
+     "classification": "indirect-gap semiconductor",
+     "conduction_valleys": [
+      {
+       "energy_rel_ev": 1.5859652104227986,
+       "kindex": 61,
+       "label": "K"
+      }
+     ],
+     "direct": false,
+     "direct_gap_ev": 1.6342710225918795,
+     "effective_mass_definition": "band-edge m*/m0 = (hbar^2/2m0)/c2, c2 = lim (E-E0)/q^2 by Richardson extrapolation along one path direction, |q| Cartesian (1/Å)",
+     "electron_masses": [
+      {
+       "band": 10,
+       "c2_ev_a2": 9.891714223607273,
+       "carrier": "electron",
+       "direction": "M–K–Γ",
+       "energy_window_ev": 0.07647342019805725,
+       "k_window_inv_a": 0.08974177223419896,
+       "kindex": 61,
+       "linear_slope_ev_a": 0.04636416456521873,
+       "mass_m0": 0.38516904490702014,
+       "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+       "samples_per_side": 3,
+       "uncertainty_m0": 0.02674539378891705
+      }
+     ],
+     "energy_zero": "VBM",
+     "energy_zero_ev": -2.174391365148316,
+     "gap_ev": 1.5859652104227986,
+     "gap_status_source": "inferred",
+     "hole_masses": [
+      {
+       "band": 9,
+       "c2_ev_a2": -1.0149250981830966,
+       "carrier": "hole",
+       "direction": "Γ→K",
+       "energy_window_ev": 0.008722065369621834,
+       "k_window_inv_a": 0.0894329810627386,
+       "kindex": 106,
+       "linear_slope_ev_a": 0.0,
+       "mass_m0": -3.7539539881520043,
+       "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+       "samples_per_side": 3,
+       "uncertainty_m0": 0.01227294443328919
+      },
+      {
+       "band": 9,
+       "c2_ev_a2": -1.1420512178479467,
+       "carrier": "hole",
+       "direction": "Γ→M",
+       "energy_window_ev": 0.009546778693952263,
+       "k_window_inv_a": 0.08934396507122111,
+       "kindex": 0,
+       "linear_slope_ev_a": 0.0,
+       "mass_m0": -3.3360869113903986,
+       "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+       "samples_per_side": 3,
+       "uncertainty_m0": 0.0035238164862492205
+      }
+     ],
+     "vbm_band": 9,
+     "vbm_ev": -2.174391365148316,
+     "vbm_k_label": "Γ"
+    },
+    "bands_complete_below_ev": 3.06645078867223,
+    "energy_window_ev": [
+     -14.866020593374,
+     3.01645078867223
+    ],
+    "energy_zero": "energy_rel_vbm",
+    "mesh_conditions": {
+     "grid_points": 36,
+     "mesh_kind": "scf mesh",
+     "same_frozen_scf_density": true
+    },
+    "omitted_panels": {},
+    "orbital_colour": {
+     "definition": "f_s = w_s / sum_l w_l of the PAW-sphere lm weights per state; line width ~ sphere weight",
+     "l": "s"
+    },
+    "panels": {
+     "bands": {},
+     "bz": {
+      "channel": "total",
+      "definition": "E_cb - E_vb per mesh point, bands 10/9; the minimum is a mesh value, never interpolated",
+      "grid": [
+       6,
+       6
+      ],
+      "interpolation": "periodic trigonometric interpolation (x8) through 36 mesh points",
+      "n_points": 36,
+      "plane": "k3 = 0 (fractional), one reciprocal cell",
+      "quantity": "direct",
+      "sampled_min_ev": 1.6342710225920487,
+      "sampled_min_k_fractional": [
+       0.333333,
+       0.333333,
+       0.0
+      ]
+     },
+     "composition": {
+      "channels": {
+       "total": {
+        "bands": [
+         1,
+         2,
+         3,
+         4,
+         5,
+         6,
+         7,
+         8,
+         9,
+         10,
+         11,
+         12,
+         13
+        ],
+        "k_average": "path average",
+        "shares_percent": {
+         "Mo $d$": [
+          4.263515356417628,
+          8.703366373476165,
+          38.25717277226812,
+          42.8459188863347,
+          43.75438109523922,
+          47.34479956896828,
+          38.39879473210878,
+          24.978638370311174,
+          75.39527665802014,
+          75.55742485408592,
+          71.52952504774967,
+          64.83353661313572,
+          59.23350327712227
+         ],
+         "Mo $p$": [
+          4.161802980421248,
+          3.688731985830805,
+          2.940476684857423,
+          3.538340122285435,
+          4.508166038239297,
+          3.475613730980207,
+          6.450049054442387,
+          7.186686599854914,
+          2.6469657128234663,
+          0.8841272361450163,
+          1.4374607148519591,
+          1.5741524389838957,
+          0.33463384347925634
+         ],
+         "Mo $s$": [
+          8.374283288512974,
+          0.027891511218747878,
+          10.539233614597826,
+          6.704458242624096,
+          3.0382067394801786,
+          0.21460403039295742,
+          0.5750053821193918,
+          0.16186860389897623,
+          1.2825762133971514,
+          1.2140976010636788,
+          0.8019456010954202,
+          0.142909740674948,
+          0.016853100375820367
+         ],
+         "S $p$": [
+          1.7160795300459861,
+          0.6109671180828058,
+          46.041724385071014,
+          44.47078475718268,
+          45.36195145646886,
+          47.75972013588268,
+          53.63518033461086,
+          65.81404375227687,
+          19.761309263802268,
+          21.448910005248003,
+          25.36388053624789,
+          30.261459587360918,
+          38.28662592178544
+         ],
+         "S $s$": [
+          81.48431884460216,
+          86.96904301139149,
+          2.2213925432056216,
+          2.4404979915731104,
+          3.337294670572439,
+          1.205262533775864,
+          0.9409704967185823,
+          1.8587626736580722,
+          0.9138721519569767,
+          0.8954403034573801,
+          0.8671881000550583,
+          3.1879416198445147,
+          2.128383857237223
+         ]
+        },
+        "sphere_weight": [
+         0.742497803981853,
+         0.7485451480417851,
+         0.6366100441819864,
+         0.6839477174080639,
+         0.6971472840882068,
+         0.7355344186956232,
+         0.7113503300461708,
+         0.697958592904921,
+         0.7811920282646918,
+         0.8059082090982916,
+         0.7918129810365798,
+         0.7391881210332533,
+         0.7831477923860726
+        ]
+       }
+      },
+      "definition": "share = sum_k w_k sum_(atoms of element, m of l) w_lm / sum over all groups; w_lm = PAW-sphere lm weights",
+      "sphere_weight_definition": "BZ-weighted sum of lm weights over atoms and orbitals per band (< 1: part of the state lies outside the PAW spheres)",
+      "valence_conduction_divider": 9.5
+     },
+     "edges": {
+      "cbm_k": "K",
+      "definition": "band-edge m*/m0 = (hbar^2/2m0)/c2, c2 = lim (E-E0)/q^2 by Richardson extrapolation along one path direction, |q| Cartesian (1/Å)",
+      "electron_masses": [
+       {
+        "band": 10,
+        "c2_ev_a2": 9.891714223607273,
+        "carrier": "electron",
+        "direction": "M–K–Γ",
+        "energy_window_ev": 0.07647342019805725,
+        "k_window_inv_a": 0.08974177223419896,
+        "kindex": 61,
+        "linear_slope_ev_a": 0.04636416456521873,
+        "mass_m0": 0.38516904490702014,
+        "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+        "samples_per_side": 3,
+        "uncertainty_m0": 0.02674539378891705
+       }
+      ],
+      "hole_masses": [
+       {
+        "band": 9,
+        "c2_ev_a2": -1.0149250981830966,
+        "carrier": "hole",
+        "direction": "Γ→K",
+        "energy_window_ev": 0.008722065369621834,
+        "k_window_inv_a": 0.0894329810627386,
+        "kindex": 106,
+        "linear_slope_ev_a": 0.0,
+        "mass_m0": -3.7539539881520043,
+        "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+        "samples_per_side": 3,
+        "uncertainty_m0": 0.01227294443328919
+       },
+       {
+        "band": 9,
+        "c2_ev_a2": -1.1420512178479467,
+        "carrier": "hole",
+        "direction": "Γ→M",
+        "energy_window_ev": 0.009546778693952263,
+        "k_window_inv_a": 0.08934396507122111,
+        "kindex": 0,
+        "linear_slope_ev_a": 0.0,
+        "mass_m0": -3.3360869113903986,
+        "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+        "samples_per_side": 3,
+        "uncertainty_m0": 0.0035238164862492205
+       }
+      ],
+      "plotted_samples": "all path points within 0.32 1/A of the extremum; filled = fitted points",
+      "uncertainty_format": "0.0316(8) = 0.0316 +/- 0.0008: |order 2 - order 1| Richardson",
+      "vbm_k": "Γ"
+     },
+     "parity": {
+      "definition": "lm PAW-sphere weights per (k, band, atom, orbital); R^2 = 1 - sum (w_c - w_r)^2 / sum (w_r - mean w_r)^2 against y = x; near-degenerate: |E_n - E_n±1| < 40 meV in the reference",
+      "mae_dw": 1.552723258201e-05,
+      "max_abs_dw": 0.00011676208116816189,
+      "max_abs_dw_non_degenerate": 0.00011676208116816189,
+      "max_abs_dw_pair_summed": null,
+      "n_bands": 11,
+      "n_kpoints": 107,
+      "n_values": 31779,
+      "near_degenerate_ev": 0.04,
+      "near_degenerate_values": 0,
+      "orbitals": [
+       "s",
+       "py",
+       "pz",
+       "px",
+       "dxy",
+       "dyz",
+       "dz2",
+       "dxz",
+       "dx2-y2"
+      ],
+      "r2_identity": 0.9999998907099236
+     },
+     "pdos": {
+      "complete_below_ev": null,
+      "group_threshold": "element+l groups holding >= 2.5 % of the PDOS integral in the window",
+      "groups_shown": [],
+      "origin": "scf_gaussian",
+      "pdos_integral_below_zero_states": {},
+      "sigma_ev": 0.1,
+      "warnings": [
+       "Gaussian DOS from the executed SCF k-points; mesh and broadening convergence are unverified"
+      ]
+     },
+     "residual": {
+      "align": "none",
+      "conditions": {
+       "candidate": {
+        "atomic_units": "vasp_legacy",
+        "cutoff_ev": 340.0,
+        "engine": "Sparse-DFT",
+        "paw_titles": {
+         "Mo": "PAW_PBE Mo 08Apr2002",
+         "S": "PAW_PBE S 06Sep2000"
+        },
+        "xc": "PBE"
+       },
+       "checks": {
+        "cutoff_ev": true,
+        "kpoints": true,
+        "paw_titles": true,
+        "reciprocal_basis": true,
+        "species": true,
+        "xc": true
+       },
+       "differences": [],
+       "matched": true,
+       "reference": {
+        "cutoff_ev": 340.0,
+        "engine": "VASP",
+        "paw_titles": {
+         "Mo": "PAW_PBE Mo 08Apr2002",
+         "S": "PAW_PBE S 06Sep2000"
+        },
+        "version": "6.4.1",
+        "xc": "PBE"
+       },
+       "shared_kpoints": 107
+      },
+      "definition": "Delta E = E_candidate - E_reference at k points equal modulo G (1e-5), bands 1..n_bands, no energy shift (shared PAW energy zero)",
+      "mae_mev": 0.07432086301345713,
+      "max_abs_mev": 0.15681191012727538,
+      "mean_mev": 0.07429157537142177,
+      "n_bands": 11,
+      "n_channels": 1,
+      "n_kpoints": 107,
+      "rmse_mev": 0.08138058400792664,
+      "shift_ev": 0.0
+     }
+    }
+   }
+  },
+  {
+   "figure": "MoS2_atlas",
+   "files": [
+    "MoS2_atlas.zh-CN.png",
+    "MoS2_atlas.zh-CN.pdf"
+   ],
+   "inputs_sha256": {
+    "bands_result.json": "20ddeaaee45af70cf82644a531e8028dac44e1f48390899779c4382eb4ebced8",
+    "scf.json": "6fe95de7702c81e8e622fb3ae54929472d557300efa03f5c81b47ede7532be3d",
+    "vasprun.xml": "8b1ecbfdf7780fb75facc516484a023176ecdf9ab7dcf2f947aad6c45e921cb2"
+   },
+   "lang": "zh_CN",
+   "layout_issues": [],
+   "notes": [],
+   "size_mm": [
+    250.0,
+    190.0
+   ],
+   "values": {
+    "analysis": {
+     "cbm_band": 10,
+     "cbm_ev": -0.5884261547255174,
+     "cbm_k_label": "K",
+     "channel": "total",
+     "classification": "indirect-gap semiconductor",
+     "conduction_valleys": [
+      {
+       "energy_rel_ev": 1.5859652104227986,
+       "kindex": 61,
+       "label": "K"
+      }
+     ],
+     "direct": false,
+     "direct_gap_ev": 1.6342710225918795,
+     "effective_mass_definition": "band-edge m*/m0 = (hbar^2/2m0)/c2, c2 = lim (E-E0)/q^2 by Richardson extrapolation along one path direction, |q| Cartesian (1/Å)",
+     "electron_masses": [
+      {
+       "band": 10,
+       "c2_ev_a2": 9.891714223607273,
+       "carrier": "electron",
+       "direction": "M–K–Γ",
+       "energy_window_ev": 0.07647342019805725,
+       "k_window_inv_a": 0.08974177223419896,
+       "kindex": 61,
+       "linear_slope_ev_a": 0.04636416456521873,
+       "mass_m0": 0.38516904490702014,
+       "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+       "samples_per_side": 3,
+       "uncertainty_m0": 0.02674539378891705
+      }
+     ],
+     "energy_zero": "VBM",
+     "energy_zero_ev": -2.174391365148316,
+     "gap_ev": 1.5859652104227986,
+     "gap_status_source": "inferred",
+     "hole_masses": [
+      {
+       "band": 9,
+       "c2_ev_a2": -1.0149250981830966,
+       "carrier": "hole",
+       "direction": "Γ→K",
+       "energy_window_ev": 0.008722065369621834,
+       "k_window_inv_a": 0.0894329810627386,
+       "kindex": 106,
+       "linear_slope_ev_a": 0.0,
+       "mass_m0": -3.7539539881520043,
+       "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+       "samples_per_side": 3,
+       "uncertainty_m0": 0.01227294443328919
+      },
+      {
+       "band": 9,
+       "c2_ev_a2": -1.1420512178479467,
+       "carrier": "hole",
+       "direction": "Γ→M",
+       "energy_window_ev": 0.009546778693952263,
+       "k_window_inv_a": 0.08934396507122111,
+       "kindex": 0,
+       "linear_slope_ev_a": 0.0,
+       "mass_m0": -3.3360869113903986,
+       "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+       "samples_per_side": 3,
+       "uncertainty_m0": 0.0035238164862492205
+      }
+     ],
+     "vbm_band": 9,
+     "vbm_ev": -2.174391365148316,
+     "vbm_k_label": "Γ"
+    },
+    "bands_complete_below_ev": 3.06645078867223,
+    "energy_window_ev": [
+     -14.866020593374,
+     3.01645078867223
+    ],
+    "energy_zero": "energy_rel_vbm",
+    "mesh_conditions": {
+     "grid_points": 36,
+     "mesh_kind": "scf mesh",
+     "same_frozen_scf_density": true
+    },
+    "omitted_panels": {},
+    "orbital_colour": {
+     "definition": "f_s = w_s / sum_l w_l of the PAW-sphere lm weights per state; line width ~ sphere weight",
+     "l": "s"
+    },
+    "panels": {
+     "bands": {},
+     "bz": {
+      "channel": "total",
+      "definition": "E_cb - E_vb per mesh point, bands 10/9; the minimum is a mesh value, never interpolated",
+      "grid": [
+       6,
+       6
+      ],
+      "interpolation": "periodic trigonometric interpolation (x8) through 36 mesh points",
+      "n_points": 36,
+      "plane": "k3 = 0 (fractional), one reciprocal cell",
+      "quantity": "direct",
+      "sampled_min_ev": 1.6342710225920487,
+      "sampled_min_k_fractional": [
+       0.333333,
+       0.333333,
+       0.0
+      ]
+     },
+     "composition": {
+      "channels": {
+       "total": {
+        "bands": [
+         1,
+         2,
+         3,
+         4,
+         5,
+         6,
+         7,
+         8,
+         9,
+         10,
+         11,
+         12,
+         13
+        ],
+        "k_average": "path average",
+        "shares_percent": {
+         "Mo $d$": [
+          4.263515356417628,
+          8.703366373476165,
+          38.25717277226812,
+          42.8459188863347,
+          43.75438109523922,
+          47.34479956896828,
+          38.39879473210878,
+          24.978638370311174,
+          75.39527665802014,
+          75.55742485408592,
+          71.52952504774967,
+          64.83353661313572,
+          59.23350327712227
+         ],
+         "Mo $p$": [
+          4.161802980421248,
+          3.688731985830805,
+          2.940476684857423,
+          3.538340122285435,
+          4.508166038239297,
+          3.475613730980207,
+          6.450049054442387,
+          7.186686599854914,
+          2.6469657128234663,
+          0.8841272361450163,
+          1.4374607148519591,
+          1.5741524389838957,
+          0.33463384347925634
+         ],
+         "Mo $s$": [
+          8.374283288512974,
+          0.027891511218747878,
+          10.539233614597826,
+          6.704458242624096,
+          3.0382067394801786,
+          0.21460403039295742,
+          0.5750053821193918,
+          0.16186860389897623,
+          1.2825762133971514,
+          1.2140976010636788,
+          0.8019456010954202,
+          0.142909740674948,
+          0.016853100375820367
+         ],
+         "S $p$": [
+          1.7160795300459861,
+          0.6109671180828058,
+          46.041724385071014,
+          44.47078475718268,
+          45.36195145646886,
+          47.75972013588268,
+          53.63518033461086,
+          65.81404375227687,
+          19.761309263802268,
+          21.448910005248003,
+          25.36388053624789,
+          30.261459587360918,
+          38.28662592178544
+         ],
+         "S $s$": [
+          81.48431884460216,
+          86.96904301139149,
+          2.2213925432056216,
+          2.4404979915731104,
+          3.337294670572439,
+          1.205262533775864,
+          0.9409704967185823,
+          1.8587626736580722,
+          0.9138721519569767,
+          0.8954403034573801,
+          0.8671881000550583,
+          3.1879416198445147,
+          2.128383857237223
+         ]
+        },
+        "sphere_weight": [
+         0.742497803981853,
+         0.7485451480417851,
+         0.6366100441819864,
+         0.6839477174080639,
+         0.6971472840882068,
+         0.7355344186956232,
+         0.7113503300461708,
+         0.697958592904921,
+         0.7811920282646918,
+         0.8059082090982916,
+         0.7918129810365798,
+         0.7391881210332533,
+         0.7831477923860726
+        ]
+       }
+      },
+      "definition": "share = sum_k w_k sum_(atoms of element, m of l) w_lm / sum over all groups; w_lm = PAW-sphere lm weights",
+      "sphere_weight_definition": "BZ-weighted sum of lm weights over atoms and orbitals per band (< 1: part of the state lies outside the PAW spheres)",
+      "valence_conduction_divider": 9.5
+     },
+     "edges": {
+      "cbm_k": "K",
+      "definition": "band-edge m*/m0 = (hbar^2/2m0)/c2, c2 = lim (E-E0)/q^2 by Richardson extrapolation along one path direction, |q| Cartesian (1/Å)",
+      "electron_masses": [
+       {
+        "band": 10,
+        "c2_ev_a2": 9.891714223607273,
+        "carrier": "electron",
+        "direction": "M–K–Γ",
+        "energy_window_ev": 0.07647342019805725,
+        "k_window_inv_a": 0.08974177223419896,
+        "kindex": 61,
+        "linear_slope_ev_a": 0.04636416456521873,
+        "mass_m0": 0.38516904490702014,
+        "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+        "samples_per_side": 3,
+        "uncertainty_m0": 0.02674539378891705
+       }
+      ],
+      "hole_masses": [
+       {
+        "band": 9,
+        "c2_ev_a2": -1.0149250981830966,
+        "carrier": "hole",
+        "direction": "Γ→K",
+        "energy_window_ev": 0.008722065369621834,
+        "k_window_inv_a": 0.0894329810627386,
+        "kindex": 106,
+        "linear_slope_ev_a": 0.0,
+        "mass_m0": -3.7539539881520043,
+        "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+        "samples_per_side": 3,
+        "uncertainty_m0": 0.01227294443328919
+       },
+       {
+        "band": 9,
+        "c2_ev_a2": -1.1420512178479467,
+        "carrier": "hole",
+        "direction": "Γ→M",
+        "energy_window_ev": 0.009546778693952263,
+        "k_window_inv_a": 0.08934396507122111,
+        "kindex": 0,
+        "linear_slope_ev_a": 0.0,
+        "mass_m0": -3.3360869113903986,
+        "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+        "samples_per_side": 3,
+        "uncertainty_m0": 0.0035238164862492205
+       }
+      ],
+      "plotted_samples": "all path points within 0.32 1/A of the extremum; filled = fitted points",
+      "uncertainty_format": "0.0316(8) = 0.0316 +/- 0.0008: |order 2 - order 1| Richardson",
+      "vbm_k": "Γ"
+     },
+     "parity": {
+      "definition": "lm PAW-sphere weights per (k, band, atom, orbital); R^2 = 1 - sum (w_c - w_r)^2 / sum (w_r - mean w_r)^2 against y = x; near-degenerate: |E_n - E_n±1| < 40 meV in the reference",
+      "mae_dw": 1.552723258201e-05,
+      "max_abs_dw": 0.00011676208116816189,
+      "max_abs_dw_non_degenerate": 0.00011676208116816189,
+      "max_abs_dw_pair_summed": null,
+      "n_bands": 11,
+      "n_kpoints": 107,
+      "n_values": 31779,
+      "near_degenerate_ev": 0.04,
+      "near_degenerate_values": 0,
+      "orbitals": [
+       "s",
+       "py",
+       "pz",
+       "px",
+       "dxy",
+       "dyz",
+       "dz2",
+       "dxz",
+       "dx2-y2"
+      ],
+      "r2_identity": 0.9999998907099236
+     },
+     "pdos": {
+      "complete_below_ev": null,
+      "group_threshold": "element+l groups holding >= 2.5 % of the PDOS integral in the window",
+      "groups_shown": [],
+      "origin": "scf_gaussian",
+      "pdos_integral_below_zero_states": {},
+      "sigma_ev": 0.1,
+      "warnings": [
+       "Gaussian DOS from the executed SCF k-points; mesh and broadening convergence are unverified"
+      ]
+     },
+     "residual": {
+      "align": "none",
+      "conditions": {
+       "candidate": {
+        "atomic_units": "vasp_legacy",
+        "cutoff_ev": 340.0,
+        "engine": "Sparse-DFT",
+        "paw_titles": {
+         "Mo": "PAW_PBE Mo 08Apr2002",
+         "S": "PAW_PBE S 06Sep2000"
+        },
+        "xc": "PBE"
+       },
+       "checks": {
+        "cutoff_ev": true,
+        "kpoints": true,
+        "paw_titles": true,
+        "reciprocal_basis": true,
+        "species": true,
+        "xc": true
+       },
+       "differences": [],
+       "matched": true,
+       "reference": {
+        "cutoff_ev": 340.0,
+        "engine": "VASP",
+        "paw_titles": {
+         "Mo": "PAW_PBE Mo 08Apr2002",
+         "S": "PAW_PBE S 06Sep2000"
+        },
+        "version": "6.4.1",
+        "xc": "PBE"
+       },
+       "shared_kpoints": 107
+      },
+      "definition": "Delta E = E_candidate - E_reference at k points equal modulo G (1e-5), bands 1..n_bands, no energy shift (shared PAW energy zero)",
+      "mae_mev": 0.07432086301345713,
+      "max_abs_mev": 0.15681191012727538,
+      "mean_mev": 0.07429157537142177,
+      "n_bands": 11,
+      "n_channels": 1,
+      "n_kpoints": 107,
+      "rmse_mev": 0.08138058400792664,
+      "shift_ev": 0.0
+     }
+    }
+   }
+  },
+  {
+   "figure": "MgO_atlas",
+   "files": [
+    "MgO_atlas.png",
+    "MgO_atlas.pdf"
+   ],
+   "inputs_sha256": {
+    "bands_result.json": "39276257b2b97bd1290b41bdf731a9ee53ce720ce309ba1459a61e5117fbf88e",
+    "scf.json": "bb80e3f1e085e592b5d014d45f4d89a378a8953c389d754e24a090fec4524060",
+    "vasprun.xml": "b30842f0cea1a86ffb15f3bc9788ad37061658a646520671a0c88e7926a7cf95"
+   },
+   "lang": "en",
+   "layout_issues": [],
+   "notes": [],
+   "size_mm": [
+    250.0,
+    190.0
+   ],
+   "values": {
+    "analysis": {
+     "cbm_band": 5,
+     "cbm_ev": 7.824372879213118,
+     "cbm_k_label": "Γ",
+     "channel": "total",
+     "classification": "direct-gap insulator",
+     "conduction_valleys": [
+      {
+       "energy_rel_ev": 4.664122474696573,
+       "kindex": 0,
+       "label": "Γ"
+      },
+      {
+       "energy_rel_ev": 9.060452055157503,
+       "kindex": 50,
+       "label": "X"
+      }
+     ],
+     "direct": true,
+     "direct_gap_ev": 4.664122474696573,
+     "effective_mass_definition": "band-edge m*/m0 = (hbar^2/2m0)/c2, c2 = lim (E-E0)/q^2 by Richardson extrapolation along one path direction, |q| Cartesian (1/Å)",
+     "electron_masses": [
+      {
+       "band": 5,
+       "c2_ev_a2": 11.085427755115296,
+       "carrier": "electron",
+       "direction": "Γ→K",
+       "energy_window_ev": 0.08661808708687246,
+       "k_window_inv_a": 0.08931438772915255,
+       "kindex": 123,
+       "linear_slope_ev_a": 0.0,
+       "mass_m0": 0.34369283749487334,
+       "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+       "samples_per_side": 3,
+       "uncertainty_m0": 5.610985372161981e-06
+      },
+      {
+       "band": 5,
+       "c2_ev_a2": 11.132401425440126,
+       "carrier": "electron",
+       "direction": "Γ→L",
+       "energy_window_ev": 0.08379999098864932,
+       "k_window_inv_a": 0.08767278419801044,
+       "kindex": 123,
+       "linear_slope_ev_a": 0.0,
+       "mass_m0": 0.3422426100529671,
+       "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+       "samples_per_side": 3,
+       "uncertainty_m0": 3.6367262827852187e-06
+      },
+      {
+       "band": 5,
+       "c2_ev_a2": 10.965537721377887,
+       "carrier": "electron",
+       "direction": "Γ→X",
+       "energy_window_ev": 0.08678666742205632,
+       "k_window_inv_a": 0.08977184824515327,
+       "kindex": 0,
+       "linear_slope_ev_a": 0.0,
+       "mass_m0": 0.3474505506986895,
+       "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+       "samples_per_side": 3,
+       "uncertainty_m0": 3.78297266651062e-06
+      }
+     ],
+     "energy_zero": "VBM",
+     "energy_zero_ev": 3.1602504045165447,
+     "gap_ev": 4.664122474696573,
+     "gap_status_source": "inferred",
+     "hole_masses": [
+      {
+       "band": 4,
+       "c2_ev_a2": -0.825791505155217,
+       "carrier": "hole",
+       "direction": "Γ→K",
+       "energy_window_ev": 0.006049492927592048,
+       "k_window_inv_a": 0.08931438772915255,
+       "kindex": 123,
+       "linear_slope_ev_a": 0.0,
+       "mass_m0": -4.6137337284474365,
+       "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+       "samples_per_side": 3,
+       "uncertainty_m0": 0.008891707570152008
+      },
+      {
+       "band": 4,
+       "c2_ev_a2": -1.3853505873179643,
+       "carrier": "hole",
+       "direction": "Γ→L",
+       "energy_window_ev": 0.008686647603504127,
+       "k_window_inv_a": 0.08767278419801044,
+       "kindex": 123,
+       "linear_slope_ev_a": 0.0,
+       "mass_m0": -2.7501934563554173,
+       "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+       "samples_per_side": 3,
+       "uncertainty_m0": 0.028743439308013485
+      },
+      {
+       "band": 4,
+       "c2_ev_a2": -3.479698485825663,
+       "carrier": "hole",
+       "direction": "Γ→X",
+       "energy_window_ev": 0.016567626196625884,
+       "k_window_inv_a": 0.08977184824515327,
+       "kindex": 0,
+       "linear_slope_ev_a": 0.0,
+       "mass_m0": -1.0949173141063016,
+       "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+       "samples_per_side": 3,
+       "uncertainty_m0": 0.03379822402122157
+      }
+     ],
+     "vbm_band": 4,
+     "vbm_ev": 3.1602504045165447,
+     "vbm_k_label": "Γ"
+    },
+    "bands_complete_below_ev": 15.42445112649789,
+    "energy_window_ev": [
+     -18.049246106418224,
+     9.164122474696573
+    ],
+    "energy_zero": "energy_rel_vbm",
+    "mesh_conditions": {
+     "grid_points": 216,
+     "mesh_kind": "scf mesh",
+     "same_frozen_scf_density": true
+    },
+    "omitted_panels": {},
+    "orbital_colour": {
+     "definition": "f_s = w_s / sum_l w_l of the PAW-sphere lm weights per state; line width ~ sphere weight",
+     "l": "s"
+    },
+    "panels": {
+     "bands": {},
+     "bz": {
+      "channel": "total",
+      "definition": "E_cb - E_vb per mesh point, bands 5/4; the minimum is a mesh value, never interpolated",
+      "grid": [
+       6,
+       6
+      ],
+      "interpolation": "periodic trigonometric interpolation (x8) through 36 mesh points",
+      "n_points": 36,
+      "plane": "k3 = 0 (fractional), one reciprocal cell",
+      "quantity": "direct",
+      "sampled_min_ev": 4.664122474696542,
+      "sampled_min_k_fractional": [
+       0.0,
+       0.0,
+       0.0
+      ]
+     },
+     "composition": {
+      "channels": {
+       "total": {
+        "bands": [
+         1,
+         2,
+         3,
+         4,
+         5,
+         6,
+         7,
+         8
+        ],
+        "k_average": "path average",
+        "shares_percent": {
+         "Mg $d$": [
+          0.41581980614287606,
+          1.0103200413600422,
+          1.1884357057014012,
+          1.691979600460811,
+          11.445358419686473,
+          23.864222572924138,
+          19.12908730432316,
+          24.621997141399476
+         ],
+         "Mg $p$": [
+          0.9192120702246739,
+          5.077014919370006,
+          4.636413134997608,
+          2.4816637413885094,
+          14.364750048553143,
+          5.126761480138788,
+          28.873680927356112,
+          54.073470036096815
+         ],
+         "Mg $s$": [
+          1.9283472324325346,
+          6.823177284599751,
+          0.41608938698891895,
+          0.7770606714417845,
+          21.083827097619693,
+          31.611492273077722,
+          19.268716060498555,
+          0.8926489489342619
+         ],
+         "O $p$": [
+          0.0506491069281785,
+          84.79482365869293,
+          93.69267900441784,
+          95.04775709437698,
+          27.650943547840985,
+          36.96542939970479,
+          32.62414998276188,
+          17.518632579964418
+         ],
+         "O $s$": [
+          96.68597178427173,
+          2.2946640959772484,
+          0.06638276789423794,
+          0.001538892331924146,
+          25.455120886299706,
+          2.432094274154573,
+          0.10436572506029924,
+          2.893251293605022
+         ]
+        },
+        "sphere_weight": [
+         0.7671110999238351,
+         0.6115777180333927,
+         0.6945007258813108,
+         0.7262468072313186,
+         0.40976530125107125,
+         0.417020015838788,
+         0.4430588509987161,
+         0.42129239938509555
+        ]
+       }
+      },
+      "definition": "share = sum_k w_k sum_(atoms of element, m of l) w_lm / sum over all groups; w_lm = PAW-sphere lm weights",
+      "sphere_weight_definition": "BZ-weighted sum of lm weights over atoms and orbitals per band (< 1: part of the state lies outside the PAW spheres)",
+      "valence_conduction_divider": 4.5
+     },
+     "edges": {
+      "cbm_k": "Γ",
+      "definition": "band-edge m*/m0 = (hbar^2/2m0)/c2, c2 = lim (E-E0)/q^2 by Richardson extrapolation along one path direction, |q| Cartesian (1/Å)",
+      "electron_masses": [
+       {
+        "band": 5,
+        "c2_ev_a2": 11.085427755115296,
+        "carrier": "electron",
+        "direction": "Γ→K",
+        "energy_window_ev": 0.08661808708687246,
+        "k_window_inv_a": 0.08931438772915255,
+        "kindex": 123,
+        "linear_slope_ev_a": 0.0,
+        "mass_m0": 0.34369283749487334,
+        "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+        "samples_per_side": 3,
+        "uncertainty_m0": 5.610985372161981e-06
+       },
+       {
+        "band": 5,
+        "c2_ev_a2": 11.132401425440126,
+        "carrier": "electron",
+        "direction": "Γ→L",
+        "energy_window_ev": 0.08379999098864932,
+        "k_window_inv_a": 0.08767278419801044,
+        "kindex": 123,
+        "linear_slope_ev_a": 0.0,
+        "mass_m0": 0.3422426100529671,
+        "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+        "samples_per_side": 3,
+        "uncertainty_m0": 3.6367262827852187e-06
+       },
+       {
+        "band": 5,
+        "c2_ev_a2": 10.965537721377887,
+        "carrier": "electron",
+        "direction": "Γ→X",
+        "energy_window_ev": 0.08678666742205632,
+        "k_window_inv_a": 0.08977184824515327,
+        "kindex": 0,
+        "linear_slope_ev_a": 0.0,
+        "mass_m0": 0.3474505506986895,
+        "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+        "samples_per_side": 3,
+        "uncertainty_m0": 3.78297266651062e-06
+       }
+      ],
+      "hole_masses": [
+       {
+        "band": 4,
+        "c2_ev_a2": -0.825791505155217,
+        "carrier": "hole",
+        "direction": "Γ→K",
+        "energy_window_ev": 0.006049492927592048,
+        "k_window_inv_a": 0.08931438772915255,
+        "kindex": 123,
+        "linear_slope_ev_a": 0.0,
+        "mass_m0": -4.6137337284474365,
+        "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+        "samples_per_side": 3,
+        "uncertainty_m0": 0.008891707570152008
+       },
+       {
+        "band": 4,
+        "c2_ev_a2": -1.3853505873179643,
+        "carrier": "hole",
+        "direction": "Γ→L",
+        "energy_window_ev": 0.008686647603504127,
+        "k_window_inv_a": 0.08767278419801044,
+        "kindex": 123,
+        "linear_slope_ev_a": 0.0,
+        "mass_m0": -2.7501934563554173,
+        "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+        "samples_per_side": 3,
+        "uncertainty_m0": 0.028743439308013485
+       },
+       {
+        "band": 4,
+        "c2_ev_a2": -3.479698485825663,
+        "carrier": "hole",
+        "direction": "Γ→X",
+        "energy_window_ev": 0.016567626196625884,
+        "k_window_inv_a": 0.08977184824515327,
+        "kindex": 0,
+        "linear_slope_ev_a": 0.0,
+        "mass_m0": -1.0949173141063016,
+        "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+        "samples_per_side": 3,
+        "uncertainty_m0": 0.03379822402122157
+       }
+      ],
+      "plotted_samples": "all path points within 0.32 1/A of the extremum; filled = fitted points",
+      "uncertainty_format": "0.0316(8) = 0.0316 +/- 0.0008: |order 2 - order 1| Richardson",
+      "vbm_k": "Γ"
+     },
+     "parity": {
+      "definition": "lm PAW-sphere weights per (k, band, atom, orbital); R^2 = 1 - sum (w_c - w_r)^2 / sum (w_r - mean w_r)^2 against y = x; near-degenerate: |E_n - E_n±1| < 40 meV in the reference",
+      "mae_dw": 1.4307033810888189e-05,
+      "max_abs_dw": 0.00013046096854280043,
+      "max_abs_dw_non_degenerate": 0.00013046096854280043,
+      "max_abs_dw_pair_summed": 9.931441289783667e-05,
+      "n_bands": 6,
+      "n_kpoints": 232,
+      "n_values": 25056,
+      "near_degenerate_ev": 0.04,
+      "near_degenerate_values": 4266,
+      "orbitals": [
+       "s",
+       "py",
+       "pz",
+       "px",
+       "dxy",
+       "dyz",
+       "dz2",
+       "dxz",
+       "dx2-y2"
+      ],
+      "r2_identity": 0.9999999610544804
+     },
+     "pdos": {
+      "complete_below_ev": null,
+      "group_threshold": "element+l groups holding >= 2.5 % of the PDOS integral in the window",
+      "groups_shown": [],
+      "origin": "scf_gaussian",
+      "pdos_integral_below_zero_states": {},
+      "sigma_ev": 0.1,
+      "warnings": [
+       "Gaussian DOS from the executed SCF k-points; mesh and broadening convergence are unverified"
+      ]
+     },
+     "residual": {
+      "align": "none",
+      "conditions": {
+       "candidate": {
+        "atomic_units": "vasp_legacy",
+        "cutoff_ev": 520.0,
+        "engine": "Sparse-DFT",
+        "paw_titles": {
+         "Mg": "PAW_PBE Mg 13Apr2007",
+         "O": "PAW_PBE O 08Apr2002"
+        },
+        "xc": "PBE"
+       },
+       "checks": {
+        "cutoff_ev": true,
+        "kpoints": true,
+        "paw_titles": true,
+        "reciprocal_basis": true,
+        "species": true,
+        "xc": true
+       },
+       "differences": [],
+       "matched": true,
+       "reference": {
+        "cutoff_ev": 520.0,
+        "engine": "VASP",
+        "paw_titles": {
+         "Mg": "PAW_PBE Mg 13Apr2007",
+         "O": "PAW_PBE O 08Apr2002"
+        },
+        "version": "6.4.1",
+        "xc": "PBE"
+       },
+       "shared_kpoints": 232
+      },
+      "definition": "Delta E = E_candidate - E_reference at k points equal modulo G (1e-5), bands 1..n_bands, no energy shift (shared PAW energy zero)",
+      "mae_mev": 0.029239644856391293,
+      "max_abs_mev": 0.1476607346688752,
+      "mean_mev": -0.0027199735397334954,
+      "n_bands": 6,
+      "n_channels": 1,
+      "n_kpoints": 232,
+      "rmse_mev": 0.036251904407799115,
+      "shift_ev": 0.0
+     }
+    }
+   }
+  },
+  {
+   "figure": "MgO_atlas",
+   "files": [
+    "MgO_atlas.zh-CN.png",
+    "MgO_atlas.zh-CN.pdf"
+   ],
+   "inputs_sha256": {
+    "bands_result.json": "39276257b2b97bd1290b41bdf731a9ee53ce720ce309ba1459a61e5117fbf88e",
+    "scf.json": "bb80e3f1e085e592b5d014d45f4d89a378a8953c389d754e24a090fec4524060",
+    "vasprun.xml": "b30842f0cea1a86ffb15f3bc9788ad37061658a646520671a0c88e7926a7cf95"
+   },
+   "lang": "zh_CN",
+   "layout_issues": [],
+   "notes": [],
+   "size_mm": [
+    250.0,
+    190.0
+   ],
+   "values": {
+    "analysis": {
+     "cbm_band": 5,
+     "cbm_ev": 7.824372879213118,
+     "cbm_k_label": "Γ",
+     "channel": "total",
+     "classification": "direct-gap insulator",
+     "conduction_valleys": [
+      {
+       "energy_rel_ev": 4.664122474696573,
+       "kindex": 0,
+       "label": "Γ"
+      },
+      {
+       "energy_rel_ev": 9.060452055157503,
+       "kindex": 50,
+       "label": "X"
+      }
+     ],
+     "direct": true,
+     "direct_gap_ev": 4.664122474696573,
+     "effective_mass_definition": "band-edge m*/m0 = (hbar^2/2m0)/c2, c2 = lim (E-E0)/q^2 by Richardson extrapolation along one path direction, |q| Cartesian (1/Å)",
+     "electron_masses": [
+      {
+       "band": 5,
+       "c2_ev_a2": 11.085427755115296,
+       "carrier": "electron",
+       "direction": "Γ→K",
+       "energy_window_ev": 0.08661808708687246,
+       "k_window_inv_a": 0.08931438772915255,
+       "kindex": 123,
+       "linear_slope_ev_a": 0.0,
+       "mass_m0": 0.34369283749487334,
+       "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+       "samples_per_side": 3,
+       "uncertainty_m0": 5.610985372161981e-06
+      },
+      {
+       "band": 5,
+       "c2_ev_a2": 11.132401425440126,
+       "carrier": "electron",
+       "direction": "Γ→L",
+       "energy_window_ev": 0.08379999098864932,
+       "k_window_inv_a": 0.08767278419801044,
+       "kindex": 123,
+       "linear_slope_ev_a": 0.0,
+       "mass_m0": 0.3422426100529671,
+       "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+       "samples_per_side": 3,
+       "uncertainty_m0": 3.6367262827852187e-06
+      },
+      {
+       "band": 5,
+       "c2_ev_a2": 10.965537721377887,
+       "carrier": "electron",
+       "direction": "Γ→X",
+       "energy_window_ev": 0.08678666742205632,
+       "k_window_inv_a": 0.08977184824515327,
+       "kindex": 0,
+       "linear_slope_ev_a": 0.0,
+       "mass_m0": 0.3474505506986895,
+       "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+       "samples_per_side": 3,
+       "uncertainty_m0": 3.78297266651062e-06
+      }
+     ],
+     "energy_zero": "VBM",
+     "energy_zero_ev": 3.1602504045165447,
+     "gap_ev": 4.664122474696573,
+     "gap_status_source": "inferred",
+     "hole_masses": [
+      {
+       "band": 4,
+       "c2_ev_a2": -0.825791505155217,
+       "carrier": "hole",
+       "direction": "Γ→K",
+       "energy_window_ev": 0.006049492927592048,
+       "k_window_inv_a": 0.08931438772915255,
+       "kindex": 123,
+       "linear_slope_ev_a": 0.0,
+       "mass_m0": -4.6137337284474365,
+       "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+       "samples_per_side": 3,
+       "uncertainty_m0": 0.008891707570152008
+      },
+      {
+       "band": 4,
+       "c2_ev_a2": -1.3853505873179643,
+       "carrier": "hole",
+       "direction": "Γ→L",
+       "energy_window_ev": 0.008686647603504127,
+       "k_window_inv_a": 0.08767278419801044,
+       "kindex": 123,
+       "linear_slope_ev_a": 0.0,
+       "mass_m0": -2.7501934563554173,
+       "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+       "samples_per_side": 3,
+       "uncertainty_m0": 0.028743439308013485
+      },
+      {
+       "band": 4,
+       "c2_ev_a2": -3.479698485825663,
+       "carrier": "hole",
+       "direction": "Γ→X",
+       "energy_window_ev": 0.016567626196625884,
+       "k_window_inv_a": 0.08977184824515327,
+       "kindex": 0,
+       "linear_slope_ev_a": 0.0,
+       "mass_m0": -1.0949173141063016,
+       "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+       "samples_per_side": 3,
+       "uncertainty_m0": 0.03379822402122157
+      }
+     ],
+     "vbm_band": 4,
+     "vbm_ev": 3.1602504045165447,
+     "vbm_k_label": "Γ"
+    },
+    "bands_complete_below_ev": 15.42445112649789,
+    "energy_window_ev": [
+     -18.049246106418224,
+     9.164122474696573
+    ],
+    "energy_zero": "energy_rel_vbm",
+    "mesh_conditions": {
+     "grid_points": 216,
+     "mesh_kind": "scf mesh",
+     "same_frozen_scf_density": true
+    },
+    "omitted_panels": {},
+    "orbital_colour": {
+     "definition": "f_s = w_s / sum_l w_l of the PAW-sphere lm weights per state; line width ~ sphere weight",
+     "l": "s"
+    },
+    "panels": {
+     "bands": {},
+     "bz": {
+      "channel": "total",
+      "definition": "E_cb - E_vb per mesh point, bands 5/4; the minimum is a mesh value, never interpolated",
+      "grid": [
+       6,
+       6
+      ],
+      "interpolation": "periodic trigonometric interpolation (x8) through 36 mesh points",
+      "n_points": 36,
+      "plane": "k3 = 0 (fractional), one reciprocal cell",
+      "quantity": "direct",
+      "sampled_min_ev": 4.664122474696542,
+      "sampled_min_k_fractional": [
+       0.0,
+       0.0,
+       0.0
+      ]
+     },
+     "composition": {
+      "channels": {
+       "total": {
+        "bands": [
+         1,
+         2,
+         3,
+         4,
+         5,
+         6,
+         7,
+         8
+        ],
+        "k_average": "path average",
+        "shares_percent": {
+         "Mg $d$": [
+          0.41581980614287606,
+          1.0103200413600422,
+          1.1884357057014012,
+          1.691979600460811,
+          11.445358419686473,
+          23.864222572924138,
+          19.12908730432316,
+          24.621997141399476
+         ],
+         "Mg $p$": [
+          0.9192120702246739,
+          5.077014919370006,
+          4.636413134997608,
+          2.4816637413885094,
+          14.364750048553143,
+          5.126761480138788,
+          28.873680927356112,
+          54.073470036096815
+         ],
+         "Mg $s$": [
+          1.9283472324325346,
+          6.823177284599751,
+          0.41608938698891895,
+          0.7770606714417845,
+          21.083827097619693,
+          31.611492273077722,
+          19.268716060498555,
+          0.8926489489342619
+         ],
+         "O $p$": [
+          0.0506491069281785,
+          84.79482365869293,
+          93.69267900441784,
+          95.04775709437698,
+          27.650943547840985,
+          36.96542939970479,
+          32.62414998276188,
+          17.518632579964418
+         ],
+         "O $s$": [
+          96.68597178427173,
+          2.2946640959772484,
+          0.06638276789423794,
+          0.001538892331924146,
+          25.455120886299706,
+          2.432094274154573,
+          0.10436572506029924,
+          2.893251293605022
+         ]
+        },
+        "sphere_weight": [
+         0.7671110999238351,
+         0.6115777180333927,
+         0.6945007258813108,
+         0.7262468072313186,
+         0.40976530125107125,
+         0.417020015838788,
+         0.4430588509987161,
+         0.42129239938509555
+        ]
+       }
+      },
+      "definition": "share = sum_k w_k sum_(atoms of element, m of l) w_lm / sum over all groups; w_lm = PAW-sphere lm weights",
+      "sphere_weight_definition": "BZ-weighted sum of lm weights over atoms and orbitals per band (< 1: part of the state lies outside the PAW spheres)",
+      "valence_conduction_divider": 4.5
+     },
+     "edges": {
+      "cbm_k": "Γ",
+      "definition": "band-edge m*/m0 = (hbar^2/2m0)/c2, c2 = lim (E-E0)/q^2 by Richardson extrapolation along one path direction, |q| Cartesian (1/Å)",
+      "electron_masses": [
+       {
+        "band": 5,
+        "c2_ev_a2": 11.085427755115296,
+        "carrier": "electron",
+        "direction": "Γ→K",
+        "energy_window_ev": 0.08661808708687246,
+        "k_window_inv_a": 0.08931438772915255,
+        "kindex": 123,
+        "linear_slope_ev_a": 0.0,
+        "mass_m0": 0.34369283749487334,
+        "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+        "samples_per_side": 3,
+        "uncertainty_m0": 5.610985372161981e-06
+       },
+       {
+        "band": 5,
+        "c2_ev_a2": 11.132401425440126,
+        "carrier": "electron",
+        "direction": "Γ→L",
+        "energy_window_ev": 0.08379999098864932,
+        "k_window_inv_a": 0.08767278419801044,
+        "kindex": 123,
+        "linear_slope_ev_a": 0.0,
+        "mass_m0": 0.3422426100529671,
+        "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+        "samples_per_side": 3,
+        "uncertainty_m0": 3.6367262827852187e-06
+       },
+       {
+        "band": 5,
+        "c2_ev_a2": 10.965537721377887,
+        "carrier": "electron",
+        "direction": "Γ→X",
+        "energy_window_ev": 0.08678666742205632,
+        "k_window_inv_a": 0.08977184824515327,
+        "kindex": 0,
+        "linear_slope_ev_a": 0.0,
+        "mass_m0": 0.3474505506986895,
+        "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+        "samples_per_side": 3,
+        "uncertainty_m0": 3.78297266651062e-06
+       }
+      ],
+      "hole_masses": [
+       {
+        "band": 4,
+        "c2_ev_a2": -0.825791505155217,
+        "carrier": "hole",
+        "direction": "Γ→K",
+        "energy_window_ev": 0.006049492927592048,
+        "k_window_inv_a": 0.08931438772915255,
+        "kindex": 123,
+        "linear_slope_ev_a": 0.0,
+        "mass_m0": -4.6137337284474365,
+        "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+        "samples_per_side": 3,
+        "uncertainty_m0": 0.008891707570152008
+       },
+       {
+        "band": 4,
+        "c2_ev_a2": -1.3853505873179643,
+        "carrier": "hole",
+        "direction": "Γ→L",
+        "energy_window_ev": 0.008686647603504127,
+        "k_window_inv_a": 0.08767278419801044,
+        "kindex": 123,
+        "linear_slope_ev_a": 0.0,
+        "mass_m0": -2.7501934563554173,
+        "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+        "samples_per_side": 3,
+        "uncertainty_m0": 0.028743439308013485
+       },
+       {
+        "band": 4,
+        "c2_ev_a2": -3.479698485825663,
+        "carrier": "hole",
+        "direction": "Γ→X",
+        "energy_window_ev": 0.016567626196625884,
+        "k_window_inv_a": 0.08977184824515327,
+        "kindex": 0,
+        "linear_slope_ev_a": 0.0,
+        "mass_m0": -1.0949173141063016,
+        "method": "Richardson extrapolation of (E-E0)/q^2 in q^2 (order 2, 3 nearest path points); uncertainty = |order 2 - order 1|; m*/m0 = 3.80998 eV A^2 / c2",
+        "samples_per_side": 3,
+        "uncertainty_m0": 0.03379822402122157
+       }
+      ],
+      "plotted_samples": "all path points within 0.32 1/A of the extremum; filled = fitted points",
+      "uncertainty_format": "0.0316(8) = 0.0316 +/- 0.0008: |order 2 - order 1| Richardson",
+      "vbm_k": "Γ"
+     },
+     "parity": {
+      "definition": "lm PAW-sphere weights per (k, band, atom, orbital); R^2 = 1 - sum (w_c - w_r)^2 / sum (w_r - mean w_r)^2 against y = x; near-degenerate: |E_n - E_n±1| < 40 meV in the reference",
+      "mae_dw": 1.4307033810888189e-05,
+      "max_abs_dw": 0.00013046096854280043,
+      "max_abs_dw_non_degenerate": 0.00013046096854280043,
+      "max_abs_dw_pair_summed": 9.931441289783667e-05,
+      "n_bands": 6,
+      "n_kpoints": 232,
+      "n_values": 25056,
+      "near_degenerate_ev": 0.04,
+      "near_degenerate_values": 4266,
+      "orbitals": [
+       "s",
+       "py",
+       "pz",
+       "px",
+       "dxy",
+       "dyz",
+       "dz2",
+       "dxz",
+       "dx2-y2"
+      ],
+      "r2_identity": 0.9999999610544804
+     },
+     "pdos": {
+      "complete_below_ev": null,
+      "group_threshold": "element+l groups holding >= 2.5 % of the PDOS integral in the window",
+      "groups_shown": [],
+      "origin": "scf_gaussian",
+      "pdos_integral_below_zero_states": {},
+      "sigma_ev": 0.1,
+      "warnings": [
+       "Gaussian DOS from the executed SCF k-points; mesh and broadening convergence are unverified"
+      ]
+     },
+     "residual": {
+      "align": "none",
+      "conditions": {
+       "candidate": {
+        "atomic_units": "vasp_legacy",
+        "cutoff_ev": 520.0,
+        "engine": "Sparse-DFT",
+        "paw_titles": {
+         "Mg": "PAW_PBE Mg 13Apr2007",
+         "O": "PAW_PBE O 08Apr2002"
+        },
+        "xc": "PBE"
+       },
+       "checks": {
+        "cutoff_ev": true,
+        "kpoints": true,
+        "paw_titles": true,
+        "reciprocal_basis": true,
+        "species": true,
+        "xc": true
+       },
+       "differences": [],
+       "matched": true,
+       "reference": {
+        "cutoff_ev": 520.0,
+        "engine": "VASP",
+        "paw_titles": {
+         "Mg": "PAW_PBE Mg 13Apr2007",
+         "O": "PAW_PBE O 08Apr2002"
+        },
+        "version": "6.4.1",
+        "xc": "PBE"
+       },
+       "shared_kpoints": 232
+      },
+      "definition": "Delta E = E_candidate - E_reference at k points equal modulo G (1e-5), bands 1..n_bands, no energy shift (shared PAW energy zero)",
+      "mae_mev": 0.029239644856391293,
+      "max_abs_mev": 0.1476607346688752,
+      "mean_mev": -0.0027199735397334954,
+      "n_bands": 6,
+      "n_channels": 1,
+      "n_kpoints": 232,
+      "rmse_mev": 0.036251904407799115,
+      "shift_ev": 0.0
+     }
+    }
+   }
+  }
+ ],
+ "generator": "sparse_dft.plotting.figures.make_figures ('electronic_atlas', panels='combined')",
+ "schema_version": "sparse-dft-doc-figures-1"
+}

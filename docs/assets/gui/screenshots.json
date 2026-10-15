@@ -1,0 +1,164 @@
+{
+ "generator": "offscreen Qt (QT_QPA_PLATFORM=offscreen), sparse_dft_gui from a release build",
+ "shots": [
+  {
+   "file": "structure_GaAs.png",
+   "window_px": [
+    1440,
+    900
+   ],
+   "image_px": [
+    1440,
+    900
+   ],
+   "page": "structure",
+   "classified": true,
+   "category": "semiconductor"
+  },
+  {
+   "file": "scf_form.png",
+   "window_px": [
+    1440,
+    900
+   ],
+   "image_px": [
+    1440,
+    900
+   ],
+   "page": "scf",
+   "applied_rows": 39
+  },
+  {
+   "file": "sparsity_preview.png",
+   "window_px": [
+    1440,
+    900
+   ],
+   "image_px": [
+    1440,
+    900
+   ],
+   "page": "sparsity",
+   "preview": true,
+   "status": "Probe for /tmp/sparse-dft-demo/structures/GaAs.POSCAR at 300 eV:"
+  },
+  {
+   "file": "bands_dos_forms.png",
+   "window_px": [
+    1440,
+    900
+   ],
+   "image_px": [
+    1440,
+    900
+   ],
+   "page": "bands",
+   "tabs": [
+    "bands",
+    "dos",
+    "bands-compare",
+    "bands-analysis"
+   ]
+  },
+  {
+   "file": "paw_convert.png",
+   "window_px": [
+    1440,
+    900
+   ],
+   "image_px": [
+    1440,
+    900
+   ],
+   "page": "paw",
+   "tab": "paw-convert"
+  },
+  {
+   "file": "analysis_bands.png",
+   "window_px": [
+    1440,
+    900
+   ],
+   "image_px": [
+    1440,
+    900
+   ],
+   "page": "analysis",
+   "kind": "electronic_atlas",
+   "view": "combined",
+   "figure_aspect": 1.3158,
+   "preview_aspect": 1.3158,
+   "preview_rect_px": [
+    500,
+    380
+   ],
+   "panels": [
+    "bands",
+    "pdos",
+    "edges",
+    "bz",
+    "composition",
+    "residual",
+    "parity"
+   ]
+  },
+  {
+   "file": "analysis_atlas_1920x1080.png",
+   "window_px": [
+    1920,
+    1080
+   ],
+   "image_px": [
+    1920,
+    1080
+   ],
+   "page": "analysis",
+   "kind": "electronic_atlas",
+   "view": "combined",
+   "figure_aspect": 1.3158,
+   "preview_aspect": 1.3158,
+   "preview_rect_px": [
+    807,
+    613
+   ],
+   "panels": [
+    "bands",
+    "pdos",
+    "edges",
+    "bz",
+    "composition",
+    "residual",
+    "parity"
+   ]
+  },
+  {
+   "file": "analysis_atlas_1100x1300.png",
+   "window_px": [
+    1100,
+    1300
+   ],
+   "image_px": [
+    1100,
+    1300
+   ],
+   "page": "analysis",
+   "kind": "electronic_atlas",
+   "view": "combined",
+   "figure_aspect": 1.3158,
+   "preview_aspect": 1.3158,
+   "preview_rect_px": [
+    341,
+    259
+   ],
+   "panels": [
+    "bands",
+    "pdos",
+    "edges",
+    "bz",
+    "composition",
+    "residual",
+    "parity"
+   ]
+  }
+ ]
+}

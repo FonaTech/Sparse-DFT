@@ -1,0 +1,3562 @@
+{
+ "schema_version": "sparse-dft-doc-figures-1",
+ "generator": "benchmarks/plot_docs.py",
+ "style": "sparse_dft.plotting.style",
+ "inputs_sha256": {
+  "benchmarks/data/anchor_vasp.json": "0127a02da05315eb5086a09c7259302a7c1a54f831e95190674961a851bf308c",
+  "benchmarks/data/bands_vasp.json": "82fe0545a5ae7b11f3905559ae13d16ae52502749f9e1724046d2f6f0273271c",
+  "benchmarks/data/codata_bias.json": "b475840ed88ad0638b2472e438dec88d0993a76dbd89663c45ec0fb7fd11aed4",
+  "benchmarks/data/dos_vasp.json": "b5f23071ee78184e0def68b078043bd1e64518fd48f023825bcd82139d2d3dc7",
+  "benchmarks/data/performance.json": "f245e202df0d8927818822f3f6cd6b288382ee2cc6db0d6d055f9fe98610987e",
+  "benchmarks/data/sparsity_probe_tails.json": "5987b417fdc66a34a3599db6d8775721ac4b6b9de51288a6e0bb5e29453e40c0",
+  "benchmarks/data/sparsity_sweep.json": "0907756929c9667dd6cf6eb52cd873c8e05d4e1c9966a2b73efc512a31372321"
+ },
+ "figures": [
+  {
+   "figure": "sparsity_concept",
+   "lang": "en",
+   "files": [
+    "sparsity_concept.png",
+    "sparsity_concept.pdf"
+   ],
+   "size_mm": [
+    120.0,
+    70.0
+   ],
+   "layout_issues": [],
+   "values": {
+    "radius_over_Gcut": {
+     "1": 1.0,
+     "4": 2.0,
+     "6": 2.449489742783178,
+     "16": 4.0,
+     "24": 4.898979485566356
+    },
+    "modes_ratio_estimate": {
+     "4": 0.125,
+     "6": 0.22963966338592295,
+     "8": 0.3535533905932738,
+     "12": 0.649519052838329,
+     "16": 1.0
+    },
+    "kind": "schematic geometry drawn by code, to scale in |G|"
+   }
+  },
+  {
+   "figure": "sparsity_tail_budget",
+   "lang": "en",
+   "files": [
+    "sparsity_tail_budget.png",
+    "sparsity_tail_budget.pdf"
+   ],
+   "size_mm": [
+    183.0,
+    72.0
+   ],
+   "layout_issues": [],
+   "values": {
+    "Si2": {
+     "factors": [
+      4,
+      5,
+      6,
+      8,
+      10,
+      12,
+      16
+     ],
+     "tails": [
+      1.049670785e-07,
+      6.174665294e-08,
+      2.989574312e-08,
+      1.089789333e-08,
+      4.535939542e-09,
+      1.996141748e-09,
+      5.539378576e-10
+     ],
+     "auto_factor": 4.0
+    },
+    "MgO": {
+     "factors": [
+      4,
+      5,
+      6,
+      8,
+      10,
+      12,
+      16
+     ],
+     "tails": [
+      2.4545603864609103e-06,
+      8.443569209634719e-07,
+      4.2549434172352904e-07,
+      1.4351003268630599e-07,
+      6.77354106747096e-08,
+      3.60363127034983e-08,
+      7.73652169459094e-09
+     ],
+     "auto_factor": 8.0
+    },
+    "MgO_h": {
+     "factors": [
+      4,
+      5,
+      6,
+      8,
+      10,
+      12,
+      16
+     ],
+     "tails": [
+      4.3783195131000005e-11,
+      2.4635361606000003e-11,
+      1.6301858274e-11,
+      8.799634636e-12,
+      6.536978873e-12,
+      5.6610387508e-12,
+      4.9338685702e-12
+     ],
+     "auto_factor": 4.0
+    },
+    "LiF": {
+     "factors": [
+      4,
+      5,
+      6,
+      8,
+      10,
+      12,
+      16
+     ],
+     "tails": [
+      1.4512938513193314e-05,
+      4.669826339602572e-06,
+      2.5998815938761543e-06,
+      8.771302193242424e-07,
+      4.1168133462430607e-07,
+      2.0959328299542847e-07,
+      4.709156138994397e-08
+     ],
+     "auto_factor": 12.0
+    },
+    "Al": {
+     "factors": [
+      4,
+      5,
+      6,
+      8,
+      10,
+      12,
+      16
+     ],
+     "tails": [
+      4.828438446e-09,
+      1.669727959e-09,
+      1.108027571e-09,
+      3.319349538e-10,
+      1.405789001e-10,
+      7.20448969e-11,
+      2.173223595e-11
+     ],
+     "auto_factor": 6.0
+    },
+    "Ni": {
+     "factors": [
+      4,
+      5,
+      6,
+      8,
+      10,
+      12,
+      16
+     ],
+     "tails": [
+      5.271465837e-05,
+      1.848389985e-05,
+      1.240996544e-05,
+      3.732614644e-06,
+      1.581770338e-06,
+      8.122358843e-07,
+      2.382758986e-07
+     ],
+     "auto_factor": 16.0
+    },
+    "largest_passing_tail": {
+     "system": "MgO",
+     "cutoff_ev": 520,
+     "factor": 4,
+     "species": "Mg:standard O:standard",
+     "weighted_compensation_l2": 2.4545603864609103e-06,
+     "weighted_compensation_hartree": 3.71632959950701e-09,
+     "max_compensation_hartree": 3.50812498e-06,
+     "max_core_hartree": 2.552520424e-08,
+     "shape_hartree": 3.50812498e-06,
+     "sweep_pass": true,
+     "sweep_gate_use": 0.631100481132154
+    },
+    "smallest_failing_tail": {
+     "system": "LiF",
+     "cutoff_ev": 520,
+     "factor": 8,
+     "species": "Li:standard F:standard",
+     "weighted_compensation_l2": 8.771302193242424e-07,
+     "weighted_compensation_hartree": 6.440115120443847e-10,
+     "max_compensation_hartree": 8.433615454e-08,
+     "max_core_hartree": 8.157484879e-10,
+     "shape_hartree": 8.433615454e-08,
+     "sweep_pass": false,
+     "sweep_gate_use": 1.115863519895603
+    },
+    "budget": 2.5e-07
+   }
+  },
+  {
+   "figure": "sparsity_components",
+   "lang": "en",
+   "files": [
+    "sparsity_components.png",
+    "sparsity_components.pdf"
+   ],
+   "size_mm": [
+    183.0,
+    66.0
+   ],
+   "layout_issues": [],
+   "values": {
+    "systems": [
+     "Si2",
+     "MgO",
+     "MgO_h",
+     "LiF",
+     "Al",
+     "Ni",
+     "Si8",
+     "Al_slab"
+    ],
+    "variants": [
+     "S1_f4",
+     "S1_f6",
+     "S1_f8",
+     "S1_f12",
+     "S2_p1",
+     "S3_1e-2",
+     "S3_1e-3",
+     "S3_1e-4",
+     "S3_1e-5",
+     "S4_block",
+     "S5_blocks",
+     "S5_off",
+     "E_bundle",
+     "E_bundle_f6",
+     "E_bundle_f8_p1"
+    ],
+    "gate_use": [
+     [
+      0.08146686430166028,
+      0.03625588570881249,
+      0.01273247020217274,
+      0.004018660816394787,
+      0.0005961970618306722,
+      3.254861880019888e-05,
+      7.290409353988281e-05,
+      0.00014117781876876734,
+      0.00018979392146789564,
+      3.175808505062605e-07,
+      1.1775007635606016e-06,
+      6.397206653296905e-06,
+      0.00015826267463214805,
+      0.03632286049300551,
+      0.010819313975396483
+     ],
+     [
+      0.631100481132154,
+      0.7909453044233894,
+      0.3213036516522555,
+      0.04218779062321734,
+      0.001459622869959265,
+      9.635392506091023e-05,
+      9.636932596368553e-05,
+      9.479676910117973e-05,
+      0.00020967792502268878,
+      1e-07,
+      1e-07,
+      1e-07,
+      9.479520246546969e-05,
+      0.7910007996481432,
+      0.30127409461009796
+     ],
+     [
+      0.048837063407702885,
+      0.04787136476144517,
+      0.0393508080352166,
+      0.001698638357083837,
+      3.5699876277384135e-05,
+      6.488414139305121e-06,
+      5.2792719085204e-06,
+      1.100923197050463e-05,
+      7.482996000618414e-06,
+      1.4811988302554369e-06,
+      1.1173636460526382e-06,
+      2.00499727931458e-06,
+      4.2062635596806786e-06,
+      0.04787708879724173,
+      0.03862347207089603
+     ],
+     [
+      1.7702494374472684,
+      2.3811893826413697,
+      1.115863519895603,
+      0.10905221143415393,
+      0.008209259591218654,
+      2.995982417708376e-05,
+      2.4648648677683127e-05,
+      6.063784430132557e-05,
+      9.993422200871294e-05,
+      1e-07,
+      1e-07,
+      1e-07,
+      6.150030285034802e-05,
+      2.3811712380145407,
+      1.1334263979534953
+     ],
+     [
+      0.9879335335794645,
+      0.2975241303581364,
+      0.13568072454461827,
+      0.045270969445116216,
+      0.008013106450880565,
+      1e-07,
+      1e-07,
+      1e-07,
+      2.3936241783603406e-06,
+      1e-07,
+      1e-07,
+      1e-07,
+      1e-07,
+      0.2975241725008351,
+      0.2209279172241518
+     ],
+     [
+      6.677073713647813,
+      4.918998855475707,
+      1.2335158813908997,
+      0.3324770186924235,
+      0.0056900620789224554,
+      0.00013754665370846009,
+      0.00017784033890665113,
+      0.0002596979527146359,
+      0.00026357175113818994,
+      1e-07,
+      1e-07,
+      1e-07,
+      0.0002612688515169934,
+      4.919167323984224,
+      1.3059480884960768
+     ],
+     [
+      0.1407230515112307,
+      0.05291465347880299,
+      0.011525890242268102,
+      0.004894435233777234,
+      0.004717454663683007,
+      0.0003035519446914492,
+      0.00022464577981162748,
+      0.0004826086383580286,
+      0.0013543576165009341,
+      1.493446921685404e-06,
+      1.185404885362118e-06,
+      1.645546143791421e-06,
+      0.0008949310555950163,
+      0.05290339246301789,
+      0.10491909977239366
+     ],
+     [
+      0.9267217197323596,
+      0.6317816926909359,
+      0.17236331675407612,
+      null,
+      0.0448066741682851,
+      null,
+      null,
+      0.0001187325864293598,
+      0.00010429079111418105,
+      null,
+      null,
+      null,
+      0.00012521090297923365,
+      0.6317628070645398,
+      null
+     ]
+    ],
+    "pass": [
+     [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+     ],
+     [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+     ],
+     [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+     ],
+     [
+      false,
+      false,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      false,
+      false
+     ],
+     [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+     ],
+     [
+      false,
+      false,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      false,
+      false
+     ],
+     [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+     ],
+     [
+      true,
+      true,
+      true,
+      false,
+      true,
+      false,
+      false,
+      true,
+      true,
+      false,
+      false,
+      false,
+      true,
+      true,
+      false
+     ]
+    ],
+    "floor_for_display": 1e-07
+   }
+  },
+  {
+   "figure": "sparsity_speedup",
+   "lang": "en",
+   "files": [
+    "sparsity_speedup.png",
+    "sparsity_speedup.pdf"
+   ],
+   "size_mm": [
+    183.0,
+    70.0
+   ],
+   "layout_issues": [],
+   "values": {
+    "auto_runs": [
+     {
+      "system": "Si2",
+      "role": "fit",
+      "wall": 5.673265023221528,
+      "H": 3.8554778554778553,
+      "S": 18.90854119425548,
+      "P": 14.364819700967459,
+      "f": 4.0,
+      "u": 0.1220680303012367
+     },
+     {
+      "system": "MgO",
+      "role": "fit",
+      "wall": 3.258252497420662,
+      "H": 2.2522088353413654,
+      "S": 12.419582772543741,
+      "P": 9.417832582404554,
+      "f": 8.0,
+      "u": 0.30127409461009796
+     },
+     {
+      "system": "MgO_h",
+      "role": "fit",
+      "wall": 5.6871306607135645,
+      "H": 3.5619195046439627,
+      "S": 19.080955540809555,
+      "P": 14.424523920111472,
+      "f": 4.0,
+      "u": 0.1310796866993702
+     },
+     {
+      "system": "LiF",
+      "role": "fit",
+      "wall": 3.369911562919276,
+      "H": 2.92639842983317,
+      "S": 16.879558948261238,
+      "P": 12.66923304708321,
+      "f": 12.0,
+      "u": 0.10374598309190936
+     },
+     {
+      "system": "Al",
+      "role": "fit",
+      "wall": 2.7919745953899087,
+      "H": 2.26783684808688,
+      "S": 12.489461497357953,
+      "P": 9.220539536386399,
+      "f": 6.0,
+      "u": 0.6452328804415636
+     },
+     {
+      "system": "Ni",
+      "role": "fit",
+      "wall": 6.6439148222572015,
+      "H": 2.1918322438677107,
+      "S": 18.984888592815945,
+      "P": 13.084166240263801,
+      "f": 16.0,
+      "u": 0.005488195549220229
+     },
+     {
+      "system": "Si8",
+      "role": "holdout",
+      "wall": 8.134654936349875,
+      "H": 3.14878892733564,
+      "S": 38.83268983268983,
+      "P": 29.158536585365855,
+      "f": 4.0,
+      "u": 0.47968407237852784
+     },
+     {
+      "system": "Al_slab",
+      "role": "holdout",
+      "wall": 5.506227632960527,
+      "H": 2.0903769526429,
+      "S": 20.88348517206888,
+      "P": 15.675858160463548,
+      "f": 6.0,
+      "u": 0.6317839369037515
+     },
+     {
+      "system": "Ni4pv",
+      "role": "holdout",
+      "wall": 1.5403934094503728,
+      "H": 2.456039441248973,
+      "S": 2.0492844626168223,
+      "P": 2.1907324507095916,
+      "f": 16.0,
+      "u": 0.3432347357708587
+     },
+     {
+      "system": "Si64",
+      "role": "holdout",
+      "wall": 3.407348316524548,
+      "H": 3.5180722891566263,
+      "S": 2.2973214285714287,
+      "P": 2.6273615635179155,
+      "f": 4.0,
+      "u": 0.29166768906030427
+     }
+    ],
+    "note": "wall = single-run ratio on a loaded machine; call ratios count operator invocations (block calls), not columns"
+   }
+  },
+  {
+   "figure": "accuracy_anchor",
+   "lang": "en",
+   "files": [
+    "accuracy_anchor.png",
+    "accuracy_anchor.pdf"
+   ],
+   "size_mm": [
+    183.0,
+    78.0
+   ],
+   "layout_issues": [],
+   "values": {
+    "deviation_over_gate": {
+     "energy": {
+      "default": {
+       "Si": 1.2292942763867387,
+       "GaAs": 1.2898522314683802,
+       "MgO": 3.317527465860337,
+       "LiF": 5.10466597443493,
+       "Al": 0.6717148369155268,
+       "Ni": 21.26412053580129,
+       "Fe": 11.971012550498372,
+       "Al_slab": 0.6717502608879043,
+       "MoS2": 3.2271381363232856,
+       "CO": 4.111042740231774
+      },
+      "matched": {
+       "Si": 0.0007215247119773949,
+       "GaAs": 0.000948686500912288,
+       "MgO": 0.00036774395795191595,
+       "LiF": 0.0035500405237698374,
+       "Al": 0.0026728363025085855,
+       "Ni": 0.1052933269445333,
+       "Fe": 0.01913772085515575,
+       "Al_slab": 0.0018811415898767336,
+       "MoS2": 0.005832227397917222,
+       "CO": 0.006861181208073219
+      },
+      "auto": {
+       "Si": 1.3136462342249189,
+       "GaAs": 1.3166631193071154,
+       "MgO": 3.262933929157441,
+       "LiF": 5.080153079368266,
+       "Al": 0.5827525331771888,
+       "Ni": 21.263826289466436,
+       "Fe": 11.971005399866286,
+       "Al_slab": 0.5527802519267766,
+       "MoS2": 3.220135561296189,
+       "CO": 3.9976019984182543
+      }
+     },
+     "force": {
+      "default": {
+       "Si": 0.00970650074810786,
+       "GaAs": 0.03541470075266173,
+       "MgO": 0.15507090177005467,
+       "LiF": 0.18398107381415243,
+       "Al": 0.0016599941848365525,
+       "Ni": 0.5252199615466887,
+       "Fe": 0.2390600088097438,
+       "Al_slab": 0.10570811637941602,
+       "MoS2": 0.36001913697009114,
+       "CO": 0.41969196005386955
+      },
+      "matched": {
+       "Si": 0.010553709531124777,
+       "GaAs": 0.03675794958704626,
+       "MgO": 0.16341122648225181,
+       "LiF": 0.18459338610194234,
+       "Al": 0.0016599941947453593,
+       "Ni": 0.5252199615378955,
+       "Fe": 0.23906000883022338,
+       "Al_slab": 0.11796767213931303,
+       "MoS2": 0.39865386322207597,
+       "CO": 0.18107773305398034
+      },
+      "auto": {
+       "Si": 0.10974249447370799,
+       "GaAs": 0.030319588094573913,
+       "MgO": 0.0778196046061358,
+       "LiF": 0.17935059539950574,
+       "Al": 0.4404364505704463,
+       "Ni": 0.49672602294979173,
+       "Fe": 0.23983014130139865,
+       "Al_slab": 0.23030313596039687,
+       "MoS2": 0.308716334480319,
+       "CO": 0.34128141115918886
+      }
+     },
+     "stress": {
+      "default": {
+       "Si": 0.04072544578905578,
+       "GaAs": 0.028474677798827806,
+       "MgO": 0.23697570668098072,
+       "LiF": 0.16917953687874093,
+       "Al": 0.07167045513840552,
+       "Ni": 0.8371054206622431,
+       "Fe": 0.5355487952770583,
+       "Al_slab": 0.04845006298374541,
+       "MoS2": 0.028936173999151237,
+       "CO": 0.00843344277419357
+      },
+      "matched": {
+       "Si": 0.017314726251083656,
+       "GaAs": 0.03027700659931614,
+       "MgO": 0.07651723909314065,
+       "LiF": 0.27433901444667574,
+       "Al": 0.04427091764474539,
+       "Ni": 0.5471700703634912,
+       "Fe": 0.33302636163074295,
+       "Al_slab": 0.03453340854884113,
+       "MoS2": 0.014517882254436959,
+       "CO": 0.00823504915645693
+      },
+      "auto": {
+       "Si": 0.21169697683938235,
+       "GaAs": 0.07469913795823602,
+       "MgO": 0.48770999080010774,
+       "LiF": 0.2907082528004555,
+       "Al": 0.6735987703185732,
+       "Ni": 0.8288465240780909,
+       "Fe": 0.5324760051173782,
+       "Al_slab": 0.14272658579593656,
+       "MoS2": 0.03297863310051135,
+       "CO": 0.023558854934341913
+      }
+     },
+     "eig": {
+      "default": {
+       "Si": 0.020134953502193298,
+       "GaAs": 0.026562790330686425,
+       "MgO": 0.032686507592316616,
+       "LiF": 0.05072842701707714,
+       "Al": 0.015751368250072062,
+       "Ni": 0.03750884549340583,
+       "Fe": 0.038608583406407604,
+       "Al_slab": 0.3817534265380118,
+       "MoS2": 0.04694500452728789,
+       "CO": 0.057567869030350494
+      },
+      "matched": {
+       "Si": 0.00031656746495301036,
+       "GaAs": 0.0007434329203803713,
+       "MgO": 0.002073121852586013,
+       "LiF": 0.001655782960341412,
+       "Al": 0.0016548380433079046,
+       "Ni": 0.0037959730317282947,
+       "Fe": 0.0012889975834262657,
+       "Al_slab": 0.37542133408230427,
+       "MoS2": 0.0033118039234253382,
+       "CO": 0.004370038950440858
+      },
+      "auto": {
+       "Si": 0.028068492280119983,
+       "GaAs": 0.028347031689435198,
+       "MgO": 0.043474547307553735,
+       "LiF": 0.053220793967057034,
+       "Al": 0.06027342267671543,
+       "Ni": 0.037601292369515704,
+       "Fe": 0.03855928555918098,
+       "Al_slab": 0.2411268371067976,
+       "MoS2": 0.05441915738408909,
+       "CO": 0.08804459225046912
+      }
+     },
+     "bands": {
+      "default": {
+       "Si": 0.02030260270124984,
+       "GaAs": 0.18232598282450496,
+       "MgO": 0.03402865694539514,
+       "LiF": 0.04812307880470712,
+       "Al": 0.01575136824314427,
+       "Ni": 0.036127081296655206,
+       "Fe": 0.03878377883594908,
+       "Al_slab": 0.3763534264631829,
+       "MoS2": 0.056913913908474
+      },
+      "matched": {
+       "Si": 0.001111488871829991,
+       "GaAs": 0.19105345722278955,
+       "MgO": 0.004356749267753202,
+       "LiF": 0.002490491139894857,
+       "Al": 0.001653500011222775,
+       "Ni": 0.004319151891607476,
+       "Fe": 0.0009220780789576111,
+       "Al_slab": 0.37002133423733596,
+       "MoS2": 0.021959305090568648
+      },
+      "auto": {
+       "Si": 0.02556606538313133,
+       "GaAs": 0.18111009907579856,
+       "MgO": 0.045136774883403064,
+       "LiF": 0.050518013535594264,
+       "Al": 0.060273422678402966,
+       "Ni": 0.03611804851821887,
+       "Fe": 0.03874791640718911,
+       "Al_slab": 0.2467145850058472,
+       "MoS2": 0.06418444347744412
+      }
+     },
+     "dos": {
+      "default": {
+       "Si": 0.019069609659395186,
+       "GaAs": 0.023933339975785978,
+       "MgO": 0.01800964074649686,
+       "LiF": 0.04969553349550661,
+       "Al": 0.010731983209972314,
+       "Ni": 0.017999151018461976,
+       "Fe": 0.018381305981910165,
+       "Al_slab": 0.01086111014225934,
+       "MoS2": 0.02696631945926565,
+       "CO": 0.11683865317022753
+      },
+      "matched": {
+       "Si": 0.0002085907334384571,
+       "GaAs": 0.000794475696933636,
+       "MgO": 0.002433858313765219,
+       "LiF": 0.0010115620905375993,
+       "Al": 0.0026673851864886396,
+       "Ni": 0.0014828088365752919,
+       "Fe": 0.00031536589296026775,
+       "Al_slab": 0.0017063741055862282,
+       "MoS2": 0.004094564667516737,
+       "CO": 0.014680927266726412
+      },
+      "auto": {
+       "Si": 0.02142411402050417,
+       "GaAs": 0.025298212165372314,
+       "MgO": 0.025874973727215853,
+       "LiF": 0.05040007433252854,
+       "Al": 0.07673077867087742,
+       "Ni": 0.018055408942490952,
+       "Fe": 0.018401880242284643,
+       "Al_slab": 0.04593177320266358,
+       "MoS2": 0.0412871816001911,
+       "CO": 0.18501585503148046
+      }
+     },
+     "proj": {
+      "default": {
+       "Si": 0.4999339468450756,
+       "GaAs": 4.401545981270155,
+       "MgO": 0.647143954157714,
+       "LiF": 0.6841465486860931,
+       "Al": 0.8404644251637089,
+       "Ni": 3.916241349213423,
+       "Fe": 1.4596721278991032,
+       "Al_slab": 2.03938969393737,
+       "MoS2": 0.5170981175750544
+      },
+      "matched": {
+       "Si": 0.4997822372842086,
+       "GaAs": 4.470888130837874,
+       "MgO": 0.5357152718174496,
+       "LiF": 0.7184044444884519,
+       "Al": 0.5005415938528074,
+       "Ni": 0.7721402168477942,
+       "Fe": 0.7906924018743766,
+       "Al_slab": 2.033209065790886,
+       "MoS2": 0.5139231109657638
+      },
+      "auto": {
+       "Si": 0.5225174205611971,
+       "GaAs": 4.399426703924,
+       "MgO": 0.6440642147645947,
+       "LiF": 0.6689243780906295,
+       "Al": 1.9043471803554812,
+       "Ni": 3.9104819707507232,
+       "Fe": 1.460118544544975,
+       "Al_slab": 2.5873980715031415,
+       "MoS2": 0.5219209691696564
+      }
+     }
+    },
+    "gates": {
+     "energy_ev_per_atom": 0.001,
+     "force_ev_per_angstrom": 0.001,
+     "stress_gpa": 0.01,
+     "eigenvalue_ev": 0.005,
+     "electron_relative": 1e-08,
+     "moment_muB": 0.01,
+     "dos_l1": 0.01
+    },
+    "projection_gate": "per worst group: 5e-4 x bands in group + 5e-4",
+    "display_floor": 1e-05
+   }
+  },
+  {
+   "figure": "accuracy_codata_bias",
+   "lang": "en",
+   "files": [
+    "accuracy_codata_bias.png",
+    "accuracy_codata_bias.pdf"
+   ],
+   "size_mm": [
+    183.0,
+    70.0
+   ],
+   "layout_issues": [],
+   "values": {
+    "fit": {
+     "n": 10,
+     "slope": 0.02074425477428913,
+     "intercept": -1.1386826051916437,
+     "r2": 0.990464186497983,
+     "x": "atomic_reference_ev_per_atom",
+     "y": "bias_mev_per_atom"
+    },
+    "rows": [
+     {
+      "system": "Al_slab",
+      "natoms": 5,
+      "bias_mev_per_atom": 0.6736314024777812,
+      "atomic_reference_ev_per_atom": 53.53869999999999,
+      "total_minus_reference_ev_per_atom": -57.09139356514159,
+      "hartree_ratio_estimate_mev_per_atom": 0.5575650787672223
+     },
+     {
+      "system": "Al",
+      "natoms": 1,
+      "bias_mev_per_atom": 0.6743876732180354,
+      "atomic_reference_ev_per_atom": 53.5387,
+      "total_minus_reference_ev_per_atom": -57.2734965628363,
+      "hartree_ratio_estimate_mev_per_atom": 0.5593435302274682
+     },
+     {
+      "system": "Si",
+      "natoms": 2,
+      "bias_mev_per_atom": 1.230015801098716,
+      "atomic_reference_ev_per_atom": 103.0669,
+      "total_minus_reference_ev_per_atom": -108.47352893652472,
+      "hartree_ratio_estimate_mev_per_atom": 1.0593724890712777
+     },
+     {
+      "system": "GaAs",
+      "natoms": 2,
+      "bias_mev_per_atom": 1.288903544967468,
+      "atomic_reference_ev_per_atom": 114.52775,
+      "total_minus_reference_ev_per_atom": -118.6443482263135,
+      "hartree_ratio_estimate_mev_per_atom": 1.1587025860318245
+     },
+     {
+      "system": "MgO",
+      "natoms": 2,
+      "bias_mev_per_atom": 3.317895209818289,
+      "atomic_reference_ev_per_atom": 227.70785,
+      "total_minus_reference_ev_per_atom": -233.65813681774398,
+      "hartree_ratio_estimate_mev_per_atom": 2.2819484570951674
+     },
+     {
+      "system": "MoS2",
+      "natoms": 3,
+      "bias_mev_per_atom": 3.232970363721203,
+      "atomic_reference_ev_per_atom": 257.0545333333333,
+      "total_minus_reference_ev_per_atom": -264.30793246222737,
+      "hartree_ratio_estimate_mev_per_atom": 2.581280014017433
+     },
+     {
+      "system": "CO",
+      "natoms": 2,
+      "bias_mev_per_atom": 4.117903921439847,
+      "atomic_reference_ev_per_atom": 289.7674,
+      "total_minus_reference_ev_per_atom": -297.1601941711812,
+      "hartree_ratio_estimate_mev_per_atom": 2.902121260720128
+     },
+     {
+      "system": "LiF",
+      "natoms": 2,
+      "bias_mev_per_atom": 5.10111593391116,
+      "atomic_reference_ev_per_atom": 332.47380000000004,
+      "total_minus_reference_ev_per_atom": -337.2842833049595,
+      "hartree_ratio_estimate_mev_per_atom": 3.293980515176963
+     },
+     {
+      "system": "Fe",
+      "natoms": 1,
+      "bias_mev_per_atom": 11.990150271353528,
+      "atomic_reference_ev_per_atom": 594.3153,
+      "total_minus_reference_ev_per_atom": -602.5815383077208,
+      "hartree_ratio_estimate_mev_per_atom": 5.884922435583309
+     },
+     {
+      "system": "Ni",
+      "natoms": 1,
+      "bias_mev_per_atom": 21.369413862745823,
+      "atomic_reference_ev_per_atom": 1077.6739,
+      "total_minus_reference_ev_per_atom": -1083.178075843327,
+      "hartree_ratio_estimate_mev_per_atom": 10.57851685626506
+     }
+    ],
+    "gate_ev_per_atom": 0.001
+   }
+  },
+  {
+   "figure": "accuracy_electronic",
+   "lang": "en",
+   "files": [
+    "accuracy_electronic.png",
+    "accuracy_electronic.pdf"
+   ],
+   "size_mm": [
+    183.0,
+    66.0
+   ],
+   "layout_issues": [],
+   "values": {
+    "dos_groups": [
+     [
+      "GaAs",
+      "total"
+     ],
+     [
+      "Ni",
+      "up"
+     ],
+     [
+      "Ni",
+      "down"
+     ],
+     [
+      "Si",
+      "total"
+     ]
+    ],
+    "bands": [
+     {
+      "system": "GaAs",
+      "samples": 885,
+      "alignment": "none (shared PAW zero)",
+      "energy_shift_ev": 0.0,
+      "mae_ev": 0.00046157936944885936,
+      "rmse_ev": 0.0005307518298165272,
+      "max_abs_error_ev": 0.0009989510108647792,
+      "gap_sparse_dft_ev": 0.46282367778841493,
+      "gap_vasp_ev": 0.4626000000000001
+     },
+     {
+      "system": "Ni",
+      "samples": 1803,
+      "alignment": "none (shared PAW zero)",
+      "energy_shift_ev": 0.0,
+      "mae_ev": 2.650183644192786e-05,
+      "rmse_ev": 3.1590066898392276e-05,
+      "max_abs_error_ev": 6.782620742562528e-05,
+      "gap_sparse_dft_ev": null,
+      "gap_vasp_ev": null
+     },
+     {
+      "system": "MoS2",
+      "samples": 963,
+      "alignment": "none (shared PAW zero)",
+      "energy_shift_ev": 0.0,
+      "mae_ev": 7.733932722183451e-05,
+      "rmse_ev": 8.41548999312624e-05,
+      "max_abs_error_ev": 0.00015681249514464674,
+      "gap_sparse_dft_ev": 1.5859652104227986,
+      "gap_vasp_ev": 1.586
+     }
+    ],
+    "relax": [
+     {
+      "case": "Si_ionic",
+      "tier": "default",
+      "status": "FAIL",
+      "max_displacement_angstrom": 3.52876253461404e-05,
+      "lattice_metric_relative": 0.0,
+      "energy_diff_ev_per_atom": 0.0012292490015681778,
+      "relaxation_energy_sparse_dft_ev": -0.005664030549894505,
+      "relaxation_energy_vasp_ev": -0.005663940000001588,
+      "relaxation_energy_diff_ev_per_atom": -4.5274946458562226e-08,
+      "sparse_dft_residual_force_ev_per_angstrom": 4.572899864459594e-05,
+      "sparse_dft_residual_stress_gpa": 1.7903259694184996,
+      "sparse_dft_steps": 3,
+      "check_converged": true,
+      "check_position": true,
+      "check_lattice": true,
+      "check_energy": false,
+      "check_relaxation_energy": true,
+      "gate_position_angstrom": 0.002,
+      "gate_lattice_metric_relative": 0.0002,
+      "gate_energy_ev_per_atom": 0.001
+     },
+     {
+      "case": "Si_ionic",
+      "tier": "matched",
+      "status": "PASS",
+      "max_displacement_angstrom": 3.5270316044922884e-05,
+      "lattice_metric_relative": 0.0,
+      "energy_diff_ev_per_atom": -7.38776890329973e-07,
+      "relaxation_energy_sparse_dft_ev": -0.005663974504287239,
+      "relaxation_energy_vasp_ev": -0.005663940000001588,
+      "relaxation_energy_diff_ev_per_atom": -1.7252142825441297e-08,
+      "sparse_dft_residual_force_ev_per_angstrom": 4.572120860683133e-05,
+      "sparse_dft_residual_stress_gpa": 1.7901165870556799,
+      "sparse_dft_steps": 3,
+      "check_converged": true,
+      "check_position": true,
+      "check_lattice": true,
+      "check_energy": true,
+      "check_relaxation_energy": true,
+      "gate_position_angstrom": 0.002,
+      "gate_lattice_metric_relative": 0.0002,
+      "gate_energy_ev_per_atom": 0.001
+     },
+     {
+      "case": "Si_ionic",
+      "tier": "auto",
+      "status": "FAIL",
+      "max_displacement_angstrom": 4.167873775430856e-05,
+      "lattice_metric_relative": 0.0,
+      "energy_diff_ev_per_atom": 0.001314085044235469,
+      "relaxation_energy_sparse_dft_ev": -0.0056630623814015735,
+      "relaxation_energy_vasp_ev": -0.005663940000001588,
+      "relaxation_energy_diff_ev_per_atom": 4.3880930000739227e-07,
+      "sparse_dft_residual_force_ev_per_angstrom": 7.78904058706344e-05,
+      "sparse_dft_residual_stress_gpa": 1.788476489249997,
+      "sparse_dft_steps": 3,
+      "check_converged": true,
+      "check_position": true,
+      "check_lattice": true,
+      "check_energy": false,
+      "check_relaxation_energy": true,
+      "gate_position_angstrom": 0.002,
+      "gate_lattice_metric_relative": 0.0002,
+      "gate_energy_ev_per_atom": 0.001
+     },
+     {
+      "case": "MgO_cell",
+      "tier": "default",
+      "status": "FAIL",
+      "max_displacement_angstrom": 5.774658234762031e-16,
+      "lattice_metric_relative": 2.8592187451861284e-05,
+      "energy_diff_ev_per_atom": 0.003318559695103751,
+      "relaxation_energy_sparse_dft_ev": -0.004732464856203933,
+      "relaxation_energy_vasp_ev": -0.004727879999999018,
+      "relaxation_energy_diff_ev_per_atom": -2.2924281024572224e-06,
+      "sparse_dft_residual_force_ev_per_angstrom": 8.642186833905934e-14,
+      "sparse_dft_residual_stress_gpa": 0.0035381167435054018,
+      "sparse_dft_steps": 5,
+      "check_converged": true,
+      "check_position": true,
+      "check_lattice": true,
+      "check_energy": false,
+      "check_relaxation_energy": true,
+      "gate_position_angstrom": 0.002,
+      "gate_lattice_metric_relative": 0.0002,
+      "gate_energy_ev_per_atom": 0.001
+     },
+     {
+      "case": "MgO_cell",
+      "tier": "matched",
+      "status": "PASS",
+      "max_displacement_angstrom": 3.3339989937916264e-16,
+      "lattice_metric_relative": 2.3909061388778986e-05,
+      "energy_diff_ev_per_atom": 2.554134014509657e-06,
+      "relaxation_energy_sparse_dft_ev": -0.004728899524423014,
+      "relaxation_energy_vasp_ev": -0.004727879999999018,
+      "relaxation_energy_diff_ev_per_atom": -5.097622119976108e-07,
+      "sparse_dft_residual_force_ev_per_angstrom": 1.0765916777435104e-13,
+      "sparse_dft_residual_stress_gpa": 0.0035320808559572404,
+      "sparse_dft_steps": 5,
+      "check_converged": true,
+      "check_position": true,
+      "check_lattice": true,
+      "check_energy": true,
+      "check_relaxation_energy": true,
+      "gate_position_angstrom": 0.002,
+      "gate_lattice_metric_relative": 0.0002,
+      "gate_energy_ev_per_atom": 0.001
+     },
+     {
+      "case": "MgO_cell",
+      "tier": "auto",
+      "status": "FAIL",
+      "max_displacement_angstrom": 1.3746493563952887e-15,
+      "lattice_metric_relative": 3.9437947273280556e-05,
+      "energy_diff_ev_per_atom": 0.003261057281833679,
+      "relaxation_energy_sparse_dft_ev": -0.004737762109982668,
+      "relaxation_energy_vasp_ev": -0.004727879999999018,
+      "relaxation_energy_diff_ev_per_atom": -4.941054991824956e-06,
+      "sparse_dft_residual_force_ev_per_angstrom": 2.3934613650508987e-10,
+      "sparse_dft_residual_stress_gpa": 0.003576319873243543,
+      "sparse_dft_steps": 5,
+      "check_converged": true,
+      "check_position": true,
+      "check_lattice": true,
+      "check_energy": false,
+      "check_relaxation_energy": true,
+      "gate_position_angstrom": 0.002,
+      "gate_lattice_metric_relative": 0.0002,
+      "gate_energy_ev_per_atom": 0.001
+     }
+    ],
+    "gates": {
+     "dos_l1": 0.01,
+     "bands_ev": 0.005
+    }
+   }
+  },
+  {
+   "figure": "performance",
+   "lang": "en",
+   "files": [
+    "performance.png",
+    "performance.pdf"
+   ],
+   "size_mm": [
+    183.0,
+    120.0
+   ],
+   "layout_issues": [],
+   "values": {
+    "machine": "Apple M5 Max, 6P+12E cores, macOS 26 (Darwin 25.4); other jobs present (load average about 4)",
+    "scale_Si8": [
+     {
+      "label": "v2",
+      "input": "Si8",
+      "threads": 1,
+      "ranks": 1,
+      "wall_seconds": 113.35547891701572,
+      "user_seconds": 112.774819,
+      "sys_seconds": 0.539391,
+      "iterations": 25,
+      "converged": true,
+      "returncode": 0,
+      "env": "",
+      "dE_ev": 0.0,
+      "dF": 0.0,
+      "dS_gpa": 0.0,
+      "deig_ev": 0.0,
+      "ddens": 0.0,
+      "cert": 6.831226038016084e-13
+     },
+     {
+      "label": "w1b",
+      "input": "Si8",
+      "threads": 1,
+      "ranks": 1,
+      "wall_seconds": 77.5829848330468,
+      "user_seconds": 77.17528,
+      "sys_seconds": 0.38031,
+      "iterations": 25,
+      "converged": true,
+      "returncode": 0,
+      "env": "",
+      "dE_ev": 1.1368683772161603e-13,
+      "dF": 1.6699600591252306e-09,
+      "dS_gpa": 2.2248897361095032e-10,
+      "deig_ev": 1.4494627720296194e-11,
+      "ddens": 6.431883798970062e-14,
+      "cert": 6.635696689623545e-13
+     },
+     {
+      "label": "v2",
+      "input": "Si8",
+      "threads": 2,
+      "ranks": 1,
+      "wall_seconds": 72.34250020899344,
+      "user_seconds": 114.589389,
+      "sys_seconds": 1.2100469999999999,
+      "iterations": 25,
+      "converged": true,
+      "returncode": 0,
+      "env": "",
+      "dE_ev": 0.0,
+      "dF": 0.0,
+      "dS_gpa": 0.0,
+      "deig_ev": 0.0,
+      "ddens": 0.0,
+      "cert": 6.616420929860397e-13
+     },
+     {
+      "label": "w1b",
+      "input": "Si8",
+      "threads": 2,
+      "ranks": 1,
+      "wall_seconds": 45.58816495805513,
+      "user_seconds": 78.83922,
+      "sys_seconds": 0.46967499999999995,
+      "iterations": 25,
+      "converged": true,
+      "returncode": 0,
+      "env": "",
+      "dE_ev": 6.821210263296962e-13,
+      "dF": 5.92250692932339e-10,
+      "dS_gpa": 1.0660411176623974e-10,
+      "deig_ev": 1.734545840292867e-11,
+      "ddens": 4.820742043962806e-15,
+      "cert": 6.520433598711838e-13
+     },
+     {
+      "label": "v2",
+      "input": "Si8",
+      "threads": 4,
+      "ranks": 1,
+      "wall_seconds": 52.18269245803822,
+      "user_seconds": 118.337845,
+      "sys_seconds": 2.675795,
+      "iterations": 25,
+      "converged": true,
+      "returncode": 0,
+      "env": "",
+      "dE_ev": 0.0,
+      "dF": 0.0,
+      "dS_gpa": 0.0,
+      "deig_ev": 0.0,
+      "ddens": 0.0,
+      "cert": 6.616420929860397e-13
+     },
+     {
+      "label": "w1b",
+      "input": "Si8",
+      "threads": 4,
+      "ranks": 1,
+      "wall_seconds": 29.736516166012734,
+      "user_seconds": 82.564906,
+      "sys_seconds": 0.659906,
+      "iterations": 25,
+      "converged": true,
+      "returncode": 0,
+      "env": "",
+      "dE_ev": 6.821210263296962e-13,
+      "dF": 5.92250692932339e-10,
+      "dS_gpa": 1.0660411176623974e-10,
+      "deig_ev": 1.734545840292867e-11,
+      "ddens": 4.820742043962806e-15,
+      "cert": 6.520433598711838e-13
+     },
+     {
+      "label": "v2",
+      "input": "Si8",
+      "threads": 8,
+      "ranks": 1,
+      "wall_seconds": 48.33904208301101,
+      "user_seconds": 126.626343,
+      "sys_seconds": 17.409856,
+      "iterations": 25,
+      "converged": true,
+      "returncode": 0,
+      "env": "",
+      "dE_ev": 0.0,
+      "dF": 0.0,
+      "dS_gpa": 0.0,
+      "deig_ev": 0.0,
+      "ddens": 0.0,
+      "cert": 6.854750966540529e-13
+     },
+     {
+      "label": "w1b",
+      "input": "Si8",
+      "threads": 8,
+      "ranks": 1,
+      "wall_seconds": 23.483424125006422,
+      "user_seconds": 94.356196,
+      "sys_seconds": 1.281055,
+      "iterations": 25,
+      "converged": true,
+      "returncode": 0,
+      "env": "",
+      "dE_ev": 2.8421709430404007e-12,
+      "dF": 5.785412149350577e-10,
+      "dS_gpa": 5.962448349407623e-11,
+      "deig_ev": 1.5987655643812104e-11,
+      "ddens": 5.815607069284509e-14,
+      "cert": 6.577585392289449e-13
+     },
+     {
+      "label": "v2",
+      "input": "Si8",
+      "threads": 12,
+      "ranks": 1,
+      "wall_seconds": 49.1958644160768,
+      "user_seconds": 134.774471,
+      "sys_seconds": 21.33049,
+      "iterations": 25,
+      "converged": true,
+      "returncode": 0,
+      "env": "",
+      "dE_ev": 0.0,
+      "dF": 0.0,
+      "dS_gpa": 0.0,
+      "deig_ev": 0.0,
+      "ddens": 0.0,
+      "cert": 6.567718830800433e-13
+     },
+     {
+      "label": "w1b",
+      "input": "Si8",
+      "threads": 12,
+      "ranks": 1,
+      "wall_seconds": 23.825952790910378,
+      "user_seconds": 118.74907,
+      "sys_seconds": 2.468177,
+      "iterations": 25,
+      "converged": true,
+      "returncode": 0,
+      "env": "",
+      "dE_ev": 5.684341886080802e-14,
+      "dF": 7.833430570869382e-10,
+      "dS_gpa": 1.028842519480122e-10,
+      "deig_ev": 1.0954792628581345e-11,
+      "ddens": 4.155412436295331e-14,
+      "cert": 7.059763481334891e-13
+     },
+     {
+      "label": "v2",
+      "input": "Si8",
+      "threads": 18,
+      "ranks": 1,
+      "wall_seconds": 48.65031029097736,
+      "user_seconds": 133.906755,
+      "sys_seconds": 35.360483,
+      "iterations": 25,
+      "converged": true,
+      "returncode": 0,
+      "env": "",
+      "dE_ev": 0.0,
+      "dF": 0.0,
+      "dS_gpa": 0.0,
+      "deig_ev": 0.0,
+      "ddens": 0.0,
+      "cert": 6.682493269693413e-13
+     },
+     {
+      "label": "w1b",
+      "input": "Si8",
+      "threads": 18,
+      "ranks": 1,
+      "wall_seconds": 24.351279291906394,
+      "user_seconds": 124.667858,
+      "sys_seconds": 4.592585,
+      "iterations": 25,
+      "converged": true,
+      "returncode": 0,
+      "env": "",
+      "dE_ev": 6.821210263296962e-13,
+      "dF": 6.624172321778588e-10,
+      "dS_gpa": 1.1206272255748217e-10,
+      "deig_ev": 1.2183365427631543e-11,
+      "ddens": 5.2181005708342365e-14,
+      "cert": 6.586608091186338e-13
+     }
+    ],
+    "replay": [
+     {
+      "run": "rep_cpu",
+      "backend": "cpu",
+      "device": "",
+      "threads": 8,
+      "passed": true,
+      "dimension": 16663,
+      "roots": 136,
+      "iterations": 36,
+      "tolerance_hartree": 1e-12,
+      "max_residual_hartree": 8.053718468893344e-13,
+      "solver_seconds": 323.535377458,
+      "process_real_seconds": 324.53
+     },
+     {
+      "run": "rep_mps",
+      "backend": "mps",
+      "device": "Apple M5 Max",
+      "threads": 8,
+      "passed": true,
+      "dimension": 16663,
+      "roots": 136,
+      "iterations": 36,
+      "tolerance_hartree": 1e-12,
+      "max_residual_hartree": 8.978706451446964e-13,
+      "solver_seconds": 289.263987,
+      "process_real_seconds": 289.4
+     },
+     {
+      "run": "repb_cpu",
+      "backend": "cpu",
+      "device": "",
+      "threads": 8,
+      "passed": true,
+      "dimension": 16663,
+      "roots": 136,
+      "iterations": 36,
+      "tolerance_hartree": 1e-12,
+      "max_residual_hartree": 8.088302003565003e-13,
+      "solver_seconds": 80.910501833,
+      "process_real_seconds": null
+     },
+     {
+      "run": "repb_mps",
+      "backend": "mps",
+      "device": "Apple M5 Max",
+      "threads": 8,
+      "passed": true,
+      "dimension": 16663,
+      "roots": 136,
+      "iterations": 36,
+      "tolerance_hartree": 1e-12,
+      "max_residual_hartree": 8.876135694701733e-13,
+      "solver_seconds": 75.699118,
+      "process_real_seconds": null
+     },
+     {
+      "run": "repc",
+      "backend": "cpu",
+      "device": "",
+      "threads": 8,
+      "passed": true,
+      "dimension": 16663,
+      "roots": 136,
+      "iterations": 36,
+      "tolerance_hartree": 1e-12,
+      "max_residual_hartree": 8.070138410508706e-13,
+      "solver_seconds": 63.535463958,
+      "process_real_seconds": null
+     },
+     {
+      "run": "repd",
+      "backend": "mps",
+      "device": "Apple M5 Max",
+      "threads": 8,
+      "passed": true,
+      "dimension": 16663,
+      "roots": 136,
+      "iterations": 36,
+      "tolerance_hartree": 1e-12,
+      "max_residual_hartree": 8.875491354115268e-13,
+      "solver_seconds": 55.877626792,
+      "process_real_seconds": null
+     },
+     {
+      "run": "repe_cpu",
+      "backend": "cpu",
+      "device": "",
+      "threads": 8,
+      "passed": true,
+      "dimension": 16663,
+      "roots": 136,
+      "iterations": 36,
+      "tolerance_hartree": 1e-12,
+      "max_residual_hartree": 8.077123999788218e-13,
+      "solver_seconds": 49.1997565,
+      "process_real_seconds": null
+     },
+     {
+      "run": "repe_mps",
+      "backend": "mps",
+      "device": "Apple M5 Max",
+      "threads": 8,
+      "passed": true,
+      "dimension": 16663,
+      "roots": 136,
+      "iterations": 36,
+      "tolerance_hartree": 1e-12,
+      "max_residual_hartree": 9.400996588311438e-13,
+      "solver_seconds": 49.952872166,
+      "process_real_seconds": null
+     },
+     {
+      "run": "repf",
+      "backend": "mps",
+      "device": "Apple M5 Max",
+      "threads": 8,
+      "passed": true,
+      "dimension": 16663,
+      "roots": 136,
+      "iterations": 36,
+      "tolerance_hartree": 1e-12,
+      "max_residual_hartree": 9.400996588311438e-13,
+      "solver_seconds": 48.402464959,
+      "process_real_seconds": null
+     }
+    ],
+    "mpi_Ni": [
+     {
+      "label": "mpi-r1",
+      "input": "Ni",
+      "threads": 8,
+      "ranks": 1,
+      "wall_seconds": 23.860816625063308,
+      "user_seconds": 139.980173,
+      "sys_seconds": 0.834282,
+      "iterations": 23,
+      "converged": true,
+      "returncode": 0,
+      "env": "",
+      "dE_ev": 0.0,
+      "dF": 0.0,
+      "dS_gpa": 0.0,
+      "deig_ev": 0.0,
+      "ddens": 0.0,
+      "cert": 9.965921240807377e-13
+     },
+     {
+      "label": "mpi-r2",
+      "input": "Ni",
+      "threads": 4,
+      "ranks": 2,
+      "wall_seconds": 24.20394012494944,
+      "user_seconds": 149.613141,
+      "sys_seconds": 0.81643,
+      "iterations": 23,
+      "converged": true,
+      "returncode": 0,
+      "env": "",
+      "dE_ev": 0.0,
+      "dF": 0.0,
+      "dS_gpa": 0.0,
+      "deig_ev": 0.0,
+      "ddens": 0.0,
+      "cert": 9.965921240807377e-13
+     },
+     {
+      "label": "mpi-r4",
+      "input": "Ni",
+      "threads": 2,
+      "ranks": 4,
+      "wall_seconds": 27.184126084088348,
+      "user_seconds": 182.7467,
+      "sys_seconds": 1.071091,
+      "iterations": 23,
+      "converged": true,
+      "returncode": 0,
+      "env": "",
+      "dE_ev": 0.0,
+      "dF": 0.0,
+      "dS_gpa": 0.0,
+      "deig_ev": 0.0,
+      "ddens": 0.0,
+      "cert": 9.965921240807377e-13
+     },
+     {
+      "label": "mpi18-r1",
+      "input": "Ni",
+      "threads": 18,
+      "ranks": 1,
+      "wall_seconds": 38.76680829201359,
+      "user_seconds": 159.165651,
+      "sys_seconds": 147.73788,
+      "iterations": 23,
+      "converged": true,
+      "returncode": 0,
+      "env": "",
+      "dE_ev": 0.0,
+      "dF": 0.0,
+      "dS_gpa": 0.0,
+      "deig_ev": 0.0,
+      "ddens": 0.0,
+      "cert": 9.965921240807377e-13
+     },
+     {
+      "label": "mpi18-r2",
+      "input": "Ni",
+      "threads": 9,
+      "ranks": 2,
+      "wall_seconds": 53.730496583040804,
+      "user_seconds": 184.358734,
+      "sys_seconds": 373.83468,
+      "iterations": 23,
+      "converged": true,
+      "returncode": 0,
+      "env": "",
+      "dE_ev": 0.0,
+      "dF": 0.0,
+      "dS_gpa": 0.0,
+      "deig_ev": 0.0,
+      "ddens": 0.0,
+      "cert": 9.965921240807377e-13
+     },
+     {
+      "label": "mpi18-r3",
+      "input": "Ni",
+      "threads": 6,
+      "ranks": 3,
+      "wall_seconds": 21.300426958012395,
+      "user_seconds": 179.91195,
+      "sys_seconds": 2.50415,
+      "iterations": 23,
+      "converged": true,
+      "returncode": 0,
+      "env": "",
+      "dE_ev": 0.0,
+      "dF": 0.0,
+      "dS_gpa": 0.0,
+      "deig_ev": 0.0,
+      "ddens": 0.0,
+      "cert": 9.965921240807377e-13
+     }
+    ],
+    "metal_vs_cpu": [
+     {
+      "label": "mps2-cpu",
+      "input": "Si8",
+      "threads": 8,
+      "ranks": 1,
+      "wall_seconds": 20.130392416962422,
+      "user_seconds": 35.81992,
+      "sys_seconds": 0.6218359999999999,
+      "iterations": 25,
+      "converged": true,
+      "returncode": 0,
+      "env": "SDFT_COMPUTE_BACKEND=cpu",
+      "dE_ev": 1.0800249583553523e-12,
+      "dF": 1.1137126776361583e-09,
+      "dS_gpa": 1.2176037264546747e-10,
+      "deig_ev": 1.4455103780619538e-11,
+      "ddens": 7.17525175249326e-14,
+      "cert": 6.60801241542806e-13
+     },
+     {
+      "label": "mps2-mps",
+      "input": "Si8",
+      "threads": 8,
+      "ranks": 1,
+      "wall_seconds": 22.11309583298862,
+      "user_seconds": 34.150716,
+      "sys_seconds": 1.435099,
+      "iterations": 25,
+      "converged": true,
+      "returncode": 0,
+      "env": "SDFT_COMPUTE_BACKEND=mps",
+      "dE_ev": 7.389644451905042e-13,
+      "dF": 8.823050068329508e-10,
+      "dS_gpa": 5.333374028384297e-11,
+      "deig_ev": 1.1005418798504252e-11,
+      "ddens": 6.648652740735374e-14,
+      "cert": 6.905367299533483e-13
+     }
+    ],
+    "replay_stage_order": [
+     "rep",
+     "repb",
+     "repc",
+     "repd",
+     "repe",
+     "repf"
+    ]
+   }
+  },
+  {
+   "figure": "sparsity_concept",
+   "lang": "zh_CN",
+   "files": [
+    "sparsity_concept.zh-CN.png",
+    "sparsity_concept.zh-CN.pdf"
+   ],
+   "size_mm": [
+    120.0,
+    70.0
+   ],
+   "layout_issues": [],
+   "values": {
+    "radius_over_Gcut": {
+     "1": 1.0,
+     "4": 2.0,
+     "6": 2.449489742783178,
+     "16": 4.0,
+     "24": 4.898979485566356
+    },
+    "modes_ratio_estimate": {
+     "4": 0.125,
+     "6": 0.22963966338592295,
+     "8": 0.3535533905932738,
+     "12": 0.649519052838329,
+     "16": 1.0
+    },
+    "kind": "schematic geometry drawn by code, to scale in |G|"
+   }
+  },
+  {
+   "figure": "sparsity_tail_budget",
+   "lang": "zh_CN",
+   "files": [
+    "sparsity_tail_budget.zh-CN.png",
+    "sparsity_tail_budget.zh-CN.pdf"
+   ],
+   "size_mm": [
+    183.0,
+    72.0
+   ],
+   "layout_issues": [],
+   "values": {
+    "Si2": {
+     "factors": [
+      4,
+      5,
+      6,
+      8,
+      10,
+      12,
+      16
+     ],
+     "tails": [
+      1.049670785e-07,
+      6.174665294e-08,
+      2.989574312e-08,
+      1.089789333e-08,
+      4.535939542e-09,
+      1.996141748e-09,
+      5.539378576e-10
+     ],
+     "auto_factor": 4.0
+    },
+    "MgO": {
+     "factors": [
+      4,
+      5,
+      6,
+      8,
+      10,
+      12,
+      16
+     ],
+     "tails": [
+      2.4545603864609103e-06,
+      8.443569209634719e-07,
+      4.2549434172352904e-07,
+      1.4351003268630599e-07,
+      6.77354106747096e-08,
+      3.60363127034983e-08,
+      7.73652169459094e-09
+     ],
+     "auto_factor": 8.0
+    },
+    "MgO_h": {
+     "factors": [
+      4,
+      5,
+      6,
+      8,
+      10,
+      12,
+      16
+     ],
+     "tails": [
+      4.3783195131000005e-11,
+      2.4635361606000003e-11,
+      1.6301858274e-11,
+      8.799634636e-12,
+      6.536978873e-12,
+      5.6610387508e-12,
+      4.9338685702e-12
+     ],
+     "auto_factor": 4.0
+    },
+    "LiF": {
+     "factors": [
+      4,
+      5,
+      6,
+      8,
+      10,
+      12,
+      16
+     ],
+     "tails": [
+      1.4512938513193314e-05,
+      4.669826339602572e-06,
+      2.5998815938761543e-06,
+      8.771302193242424e-07,
+      4.1168133462430607e-07,
+      2.0959328299542847e-07,
+      4.709156138994397e-08
+     ],
+     "auto_factor": 12.0
+    },
+    "Al": {
+     "factors": [
+      4,
+      5,
+      6,
+      8,
+      10,
+      12,
+      16
+     ],
+     "tails": [
+      4.828438446e-09,
+      1.669727959e-09,
+      1.108027571e-09,
+      3.319349538e-10,
+      1.405789001e-10,
+      7.20448969e-11,
+      2.173223595e-11
+     ],
+     "auto_factor": 6.0
+    },
+    "Ni": {
+     "factors": [
+      4,
+      5,
+      6,
+      8,
+      10,
+      12,
+      16
+     ],
+     "tails": [
+      5.271465837e-05,
+      1.848389985e-05,
+      1.240996544e-05,
+      3.732614644e-06,
+      1.581770338e-06,
+      8.122358843e-07,
+      2.382758986e-07
+     ],
+     "auto_factor": 16.0
+    },
+    "largest_passing_tail": {
+     "system": "MgO",
+     "cutoff_ev": 520,
+     "factor": 4,
+     "species": "Mg:standard O:standard",
+     "weighted_compensation_l2": 2.4545603864609103e-06,
+     "weighted_compensation_hartree": 3.71632959950701e-09,
+     "max_compensation_hartree": 3.50812498e-06,
+     "max_core_hartree": 2.552520424e-08,
+     "shape_hartree": 3.50812498e-06,
+     "sweep_pass": true,
+     "sweep_gate_use": 0.631100481132154
+    },
+    "smallest_failing_tail": {
+     "system": "LiF",
+     "cutoff_ev": 520,
+     "factor": 8,
+     "species": "Li:standard F:standard",
+     "weighted_compensation_l2": 8.771302193242424e-07,
+     "weighted_compensation_hartree": 6.440115120443847e-10,
+     "max_compensation_hartree": 8.433615454e-08,
+     "max_core_hartree": 8.157484879e-10,
+     "shape_hartree": 8.433615454e-08,
+     "sweep_pass": false,
+     "sweep_gate_use": 1.115863519895603
+    },
+    "budget": 2.5e-07
+   }
+  },
+  {
+   "figure": "sparsity_components",
+   "lang": "zh_CN",
+   "files": [
+    "sparsity_components.zh-CN.png",
+    "sparsity_components.zh-CN.pdf"
+   ],
+   "size_mm": [
+    183.0,
+    66.0
+   ],
+   "layout_issues": [],
+   "values": {
+    "systems": [
+     "Si2",
+     "MgO",
+     "MgO_h",
+     "LiF",
+     "Al",
+     "Ni",
+     "Si8",
+     "Al_slab"
+    ],
+    "variants": [
+     "S1_f4",
+     "S1_f6",
+     "S1_f8",
+     "S1_f12",
+     "S2_p1",
+     "S3_1e-2",
+     "S3_1e-3",
+     "S3_1e-4",
+     "S3_1e-5",
+     "S4_block",
+     "S5_blocks",
+     "S5_off",
+     "E_bundle",
+     "E_bundle_f6",
+     "E_bundle_f8_p1"
+    ],
+    "gate_use": [
+     [
+      0.08146686430166028,
+      0.03625588570881249,
+      0.01273247020217274,
+      0.004018660816394787,
+      0.0005961970618306722,
+      3.254861880019888e-05,
+      7.290409353988281e-05,
+      0.00014117781876876734,
+      0.00018979392146789564,
+      3.175808505062605e-07,
+      1.1775007635606016e-06,
+      6.397206653296905e-06,
+      0.00015826267463214805,
+      0.03632286049300551,
+      0.010819313975396483
+     ],
+     [
+      0.631100481132154,
+      0.7909453044233894,
+      0.3213036516522555,
+      0.04218779062321734,
+      0.001459622869959265,
+      9.635392506091023e-05,
+      9.636932596368553e-05,
+      9.479676910117973e-05,
+      0.00020967792502268878,
+      1e-07,
+      1e-07,
+      1e-07,
+      9.479520246546969e-05,
+      0.7910007996481432,
+      0.30127409461009796
+     ],
+     [
+      0.048837063407702885,
+      0.04787136476144517,
+      0.0393508080352166,
+      0.001698638357083837,
+      3.5699876277384135e-05,
+      6.488414139305121e-06,
+      5.2792719085204e-06,
+      1.100923197050463e-05,
+      7.482996000618414e-06,
+      1.4811988302554369e-06,
+      1.1173636460526382e-06,
+      2.00499727931458e-06,
+      4.2062635596806786e-06,
+      0.04787708879724173,
+      0.03862347207089603
+     ],
+     [
+      1.7702494374472684,
+      2.3811893826413697,
+      1.115863519895603,
+      0.10905221143415393,
+      0.008209259591218654,
+      2.995982417708376e-05,
+      2.4648648677683127e-05,
+      6.063784430132557e-05,
+      9.993422200871294e-05,
+      1e-07,
+      1e-07,
+      1e-07,
+      6.150030285034802e-05,
+      2.3811712380145407,
+      1.1334263979534953
+     ],
+     [
+      0.9879335335794645,
+      0.2975241303581364,
+      0.13568072454461827,
+      0.045270969445116216,
+      0.008013106450880565,
+      1e-07,
+      1e-07,
+      1e-07,
+      2.3936241783603406e-06,
+      1e-07,
+      1e-07,
+      1e-07,
+      1e-07,
+      0.2975241725008351,
+      0.2209279172241518
+     ],
+     [
+      6.677073713647813,
+      4.918998855475707,
+      1.2335158813908997,
+      0.3324770186924235,
+      0.0056900620789224554,
+      0.00013754665370846009,
+      0.00017784033890665113,
+      0.0002596979527146359,
+      0.00026357175113818994,
+      1e-07,
+      1e-07,
+      1e-07,
+      0.0002612688515169934,
+      4.919167323984224,
+      1.3059480884960768
+     ],
+     [
+      0.1407230515112307,
+      0.05291465347880299,
+      0.011525890242268102,
+      0.004894435233777234,
+      0.004717454663683007,
+      0.0003035519446914492,
+      0.00022464577981162748,
+      0.0004826086383580286,
+      0.0013543576165009341,
+      1.493446921685404e-06,
+      1.185404885362118e-06,
+      1.645546143791421e-06,
+      0.0008949310555950163,
+      0.05290339246301789,
+      0.10491909977239366
+     ],
+     [
+      0.9267217197323596,
+      0.6317816926909359,
+      0.17236331675407612,
+      null,
+      0.0448066741682851,
+      null,
+      null,
+      0.0001187325864293598,
+      0.00010429079111418105,
+      null,
+      null,
+      null,
+      0.00012521090297923365,
+      0.6317628070645398,
+      null
+     ]
+    ],
+    "pass": [
+     [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+     ],
+     [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+     ],
+     [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+     ],
+     [
+      false,
+      false,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      false,
+      false
+     ],
+     [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+     ],
+     [
+      false,
+      false,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      false,
+      false
+     ],
+     [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+     ],
+     [
+      true,
+      true,
+      true,
+      false,
+      true,
+      false,
+      false,
+      true,
+      true,
+      false,
+      false,
+      false,
+      true,
+      true,
+      false
+     ]
+    ],
+    "floor_for_display": 1e-07
+   }
+  },
+  {
+   "figure": "sparsity_speedup",
+   "lang": "zh_CN",
+   "files": [
+    "sparsity_speedup.zh-CN.png",
+    "sparsity_speedup.zh-CN.pdf"
+   ],
+   "size_mm": [
+    183.0,
+    70.0
+   ],
+   "layout_issues": [],
+   "values": {
+    "auto_runs": [
+     {
+      "system": "Si2",
+      "role": "fit",
+      "wall": 5.673265023221528,
+      "H": 3.8554778554778553,
+      "S": 18.90854119425548,
+      "P": 14.364819700967459,
+      "f": 4.0,
+      "u": 0.1220680303012367
+     },
+     {
+      "system": "MgO",
+      "role": "fit",
+      "wall": 3.258252497420662,
+      "H": 2.2522088353413654,
+      "S": 12.419582772543741,
+      "P": 9.417832582404554,
+      "f": 8.0,
+      "u": 0.30127409461009796
+     },
+     {
+      "system": "MgO_h",
+      "role": "fit",
+      "wall": 5.6871306607135645,
+      "H": 3.5619195046439627,
+      "S": 19.080955540809555,
+      "P": 14.424523920111472,
+      "f": 4.0,
+      "u": 0.1310796866993702
+     },
+     {
+      "system": "LiF",
+      "role": "fit",
+      "wall": 3.369911562919276,
+      "H": 2.92639842983317,
+      "S": 16.879558948261238,
+      "P": 12.66923304708321,
+      "f": 12.0,
+      "u": 0.10374598309190936
+     },
+     {
+      "system": "Al",
+      "role": "fit",
+      "wall": 2.7919745953899087,
+      "H": 2.26783684808688,
+      "S": 12.489461497357953,
+      "P": 9.220539536386399,
+      "f": 6.0,
+      "u": 0.6452328804415636
+     },
+     {
+      "system": "Ni",
+      "role": "fit",
+      "wall": 6.6439148222572015,
+      "H": 2.1918322438677107,
+      "S": 18.984888592815945,
+      "P": 13.084166240263801,
+      "f": 16.0,
+      "u": 0.005488195549220229
+     },
+     {
+      "system": "Si8",
+      "role": "holdout",
+      "wall": 8.134654936349875,
+      "H": 3.14878892733564,
+      "S": 38.83268983268983,
+      "P": 29.158536585365855,
+      "f": 4.0,
+      "u": 0.47968407237852784
+     },
+     {
+      "system": "Al_slab",
+      "role": "holdout",
+      "wall": 5.506227632960527,
+      "H": 2.0903769526429,
+      "S": 20.88348517206888,
+      "P": 15.675858160463548,
+      "f": 6.0,
+      "u": 0.6317839369037515
+     },
+     {
+      "system": "Ni4pv",
+      "role": "holdout",
+      "wall": 1.5403934094503728,
+      "H": 2.456039441248973,
+      "S": 2.0492844626168223,
+      "P": 2.1907324507095916,
+      "f": 16.0,
+      "u": 0.3432347357708587
+     },
+     {
+      "system": "Si64",
+      "role": "holdout",
+      "wall": 3.407348316524548,
+      "H": 3.5180722891566263,
+      "S": 2.2973214285714287,
+      "P": 2.6273615635179155,
+      "f": 4.0,
+      "u": 0.29166768906030427
+     }
+    ],
+    "note": "wall = single-run ratio on a loaded machine; call ratios count operator invocations (block calls), not columns"
+   }
+  },
+  {
+   "figure": "accuracy_anchor",
+   "lang": "zh_CN",
+   "files": [
+    "accuracy_anchor.zh-CN.png",
+    "accuracy_anchor.zh-CN.pdf"
+   ],
+   "size_mm": [
+    183.0,
+    78.0
+   ],
+   "layout_issues": [],
+   "values": {
+    "deviation_over_gate": {
+     "energy": {
+      "default": {
+       "Si": 1.2292942763867387,
+       "GaAs": 1.2898522314683802,
+       "MgO": 3.317527465860337,
+       "LiF": 5.10466597443493,
+       "Al": 0.6717148369155268,
+       "Ni": 21.26412053580129,
+       "Fe": 11.971012550498372,
+       "Al_slab": 0.6717502608879043,
+       "MoS2": 3.2271381363232856,
+       "CO": 4.111042740231774
+      },
+      "matched": {
+       "Si": 0.0007215247119773949,
+       "GaAs": 0.000948686500912288,
+       "MgO": 0.00036774395795191595,
+       "LiF": 0.0035500405237698374,
+       "Al": 0.0026728363025085855,
+       "Ni": 0.1052933269445333,
+       "Fe": 0.01913772085515575,
+       "Al_slab": 0.0018811415898767336,
+       "MoS2": 0.005832227397917222,
+       "CO": 0.006861181208073219
+      },
+      "auto": {
+       "Si": 1.3136462342249189,
+       "GaAs": 1.3166631193071154,
+       "MgO": 3.262933929157441,
+       "LiF": 5.080153079368266,
+       "Al": 0.5827525331771888,
+       "Ni": 21.263826289466436,
+       "Fe": 11.971005399866286,
+       "Al_slab": 0.5527802519267766,
+       "MoS2": 3.220135561296189,
+       "CO": 3.9976019984182543
+      }
+     },
+     "force": {
+      "default": {
+       "Si": 0.00970650074810786,
+       "GaAs": 0.03541470075266173,
+       "MgO": 0.15507090177005467,
+       "LiF": 0.18398107381415243,
+       "Al": 0.0016599941848365525,
+       "Ni": 0.5252199615466887,
+       "Fe": 0.2390600088097438,
+       "Al_slab": 0.10570811637941602,
+       "MoS2": 0.36001913697009114,
+       "CO": 0.41969196005386955
+      },
+      "matched": {
+       "Si": 0.010553709531124777,
+       "GaAs": 0.03675794958704626,
+       "MgO": 0.16341122648225181,
+       "LiF": 0.18459338610194234,
+       "Al": 0.0016599941947453593,
+       "Ni": 0.5252199615378955,
+       "Fe": 0.23906000883022338,
+       "Al_slab": 0.11796767213931303,
+       "MoS2": 0.39865386322207597,
+       "CO": 0.18107773305398034
+      },
+      "auto": {
+       "Si": 0.10974249447370799,
+       "GaAs": 0.030319588094573913,
+       "MgO": 0.0778196046061358,
+       "LiF": 0.17935059539950574,
+       "Al": 0.4404364505704463,
+       "Ni": 0.49672602294979173,
+       "Fe": 0.23983014130139865,
+       "Al_slab": 0.23030313596039687,
+       "MoS2": 0.308716334480319,
+       "CO": 0.34128141115918886
+      }
+     },
+     "stress": {
+      "default": {
+       "Si": 0.04072544578905578,
+       "GaAs": 0.028474677798827806,
+       "MgO": 0.23697570668098072,
+       "LiF": 0.16917953687874093,
+       "Al": 0.07167045513840552,
+       "Ni": 0.8371054206622431,
+       "Fe": 0.5355487952770583,
+       "Al_slab": 0.04845006298374541,
+       "MoS2": 0.028936173999151237,
+       "CO": 0.00843344277419357
+      },
+      "matched": {
+       "Si": 0.017314726251083656,
+       "GaAs": 0.03027700659931614,
+       "MgO": 0.07651723909314065,
+       "LiF": 0.27433901444667574,
+       "Al": 0.04427091764474539,
+       "Ni": 0.5471700703634912,
+       "Fe": 0.33302636163074295,
+       "Al_slab": 0.03453340854884113,
+       "MoS2": 0.014517882254436959,
+       "CO": 0.00823504915645693
+      },
+      "auto": {
+       "Si": 0.21169697683938235,
+       "GaAs": 0.07469913795823602,
+       "MgO": 0.48770999080010774,
+       "LiF": 0.2907082528004555,
+       "Al": 0.6735987703185732,
+       "Ni": 0.8288465240780909,
+       "Fe": 0.5324760051173782,
+       "Al_slab": 0.14272658579593656,
+       "MoS2": 0.03297863310051135,
+       "CO": 0.023558854934341913
+      }
+     },
+     "eig": {
+      "default": {
+       "Si": 0.020134953502193298,
+       "GaAs": 0.026562790330686425,
+       "MgO": 0.032686507592316616,
+       "LiF": 0.05072842701707714,
+       "Al": 0.015751368250072062,
+       "Ni": 0.03750884549340583,
+       "Fe": 0.038608583406407604,
+       "Al_slab": 0.3817534265380118,
+       "MoS2": 0.04694500452728789,
+       "CO": 0.057567869030350494
+      },
+      "matched": {
+       "Si": 0.00031656746495301036,
+       "GaAs": 0.0007434329203803713,
+       "MgO": 0.002073121852586013,
+       "LiF": 0.001655782960341412,
+       "Al": 0.0016548380433079046,
+       "Ni": 0.0037959730317282947,
+       "Fe": 0.0012889975834262657,
+       "Al_slab": 0.37542133408230427,
+       "MoS2": 0.0033118039234253382,
+       "CO": 0.004370038950440858
+      },
+      "auto": {
+       "Si": 0.028068492280119983,
+       "GaAs": 0.028347031689435198,
+       "MgO": 0.043474547307553735,
+       "LiF": 0.053220793967057034,
+       "Al": 0.06027342267671543,
+       "Ni": 0.037601292369515704,
+       "Fe": 0.03855928555918098,
+       "Al_slab": 0.2411268371067976,
+       "MoS2": 0.05441915738408909,
+       "CO": 0.08804459225046912
+      }
+     },
+     "bands": {
+      "default": {
+       "Si": 0.02030260270124984,
+       "GaAs": 0.18232598282450496,
+       "MgO": 0.03402865694539514,
+       "LiF": 0.04812307880470712,
+       "Al": 0.01575136824314427,
+       "Ni": 0.036127081296655206,
+       "Fe": 0.03878377883594908,
+       "Al_slab": 0.3763534264631829,
+       "MoS2": 0.056913913908474
+      },
+      "matched": {
+       "Si": 0.001111488871829991,
+       "GaAs": 0.19105345722278955,
+       "MgO": 0.004356749267753202,
+       "LiF": 0.002490491139894857,
+       "Al": 0.001653500011222775,
+       "Ni": 0.004319151891607476,
+       "Fe": 0.0009220780789576111,
+       "Al_slab": 0.37002133423733596,
+       "MoS2": 0.021959305090568648
+      },
+      "auto": {
+       "Si": 0.02556606538313133,
+       "GaAs": 0.18111009907579856,
+       "MgO": 0.045136774883403064,
+       "LiF": 0.050518013535594264,
+       "Al": 0.060273422678402966,
+       "Ni": 0.03611804851821887,
+       "Fe": 0.03874791640718911,
+       "Al_slab": 0.2467145850058472,
+       "MoS2": 0.06418444347744412
+      }
+     },
+     "dos": {
+      "default": {
+       "Si": 0.019069609659395186,
+       "GaAs": 0.023933339975785978,
+       "MgO": 0.01800964074649686,
+       "LiF": 0.04969553349550661,
+       "Al": 0.010731983209972314,
+       "Ni": 0.017999151018461976,
+       "Fe": 0.018381305981910165,
+       "Al_slab": 0.01086111014225934,
+       "MoS2": 0.02696631945926565,
+       "CO": 0.11683865317022753
+      },
+      "matched": {
+       "Si": 0.0002085907334384571,
+       "GaAs": 0.000794475696933636,
+       "MgO": 0.002433858313765219,
+       "LiF": 0.0010115620905375993,
+       "Al": 0.0026673851864886396,
+       "Ni": 0.0014828088365752919,
+       "Fe": 0.00031536589296026775,
+       "Al_slab": 0.0017063741055862282,
+       "MoS2": 0.004094564667516737,
+       "CO": 0.014680927266726412
+      },
+      "auto": {
+       "Si": 0.02142411402050417,
+       "GaAs": 0.025298212165372314,
+       "MgO": 0.025874973727215853,
+       "LiF": 0.05040007433252854,
+       "Al": 0.07673077867087742,
+       "Ni": 0.018055408942490952,
+       "Fe": 0.018401880242284643,
+       "Al_slab": 0.04593177320266358,
+       "MoS2": 0.0412871816001911,
+       "CO": 0.18501585503148046
+      }
+     },
+     "proj": {
+      "default": {
+       "Si": 0.4999339468450756,
+       "GaAs": 4.401545981270155,
+       "MgO": 0.647143954157714,
+       "LiF": 0.6841465486860931,
+       "Al": 0.8404644251637089,
+       "Ni": 3.916241349213423,
+       "Fe": 1.4596721278991032,
+       "Al_slab": 2.03938969393737,
+       "MoS2": 0.5170981175750544
+      },
+      "matched": {
+       "Si": 0.4997822372842086,
+       "GaAs": 4.470888130837874,
+       "MgO": 0.5357152718174496,
+       "LiF": 0.7184044444884519,
+       "Al": 0.5005415938528074,
+       "Ni": 0.7721402168477942,
+       "Fe": 0.7906924018743766,
+       "Al_slab": 2.033209065790886,
+       "MoS2": 0.5139231109657638
+      },
+      "auto": {
+       "Si": 0.5225174205611971,
+       "GaAs": 4.399426703924,
+       "MgO": 0.6440642147645947,
+       "LiF": 0.6689243780906295,
+       "Al": 1.9043471803554812,
+       "Ni": 3.9104819707507232,
+       "Fe": 1.460118544544975,
+       "Al_slab": 2.5873980715031415,
+       "MoS2": 0.5219209691696564
+      }
+     }
+    },
+    "gates": {
+     "energy_ev_per_atom": 0.001,
+     "force_ev_per_angstrom": 0.001,
+     "stress_gpa": 0.01,
+     "eigenvalue_ev": 0.005,
+     "electron_relative": 1e-08,
+     "moment_muB": 0.01,
+     "dos_l1": 0.01
+    },
+    "projection_gate": "per worst group: 5e-4 x bands in group + 5e-4",
+    "display_floor": 1e-05
+   }
+  },
+  {
+   "figure": "accuracy_codata_bias",
+   "lang": "zh_CN",
+   "files": [
+    "accuracy_codata_bias.zh-CN.png",
+    "accuracy_codata_bias.zh-CN.pdf"
+   ],
+   "size_mm": [
+    183.0,
+    70.0
+   ],
+   "layout_issues": [],
+   "values": {
+    "fit": {
+     "n": 10,
+     "slope": 0.02074425477428913,
+     "intercept": -1.1386826051916437,
+     "r2": 0.990464186497983,
+     "x": "atomic_reference_ev_per_atom",
+     "y": "bias_mev_per_atom"
+    },
+    "rows": [
+     {
+      "system": "Al_slab",
+      "natoms": 5,
+      "bias_mev_per_atom": 0.6736314024777812,
+      "atomic_reference_ev_per_atom": 53.53869999999999,
+      "total_minus_reference_ev_per_atom": -57.09139356514159,
+      "hartree_ratio_estimate_mev_per_atom": 0.5575650787672223
+     },
+     {
+      "system": "Al",
+      "natoms": 1,
+      "bias_mev_per_atom": 0.6743876732180354,
+      "atomic_reference_ev_per_atom": 53.5387,
+      "total_minus_reference_ev_per_atom": -57.2734965628363,
+      "hartree_ratio_estimate_mev_per_atom": 0.5593435302274682
+     },
+     {
+      "system": "Si",
+      "natoms": 2,
+      "bias_mev_per_atom": 1.230015801098716,
+      "atomic_reference_ev_per_atom": 103.0669,
+      "total_minus_reference_ev_per_atom": -108.47352893652472,
+      "hartree_ratio_estimate_mev_per_atom": 1.0593724890712777
+     },
+     {
+      "system": "GaAs",
+      "natoms": 2,
+      "bias_mev_per_atom": 1.288903544967468,
+      "atomic_reference_ev_per_atom": 114.52775,
+      "total_minus_reference_ev_per_atom": -118.6443482263135,
+      "hartree_ratio_estimate_mev_per_atom": 1.1587025860318245
+     },
+     {
+      "system": "MgO",
+      "natoms": 2,
+      "bias_mev_per_atom": 3.317895209818289,
+      "atomic_reference_ev_per_atom": 227.70785,
+      "total_minus_reference_ev_per_atom": -233.65813681774398,
+      "hartree_ratio_estimate_mev_per_atom": 2.2819484570951674
+     },
+     {
+      "system": "MoS2",
+      "natoms": 3,
+      "bias_mev_per_atom": 3.232970363721203,
+      "atomic_reference_ev_per_atom": 257.0545333333333,
+      "total_minus_reference_ev_per_atom": -264.30793246222737,
+      "hartree_ratio_estimate_mev_per_atom": 2.581280014017433
+     },
+     {
+      "system": "CO",
+      "natoms": 2,
+      "bias_mev_per_atom": 4.117903921439847,
+      "atomic_reference_ev_per_atom": 289.7674,
+      "total_minus_reference_ev_per_atom": -297.1601941711812,
+      "hartree_ratio_estimate_mev_per_atom": 2.902121260720128
+     },
+     {
+      "system": "LiF",
+      "natoms": 2,
+      "bias_mev_per_atom": 5.10111593391116,
+      "atomic_reference_ev_per_atom": 332.47380000000004,
+      "total_minus_reference_ev_per_atom": -337.2842833049595,
+      "hartree_ratio_estimate_mev_per_atom": 3.293980515176963
+     },
+     {
+      "system": "Fe",
+      "natoms": 1,
+      "bias_mev_per_atom": 11.990150271353528,
+      "atomic_reference_ev_per_atom": 594.3153,
+      "total_minus_reference_ev_per_atom": -602.5815383077208,
+      "hartree_ratio_estimate_mev_per_atom": 5.884922435583309
+     },
+     {
+      "system": "Ni",
+      "natoms": 1,
+      "bias_mev_per_atom": 21.369413862745823,
+      "atomic_reference_ev_per_atom": 1077.6739,
+      "total_minus_reference_ev_per_atom": -1083.178075843327,
+      "hartree_ratio_estimate_mev_per_atom": 10.57851685626506
+     }
+    ],
+    "gate_ev_per_atom": 0.001
+   }
+  },
+  {
+   "figure": "accuracy_electronic",
+   "lang": "zh_CN",
+   "files": [
+    "accuracy_electronic.zh-CN.png",
+    "accuracy_electronic.zh-CN.pdf"
+   ],
+   "size_mm": [
+    183.0,
+    66.0
+   ],
+   "layout_issues": [],
+   "values": {
+    "dos_groups": [
+     [
+      "GaAs",
+      "total"
+     ],
+     [
+      "Ni",
+      "up"
+     ],
+     [
+      "Ni",
+      "down"
+     ],
+     [
+      "Si",
+      "total"
+     ]
+    ],
+    "bands": [
+     {
+      "system": "GaAs",
+      "samples": 885,
+      "alignment": "none (shared PAW zero)",
+      "energy_shift_ev": 0.0,
+      "mae_ev": 0.00046157936944885936,
+      "rmse_ev": 0.0005307518298165272,
+      "max_abs_error_ev": 0.0009989510108647792,
+      "gap_sparse_dft_ev": 0.46282367778841493,
+      "gap_vasp_ev": 0.4626000000000001
+     },
+     {
+      "system": "Ni",
+      "samples": 1803,
+      "alignment": "none (shared PAW zero)",
+      "energy_shift_ev": 0.0,
+      "mae_ev": 2.650183644192786e-05,
+      "rmse_ev": 3.1590066898392276e-05,
+      "max_abs_error_ev": 6.782620742562528e-05,
+      "gap_sparse_dft_ev": null,
+      "gap_vasp_ev": null
+     },
+     {
+      "system": "MoS2",
+      "samples": 963,
+      "alignment": "none (shared PAW zero)",
+      "energy_shift_ev": 0.0,
+      "mae_ev": 7.733932722183451e-05,
+      "rmse_ev": 8.41548999312624e-05,
+      "max_abs_error_ev": 0.00015681249514464674,
+      "gap_sparse_dft_ev": 1.5859652104227986,
+      "gap_vasp_ev": 1.586
+     }
+    ],
+    "relax": [
+     {
+      "case": "Si_ionic",
+      "tier": "default",
+      "status": "FAIL",
+      "max_displacement_angstrom": 3.52876253461404e-05,
+      "lattice_metric_relative": 0.0,
+      "energy_diff_ev_per_atom": 0.0012292490015681778,
+      "relaxation_energy_sparse_dft_ev": -0.005664030549894505,
+      "relaxation_energy_vasp_ev": -0.005663940000001588,
+      "relaxation_energy_diff_ev_per_atom": -4.5274946458562226e-08,
+      "sparse_dft_residual_force_ev_per_angstrom": 4.572899864459594e-05,
+      "sparse_dft_residual_stress_gpa": 1.7903259694184996,
+      "sparse_dft_steps": 3,
+      "check_converged": true,
+      "check_position": true,
+      "check_lattice": true,
+      "check_energy": false,
+      "check_relaxation_energy": true,
+      "gate_position_angstrom": 0.002,
+      "gate_lattice_metric_relative": 0.0002,
+      "gate_energy_ev_per_atom": 0.001
+     },
+     {
+      "case": "Si_ionic",
+      "tier": "matched",
+      "status": "PASS",
+      "max_displacement_angstrom": 3.5270316044922884e-05,
+      "lattice_metric_relative": 0.0,
+      "energy_diff_ev_per_atom": -7.38776890329973e-07,
+      "relaxation_energy_sparse_dft_ev": -0.005663974504287239,
+      "relaxation_energy_vasp_ev": -0.005663940000001588,
+      "relaxation_energy_diff_ev_per_atom": -1.7252142825441297e-08,
+      "sparse_dft_residual_force_ev_per_angstrom": 4.572120860683133e-05,
+      "sparse_dft_residual_stress_gpa": 1.7901165870556799,
+      "sparse_dft_steps": 3,
+      "check_converged": true,
+      "check_position": true,
+      "check_lattice": true,
+      "check_energy": true,
+      "check_relaxation_energy": true,
+      "gate_position_angstrom": 0.002,
+      "gate_lattice_metric_relative": 0.0002,
+      "gate_energy_ev_per_atom": 0.001
+     },
+     {
+      "case": "Si_ionic",
+      "tier": "auto",
+      "status": "FAIL",
+      "max_displacement_angstrom": 4.167873775430856e-05,
+      "lattice_metric_relative": 0.0,
+      "energy_diff_ev_per_atom": 0.001314085044235469,
+      "relaxation_energy_sparse_dft_ev": -0.0056630623814015735,
+      "relaxation_energy_vasp_ev": -0.005663940000001588,
+      "relaxation_energy_diff_ev_per_atom": 4.3880930000739227e-07,
+      "sparse_dft_residual_force_ev_per_angstrom": 7.78904058706344e-05,
+      "sparse_dft_residual_stress_gpa": 1.788476489249997,
+      "sparse_dft_steps": 3,
+      "check_converged": true,
+      "check_position": true,
+      "check_lattice": true,
+      "check_energy": false,
+      "check_relaxation_energy": true,
+      "gate_position_angstrom": 0.002,
+      "gate_lattice_metric_relative": 0.0002,
+      "gate_energy_ev_per_atom": 0.001
+     },
+     {
+      "case": "MgO_cell",
+      "tier": "default",
+      "status": "FAIL",
+      "max_displacement_angstrom": 5.774658234762031e-16,
+      "lattice_metric_relative": 2.8592187451861284e-05,
+      "energy_diff_ev_per_atom": 0.003318559695103751,
+      "relaxation_energy_sparse_dft_ev": -0.004732464856203933,
+      "relaxation_energy_vasp_ev": -0.004727879999999018,
+      "relaxation_energy_diff_ev_per_atom": -2.2924281024572224e-06,
+      "sparse_dft_residual_force_ev_per_angstrom": 8.642186833905934e-14,
+      "sparse_dft_residual_stress_gpa": 0.0035381167435054018,
+      "sparse_dft_steps": 5,
+      "check_converged": true,
+      "check_position": true,
+      "check_lattice": true,
+      "check_energy": false,
+      "check_relaxation_energy": true,
+      "gate_position_angstrom": 0.002,
+      "gate_lattice_metric_relative": 0.0002,
+      "gate_energy_ev_per_atom": 0.001
+     },
+     {
+      "case": "MgO_cell",
+      "tier": "matched",
+      "status": "PASS",
+      "max_displacement_angstrom": 3.3339989937916264e-16,
+      "lattice_metric_relative": 2.3909061388778986e-05,
+      "energy_diff_ev_per_atom": 2.554134014509657e-06,
+      "relaxation_energy_sparse_dft_ev": -0.004728899524423014,
+      "relaxation_energy_vasp_ev": -0.004727879999999018,
+      "relaxation_energy_diff_ev_per_atom": -5.097622119976108e-07,
+      "sparse_dft_residual_force_ev_per_angstrom": 1.0765916777435104e-13,
+      "sparse_dft_residual_stress_gpa": 0.0035320808559572404,
+      "sparse_dft_steps": 5,
+      "check_converged": true,
+      "check_position": true,
+      "check_lattice": true,
+      "check_energy": true,
+      "check_relaxation_energy": true,
+      "gate_position_angstrom": 0.002,
+      "gate_lattice_metric_relative": 0.0002,
+      "gate_energy_ev_per_atom": 0.001
+     },
+     {
+      "case": "MgO_cell",
+      "tier": "auto",
+      "status": "FAIL",
+      "max_displacement_angstrom": 1.3746493563952887e-15,
+      "lattice_metric_relative": 3.9437947273280556e-05,
+      "energy_diff_ev_per_atom": 0.003261057281833679,
+      "relaxation_energy_sparse_dft_ev": -0.004737762109982668,
+      "relaxation_energy_vasp_ev": -0.004727879999999018,
+      "relaxation_energy_diff_ev_per_atom": -4.941054991824956e-06,
+      "sparse_dft_residual_force_ev_per_angstrom": 2.3934613650508987e-10,
+      "sparse_dft_residual_stress_gpa": 0.003576319873243543,
+      "sparse_dft_steps": 5,
+      "check_converged": true,
+      "check_position": true,
+      "check_lattice": true,
+      "check_energy": false,
+      "check_relaxation_energy": true,
+      "gate_position_angstrom": 0.002,
+      "gate_lattice_metric_relative": 0.0002,
+      "gate_energy_ev_per_atom": 0.001
+     }
+    ],
+    "gates": {
+     "dos_l1": 0.01,
+     "bands_ev": 0.005
+    }
+   }
+  },
+  {
+   "figure": "performance",
+   "lang": "zh_CN",
+   "files": [
+    "performance.zh-CN.png",
+    "performance.zh-CN.pdf"
+   ],
+   "size_mm": [
+    183.0,
+    120.0
+   ],
+   "layout_issues": [],
+   "values": {
+    "machine": "Apple M5 Max, 6P+12E cores, macOS 26 (Darwin 25.4); other jobs present (load average about 4)",
+    "scale_Si8": [
+     {
+      "label": "v2",
+      "input": "Si8",
+      "threads": 1,
+      "ranks": 1,
+      "wall_seconds": 113.35547891701572,
+      "user_seconds": 112.774819,
+      "sys_seconds": 0.539391,
+      "iterations": 25,
+      "converged": true,
+      "returncode": 0,
+      "env": "",
+      "dE_ev": 0.0,
+      "dF": 0.0,
+      "dS_gpa": 0.0,
+      "deig_ev": 0.0,
+      "ddens": 0.0,
+      "cert": 6.831226038016084e-13
+     },
+     {
+      "label": "w1b",
+      "input": "Si8",
+      "threads": 1,
+      "ranks": 1,
+      "wall_seconds": 77.5829848330468,
+      "user_seconds": 77.17528,
+      "sys_seconds": 0.38031,
+      "iterations": 25,
+      "converged": true,
+      "returncode": 0,
+      "env": "",
+      "dE_ev": 1.1368683772161603e-13,
+      "dF": 1.6699600591252306e-09,
+      "dS_gpa": 2.2248897361095032e-10,
+      "deig_ev": 1.4494627720296194e-11,
+      "ddens": 6.431883798970062e-14,
+      "cert": 6.635696689623545e-13
+     },
+     {
+      "label": "v2",
+      "input": "Si8",
+      "threads": 2,
+      "ranks": 1,
+      "wall_seconds": 72.34250020899344,
+      "user_seconds": 114.589389,
+      "sys_seconds": 1.2100469999999999,
+      "iterations": 25,
+      "converged": true,
+      "returncode": 0,
+      "env": "",
+      "dE_ev": 0.0,
+      "dF": 0.0,
+      "dS_gpa": 0.0,
+      "deig_ev": 0.0,
+      "ddens": 0.0,
+      "cert": 6.616420929860397e-13
+     },
+     {
+      "label": "w1b",
+      "input": "Si8",
+      "threads": 2,
+      "ranks": 1,
+      "wall_seconds": 45.58816495805513,
+      "user_seconds": 78.83922,
+      "sys_seconds": 0.46967499999999995,
+      "iterations": 25,
+      "converged": true,
+      "returncode": 0,
+      "env": "",
+      "dE_ev": 6.821210263296962e-13,
+      "dF": 5.92250692932339e-10,
+      "dS_gpa": 1.0660411176623974e-10,
+      "deig_ev": 1.734545840292867e-11,
+      "ddens": 4.820742043962806e-15,
+      "cert": 6.520433598711838e-13
+     },
+     {
+      "label": "v2",
+      "input": "Si8",
+      "threads": 4,
+      "ranks": 1,
+      "wall_seconds": 52.18269245803822,
+      "user_seconds": 118.337845,
+      "sys_seconds": 2.675795,
+      "iterations": 25,
+      "converged": true,
+      "returncode": 0,
+      "env": "",
+      "dE_ev": 0.0,
+      "dF": 0.0,
+      "dS_gpa": 0.0,
+      "deig_ev": 0.0,
+      "ddens": 0.0,
+      "cert": 6.616420929860397e-13
+     },
+     {
+      "label": "w1b",
+      "input": "Si8",
+      "threads": 4,
+      "ranks": 1,
+      "wall_seconds": 29.736516166012734,
+      "user_seconds": 82.564906,
+      "sys_seconds": 0.659906,
+      "iterations": 25,
+      "converged": true,
+      "returncode": 0,
+      "env": "",
+      "dE_ev": 6.821210263296962e-13,
+      "dF": 5.92250692932339e-10,
+      "dS_gpa": 1.0660411176623974e-10,
+      "deig_ev": 1.734545840292867e-11,
+      "ddens": 4.820742043962806e-15,
+      "cert": 6.520433598711838e-13
+     },
+     {
+      "label": "v2",
+      "input": "Si8",
+      "threads": 8,
+      "ranks": 1,
+      "wall_seconds": 48.33904208301101,
+      "user_seconds": 126.626343,
+      "sys_seconds": 17.409856,
+      "iterations": 25,
+      "converged": true,
+      "returncode": 0,
+      "env": "",
+      "dE_ev": 0.0,
+      "dF": 0.0,
+      "dS_gpa": 0.0,
+      "deig_ev": 0.0,
+      "ddens": 0.0,
+      "cert": 6.854750966540529e-13
+     },
+     {
+      "label": "w1b",
+      "input": "Si8",
+      "threads": 8,
+      "ranks": 1,
+      "wall_seconds": 23.483424125006422,
+      "user_seconds": 94.356196,
+      "sys_seconds": 1.281055,
+      "iterations": 25,
+      "converged": true,
+      "returncode": 0,
+      "env": "",
+      "dE_ev": 2.8421709430404007e-12,
+      "dF": 5.785412149350577e-10,
+      "dS_gpa": 5.962448349407623e-11,
+      "deig_ev": 1.5987655643812104e-11,
+      "ddens": 5.815607069284509e-14,
+      "cert": 6.577585392289449e-13
+     },
+     {
+      "label": "v2",
+      "input": "Si8",
+      "threads": 12,
+      "ranks": 1,
+      "wall_seconds": 49.1958644160768,
+      "user_seconds": 134.774471,
+      "sys_seconds": 21.33049,
+      "iterations": 25,
+      "converged": true,
+      "returncode": 0,
+      "env": "",
+      "dE_ev": 0.0,
+      "dF": 0.0,
+      "dS_gpa": 0.0,
+      "deig_ev": 0.0,
+      "ddens": 0.0,
+      "cert": 6.567718830800433e-13
+     },
+     {
+      "label": "w1b",
+      "input": "Si8",
+      "threads": 12,
+      "ranks": 1,
+      "wall_seconds": 23.825952790910378,
+      "user_seconds": 118.74907,
+      "sys_seconds": 2.468177,
+      "iterations": 25,
+      "converged": true,
+      "returncode": 0,
+      "env": "",
+      "dE_ev": 5.684341886080802e-14,
+      "dF": 7.833430570869382e-10,
+      "dS_gpa": 1.028842519480122e-10,
+      "deig_ev": 1.0954792628581345e-11,
+      "ddens": 4.155412436295331e-14,
+      "cert": 7.059763481334891e-13
+     },
+     {
+      "label": "v2",
+      "input": "Si8",
+      "threads": 18,
+      "ranks": 1,
+      "wall_seconds": 48.65031029097736,
+      "user_seconds": 133.906755,
+      "sys_seconds": 35.360483,
+      "iterations": 25,
+      "converged": true,
+      "returncode": 0,
+      "env": "",
+      "dE_ev": 0.0,
+      "dF": 0.0,
+      "dS_gpa": 0.0,
+      "deig_ev": 0.0,
+      "ddens": 0.0,
+      "cert": 6.682493269693413e-13
+     },
+     {
+      "label": "w1b",
+      "input": "Si8",
+      "threads": 18,
+      "ranks": 1,
+      "wall_seconds": 24.351279291906394,
+      "user_seconds": 124.667858,
+      "sys_seconds": 4.592585,
+      "iterations": 25,
+      "converged": true,
+      "returncode": 0,
+      "env": "",
+      "dE_ev": 6.821210263296962e-13,
+      "dF": 6.624172321778588e-10,
+      "dS_gpa": 1.1206272255748217e-10,
+      "deig_ev": 1.2183365427631543e-11,
+      "ddens": 5.2181005708342365e-14,
+      "cert": 6.586608091186338e-13
+     }
+    ],
+    "replay": [
+     {
+      "run": "rep_cpu",
+      "backend": "cpu",
+      "device": "",
+      "threads": 8,
+      "passed": true,
+      "dimension": 16663,
+      "roots": 136,
+      "iterations": 36,
+      "tolerance_hartree": 1e-12,
+      "max_residual_hartree": 8.053718468893344e-13,
+      "solver_seconds": 323.535377458,
+      "process_real_seconds": 324.53
+     },
+     {
+      "run": "rep_mps",
+      "backend": "mps",
+      "device": "Apple M5 Max",
+      "threads": 8,
+      "passed": true,
+      "dimension": 16663,
+      "roots": 136,
+      "iterations": 36,
+      "tolerance_hartree": 1e-12,
+      "max_residual_hartree": 8.978706451446964e-13,
+      "solver_seconds": 289.263987,
+      "process_real_seconds": 289.4
+     },
+     {
+      "run": "repb_cpu",
+      "backend": "cpu",
+      "device": "",
+      "threads": 8,
+      "passed": true,
+      "dimension": 16663,
+      "roots": 136,
+      "iterations": 36,
+      "tolerance_hartree": 1e-12,
+      "max_residual_hartree": 8.088302003565003e-13,
+      "solver_seconds": 80.910501833,
+      "process_real_seconds": null
+     },
+     {
+      "run": "repb_mps",
+      "backend": "mps",
+      "device": "Apple M5 Max",
+      "threads": 8,
+      "passed": true,
+      "dimension": 16663,
+      "roots": 136,
+      "iterations": 36,
+      "tolerance_hartree": 1e-12,
+      "max_residual_hartree": 8.876135694701733e-13,
+      "solver_seconds": 75.699118,
+      "process_real_seconds": null
+     },
+     {
+      "run": "repc",
+      "backend": "cpu",
+      "device": "",
+      "threads": 8,
+      "passed": true,
+      "dimension": 16663,
+      "roots": 136,
+      "iterations": 36,
+      "tolerance_hartree": 1e-12,
+      "max_residual_hartree": 8.070138410508706e-13,
+      "solver_seconds": 63.535463958,
+      "process_real_seconds": null
+     },
+     {
+      "run": "repd",
+      "backend": "mps",
+      "device": "Apple M5 Max",
+      "threads": 8,
+      "passed": true,
+      "dimension": 16663,
+      "roots": 136,
+      "iterations": 36,
+      "tolerance_hartree": 1e-12,
+      "max_residual_hartree": 8.875491354115268e-13,
+      "solver_seconds": 55.877626792,
+      "process_real_seconds": null
+     },
+     {
+      "run": "repe_cpu",
+      "backend": "cpu",
+      "device": "",
+      "threads": 8,
+      "passed": true,
+      "dimension": 16663,
+      "roots": 136,
+      "iterations": 36,
+      "tolerance_hartree": 1e-12,
+      "max_residual_hartree": 8.077123999788218e-13,
+      "solver_seconds": 49.1997565,
+      "process_real_seconds": null
+     },
+     {
+      "run": "repe_mps",
+      "backend": "mps",
+      "device": "Apple M5 Max",
+      "threads": 8,
+      "passed": true,
+      "dimension": 16663,
+      "roots": 136,
+      "iterations": 36,
+      "tolerance_hartree": 1e-12,
+      "max_residual_hartree": 9.400996588311438e-13,
+      "solver_seconds": 49.952872166,
+      "process_real_seconds": null
+     },
+     {
+      "run": "repf",
+      "backend": "mps",
+      "device": "Apple M5 Max",
+      "threads": 8,
+      "passed": true,
+      "dimension": 16663,
+      "roots": 136,
+      "iterations": 36,
+      "tolerance_hartree": 1e-12,
+      "max_residual_hartree": 9.400996588311438e-13,
+      "solver_seconds": 48.402464959,
+      "process_real_seconds": null
+     }
+    ],
+    "mpi_Ni": [
+     {
+      "label": "mpi-r1",
+      "input": "Ni",
+      "threads": 8,
+      "ranks": 1,
+      "wall_seconds": 23.860816625063308,
+      "user_seconds": 139.980173,
+      "sys_seconds": 0.834282,
+      "iterations": 23,
+      "converged": true,
+      "returncode": 0,
+      "env": "",
+      "dE_ev": 0.0,
+      "dF": 0.0,
+      "dS_gpa": 0.0,
+      "deig_ev": 0.0,
+      "ddens": 0.0,
+      "cert": 9.965921240807377e-13
+     },
+     {
+      "label": "mpi-r2",
+      "input": "Ni",
+      "threads": 4,
+      "ranks": 2,
+      "wall_seconds": 24.20394012494944,
+      "user_seconds": 149.613141,
+      "sys_seconds": 0.81643,
+      "iterations": 23,
+      "converged": true,
+      "returncode": 0,
+      "env": "",
+      "dE_ev": 0.0,
+      "dF": 0.0,
+      "dS_gpa": 0.0,
+      "deig_ev": 0.0,
+      "ddens": 0.0,
+      "cert": 9.965921240807377e-13
+     },
+     {
+      "label": "mpi-r4",
+      "input": "Ni",
+      "threads": 2,
+      "ranks": 4,
+      "wall_seconds": 27.184126084088348,
+      "user_seconds": 182.7467,
+      "sys_seconds": 1.071091,
+      "iterations": 23,
+      "converged": true,
+      "returncode": 0,
+      "env": "",
+      "dE_ev": 0.0,
+      "dF": 0.0,
+      "dS_gpa": 0.0,
+      "deig_ev": 0.0,
+      "ddens": 0.0,
+      "cert": 9.965921240807377e-13
+     },
+     {
+      "label": "mpi18-r1",
+      "input": "Ni",
+      "threads": 18,
+      "ranks": 1,
+      "wall_seconds": 38.76680829201359,
+      "user_seconds": 159.165651,
+      "sys_seconds": 147.73788,
+      "iterations": 23,
+      "converged": true,
+      "returncode": 0,
+      "env": "",
+      "dE_ev": 0.0,
+      "dF": 0.0,
+      "dS_gpa": 0.0,
+      "deig_ev": 0.0,
+      "ddens": 0.0,
+      "cert": 9.965921240807377e-13
+     },
+     {
+      "label": "mpi18-r2",
+      "input": "Ni",
+      "threads": 9,
+      "ranks": 2,
+      "wall_seconds": 53.730496583040804,
+      "user_seconds": 184.358734,
+      "sys_seconds": 373.83468,
+      "iterations": 23,
+      "converged": true,
+      "returncode": 0,
+      "env": "",
+      "dE_ev": 0.0,
+      "dF": 0.0,
+      "dS_gpa": 0.0,
+      "deig_ev": 0.0,
+      "ddens": 0.0,
+      "cert": 9.965921240807377e-13
+     },
+     {
+      "label": "mpi18-r3",
+      "input": "Ni",
+      "threads": 6,
+      "ranks": 3,
+      "wall_seconds": 21.300426958012395,
+      "user_seconds": 179.91195,
+      "sys_seconds": 2.50415,
+      "iterations": 23,
+      "converged": true,
+      "returncode": 0,
+      "env": "",
+      "dE_ev": 0.0,
+      "dF": 0.0,
+      "dS_gpa": 0.0,
+      "deig_ev": 0.0,
+      "ddens": 0.0,
+      "cert": 9.965921240807377e-13
+     }
+    ],
+    "metal_vs_cpu": [
+     {
+      "label": "mps2-cpu",
+      "input": "Si8",
+      "threads": 8,
+      "ranks": 1,
+      "wall_seconds": 20.130392416962422,
+      "user_seconds": 35.81992,
+      "sys_seconds": 0.6218359999999999,
+      "iterations": 25,
+      "converged": true,
+      "returncode": 0,
+      "env": "SDFT_COMPUTE_BACKEND=cpu",
+      "dE_ev": 1.0800249583553523e-12,
+      "dF": 1.1137126776361583e-09,
+      "dS_gpa": 1.2176037264546747e-10,
+      "deig_ev": 1.4455103780619538e-11,
+      "ddens": 7.17525175249326e-14,
+      "cert": 6.60801241542806e-13
+     },
+     {
+      "label": "mps2-mps",
+      "input": "Si8",
+      "threads": 8,
+      "ranks": 1,
+      "wall_seconds": 22.11309583298862,
+      "user_seconds": 34.150716,
+      "sys_seconds": 1.435099,
+      "iterations": 25,
+      "converged": true,
+      "returncode": 0,
+      "env": "SDFT_COMPUTE_BACKEND=mps",
+      "dE_ev": 7.389644451905042e-13,
+      "dF": 8.823050068329508e-10,
+      "dS_gpa": 5.333374028384297e-11,
+      "deig_ev": 1.1005418798504252e-11,
+      "ddens": 6.648652740735374e-14,
+      "cert": 6.905367299533483e-13
+     }
+    ],
+    "replay_stage_order": [
+     "rep",
+     "repb",
+     "repc",
+     "repd",
+     "repe",
+     "repf"
+    ]
+   }
+  }
+ ]
+}
