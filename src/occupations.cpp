@@ -45,10 +45,45 @@ OccupationResult fill_occupations(const std::vector<std::vector<double>>& energi
       return x>=0?std::exp(-x)/(1+std::exp(-x)):1/(1+std::exp(x));
     };
     double lo=levels.front().energy-80*sigma-1,hi=levels.back().energy+80*sigma+1;
-    for(int i=0;i<200;++i) {
-      const double mu=(lo+hi)*.5;double count=0;
-      for(const auto& level:levels)count+=2*weights[level.k]*fermi(level.energy,mu);
-      if(count<electrons)lo=mu;else hi=mu;
+    // Integer filling: the lowest `filled` levels hold exactly N_e and the next
+    // level lies higher, so the spectrum has a gap at this electron count.
+    std::size_t filled=0;double below=0;
+    while(filled<levels.size()&&below<electrons-1e-10)below+=2*weights[levels[filled++].k];
+    const bool gapped=filled>0&&filled<levels.size()&&std::abs(below-electrons)<=1e-10&&
+        levels[filled].energy-levels[filled-1].energy>1e-10;
+    if(gapped) {
+      // N(mu)-N_e = (electrons above the gap) - (holes below it), exactly. In the gap
+      // both tails fall below 1e-16 N_e, so a direct count rounds to N_e on a wide
+      // plateau and bisection stops at its edge. Summing each tail in log space keeps
+      // the balance resolved for any gap and width; ln f(x) = -softplus(x).
+      const double minus_inf=-std::numeric_limits<double>::infinity();
+      const auto log_fermi=[](double x){return -(std::max(x,0.)+std::log1p(std::exp(-std::abs(x))));};
+      const auto log_add=[&](double a,double b){
+        if(a<b)std::swap(a,b);
+        return b==minus_inf?a:a+std::log1p(std::exp(b-a));
+      };
+      std::vector<double> log_capacity(levels.size());
+      for(std::size_t i=0;i<levels.size();++i)log_capacity[i]=std::log(2*weights[levels[i].k]);
+      const auto log_balance=[&](double mu) {  // ln(electrons) - ln(holes), increasing in mu
+        double electrons_above=minus_inf,holes_below=minus_inf;
+        for(std::size_t i=0;i<levels.size();++i) {
+          const double x=(levels[i].energy-mu)/sigma;
+          if(i<filled)holes_below=log_add(holes_below,log_capacity[i]+log_fermi(-x));
+          else electrons_above=log_add(electrons_above,log_capacity[i]+log_fermi(x));
+        }
+        return electrons_above-holes_below;
+      };
+      for(int i=0;i<200;++i) {
+        const double mu=(lo+hi)*.5;
+        if(mu<=lo||mu>=hi)break;  // interval at machine resolution
+        if(log_balance(mu)<0)lo=mu;else hi=mu;
+      }
+    } else {
+      for(int i=0;i<200;++i) {
+        const double mu=(lo+hi)*.5;double count=0;
+        for(const auto& level:levels)count+=2*weights[level.k]*fermi(level.energy,mu);
+        if(count<electrons)lo=mu;else hi=mu;
+      }
     }
     out.chemical_potential_ev=(lo+hi)*.5;
     for(const auto& level:levels) {
