@@ -1,0 +1,88 @@
+{
+ "schema_version": "sparse-dft-sparsity-measured-1",
+ "measured": "wall time of a converged SCF, --sparsity auto vs --sparsity off (16x ENCUT density, padding 2), same machine and threads; gates whitepaper Table 1 against the off run",
+ "source": "Sparse-DFT v15 sparsity sweep (tools/sweep_sparsity.py), 2026-10-14/15; copied from Sparse-DFT-v15-review/sweeps/*_auto_fitted_v*.json",
+ "note": "speedups are per system and machine; they are not a property of the level",
+ "runs": [
+  {
+   "system": "Al",
+   "rules": "fitted_v1",
+   "density_cutoff_factor": 6.0,
+   "xc_padding": 1,
+   "wall_seconds": 2.7021212917752564,
+   "reference_wall_seconds": 7.544254000298679,
+   "speedup": 2.7919745953899087,
+   "table1_pass": true
+  },
+  {
+   "system": "Al_slab",
+   "rules": "fitted_v2",
+   "density_cutoff_factor": 6.0,
+   "xc_padding": 2,
+   "wall_seconds": 125.85518183279783,
+   "reference_wall_seconds": 692.987279959023,
+   "speedup": 5.506227632960527,
+   "table1_pass": true
+  },
+  {
+   "system": "LiF",
+   "rules": "fitted_v1",
+   "density_cutoff_factor": 12.0,
+   "xc_padding": 1,
+   "wall_seconds": 1.9415404167957604,
+   "reference_wall_seconds": 6.542819500435144,
+   "speedup": 3.369911562919276,
+   "table1_pass": true
+  },
+  {
+   "system": "MgO",
+   "rules": "fitted_v1",
+   "density_cutoff_factor": 8.0,
+   "xc_padding": 1,
+   "wall_seconds": 1.9641981669701636,
+   "reference_wall_seconds": 6.399853582959622,
+   "speedup": 3.258252497420662,
+   "table1_pass": true
+  },
+  {
+   "system": "MgO_h",
+   "rules": "fitted_v1",
+   "density_cutoff_factor": 4.0,
+   "xc_padding": 1,
+   "wall_seconds": 5.926849790848792,
+   "reference_wall_seconds": 33.70676916697994,
+   "speedup": 5.6871306607135645,
+   "table1_pass": true
+  },
+  {
+   "system": "Ni",
+   "rules": "fitted_v1",
+   "density_cutoff_factor": 16.0,
+   "xc_padding": 1,
+   "wall_seconds": 11.127597874961793,
+   "reference_wall_seconds": 73.9308124575764,
+   "speedup": 6.6439148222572015,
+   "table1_pass": true
+  },
+  {
+   "system": "Si2",
+   "rules": "fitted_v1",
+   "density_cutoff_factor": 4.0,
+   "xc_padding": 1,
+   "wall_seconds": 1.783640416804701,
+   "reference_wall_seconds": 10.119064790662378,
+   "speedup": 5.673265023221528,
+   "table1_pass": true
+  },
+  {
+   "system": "Si8",
+   "rules": "fitted_v1",
+   "density_cutoff_factor": 4.0,
+   "xc_padding": 1,
+   "wall_seconds": 6.184131832793355,
+   "reference_wall_seconds": 50.30577854067087,
+   "speedup": 8.134654936349875,
+   "table1_pass": true
+  }
+ ]
+}

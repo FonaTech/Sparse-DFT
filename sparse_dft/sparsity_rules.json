@@ -1,0 +1,91 @@
+{
+ "schema_version": "sparse-dft-sparsity-rules-1",
+ "status": "fitted",
+ "source": "Fixed-factor sweep on Si2, MgO, MgO(O_h), LiF, Al (FD 0.1 eV) and Ni (spin, FD 0.1 eV) against the same-system 16xENCUT sparsity-off reference; gates: 1 meV/atom energy, 1e-3 eV/A force, 0.01 GPa stress, 5 meV band window. Hold-out: Si8, Al(001) slab, Si64, Ni4 (Ni_pv). Vacuum cells keep padding 2 because the Al(001) slab fails the force gate with f6 and padding 1 together (1.98e-3 eV/A) while f6 (3.0e-4) and padding 1 (4.5e-5) each pass.",
+ "density_cutoff": {
+  "id": "S1.weighted_l2.v1",
+  "metric": "weighted_compensation_l2",
+  "candidates": [
+   4,
+   5,
+   6,
+   8,
+   10,
+   12,
+   16
+  ],
+  "tail_budget": 2.5e-07,
+  "fallback_factor": 16,
+  "evidence": "largest passing weighted L2 tail 4.25e-7 (MgO f6); smallest failing 8.77e-7 (LiF f8); budget at 0.6x the largest pass",
+  "stricter_when": [
+   {
+    "id": "S1.metal_min6.v1",
+    "feature": "metallic",
+    "minimum_factor": 6,
+    "evidence": "Al (no d moment, tiny compensation tail) used 0.99 of the stress gate at f4 and 0.30 at f6; the smooth density/Fermi-surface response, not the PAW tail, limits metals"
+   }
+  ]
+ },
+ "xc_padding": [
+  {
+   "id": "S2.vacuum.v2",
+   "when": {
+    "vacuum_fraction_min": 0.3
+   },
+   "value": 2,
+   "evidence": "Al(001) slab, vacuum 0.60: auto f6 + padding 1 gave force error 1.98e-3 eV/A (gate 1e-3); f6 with padding 2 gave 3.0e-4. GGA terms in low-density vacuum alias on the reduced XC grid."
+  },
+  {
+   "id": "S2.insulator.v1",
+   "when": {
+    "metallic": false
+   },
+   "value": 1,
+   "evidence": "padding 1 changed E by <=0.0008 meV/atom and stress by <=0.0001 GPa on all six fit systems"
+  },
+  {
+   "id": "S2.metal.v1",
+   "when": {
+    "metallic": true
+   },
+   "value": 1,
+   "evidence": "Al 0.0002 meV/atom, Ni 0.0008 meV/atom"
+  }
+ ],
+ "eigen_search_factor": [
+  {
+   "id": "S3.metal.v1",
+   "when": {
+    "metallic": true,
+    "spin": false
+   },
+   "value": 1e-05,
+   "evidence": "Al: factor 1e-2..1e-4 doubled outer iterations (10 -> 19-22), 1e-5 gave 12"
+  },
+  {
+   "id": "S3.default.v1",
+   "when": {},
+   "value": 0.0001,
+   "evidence": "best or near-best wall time on Si2, MgO_h, Ni; result unchanged (certificate)"
+  }
+ ],
+ "block_ortho": [
+  {
+   "id": "S4.all.v1",
+   "when": {},
+   "value": true,
+   "evidence": "identical results, fewer S applications on all systems"
+  }
+ ],
+ "paw_compensation": [
+  {
+   "id": "S5.blocks.v1",
+   "when": {},
+   "value": "blocks",
+   "evidence": "identical energies/forces/stress to full on all fit systems; certificate residual unchanged"
+  }
+ ],
+ "projector_space": [],
+ "projector_radius_factor": [],
+ "search_precision": []
+}
