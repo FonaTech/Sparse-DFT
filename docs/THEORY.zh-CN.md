@@ -105,7 +105,11 @@ $$f_{n\mathbf k} = \frac{2}{1+e^{(\varepsilon_{n\mathbf k}-\mu)/\sigma}},\qquad 
 
 $$-TS = \sigma\sum_{n\mathbf k}2w_{\mathbf k}\big[\tilde f\ln\tilde f + (1-\tilde f)\ln(1-\tilde f)\big],\qquad \tilde f = f_{n\mathbf k}/2 .$$
 
-$\mu$ 用二分法求得。报告的总能是自由能 $E - TS$，`internal_energy_ev` 为 $E$。$\sigma = 0$ 时按零温从低到高填充能级，简并能级等占据。共线自旋使用同一求解器，每个通道取一半权重。若某 k 点最高的计算能带占据仍高于 $10^{-6}$，自动能带数增加 $\max(4, 25\,\%)$ 并重新开始 SCF；显式给出 `--bands` 时则直接报错。
+$\mu$ 按电子数二分求得。能隙远宽于 $\sigma$ 时，两侧的 Fermi 尾都低于 $N_e$ 的双精度分辨率，电子数在能隙内平坦，无法确定 $\mu$。只要最低的若干能级恰好容纳 $N_e$ 个电子且下一能级更高，求解器就改为对两侧尾部的平衡做二分，每一侧都以对数形式求和，$\ln\tilde f(x) = -\ln(1+e^{x})$：
+
+$$\ln\sum_{\varepsilon_{n\mathbf k}>\varepsilon_v}2w_{\mathbf k}\tilde f_{n\mathbf k} = \ln\sum_{\varepsilon_{n\mathbf k}\le\varepsilon_v}2w_{\mathbf k}\big(1-\tilde f_{n\mathbf k}\big),$$
+
+其中 $\varepsilon_v$ 为最高的已填充能级。$\sigma$ 远小于能隙时，根趋于 $\mu = \tfrac12(\varepsilon_v+\varepsilon_c) + \tfrac{\sigma}{2}\ln(g_v/g_c)$，$g_v$ 和 $g_c$ 为两个带边按 $k$ 权重计的容量。因此展宽后绝缘体的 Fermi 能级依赖于 $\sigma$ 和带边简并度；能带比较对有隙谱以 VBM 为零点（§12）。报告的总能是自由能 $E - TS$，`internal_energy_ev` 为 $E$。$\sigma = 0$ 时按零温从低到高填充能级，简并能级等占据。共线自旋使用同一求解器，每个通道取一半权重。若某 k 点最高的计算能带占据仍高于 $10^{-6}$，自动能带数增加 $\max(4, 25\,\%)$ 并重新开始 SCF；显式给出 `--bands` 时则直接报错。
 
 ## 8. 自洽
 
@@ -167,6 +171,8 @@ $$\mathbf F^{\mathrm{nl}}_a = -\sum_{n\mathbf k}w_{\mathbf k}f_{n\mathbf k}\sum_
 $$D_\sigma(E) = \sum_{n\mathbf k}w_{\mathbf k}\,g\,\frac{1}{\sigma\sqrt{2\pi}}\,e^{-(E-\varepsilon_{n\mathbf k})^2/2\sigma^2},$$
 
 其中 $g$ 为自旋简并度，$\sigma$ = `--dos-sigma`（`gaussian_broaden`，`sparse_dft/bands.py`）。能量步长不得超过 $\sigma/3$。DOS 只在最高求解能带起始能量加 $3\sigma$ 以下是完整的；`dos.json` 将其记录为 `complete_below_ev`。
+
+**能带结构的比较。** `bands-compare` 和 `bands_compare` 图默认使用 `--align auto`。若两个来源在每个自旋通道中都在各自的 $E_F$ 处有隙，且每个通道的占据能带数相同，则各自以采样得到的 VBM 为零点；否则各自以自身 SCF 的 $E_F$ 为零点。同一来源的两个自旋通道共用一个零点。固定密度的 VASP 计算（`ICHARG` $\ge$ 10）会在自身的 k 列表上重新填充 $E_F$，因此对含此类来源的金属体系 `auto` 会拒绝比较。`--align none` 比较原始能量；两个程序使用相同 PAW 数据集时这是成立的，精度报告即采用此方式。
 
 ## 13. 轨道投影
 

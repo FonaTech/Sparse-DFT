@@ -172,7 +172,7 @@ sparse-dft bands examples/Si.POSCAR --paw-root $PAW --path si_path.json --out si
 sparse-dft bands-compare REFERENCE CANDIDATE --align none --max-energy-ev 10 --out compare.json
 ```
 
-`--align vbm|fermi|none` 设定共同的能量零点。两个计算共享 PAW 能量零点时用 `none`，精度报告中即如此。
+`--align auto|vbm|fermi|none` 设定能量零点（默认 `auto`）。两个来源都有隙且占据能带数相同时，`auto` 让各自以采样得到的 VBM 为零点，否则以各自 SCF 的 $E_F$ 为零点；两个自旋通道共用一个零点（理论 §12）。有展宽时，两个程序可能把 $E_F$ 放在同一能隙中的不同位置，因此对绝缘体 `fermi` 可能显示整体平移。两个计算共享 PAW 能量零点时用 `none`，精度报告中即如此。
 
 ## 6. 态密度
 

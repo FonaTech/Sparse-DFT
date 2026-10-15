@@ -172,7 +172,7 @@ Compare two band sources, for example with a VASP `vasprun.xml` or `EIGENVAL`:
 sparse-dft bands-compare REFERENCE CANDIDATE --align none --max-energy-ev 10 --out compare.json
 ```
 
-`--align vbm|fermi|none` sets the common energy zero. Use `none` when both runs share the PAW energy zero, as in the accuracy report.
+`--align auto|vbm|fermi|none` sets the energy zero (default `auto`). `auto` refers each source to its sampled VBM when both are gapped with the same occupied band count, and otherwise to its own SCF $E_F$; both spin channels share one zero (THEORY §12). With smearing, two codes can place $E_F$ at different points of the same gap, so `fermi` can show a rigid shift for an insulator. Use `none` when both runs share the PAW energy zero, as in the accuracy report.
 
 ## 6. Density of states
 

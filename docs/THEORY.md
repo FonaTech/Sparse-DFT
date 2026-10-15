@@ -105,7 +105,11 @@ $$f_{n\mathbf k} = \frac{2}{1+e^{(\varepsilon_{n\mathbf k}-\mu)/\sigma}},\qquad 
 
 $$-TS = \sigma\sum_{n\mathbf k}2w_{\mathbf k}\big[\tilde f\ln\tilde f + (1-\tilde f)\ln(1-\tilde f)\big],\qquad \tilde f = f_{n\mathbf k}/2 .$$
 
-$\mu$ is found by bisection. The reported total energy is the free energy $E - TS$ and `internal_energy_ev` is $E$. At $\sigma = 0$ the levels are filled from the bottom at zero temperature, keeping degenerate levels equally occupied. Collinear spin uses the same solver with half weights per channel. If the top computed band still has an occupation above $10^{-6}$ at some k point, an automatic band count grows by $\max(4, 25\,\%)$ and the SCF restarts; an explicit `--bands` fails instead.
+$\mu$ is found by bisection on the electron count. In a gap that is wide compared with $\sigma$, both Fermi tails fall below the double-precision resolution of $N_e$, so the count is flat there and cannot locate $\mu$. For any filling in which the lowest levels hold exactly $N_e$ and the next level lies higher, the solver bisects instead on the balance of the two tails, each summed in logarithmic form with $\ln\tilde f(x) = -\ln(1+e^{x})$:
+
+$$\ln\sum_{\varepsilon_{n\mathbf k}>\varepsilon_v}2w_{\mathbf k}\tilde f_{n\mathbf k} = \ln\sum_{\varepsilon_{n\mathbf k}\le\varepsilon_v}2w_{\mathbf k}\big(1-\tilde f_{n\mathbf k}\big),$$
+
+where $\varepsilon_v$ is the highest filled level. For $\sigma$ much smaller than the gap the root tends to $\mu = \tfrac12(\varepsilon_v+\varepsilon_c) + \tfrac{\sigma}{2}\ln(g_v/g_c)$, with $g_v$ and $g_c$ the $k$-weighted capacities at the two band edges. The Fermi level of a smeared insulator thus depends on $\sigma$ and on the edge degeneracies; band comparisons therefore refer gapped spectra to the VBM (§12). The reported total energy is the free energy $E - TS$ and `internal_energy_ev` is $E$. At $\sigma = 0$ the levels are filled from the bottom at zero temperature, keeping degenerate levels equally occupied. Collinear spin uses the same solver with half weights per channel. If the top computed band still has an occupation above $10^{-6}$ at some k point, an automatic band count grows by $\max(4, 25\,\%)$ and the SCF restarts; an explicit `--bands` fails instead.
 
 ## 8. Self-consistency
 
@@ -167,6 +171,8 @@ A step is accepted after a full SCF at the trial point satisfies the Armijo cond
 $$D_\sigma(E) = \sum_{n\mathbf k}w_{\mathbf k}\,g\,\frac{1}{\sigma\sqrt{2\pi}}\,e^{-(E-\varepsilon_{n\mathbf k})^2/2\sigma^2},$$
 
 with $g$ the spin degeneracy and $\sigma$ = `--dos-sigma` (`gaussian_broaden`, `sparse_dft/bands.py`). The energy step must not exceed $\sigma/3$. The DOS is complete only below the energy at which the highest solved band starts plus $3\sigma$; `dos.json` records this as `complete_below_ev`.
+
+**Comparing band structures.** `bands-compare` and the `bands_compare` figure default to `--align auto`. When both sources are gapped at their $E_F$ in every spin channel, with the same occupied band count per channel, each is referred to its own sampled VBM; otherwise each is referred to its own SCF $E_F$. Both spin channels of a source share one zero. A fixed-density VASP run (`ICHARG` $\ge$ 10) refills $E_F$ on its own k list, so `auto` refuses a metallic pair with such a source. `--align none` compares raw energies; this is valid when both codes use the same PAW datasets, and the accuracy report uses it.
 
 ## 13. Orbital projections
 
