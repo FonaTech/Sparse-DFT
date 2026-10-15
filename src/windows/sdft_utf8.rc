@@ -1,0 +1,2 @@
+// MinGW/clang resource script embedding the UTF-8 code-page manifest.
+1 24 "sdft_utf8.manifest"
