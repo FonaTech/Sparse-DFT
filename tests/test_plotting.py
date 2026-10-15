@@ -338,6 +338,26 @@ class FigureKindTests(unittest.TestCase):
             self.assertEqual(fig.axes[1].get_xlabel(), r'$\Delta E$ (meV)')
             self.assertClean(fig)
 
+    def test_bands_compare_auto_zero_ignores_in_gap_fermi_offset(self):
+        # Same gapped spectrum, E_F 0.58 eV apart inside the gap: the default
+        # zero is each sampled VBM, so the overlay and ΔE show no rigid shift.
+        kpts = [[0, 0, 0], [0.25, 0, 0], [0.5, 0, 0]]
+        ev = [[-2.0, -1.0, 3.0, 5.0], [-1.8, -0.5, 3.4, 5.2], [-1.5, -0.2, 3.1, 5.5]]
+        with tempfile.TemporaryDirectory() as td:
+            dirs = []
+            for name, ef in (('ref', 1.4), ('cand', 0.82)):
+                d = Path(td) / name; d.mkdir()
+                (d / 'bands.json').write_text(json.dumps({'kpoints': kpts, 'eigenvalues': ev, 'fermi_energy': ef}))
+                dirs.append(d)
+            fig = make_figure('bands_compare', [dirs[1]], reference=dirs[0])
+            v = fig.sparse_dft_meta['values']
+            self.assertEqual(v['alignment'], 'vbm')
+            self.assertAlmostEqual(v['reference_zero_ev'], -0.2, places=12)
+            self.assertAlmostEqual(v['candidate_zero_ev'], -0.2, places=12)
+            self.assertLess(v['max_abs_error_ev'], 1e-12)
+            self.assertIn('VBM', fig.axes[0].get_ylabel())
+            self.assertClean(fig)
+
     def test_relax(self):
         fig = make_figure('relax', PF / 'synthetic_relax')
         self.assertEqual(len(fig.axes), 3)                      # energy, max force, step length
