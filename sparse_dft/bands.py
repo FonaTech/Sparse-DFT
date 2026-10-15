@@ -389,6 +389,10 @@ def parse_vasprun_bands(path: str | Path) -> BandStructure:
         fermi_nodes = root.findall('.//i[@name="efermi"]')
         fermi_node = fermi_nodes[-1] if fermi_nodes else None
     fermi = float(fermi_node.text) if fermi_node is not None and fermi_node.text else None
+    # ICHARG >= 10 keeps the density fixed; the efermi such a run writes is
+    # refilled from its own k list (a band path), not the SCF Fermi energy.
+    icharg_nodes = root.findall('.//i[@name="ICHARG"]')
+    icharg = int(_float_tokens(icharg_nodes[-1].text or '')[0]) if icharg_nodes and _float_tokens(icharg_nodes[-1].text or '') else None
 
     kpoint_lists = root.findall('./kpoints/varray[@name="kpointlist"]') or container.findall('.//varray[@name="kpointlist"]')
     kpoint_list = kpoint_lists[-1] if kpoint_lists else None
@@ -444,6 +448,9 @@ def parse_vasprun_bands(path: str | Path) -> BandStructure:
         raise InputError(f'vasprun band dimensions mismatch: kpoints={len(kpoints)}, eigenvalue sets={len(eigenvalues)}')
     vbm, cbm, gap_status = _infer_edges(eigenvalues, fermi, occupations, spin_channels)
     metadata = {'format': 'vasprun.xml', 'spin_channels': list(spin_channels), 'final_calculation': bool(calculations)}
+    if icharg is not None:
+        metadata['icharg'] = icharg
+        metadata['fermi_energy_scope'] = 'nscf_k_list' if icharg >= 10 else 'scf'
     if len(reciprocal_basis) == 3:
         metadata['reciprocal_basis'] = reciprocal_basis
         metadata['reciprocal_basis_includes_2pi'] = True
@@ -912,7 +919,123 @@ def _same_path_geometry(reference: BandStructure, candidate: BandStructure, tol=
     return not mismatches, {'reference_segments': len(left), 'candidate_segments': len(right), 'mismatches': mismatches}
 
 
-def compare_bands(reference: BandStructure, candidate: BandStructure, *, align='vbm', max_energy_ev=10.0) -> dict:
+GAP_TOLERANCE_EV = 1e-5
+
+
+def sampled_band_split(bands: BandStructure, tol: float = GAP_TOLERANCE_EV) -> dict:
+    """Split the sampled bands at E_F into an occupied and an empty set.
+
+    The spectrum counts as gapped when, in every spin channel, each band lies
+    wholly at or below E_F or wholly above it, the occupied bands are the lowest
+    ones, and the highest occupied state lies below the lowest empty one. The
+    test covers the sampled k-points only; it does not establish a zone-wide gap.
+    """
+    ef = bands.fermi_energy
+    if ef is None:
+        return {'gapped': False, 'reason': 'no Fermi energy'}
+    ef = float(ef)
+    # One channel is 'total' whatever the parser called it (VASP ISPIN=1: 'up').
+    channels = bands.spin_channels if bands.spin_channels and len(bands.spin_channels) > 1 \
+        else {'total': bands.eigenvalues}
+    counts, occupied, empty = {}, [], []
+    for name, rows in channels.items():
+        nb = len(rows[0]) if rows else 0
+        full = [max(row[b] for row in rows) <= ef + tol for b in range(nb)]
+        vacant = [min(row[b] for row in rows) > ef + tol for b in range(nb)]
+        if not all(f or v for f, v in zip(full, vacant)):
+            return {'gapped': False, 'reason': f'a band crosses E_F in channel {name}'}
+        n = sum(full)
+        if any(full[n:]):
+            return {'gapped': False, 'reason': f'occupied bands are not the lowest in channel {name}'}
+        counts[name] = n
+        occupied += [max(row[b] for row in rows) for b in range(n)]
+        empty += [min(row[b] for row in rows) for b in range(n, nb)]
+    if not occupied or not empty:
+        return {'gapped': False, 'reason': 'no occupied or no empty band sampled'}
+    vbm, cbm = max(occupied), min(empty)
+    if cbm - vbm <= tol:
+        return {'gapped': False, 'reason': 'sampled gap below tolerance'}
+    return {'gapped': True, 'reason': 'occupied and empty bands separated at E_F', 'occupied_bands': counts,
+            'vbm_ev': vbm, 'cbm_ev': cbm, 'sampled_gap_ev': cbm - vbm}
+
+
+def common_energy_zero(reference: BandStructure, candidate: BandStructure) -> dict:
+    """One energy zero per source for comparing two band structures.
+
+    Both gapped with equal occupied band counts per spin channel: the sampled
+    VBM of each source. Otherwise each source's own Fermi energy, which must be
+    its SCF value. With smearing, E_F in a gap is the root where electrons above
+    the gap balance holes below it; it moves with sigma and the edge degeneracies,
+    so two codes need not place it at the same point. Both spin channels of a
+    source share its zero.
+    """
+    splits = {'reference': sampled_band_split(reference), 'candidate': sampled_band_split(candidate)}
+    reasons = [f'{side}: {s["reason"]}' for side, s in splits.items() if not s['gapped']]
+    if not reasons and splits['reference']['occupied_bands'] != splits['candidate']['occupied_bands']:
+        reasons.append('occupied band counts per spin channel differ')
+    if not reasons:
+        return {'kind': 'vbm', 'reference_ev': splits['reference']['vbm_ev'],
+                'candidate_ev': splits['candidate']['vbm_ev'], 'fallback_reasons': [],
+                'occupied_bands': splits['reference']['occupied_bands']}
+    if reference.fermi_energy is None or candidate.fermi_energy is None:
+        raise InputError("align='auto' found no common gap and needs a Fermi energy in both band sources; "
+                         "use align='none' (CLI: --align none)", details={'fallback_reasons': reasons})
+    refilled = [b.source for b in (reference, candidate) if (b.metadata or {}).get('fermi_energy_scope') == 'nscf_k_list']
+    if refilled:
+        # Al anchor path: 7.640 eV refilled on the path vs 7.983 eV in the SCF.
+        raise InputError("align='auto' found no common gap, and a band source's E_F was refilled on its own "
+                         "k list by a fixed-density run (VASP ICHARG >= 10), not taken from the SCF; "
+                         "use align='none' when both codes share the PAW energy zero (CLI: --align none)",
+                         details={'fallback_reasons': reasons, 'nscf_fermi_sources': refilled})
+    return {'kind': 'fermi', 'reference_ev': float(reference.fermi_energy),
+            'candidate_ev': float(candidate.fermi_energy), 'fallback_reasons': reasons}
+
+
+BAND_ALIGNMENTS = ('auto', 'vbm', 'fermi', 'none')
+
+
+def band_zero(reference: BandStructure, candidate: BandStructure, align='auto') -> dict:
+    """Energy zero of each source and the reference energy the window is centred on.
+
+    'none' keeps raw energies and centres the window on the reference E_F (or
+    on zero when it has none). A requested alignment the data cannot support
+    raises instead of silently comparing raw energies.
+    """
+    if align not in BAND_ALIGNMENTS:
+        raise InputError(f'unknown band alignment: {align}', details={'choices': list(BAND_ALIGNMENTS)})
+    if align == 'none':
+        ef = reference.fermi_energy
+        return {'kind': 'none', 'reference_ev': 0.0, 'candidate_ev': 0.0,
+                'window_centre_ev': float(ef) if ef is not None else None}
+    if align == 'auto':
+        zero = common_energy_zero(reference, candidate)
+    elif align == 'vbm':
+        # Without a gap at E_F only occupations can vouch for a VBM; an E_F
+        # threshold also "finds" one when a band crosses E_F between samples.
+        splits = [sampled_band_split(reference), sampled_band_split(candidate)]
+        vbm = [s['vbm_ev'] if s['gapped'] else (b.vbm if b.gap_status == 'insulator' else None)
+               for s, b in zip(splits, (reference, candidate))]
+        if None in vbm:
+            raise InputError("align='vbm' needs a VBM in both band sources (gapped at E_F, or occupations); "
+                             "use align='auto', 'fermi' or 'none'",
+                             details={'reasons': [s['reason'] for s in splits if not s['gapped']]})
+        zero = {'kind': 'vbm', 'reference_ev': vbm[0], 'candidate_ev': vbm[1]}
+    else:
+        if reference.fermi_energy is None or candidate.fermi_energy is None:
+            raise InputError("align='fermi' needs a Fermi energy in both band sources; use align='auto', 'vbm' "
+                             "or 'none'", details={'reference_fermi': reference.fermi_energy,
+                                                   'candidate_fermi': candidate.fermi_energy})
+        zero = {'kind': 'fermi', 'reference_ev': float(reference.fermi_energy),
+                'candidate_ev': float(candidate.fermi_energy)}
+    return {**zero, 'window_centre_ev': zero['reference_ev']}
+
+
+def compare_bands(reference: BandStructure, candidate: BandStructure, *, align='auto', max_energy_ev=10.0) -> dict:
+    """Band differences after alignment, on the reference path within +-max_energy_ev of its zero.
+
+    align: 'auto' (see :func:`common_energy_zero`), 'vbm', 'fermi', or 'none'
+    (raw energies; PAW codes on one pseudopotential set share the energy zero).
+    """
     if reference.nbands != candidate.nbands:
         raise InputError(f'band count mismatch: reference={reference.nbands}, candidate={candidate.nbands}')
     if reference.nkpoints < 2 or candidate.nkpoints < 2:
@@ -931,13 +1054,9 @@ def compare_bands(reference: BandStructure, candidate: BandStructure, *, align='
     same_geometry, geometry_report = _same_path_geometry(reference, candidate)
     if not same_geometry:
         raise InputError('band paths have different reciprocal-space geometry', details=geometry_report)
-    shift = 0.0
-    if align == 'vbm' and reference.vbm is not None and candidate.vbm is not None:
-        shift = reference.vbm - candidate.vbm
-    elif align == 'fermi' and reference.fermi_energy is not None and candidate.fermi_energy is not None:
-        shift = reference.fermi_energy - candidate.fermi_energy
-    elif align not in ('none', 'vbm', 'fermi'):
-        raise InputError(f'unknown band alignment: {align}')
+    zero = band_zero(reference, candidate, align)
+    shift = zero['reference_ev'] - zero['candidate_ev']
+    centre = zero['window_centre_ev']
     errors = []
     for x, ref_row in zip(ref_distances, reference.eigenvalues):
         target = (x / ref_length) * cand_length
@@ -945,7 +1064,7 @@ def compare_bands(reference: BandStructure, candidate: BandStructure, *, align='
                     for band in range(candidate.nbands)]
         for ref_value, cand_value in zip(ref_row, cand_row):
             delta = cand_value - ref_value
-            if abs(ref_value - reference.fermi_energy if reference.fermi_energy is not None else ref_value) <= max_energy_ev:
+            if abs(ref_value - centre if centre is not None else ref_value) <= max_energy_ev:
                 errors.append(delta)
     if not errors:
         raise InputError('no energies remained within comparison window')
@@ -953,7 +1072,11 @@ def compare_bands(reference: BandStructure, candidate: BandStructure, *, align='
     rmse = math.sqrt(sum(x * x for x in errors) / len(errors))
     return {
         'reference': reference.source, 'candidate': candidate.source,
-        'alignment': align, 'energy_shift_ev': shift,
+        'alignment': zero['kind'], 'requested_alignment': align, 'energy_shift_ev': shift,
+        'reference_zero_ev': zero['reference_ev'], 'candidate_zero_ev': zero['candidate_ev'],
+        'window_centre_ev': centre, 'alignment_fallback_reasons': zero.get('fallback_reasons', []),
+        'fermi_energy_scope': {'reference': (reference.metadata or {}).get('fermi_energy_scope', 'as_recorded'),
+                               'candidate': (candidate.metadata or {}).get('fermi_energy_scope', 'as_recorded')},
         'samples': len(errors), 'mae_ev': mae, 'rmse_ev': rmse,
         'max_abs_error_ev': max(abs(x) for x in errors),
         'reference_gap_ev': reference.band_gap, 'candidate_gap_ev': candidate.band_gap,

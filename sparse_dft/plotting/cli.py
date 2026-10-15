@@ -42,7 +42,8 @@ def build_parser() -> argparse.ArgumentParser:
     g.add_argument('--emin', type=float, help='lower energy limit relative to the energy zero (eV)')
     g.add_argument('--emax', type=float, help='upper energy limit relative to the energy zero (eV)')
     g.add_argument('--fermi', type=float, help='Fermi energy (eV) when the data lacks one or to override it')
-    g.add_argument('--align', choices=('fermi', 'vbm', 'none'), help='energy zero (default fermi)')
+    g.add_argument('--align', choices=('auto', 'fermi', 'vbm', 'none'),
+                   help='energy zero (default fermi; bands_compare default auto: shared sampled VBM if both gapped, else each E_F)')
     g.add_argument('--sigma', type=float, help='Gaussian broadening for DOS from SCF eigenvalues (eV, default 0.1)')
     g.add_argument('--spin', choices=('up', 'down', 'both'), help='spin channel to show (default both)')
     g.add_argument('--reference', help='reference band source for bands_compare / dos_compare (SOURCES is the candidate)')

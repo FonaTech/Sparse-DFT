@@ -856,21 +856,16 @@ def common_band_window(reference: BandStructure, candidate: BandStructure,
     return out[0], out[1], n
 
 
-def compare_band_data(reference: BandStructure, candidate: BandStructure, *, align='fermi',
+def compare_band_data(reference: BandStructure, candidate: BandStructure, *, align='auto',
                       max_energy_ev: float = 10.0) -> BandComparison:
     """Per-point band differences with the same alignment and window as compare_bands.
 
-    Different band counts are compared on :func:`common_band_window`.
+    Different band counts are compared on :func:`common_band_window`. The
+    energy zero of each source is in ``metrics['reference_zero_ev']`` and
+    ``metrics['candidate_zero_ev']`` (see :func:`sparse_dft.bands.band_zero`).
     """
     from ..bands import _distances, _interpolate, compare_bands
     reference, candidate, window = common_band_window(reference, candidate)
-    if align == 'fermi' and (reference.fermi_energy is None or candidate.fermi_energy is None):
-        raise InputError("align='fermi' needs a Fermi energy in both band sources; "
-                         "use align='vbm' or align='none' (CLI: --align vbm|none)",
-                         details={'reference_fermi': reference.fermi_energy, 'candidate_fermi': candidate.fermi_energy})
-    if align == 'vbm' and (reference.vbm is None or candidate.vbm is None):
-        raise InputError("align='vbm' needs a VBM in both band sources (insulators with occupations or E_F); "
-                         "use align='fermi' or align='none'")
     metrics = compare_bands(reference, candidate, align=align, max_energy_ev=max_energy_ev)
     shift = metrics['energy_shift_ev']
     rb = (reference.metadata or {}).get('reciprocal_basis')
@@ -878,12 +873,12 @@ def compare_band_data(reference: BandStructure, candidate: BandStructure, *, ali
     rd, cd = _distances(reference.kpoints, rb), _distances(candidate.kpoints, cb)
     rl, cl = rd[-1], cd[-1]
     ks, bs, rv, cv, dv = [], [], [], [], []
-    ef = reference.fermi_energy
+    centre = metrics['window_centre_ev']
     for k, (x, row) in enumerate(zip(rd, reference.eigenvalues)):
         target = (x / rl) * cl
         for b, ref in enumerate(row):
             cand = _interpolate([r[b] for r in candidate.eigenvalues], cd, target) + shift
-            centred = ref - ef if ef is not None else ref
+            centred = ref - centre if centre is not None else ref
             if abs(centred) <= max_energy_ev:
                 ks.append(k); bs.append(b); rv.append(ref); cv.append(cand); dv.append(cand - ref)
     if window is not None:

@@ -50,7 +50,7 @@ def dispatch(method, params):
         if method=='backend.info':
             return _response('PASS', backend_info(), request_id=req)
         if method=='bands.compare':
-            result=compare_bands(load_bands(params['reference']),load_bands(params['candidate']),align=params.get('align','vbm'),max_energy_ev=float(params.get('max_energy_ev',10.0)))
+            result=compare_bands(load_bands(params['reference']),load_bands(params['candidate']),align=params.get('align','auto'),max_energy_ev=float(params.get('max_energy_ev',10.0)))
             return _response('PASS',result,request_id=req)
         if method=='bands.analyze':
             result=analyze_bands(params['bands'],dos_path=params.get('doscar'),dos_scf_path=params.get('dos_scf'),procar_path=params.get('procar'),structure=params.get('structure'),fermi_energy=params.get('fermi_energy_ev'),gaussian_sigma=float(params.get('sigma_ev',0.05)),output_dir=params.get('output','band_analysis'),render=bool(params.get('render',True)))

@@ -83,7 +83,8 @@ def group_style(name, by, spec, elements) -> tuple:
 
 # --- shared helpers ---------------------------------------------------------------
 def _energy_zero(bands, dos=None, *, align='fermi', fermi=None):
-    from .electronic_plots import energy_reference
+    from .electronic_plots import energy_reference, resolve_auto_align
+    align = resolve_auto_align(bands, align, fermi)
     if align == 'fermi' and fermi is None and dos is not None and dos.fermi_energy_ev is not None:
         return energy_reference(None, dos, align='fermi')
     return energy_reference(bands, dos, align=align, fermi=fermi)

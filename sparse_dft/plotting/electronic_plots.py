@@ -16,17 +16,37 @@ from .labels import tr
 from .style import NEUTRAL, style_of, tint
 
 SPIN_STYLE = {'up': '-', 'down': (0, (3.2, 1.6)), 'total': '-'}
-ALIGNS = ('fermi', 'vbm', 'none')
+ALIGNS = ('auto', 'fermi', 'vbm', 'none')
+
+
+def resolve_auto_align(bands: BandStructure | None, align, fermi=None):
+    """'auto' stays 'auto' (sampled VBM zero) only for a gapped band source without
+    an explicit ``fermi``; otherwise it becomes 'fermi'. Other values pass through."""
+    if align != 'auto':
+        return align
+    from ..bands import sampled_band_split
+    gapped = bands is not None and fermi is None and sampled_band_split(bands)['gapped']
+    return 'auto' if gapped else 'fermi'
 
 
 def energy_reference(bands: BandStructure | None = None, dos: DosData | None = None, *,
                      align='fermi', fermi=None):
-    """Return (shift_ev, ylabel_key, info); plotted energy = E - shift_ev."""
+    """Return (shift_ev, ylabel_key, info); plotted energy = E - shift_ev.
+
+    'auto' uses the sampled VBM when every spin channel of ``bands`` is gapped
+    at E_F (both channels share it), otherwise E_F; an explicit ``fermi`` wins.
+    """
     if align not in ALIGNS:
         raise InputError(f"align must be one of {ALIGNS}, got {align!r}")
     source = bands.source if bands is not None else (dos.source if dos is not None else '<data>')
     if align == 'none':
         return 0.0, 'energy_abs', {'align': 'none'}
+    if align == 'auto':
+        if resolve_auto_align(bands, align, fermi) == 'auto':
+            from ..bands import sampled_band_split
+            vbm = sampled_band_split(bands)['vbm_ev']
+            return vbm, 'energy_rel_vbm', {'align': 'vbm', 'vbm_ev': vbm, 'requested_align': 'auto'}
+        align = 'fermi'
     if align == 'vbm':
         edges = band_edges(bands) if bands is not None else None
         if edges is None or edges.vbm_ev is None:
@@ -353,6 +373,7 @@ def plot_bands_dos(data, ax=None, *, emin=None, emax=None, fermi=None, align='fe
     # One energy zero for both panels: explicit fermi, else the DOS (mesh)
     # Fermi energy, else the band file's.  A path-only NSCF rarely defines
     # E_F; the uniform-mesh value is the physical one (as in pymatgen).
+    align = resolve_auto_align(bands, align, fermi)
     if align == 'fermi' and fermi is None and dos.fermi_energy_ev is not None:
         shift, label, info = energy_reference(None, dos, align='fermi')
     else:
@@ -462,12 +483,13 @@ def plot_fatbands(data, ax=None, *, emin=None, emax=None, fermi=None, align='fer
     return fig
 
 
-def plot_bands_compare(data, ax=None, *, emin=None, emax=None, align='fermi', max_energy_ev=10.0,
+def plot_bands_compare(data, ax=None, *, emin=None, emax=None, align='auto', max_energy_ev=10.0,
                        labels=None, **_opts):
     """Reference vs candidate bands (overlay) and ΔE vs energy on a shared energy axis.
 
     ``data`` = (reference, candidate) BandStructures; differences use the
-    alignment and interpolation of :func:`sparse_dft.bands.compare_bands`.
+    alignment and interpolation of :func:`sparse_dft.bands.compare_bands`. With
+    'auto', gapped pairs share the sampled VBM and metals each use their own E_F.
     """
     from ..analysis.electronic import compare_band_data, is_mesh
     ref, cand = data
@@ -480,8 +502,9 @@ def plot_bands_compare(data, ax=None, *, emin=None, emax=None, align='fermi', ma
         fig, axes = axes_or_new(ax, nrows=1, ncols=2)
     spec = style_of(fig)
     ab, ae = axes[0, 0], axes[0, 1]
-    zero = ref.fermi_energy if align == 'fermi' else (ref.vbm if align == 'vbm' else 0.0)
-    ylabel = {'fermi': 'energy_rel_ef', 'vbm': 'energy_rel_vbm', 'none': 'energy_abs'}[align]
+    kind = cmp.metrics['alignment']
+    zero = cmp.metrics['reference_zero_ev']
+    ylabel = {'fermi': 'energy_rel_ef', 'vbm': 'energy_rel_vbm', 'none': 'energy_abs'}[kind]
     shift_c = cmp.metrics['energy_shift_ev']
     names = labels or (tr('reference'), tr('candidate'))
     ref_color, cand_color = NEUTRAL['ink'], spec.color(1)
@@ -510,9 +533,9 @@ def plot_bands_compare(data, ax=None, *, emin=None, emax=None, align='fermi', ma
         handles = [Line2D([], [], color=ref_color, lw=0.9, label=names[0]),
                    Line2D([], [], color=cand_color, lw=0.7, ls=(0, (3.0, 1.6)), label=names[1])]
     energies_rel = [e - zero for e in cmp.reference_ev]
-    lo, hi = _band_window(energies_rel, emin, emax, default=(-max_energy_ev, max_energy_ev) if align != 'none' else (-1e9, 1e9))
+    lo, hi = _band_window(energies_rel, emin, emax, default=(-max_energy_ev, max_energy_ev) if kind != 'none' else (-1e9, 1e9))
     ab.set_ylim(lo, hi)
-    if align != 'none':
+    if kind != 'none':
         ab.axhline(0.0, **ZERO_KW)
     ab.set_ylabel(tr(ylabel))
     # Legend above the band panel: overlaid bands fill every inside corner.
@@ -535,6 +558,9 @@ def plot_bands_compare(data, ax=None, *, emin=None, emax=None, align='fermi', ma
                 parameters={'align': align, 'max_energy_ev': max_energy_ev, 'emin': emin, 'emax': emax},
                 values={'mae_ev': m['mae_ev'], 'rmse_ev': m['rmse_ev'], 'max_abs_error_ev': m['max_abs_error_ev'],
                         'energy_shift_ev': m['energy_shift_ev'], 'samples': m['samples'],
+                        'alignment': kind, 'reference_zero_ev': m['reference_zero_ev'],
+                        'candidate_zero_ev': m['candidate_zero_ev'],
+                        'alignment_fallback_reasons': m['alignment_fallback_reasons'],
                         'reference_gap_ev': m.get('reference_gap_ev'), 'candidate_gap_ev': m.get('candidate_gap_ev'),
                         'sampling': 'scf_mesh' if mesh else 'path'})
     return fig
