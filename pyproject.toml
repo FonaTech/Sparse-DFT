@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=65"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sparse-dft"
+version = "1.0.0"
+description = "Sparse-DFT: a plane-wave PAW-PBE code with certified density and projector sparsification"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {file = "LICENSE"}
+authors = [{name = "Yufeng Zhan"}]
+keywords = ["density functional theory", "PAW", "plane waves", "sparsification", "band structure"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: C++",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Topic :: Scientific/Engineering :: Chemistry",
+    "License :: OSI Approved :: Apache Software License",
+]
+# The numerical core needs only the standard library; plotting, symmetry and the
+# GUI are optional extras. Versions are the tested set (CPython 3.11, macOS arm64).
+dependencies = []
+
+[project.optional-dependencies]
+plots = ["numpy>=1.26", "matplotlib>=3.8"]
+symmetry = ["spglib==2.8.0", "seekpath==2.2.2"]
+bz = ["spglib==2.8.0", "seekpath==2.2.2", "scipy==1.17.1"]
+# PyQt6 is GPL-3.0 (or Riverbank commercial); see NOTICE.md before redistributing a GUI bundle.
+gui = ["PyQt6>=6.6", "numpy>=1.26", "matplotlib>=3.8", "spglib==2.8.0", "seekpath==2.2.2", "scipy==1.17.1"]
+all = ["sparse-dft[plots,bz,gui]"]
+
+[project.scripts]
+sparse-dft = "sparse_dft.cli:main"
+
+[project.gui-scripts]
+sparse-dft-gui = "sparse_dft_gui.app:main"
+
+[project.urls]
+Documentation = "https://github.com/FonaTech/Sparse-DFT/tree/main/docs"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["sparse_dft*", "sparse_dft_gui*"]
+
+[tool.setuptools.package-data]
+sparse_dft = ["sparsity_rules.json", "sparsity_measured.json", "data/*.json"]
+sparse_dft_gui = ["i18n/*.json", "assets/**/*"]

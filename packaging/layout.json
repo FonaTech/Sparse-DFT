@@ -1,0 +1,79 @@
+{
+  "schema_version": "sparse-dft-bundle-layout-1",
+  "description": "Files embedded in a frozen Sparse-DFT GUI. Paths are relative to the resource root: sys._MEIPASS in a PyInstaller build, the repository root in a source checkout. Resolved at run time by sparse_dft.resources.",
+  "platform_tags": [
+    "macos-arm64",
+    "macos-x86_64",
+    "windows-x86_64",
+    "windows-arm64",
+    "linux-x86_64",
+    "linux-arm64"
+  ],
+  "entries": [
+    {
+      "path": "bin/<platform_tag>/sdft_scf[.exe]",
+      "required": true,
+      "resolver": "sparse_dft.resources.find_executable('sdft_scf')",
+      "source": "build/ (or build/Release, build/RelWithDebInfo, build/Debug) when bin/<platform_tag>/ is absent",
+      "override": "SDFT_SCF_EXE"
+    },
+    {
+      "path": "bin/<platform_tag>/sdft_relax_step[.exe]",
+      "required": true,
+      "resolver": "sparse_dft.resources.find_executable('sdft_relax_step')",
+      "override": "SDFT_RELAX_STEP_EXE"
+    },
+    {
+      "path": "bin/<platform_tag>/*.dll | *.dylib | *.so*",
+      "required": false,
+      "note": "runtime libraries of the native core (OpenMP, BLAS/FFT, MPI) copied next to the executables"
+    },
+    {
+      "path": "sparse_dft/sparsity_rules.json",
+      "required": true,
+      "resolver": "sparse_dft.sparsity.RULES_PATH"
+    },
+    {
+      "path": "sparse_dft_gui/i18n/{en,zh_CN,zh_TW,ja}.json",
+      "required": true,
+      "resolver": "sparse_dft.resources.translations_dir()"
+    },
+    {
+      "path": "sparse_dft_gui/assets/",
+      "required": true,
+      "note": "application icon (SVG)"
+    },
+    {
+      "path": "data/paw/",
+      "required": false,
+      "resolver": "sparse_dft.resources.paw_search_paths()",
+      "note": "reserved and empty in distributed builds. VASP POTCAR-derived PAW data is licensed and never bundled; users import their own sets into <user_data_dir>/paw/."
+    },
+    {
+      "path": "data/fonts/*.ttf|*.otf",
+      "required": false,
+      "resolver": "sparse_dft.resources.fonts_dir()",
+      "note": "optional fonts registered with QFontDatabase before the platform font chain"
+    }
+  ],
+  "user_data_dir": {
+    "windows": "%APPDATA%\\Sparse-DFT",
+    "macos": "~/Library/Application Support/Sparse-DFT",
+    "linux": "$XDG_DATA_HOME/sparse_dft or ~/.local/share/sparse_dft",
+    "override": "SDFT_USER_DATA_DIR",
+    "contents": {
+      "paw/": "imported PAW roots",
+      "jobs/": "per-job worker directories (job.json, status.json)"
+    }
+  },
+  "worker": {
+    "frozen": "sparse-dft-worker[.exe] --worker JOB.json --status STATUS.json (console twin next to the windowed sparse-dft-gui; one-file builds use sparse-dft-gui --worker)",
+    "source": "python -m sparse_dft.cli worker JOB.json --status STATUS.json",
+    "environment": {
+      "PYTHONUTF8": "1",
+      "PYTHONIOENCODING": "utf-8"
+    },
+    "process_tree": "POSIX: new session, SIGTERM then SIGKILL to the group; Windows: Job Object with JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE, TerminateJobObject on cancel"
+  },
+  "manifest": "packaging/make_manifest.py writes MANIFEST.sha256.json (sha256 and size of every bundled file) and verifies it with --check"
+}

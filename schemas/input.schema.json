@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sparse_dft.local/schema/input-0.1.json",
+  "title": "Sparse-DFT input",
+  "type": "object",
+  "required": ["structure", "task", "xc", "paw", "accuracy"],
+  "additionalProperties": false,
+  "properties": {
+    "structure": {"type": "object", "required": ["path"], "additionalProperties": false, "properties": {"path": {"type": "string"}, "format": {"enum": ["POSCAR", "CIF", "XYZ", "EXTXYZ"]}, "periodic": {"type": "boolean"}}},
+    "task": {"enum": ["scf", "ionic_relax", "cell_relax", "bands"]},
+    "accuracy": {"enum": ["low", "standard", "high", "custom"]},
+    "xc": {"type": "object", "required": ["family", "functional"], "additionalProperties": false, "properties": {"family": {"const": "GGA"}, "functional": {"const": "PBE"}}},
+    "paw": {"type": "object", "required": ["root"], "additionalProperties": false, "properties": {"root": {"type": "string"}, "policy": {"enum": ["local_only"]}, "family": {"enum": ["standard", "semicore", "gw", "gw_semicore"]}}},
+    "parameters": {"type": "object"},
+    "kpoints": {"type": "object", "additionalProperties": false, "properties": {"mode": {"enum": ["auto", "explicit", "path"]}, "spacing_inverse_angstrom": {"type": "number", "exclusiveMinimum": 0}}},
+    "output": {"type": "object", "additionalProperties": false, "properties": {"directory": {"type": "string"}, "checkpoint": {"type": "boolean"}}}
+  }
+}
