@@ -1,0 +1,136 @@
+{
+ "status": "CONVERGED",
+ "steps": 5,
+ "history": [
+  {
+   "step": 0,
+   "coordinates": [
+    0.0,
+    0.0
+   ],
+   "energy_ev": -10.0,
+   "gradient": [
+    -0.4,
+    0.0
+   ],
+   "residual": 0.4,
+   "line_search_trials": null,
+   "total_energy_valid": false,
+   "structure": {
+    "species": [
+     "Si",
+     "Si"
+    ]
+   }
+  },
+  {
+   "step": 1,
+   "coordinates": [
+    0.0325,
+    0.0
+   ],
+   "energy_ev": -10.01755,
+   "gradient": [
+    -0.13999999999999999,
+    0.0
+   ],
+   "residual": 0.13999999999999999,
+   "line_search_trials": 1,
+   "total_energy_valid": false,
+   "structure": {
+    "species": [
+     "Si",
+     "Si"
+    ]
+   }
+  },
+  {
+   "step": 2,
+   "coordinates": [
+    0.043875000000000004,
+    0.0
+   ],
+   "energy_ev": -10.019699875,
+   "gradient": [
+    -0.048999999999999995,
+    0.0
+   ],
+   "residual": 0.048999999999999995,
+   "line_search_trials": 1,
+   "total_energy_valid": false,
+   "structure": {
+    "species": [
+     "Si",
+     "Si"
+    ]
+   }
+  },
+  {
+   "step": 3,
+   "coordinates": [
+    0.04785625,
+    0.0
+   ],
+   "energy_ev": -10.0199632346875,
+   "gradient": [
+    -0.017149999999999995,
+    0.0
+   ],
+   "residual": 0.017149999999999995,
+   "line_search_trials": 1,
+   "total_energy_valid": false,
+   "structure": {
+    "species": [
+     "Si",
+     "Si"
+    ]
+   }
+  },
+  {
+   "step": 4,
+   "coordinates": [
+    0.0492496875,
+    0.0
+   ],
+   "energy_ev": -10.01999549624922,
+   "gradient": [
+    -0.006002499999999999,
+    0.0
+   ],
+   "residual": 0.006002499999999999,
+   "line_search_trials": 1,
+   "total_energy_valid": false,
+   "structure": {
+    "species": [
+     "Si",
+     "Si"
+    ]
+   }
+  },
+  {
+   "step": 5,
+   "coordinates": [
+    0.049737390625,
+    0.0
+   ],
+   "energy_ev": -10.019999448290529,
+   "gradient": [
+    -0.0021008749999999994,
+    0.0
+   ],
+   "residual": 0.0021008749999999994,
+   "line_search_trials": 1,
+   "total_energy_valid": false,
+   "structure": {
+    "species": [
+     "Si",
+     "Si"
+    ]
+   }
+  }
+ ],
+ "tolerance": 0.02,
+ "analytic": true,
+ "derivative_units": "eV/angstrom",
+ "optimizer": "synthetic geometric decay (fixture)"
+}

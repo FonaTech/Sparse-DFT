@@ -1,0 +1,8 @@
+{
+ "generator": "closed-form rules (not DFT results); regenerate with the rules described here",
+ "synthetic_bands": "two valence (VBM 0 eV at Gamma) and two conduction bands (CBM 1.1 eV at X); path GAMMA-X | K-G; E_F = 0.2 eV; occupations 2/2/0/0; PROCAR s/p/d weights by band rule",
+ "synthetic_spin_dos": "spin DOSCAR, Gaussian peaks (sigma 0.4 eV); two atoms Mg, O; s/p/d up/down columns; POSCAR gives species order",
+ "synthetic_relax": "residual 0.4*0.35^n eV/A, tolerance 0.02 eV/A",
+ "synthetic_scaling.json": "Amdahl's law with parallel fraction 0.80 (v1) and 0.95 (v2), T1 = 100 s, user = T1",
+ "ni_spin_scf": "trimmed real Sparse-DFT Ni run (see fixture_note inside scf_result.json)"
+}

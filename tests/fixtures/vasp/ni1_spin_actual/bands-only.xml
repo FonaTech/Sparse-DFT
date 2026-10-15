@@ -1,0 +1,52 @@
+<modeling><kpoints>
+  <varray name="kpointlist">
+   <v>       0.00000000       0.00000000       0.00000000 </v>
+  </varray>
+  <varray name="weights">
+   <v>       1.00000000 </v>
+  </varray>
+ </kpoints>
+ <calculation><eigenvalues>
+   <array>
+    <dimension dim="1">band</dimension>
+    <dimension dim="2">kpoint</dimension>
+    <dimension dim="3">spin</dimension>
+    <field>eigene</field>
+    <field>occ</field>
+    <set>
+     <set comment="spin 1">
+      <set comment="kpoint 1">
+       <r>    0.2038    1.0000 </r>
+       <r>    5.3565    1.0000 </r>
+       <r>    5.3566    1.0000 </r>
+       <r>    5.6869    1.0000 </r>
+       <r>    5.6871    1.0000 </r>
+       <r>    5.6871    1.0000 </r>
+       <r>   33.4857    0.0000 </r>
+       <r>   36.4879    0.0000 </r>
+       <r>   36.4881    0.0000 </r>
+       <r>   36.4881    0.0000 </r>
+       <r>   39.4519    0.0000 </r>
+       <r>   39.4520    0.0000 </r>
+      </set>
+     </set>
+     <set comment="spin 2">
+      <set comment="kpoint 1">
+       <r>    0.5510    1.0000 </r>
+       <r>    6.8021    1.0000 </r>
+       <r>    6.8028    1.0000 </r>
+       <r>    6.8032    1.0000 </r>
+       <r>    9.2044    0.0000 </r>
+       <r>    9.2065    0.0000 </r>
+       <r>   33.2836    0.0000 </r>
+       <r>   37.4183    0.0000 </r>
+       <r>   37.4183    0.0000 </r>
+       <r>   37.4187    0.0000 </r>
+       <r>   39.7452    0.0000 </r>
+       <r>   39.7456    0.0000 </r>
+      </set>
+     </set>
+    </set>
+   </array>
+  </eigenvalues>
+  </calculation></modeling>

@@ -1,0 +1,78 @@
+{
+ "schema_version": "sparse-dft-scaling-1",
+ "system": "synthetic",
+ "runs": [
+  {
+   "label": "v1_omp1",
+   "threads": 1,
+   "ranks": 1,
+   "wall_seconds": 100.0,
+   "user_seconds": 100.0,
+   "sys_seconds": 0.0,
+   "build": "v1"
+  },
+  {
+   "label": "v1_omp2",
+   "threads": 2,
+   "ranks": 1,
+   "wall_seconds": 60.0,
+   "user_seconds": 100.0,
+   "sys_seconds": 0.0,
+   "build": "v1"
+  },
+  {
+   "label": "v1_omp4",
+   "threads": 4,
+   "ranks": 1,
+   "wall_seconds": 40.0,
+   "user_seconds": 100.0,
+   "sys_seconds": 0.0,
+   "build": "v1"
+  },
+  {
+   "label": "v1_omp8",
+   "threads": 8,
+   "ranks": 1,
+   "wall_seconds": 30.0,
+   "user_seconds": 100.0,
+   "sys_seconds": 0.0,
+   "build": "v1"
+  },
+  {
+   "label": "v2_omp1",
+   "threads": 1,
+   "ranks": 1,
+   "wall_seconds": 100.0,
+   "user_seconds": 100.0,
+   "sys_seconds": 0.0,
+   "build": "v2"
+  },
+  {
+   "label": "v2_omp2",
+   "threads": 2,
+   "ranks": 1,
+   "wall_seconds": 52.5,
+   "user_seconds": 100.0,
+   "sys_seconds": 0.0,
+   "build": "v2"
+  },
+  {
+   "label": "v2_omp4",
+   "threads": 4,
+   "ranks": 1,
+   "wall_seconds": 28.75,
+   "user_seconds": 100.0,
+   "sys_seconds": 0.0,
+   "build": "v2"
+  },
+  {
+   "label": "v2_omp8",
+   "threads": 8,
+   "ranks": 1,
+   "wall_seconds": 16.875,
+   "user_seconds": 100.0,
+   "sys_seconds": 0.0,
+   "build": "v2"
+  }
+ ]
+}

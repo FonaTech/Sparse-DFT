@@ -1,0 +1,26 @@
+[
+  {
+    "source": "<legacy_dev_tree>/tests/fixtures/vasp/si8_gamma/vasprun.xml",
+    "file": "vasp/si8_gamma/vasprun.xml",
+    "sha256": "2562e4113f2a69c771a2566e3cee9b173838920f3d420b6a26c5cac290017d38",
+    "scope": "historical parser fixture only, not current physical acceptance"
+  },
+  {
+    "source": "<legacy_dev_tree>/work/vasp_si_gamma_100/EIGENVAL",
+    "file": "vasp/si2_gamma_100/EIGENVAL",
+    "sha256": "fbdbdb8aed689b3cc509ec12c9a429b90c159203322aedbac5ed406462fc85db",
+    "scope": "historical parser fixture only, not current physical acceptance"
+  },
+  {
+    "source": "<legacy_dev_tree>/work/vasp_si_gamma_100/DOSCAR",
+    "file": "vasp/si2_gamma_100/DOSCAR",
+    "sha256": "ac5d2cbec16c7f5b120189ff2f5765dca60adf572ab0f7b8b9c391c9a961680f",
+    "scope": "historical parser fixture only, not current physical acceptance"
+  },
+  {
+    "source": "<legacy_dev_tree>/workflow/reference_si_path/sparse_dft_bands.json",
+    "file": "sparse_dft/si_gamma_bands.json",
+    "sha256": "86bb915da890b5254dbdfb58779a1b12b39ba003184a49cb5131fbd1bc15e9ab",
+    "scope": "historical parser fixture only, not current physical acceptance"
+  }
+]

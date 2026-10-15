@@ -1,0 +1,7 @@
+{
+  "source_case": "ordinary_materials/Ni1/POTCAR/u0",
+  "source_eigenval_sha256": "a0ae35dc0df2c7066d406fda872fc3d342a9b379fdd1f421ad190b31304b956c",
+  "source_vasprun_sha256": "b831f5661bc6b71f7542bd73a0d6622de4d7ed9f49f0b6b099b7c7c8e7478bb0",
+  "xml_subset": "final eigenvalues and kpoints only; no PAW or source code included",
+  "format": "VASP6.4.1 real output"
+}
