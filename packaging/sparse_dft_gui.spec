@@ -28,6 +28,7 @@ EXE_SUFFIX = '.exe' if WINDOWS else ''
 ONEFILE = os.environ.get('SDFT_BUNDLE_ONEFILE') == '1'
 CONSOLE = os.environ.get('SDFT_BUNDLE_CONSOLE') == '1'
 NATIVE = ('sdft_scf', 'sdft_relax_step')
+OPTIONAL_NATIVE = ('sdft_openmp_probe',)
 LIB_PATTERNS = ('*.dll',) if WINDOWS else (('*.dylib',) if MACOS else ('*.so', '*.so.*'))
 
 
@@ -40,15 +41,19 @@ def native_binaries():
         if all(path.is_file() for path in found):
             libraries = [p for pattern in LIB_PATTERNS for p in sorted(directory.glob(pattern))] \
                 if directory == bundled else []
-            return [(str(p), f'bin/{TAG}') for p in found + libraries]
+            extra = [directory / (name + EXE_SUFFIX) for name in OPTIONAL_NATIVE
+                     if (directory / (name + EXE_SUFFIX)).is_file()]
+            return [(str(p), f'bin/{TAG}') for p in found + extra + libraries]
     raise SystemExit(f'sdft_scf/sdft_relax_step{EXE_SUFFIX} not found in bin/{TAG}/ or build/; build the C++ core first')
 
 
 def data_files():
-    out = [(str(ROOT / 'sparse_dft' / 'sparsity_rules.json'), 'sparse_dft'),
-           (str(ROOT / 'sparse_dft_gui' / 'i18n'), 'sparse_dft_gui/i18n'),
-           (str(ROOT / 'sparse_dft_gui' / 'assets'), 'sparse_dft_gui/assets'),
-           (str(ROOT / 'packaging' / 'layout.json'), 'packaging')]
+    # Every non-Python package file read at runtime (rules, measured tables, element data).
+    out = [(str(p), str(p.parent.relative_to(ROOT))) for p in sorted((ROOT / 'sparse_dft').rglob('*.json'))
+           if '__pycache__' not in p.parts]
+    out += [(str(ROOT / 'sparse_dft_gui' / 'i18n'), 'sparse_dft_gui/i18n'),
+            (str(ROOT / 'sparse_dft_gui' / 'assets'), 'sparse_dft_gui/assets'),
+            (str(ROOT / 'packaging' / 'layout.json'), 'packaging')]
     for name in ('paw', 'fonts'):
         directory = ROOT / 'data' / name
         if directory.is_dir():
@@ -116,7 +121,7 @@ else:
     if MACOS:
         app = BUNDLE(coll, name='Sparse-DFT.app', icon=icon,  # noqa: F821
                      bundle_identifier='org.sparsedft.studio',
-                     info_plist={'CFBundleShortVersionString': '0.1.0', 'NSHighResolutionCapable': True,
+                     info_plist={'CFBundleShortVersionString': '1.0.0', 'CFBundleVersion': '1.0.0', 'NSHighResolutionCapable': True,
                                  'LSMinimumSystemVersion': '12.0',
                                  'CFBundleDevelopmentRegion': 'en',
                                  'CFBundleLocalizations': ['en', 'zh_CN', 'zh_TW', 'ja']})

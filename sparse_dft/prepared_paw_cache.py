@@ -39,15 +39,25 @@ def locked(path):
             else: fcntl.flock(stream, fcntl.LOCK_UN)
 
 
+def _parser_identity():
+    """Hash of the PAW parser source; a frozen app ships no .py files, so its
+    executable stands in (a rebuilt app gets a fresh cache key)."""
+    from . import paw
+    source = Path(paw.__file__)
+    if source.is_file():
+        return sha(source)
+    import sys
+    return 'frozen:' + sha(sys.executable)
+
+
 def prepare(archive, record_id, destination):
     enabled = os.environ.get('SDFT_PERSISTENT_PAW_CACHE', '1')
     if enabled not in ('0', '1'): raise InputError('SDFT_PERSISTENT_PAW_CACHE must be 0 or 1')
     if enabled == '0':
         archive.restore_dataset(record_id, destination)
         return {'reused': False}
-    from . import paw
     identity = {'schema': 'sparse-dft-prepared-paw-1', 'archive': archive.local_hashes(),
-                'record_id': record_id, 'parser_source_sha256': sha(paw.__file__)}
+                'record_id': record_id, 'parser_source_sha256': _parser_identity()}
     key = hashlib.sha256(json.dumps(identity, sort_keys=True).encode()).hexdigest()
     root = Path(os.environ.get('SDFT_PAW_PREPARED_CACHE',
         str(Path(tempfile.gettempdir()) / ('sparse-dft-paw-cache-' + str(getattr(os, 'getuid', lambda: 0)())))))

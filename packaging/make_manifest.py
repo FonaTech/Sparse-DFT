@@ -4,6 +4,10 @@
     python packaging/make_manifest.py dist/Sparse-DFT --check      # verify sizes/hashes, exit 1 on drift
     python packaging/make_manifest.py . --layout-only        # check required layout entries only
 
+A macOS ``.app`` is sealed by its code signature, and any file added inside it
+(even at the bundle root) invalidates that seal. Its manifest is therefore
+written beside the bundle as ``<name>.app.MANIFEST.sha256.json``.
+
 The required entries follow ``packaging/layout.json``: the native executables
 under ``bin/<platform_tag>/`` (or a CMake ``build/`` tree for a source
 checkout), ``sparse_dft/sparsity_rules.json`` and the four GUI catalogs.  Files that
@@ -93,17 +97,24 @@ def collect(bundle: Path) -> dict:
     return files
 
 
+def manifest_path(bundle: Path) -> Path:
+    """Inside a folder bundle; beside a signed macOS .app, which must stay sealed."""
+    if bundle.suffix == '.app':
+        return bundle.with_name(bundle.name + '.' + MANIFEST)
+    return bundle / MANIFEST
+
+
 def write(bundle: Path, tag: str) -> Path:
     payload = {'schema_version': SCHEMA, 'platform_tag': tag,
                'created': datetime.now(timezone.utc).isoformat(timespec='seconds'),
                'files': collect(bundle)}
-    path = bundle / MANIFEST
+    path = manifest_path(bundle)
     path.write_text(json.dumps(payload, indent=1, sort_keys=True) + '\n', encoding='utf-8')
     return path
 
 
 def check(bundle: Path) -> list[str]:
-    path = bundle / MANIFEST
+    path = manifest_path(bundle)
     try:
         manifest = json.loads(path.read_text(encoding='utf-8'))
     except (OSError, ValueError) as error:

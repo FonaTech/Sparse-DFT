@@ -23,11 +23,20 @@ def _version(command):
         return None
 
 
+def _native(name):
+    """Bundled, configured or built executable; a non-existent path when absent."""
+    from .errors import InputError
+    from .resources import find_executable
+    try:
+        return find_executable(name)
+    except InputError as exc:
+        searched = (exc.details or {}).get('searched') or [name]
+        return Path(searched[0].split(' (')[0])
+
+
 def _openmp_probe():
     configured = os.environ.get("SDFT_OPENMP_PROBE")
-    local = Path(__file__).resolve().parents[1] / "build" / "sdft_openmp_probe"
-    executable = Path(configured) if configured else (
-        local if local.is_file() else Path(shutil.which("sdft_openmp_probe") or local))
+    executable = Path(configured) if configured else _native("sdft_openmp_probe")
     if not executable.is_file():
         return {"compiled": False, "runtime": False, "active": False,
                 "team_threads": 1, "max_threads": 1, "probe": str(executable),
@@ -56,8 +65,7 @@ def backend_info():
     omp = _openmp_probe()
     requested = os.environ.get("OMP_NUM_THREADS")
     omp["threads_requested_by_environment"] = int(requested) if requested and requested.isdigit() else None
-    configured = os.environ.get('SDFT_SCF_EXE')
-    executable = Path(configured) if configured else Path(__file__).resolve().parents[1]/'build/sdft_scf'
+    executable = _native('sdft_scf')
     capabilities = {}
     if executable.is_file():
         try:
