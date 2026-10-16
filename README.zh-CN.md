@@ -98,7 +98,7 @@ data/                PAW 数据与界面字体的空位；不随包提供任何�
 benchmarks/          派生数据、生成它们的脚本和文档图
 docs/                文档；docs/assets/ 存放图
 examples/            POSCAR、CIF 和 XYZ 格式的 Si
-third_party/eigen3/  Eigen 3.4 头文件（MPL-2.0），未修改
+third_party/eigen3/  Eigen 3.4 头文件（MPL-2.0），未修改；Eigen/src 以 Eigen/src.zip 提供
 packaging/           图形界面的 PyInstaller 配置与打包布局
 CMakeLists.txt       原生构建（CMake 3.20+，需要 FFTW3）
 ```

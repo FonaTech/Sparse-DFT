@@ -25,7 +25,7 @@ The copyright holder and citation details are in [`NOTICE.md`](../NOTICE.md) and
   - C++ in `src/`;
   - Python packages `sparse_dft` and `sparse_dft_gui`;
   - tests, scripts, schemas and documentation.
-- Eigen 3.4.0 headers in `third_party/eigen3`. They are a byte-identical copy of upstream under MPL-2.0, and a few headers keep their own BSD-style or Apache-2.0 notices. The build defines `EIGEN_MPL2_ONLY`, so the compiler rejects Eigen modules that are LGPL-only.
+- Eigen 3.4.0 headers in `third_party/eigen3`, with `Eigen/src` packed unmodified into `Eigen/src.zip`. They are a byte-identical copy of upstream under MPL-2.0, and a few headers keep their own BSD-style or Apache-2.0 notices. The build defines `EIGEN_MPL2_ONLY`, so the compiler rejects Eigen modules that are LGPL-only.
 - An element table compiled from published values (IUPAC atomic weights; Cordero et al. covalent radii).
 - Small test fixtures:
   - output files written by VASP 6.4.1 for our own test inputs (`tests/fixtures/vasp/`). They hold eigenvalues, densities of states, forces, stresses and the input settings. The only POTCAR-derived content is the dataset title line, such as `PAW_PBE Si 05Jan2001`.

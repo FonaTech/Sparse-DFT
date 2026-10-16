@@ -11,7 +11,7 @@
 - 可选：OpenMP 运行时（macOS 上为 `libomp`）、MPI 实现（Open MPI、MPICH 或 MS-MPI）、用于 Metal 的 Xcode 命令行工具、CUDA 工具链。
 - PAW 数据集：你自己有授权的 VASP POTCAR 集，或 PAW UPF v2 文件（§3）。Sparse-DFT 不附带任何数据集。
 
-Eigen 3.4 头文件已随附在 `third_party/eigen3` 中，并以 `EIGEN_MPL2_ONLY` 编译。
+Eigen 3.4 头文件已随附在 `third_party/eigen3` 中，并以 `EIGEN_MPL2_ONLY` 编译。`Eigen/src` 下的 307 个头文件以 `Eigen/src.zip` 提供；CMake 把它解压一份到 `build/_deps/eigen3`，不改动源码树。若已存在解压后的 `Eigen/src` 目录，则直接使用。
 
 ## 2. 安装
 

@@ -48,7 +48,7 @@
 | 完全一致与近似逐字的代码行 | 在 413 个候选片段中，完全一致的行为 0，近似逐字的行（记号相似度 ≥ 0.7）为 0。 |
 | 参考程序内部名称 | 分发的标识符和注释中没有 VASP 或 Quantum ESPRESSO 的例程名、数组名或源文件名。剩余的匹配是公开格式名称（vasprun.xml、PROCAR，以及 LASPH、NLSPLINE 等 INCAR 标签）、可选的 `vasp_legacy` 单位模式、`parse_vasprun_bands` 等互操作函数，以及 `multi` 等通用词。 |
 | 声明与数据 | 分发代码中没有第三方版权声明，也没有 Numerical Recipes、libxc 或 FFTW 源代码；FFTW 只通过其公开 API 调用。19 个测试数据文件不含 POTCAR 正文，也不含 VASP 版权文字。 |
-| Eigen | 337 个头文件全部与上游 Eigen 3.4.0 逐字节一致。 |
+| Eigen | 337 个头文件全部与上游 Eigen 3.4.0 逐字节一致；`Eigen/src` 下的 307 个未经修改存于 `Eigen/src.zip`。 |
 | GUI 图标 | 30 个图标，在五套图标库（26,556 个 SVG 文件）中都没有整体一致的图标。 |
 | 泄露检查 | 7,728 行报告中含参考文字的行数为 0。 |
 

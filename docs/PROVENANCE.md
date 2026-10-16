@@ -48,7 +48,7 @@ The audited files are those this package ships: 136 C, C++, CUDA and Objective-C
 | Exact and near-verbatim code lines | 0 exact and 0 near-verbatim lines (token ratio ≥ 0.7) among 413 candidate spans. |
 | Reference-internal names | No shipped identifier or comment uses a VASP or Quantum ESPRESSO routine, array or source-file name. The remaining hits are public format names (vasprun.xml, PROCAR, INCAR tags such as LASPH and NLSPLINE), the optional `vasp_legacy` unit mode, interoperability helpers such as `parse_vasprun_bands`, and generic words such as `multi`. |
 | Notices and data | No third-party copyright notice, Numerical Recipes, libxc or FFTW source in the shipped code; FFTW is called through its public API. The 19 test fixtures contain no POTCAR body and no VASP copyright text. |
-| Eigen | 337 of 337 headers are byte-identical to upstream Eigen 3.4.0. |
+| Eigen | 337 of 337 headers are byte-identical to upstream Eigen 3.4.0; the 307 under `Eigen/src` are stored unmodified in `Eigen/src.zip`. |
 | GUI glyphs | 30 glyphs; none is a whole-icon match in the five icon sets (26,556 SVG files). |
 | Leak check | 0 of 7,728 report lines contain reference text. |
 

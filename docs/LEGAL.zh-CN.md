@@ -25,7 +25,7 @@ Sparse-DFT 以 Apache License 2.0 发布。许可覆盖本包中的原创源代�
   - `src/` 中的 C++ 代码；
   - Python 包 `sparse_dft` 和 `sparse_dft_gui`；
   - 测试、脚本、模式文件和文档。
-- **Eigen 3.4.0 头文件**（`third_party/eigen3`）：与上游逐字节一致，许可为 MPL-2.0。少数头文件保留各自的 BSD 类或 Apache-2.0 声明。构建时定义 `EIGEN_MPL2_ONLY`，编译器会拒绝仅限 LGPL 的 Eigen 模块。
+- **Eigen 3.4.0 头文件**（`third_party/eigen3`，其中 `Eigen/src` 未经修改打包为 `Eigen/src.zip`）：与上游逐字节一致，许可为 MPL-2.0。少数头文件保留各自的 BSD 类或 Apache-2.0 声明。构建时定义 `EIGEN_MPL2_ONLY`，编译器会拒绝仅限 LGPL 的 Eigen 模块。
 - **元素数据表**：整理自公开发表的数值，包括 IUPAC 原子量和 Cordero 等人的共价半径。
 - **小型测试数据**：
   - `tests/fixtures/vasp/`：VASP 6.4.1 用我们自己的测试输入算出的输出文件，含本征值、态密度、力、应力和输入设置。其中来自 POTCAR 的内容只有数据集标题行，如 `PAW_PBE Si 05Jan2001`。

@@ -98,7 +98,7 @@ data/                empty slots for PAW data and GUI fonts; nothing is shipped
 benchmarks/          derived data, the scripts that produced it and the documentation figures
 docs/                documentation; docs/assets/ holds the figures
 examples/            Si in POSCAR, CIF and XYZ
-third_party/eigen3/  Eigen 3.4 headers (MPL-2.0), unmodified
+third_party/eigen3/  Eigen 3.4 headers (MPL-2.0), unmodified; Eigen/src ships as Eigen/src.zip
 packaging/           PyInstaller specification and bundle layout for the GUI
 CMakeLists.txt       native build (CMake 3.20+, FFTW3 required)
 ```

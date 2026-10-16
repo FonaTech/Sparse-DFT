@@ -11,7 +11,7 @@ This guide takes you from a source checkout to band structures, densities of sta
 - Optional: an OpenMP runtime (`libomp` on macOS), an MPI implementation (Open MPI, MPICH or MS-MPI), Xcode command-line tools for Metal, a CUDA toolkit.
 - PAW datasets: your own licensed VASP POTCAR set, or PAW UPF v2 files (§3). Sparse-DFT ships none.
 
-Eigen 3.4 headers are bundled in `third_party/eigen3` and compiled with `EIGEN_MPL2_ONLY`.
+Eigen 3.4 headers are bundled in `third_party/eigen3` and compiled with `EIGEN_MPL2_ONLY`. The 307 headers under `Eigen/src` ship as `Eigen/src.zip`; CMake unpacks a copy into `build/_deps/eigen3` and leaves the source tree unchanged. An unpacked `Eigen/src` directory is used directly when present.
 
 ## 2. Install
 
