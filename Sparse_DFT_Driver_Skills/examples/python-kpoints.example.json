@@ -1,0 +1,13 @@
+{
+  "args": [
+    {
+      "$structure": "/actual/path/POSCAR"
+    }
+  ],
+  "kwargs": {
+    "task": "scf",
+    "accuracy": "high",
+    "spacing_inverse_angstrom": 0.15,
+    "metallic": false
+  }
+}

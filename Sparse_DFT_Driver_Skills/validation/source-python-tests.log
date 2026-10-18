@@ -1,0 +1,26 @@
+
+Fontconfig error: No writable cache directories
+	/opt/homebrew/var/cache/fontconfig
+	/Users/Fona/.cache/fontconfig
+	/Users/Fona/.fontconfig
+Matplotlib is building the font cache; this may take a moment.
+........................s................................................................qt.qpa.fonts: Populating font family aliases took 32 ms. Replace uses of missing font family "Sans Serif" with one that exists to avoid this cost. 
+............s......../Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/test-extras/spglib/spg.py:437: DeprecationWarning: Set OLD_ERROR_HANDLING to false and catch the errors directly.
+  _set_no_error(_throw)
+/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/test-extras/spglib/cell.py:57: DeprecationWarning: Set OLD_ERROR_HANDLING to false and catch the errors directly.
+  _set_no_error()
+..findfont: Failed to find font weight normal for Hiragino Sans GB, now using 300.
+findfont: Failed to find font weight normal for Hiragino Kaku Gothic ProN, now using 300.
+..............s............................................ss..................................................................................[sparse-dft worker] start pid=3383 label=- :: /Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/Sparse-DFT-1.0.0/../../.venv-studio/bin/python -c pass
+[sparse-dft worker] finished returncode=0 duration=0.1s
+......................................................../Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/test-extras/spglib/spg.py:437: DeprecationWarning: Set OLD_ERROR_HANDLING to false and catch the errors directly.
+  _set_no_error(_throw)
+.../Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/test-extras/seekpath/getpaths.py:430: SupercellWarning: The provided cell is a supercell: the returned k-path is the standard k-path of the associated primitive cell in the basis of the supercell reciprocal lattice.
+  warnings.warn(
+/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/test-extras/spglib/cell.py:57: DeprecationWarning: Set OLD_ERROR_HANDLING to false and catch the errors directly.
+  _set_no_error()
+...
+----------------------------------------------------------------------
+Ran 317 tests in 208.011s
+
+OK (skipped=5)

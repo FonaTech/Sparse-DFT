@@ -1,0 +1,4 @@
+interface:
+  display_name: "Sparse-DFT Driver"
+  short_description: "Run Sparse-DFT and connect research and evidence workflows"
+  default_prompt: "Use $sparse-dft-driver to operate Sparse-DFT with actual inputs, validate the result scope, and hand off traceable artifacts to my research workflow."

@@ -1,0 +1,40 @@
+{
+  "software": "Sparse-DFT",
+  "software_version": "1.0.0",
+  "skill": "sparse-dft-driver",
+  "skill_bundle_version": "2.0.0",
+  "date": "2026-10-18",
+  "timezone": "Asia/Shanghai",
+  "source_archive": {
+    "path": "/Users/Fona/Downloads/Sparse Density Function/Sparse-DFT-1.0.0.tar.xz",
+    "sha256": "ddb396f64ad2dfe3fb5ec66f9991dd65c99cde3227c68415ecccb9970eaefe6c"
+  },
+  "previous_skill_archive": {
+    "path": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/DFTX_Driver_Skills-20261012-v1.0.0.tar.gz",
+    "sha256": "2ad46efff0e9e904cb57b266d85e20ffb80f23699138218ae352fadd64885c55"
+  },
+  "interface_identity": {
+    "sparse_dft/cli.py": "c185d0af5d8716dcaa825078c1ae0d47410a0bf032e4921257c2dac2aa426fd4",
+    "sparse_dft/api.py": "7cc0e5213d128a813746917b7d53a315469590fdff59bf91b6757f0086f48fbc",
+    "sparse_dft/scf.py": "95be0023fe508fb8ad6e3cc5f063954aaea96dca68fe18b97e0edb6d53b2cbc3",
+    "sparse_dft/settings.py": "602ef6b1abe9510897413f08aa8b407bb2b223f1de1beb4231730e1777d86ffd",
+    "sparse_dft/sparsity.py": "426eabe3413be0a567c4bc1833e2f8837089a554062b836f8c9b4fe3e5a25edd",
+    "sparse_dft/sparsity_rules.json": "4d1a2b00bd5abadefda95de4b63bb702d4124744943162993e813054118d4480",
+    "sparse_dft/spin_model.py": "507564d89ba08fbe3d0fc6865316c5286d334a80b7024e19619672234892518a",
+    "sparse_dft/parallel.py": "e304dedd0ce3573f1eaf9b632f649d308d298488b7e80ad5cc95ba5c894dd9c3",
+    "sparse_dft/runner.py": "c4721b3b3b83e2f36804253c50399854c52078c7f4886a1dafc8ab0039fa5183",
+    "CMakeLists.txt": "4cf6c6412f89b487793d12953a8cdf2884d7b6a7eb893ddf97fd6472d0b740fc",
+    "pyproject.toml": "34a50955e2a90ae6127bab2803d8aaf9a8fde8c1cb09612274911aa33154236d"
+  },
+  "manifest": "Not present in supplied release; no fabricated manifest pass",
+  "runtime": {
+    "python_executable": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/.venv-studio/bin/python",
+    "python_version": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+    "source_checkout": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/Sparse-DFT-1.0.0",
+    "optional_deps": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/test-extras",
+    "spglib": "2.8.0",
+    "seekpath": "2.2.2",
+    "scipy": "1.17.1"
+  },
+  "declared_accuracy_basis": "Supplied docs/ACCURACY.md, reported upstream evidence with stated limitations; old archived user declaration is not treated as new validation"
+}

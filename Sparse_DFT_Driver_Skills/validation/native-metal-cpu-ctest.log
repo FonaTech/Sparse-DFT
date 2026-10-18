@@ -1,0 +1,173 @@
+Test project /Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/Sparse-DFT-1.0.0/build-metal
+      Start  1: sdft_compute_backend
+ 1/84 Test  #1: sdft_compute_backend ....................   Passed    0.53 sec
+      Start  2: sdft_fft_backend
+ 2/84 Test  #2: sdft_fft_backend ........................   Passed    0.13 sec
+      Start  3: sdft_fft_operator_cache
+ 3/84 Test  #3: sdft_fft_operator_cache .................   Passed    0.12 sec
+      Start  4: sdft_pbe_backend
+ 4/84 Test  #4: sdft_pbe_backend ........................   Passed    0.17 sec
+      Start  5: sdft_shared_paw_units
+ 5/84 Test  #5: sdft_shared_paw_units ...................   Passed    0.12 sec
+      Start  6: sdft_spectral_guards_cpu1
+ 6/84 Test  #6: sdft_spectral_guards_cpu1 ...............   Passed    0.66 sec
+      Start  7: sdft_spectral_guards_cpu8
+ 7/84 Test  #7: sdft_spectral_guards_cpu8 ...............   Passed    0.47 sec
+      Start  8: sdft_density_fft_batch_cpu1
+ 8/84 Test  #8: sdft_density_fft_batch_cpu1 .............   Passed    0.69 sec
+      Start  9: sdft_density_fft_batch_cpu2
+ 9/84 Test  #9: sdft_density_fft_batch_cpu2 .............   Passed    0.33 sec
+      Start 10: sdft_density_fft_batch_cpu4
+10/84 Test #10: sdft_density_fft_batch_cpu4 .............   Passed    0.21 sec
+      Start 11: sdft_density_fft_batch_cpu8
+11/84 Test #11: sdft_density_fft_batch_cpu8 .............   Passed    0.17 sec
+      Start 12: sdft_density_fft_batch_variational
+12/84 Test #12: sdft_density_fft_batch_variational ......   Passed    0.19 sec
+      Start 13: sdft_projector_derivative_contraction
+13/84 Test #13: sdft_projector_derivative_contraction ...   Passed    0.12 sec
+      Start 14: sdft_fused_projector_derivative_cpu2
+14/84 Test #14: sdft_fused_projector_derivative_cpu2 ....   Passed    0.01 sec
+      Start 15: sdft_fused_projector_derivative_cpu4
+15/84 Test #15: sdft_fused_projector_derivative_cpu4 ....   Passed    0.01 sec
+      Start 16: sdft_fused_projector_derivative_cpu8
+16/84 Test #16: sdft_fused_projector_derivative_cpu8 ....   Passed    0.01 sec
+      Start 17: sdft_density_flat_support_cpu1
+17/84 Test #17: sdft_density_flat_support_cpu1 ..........   Passed    0.56 sec
+      Start 18: sdft_density_flat_support_cpu8
+18/84 Test #18: sdft_density_flat_support_cpu8 ..........   Passed    0.16 sec
+      Start 19: sdft_davidson_optimization
+19/84 Test #19: sdft_davidson_optimization ..............   Passed    5.60 sec
+      Start 20: sdft_compact_ritz_spectrum
+20/84 Test #20: sdft_compact_ritz_spectrum ..............   Passed    4.25 sec
+      Start 21: sdft_parallel_context_serial
+21/84 Test #21: sdft_parallel_context_serial ............   Passed    1.94 sec
+      Start 22: sdft_sparsity_compensation_blocks
+22/84 Test #22: sdft_sparsity_compensation_blocks .......   Passed    1.95 sec
+      Start 23: sdft_sparsity_real_space_full
+23/84 Test #23: sdft_sparsity_real_space_full ...........   Passed    0.02 sec
+      Start 24: sdft_sparsity_real_space_radius
+24/84 Test #24: sdft_sparsity_real_space_radius .........   Passed    0.02 sec
+      Start 25: sdft_factored_solver_cpu
+25/84 Test #25: sdft_factored_solver_cpu ................   Passed    1.34 sec
+      Start 26: sdft_matrix_free_operator
+26/84 Test #26: sdft_matrix_free_operator ...............   Passed    1.19 sec
+      Start 27: sdft_compact_ritz_paw
+27/84 Test #27: sdft_compact_ritz_paw ...................   Passed    0.09 sec
+      Start 28: sdft_paired_projected_paw
+28/84 Test #28: sdft_paired_projected_paw ...............   Passed    0.08 sec
+      Start 29: sdft_matrix_free_block_davidson
+29/84 Test #29: sdft_matrix_free_block_davidson .........   Passed    0.08 sec
+      Start 30: sdft_bounded_band_groups
+30/84 Test #30: sdft_bounded_band_groups ................   Passed    6.40 sec
+      Start 31: sdft_bounded_paw_groups
+31/84 Test #31: sdft_bounded_paw_groups .................   Passed    0.08 sec
+      Start 32: sdft_swept_band_groups
+32/84 Test #32: sdft_swept_band_groups ..................   Passed    9.37 sec
+      Start 33: sdft_swept_paw_groups
+33/84 Test #33: sdft_swept_paw_groups ...................   Passed    0.68 sec
+      Start 34: sdft_cpu_gemm_partition
+34/84 Test #34: sdft_cpu_gemm_partition .................   Passed    0.40 sec
+      Start 35: sdft_restart_only_ritz
+35/84 Test #35: sdft_restart_only_ritz ..................   Passed    5.43 sec
+      Start 36: sdft_dgks_spectral_challenges
+36/84 Test #36: sdft_dgks_spectral_challenges ...........   Passed    4.06 sec
+      Start 37: sdft_dgks_paw_cpu8
+37/84 Test #37: sdft_dgks_paw_cpu8 ......................   Passed    0.08 sec
+      Start 38: sdft_linear_operator_setup
+38/84 Test #38: sdft_linear_operator_setup ..............   Passed    0.08 sec
+      Start 39: sdft_relax_optimizer
+39/84 Test #39: sdft_relax_optimizer ....................   Passed    1.80 sec
+      Start 40: sdft_ewald_derivatives
+40/84 Test #40: sdft_ewald_derivatives ..................   Passed    2.53 sec
+      Start 41: sdft_global_occupations
+41/84 Test #41: sdft_global_occupations .................   Passed    2.12 sec
+      Start 42: sdft_spline_smoke
+42/84 Test #42: sdft_spline_smoke .......................   Passed    1.91 sec
+      Start 43: sdft_reciprocal_density_derivative
+43/84 Test #43: sdft_reciprocal_density_derivative ......   Passed    1.87 sec
+      Start 44: sdft_core_smoke
+44/84 Test #44: sdft_core_smoke .........................   Passed    1.31 sec
+      Start 45: sdft_pw_smoke
+45/84 Test #45: sdft_pw_smoke ...........................   Passed    1.23 sec
+      Start 46: sdft_pbe_smoke
+46/84 Test #46: sdft_pbe_smoke ..........................   Passed    1.23 sec
+      Start 47: sdft_density_functionals_smoke
+47/84 Test #47: sdft_density_functionals_smoke ..........   Passed    0.01 sec
+      Start 48: sdft_density_dataflow
+48/84 Test #48: sdft_density_dataflow ...................   Passed    1.80 sec
+      Start 49: sdft_ordered_fourier_arithmetic
+49/84 Test #49: sdft_ordered_fourier_arithmetic .........   Passed    1.90 sec
+      Start 50: sdft_ordered_fourier_functional
+50/84 Test #50: sdft_ordered_fourier_functional .........   Passed    0.01 sec
+      Start 51: sdft_fast_density_grid
+51/84 Test #51: sdft_fast_density_grid ..................   Passed    0.11 sec
+      Start 52: sdft_lanczos_smoke
+52/84 Test #52: sdft_lanczos_smoke ......................   Passed    1.98 sec
+      Start 53: sdft_complex_lanczos_smoke
+53/84 Test #53: sdft_complex_lanczos_smoke ..............   Passed    1.97 sec
+      Start 54: sdft_paw_ylm3_smoke
+54/84 Test #54: sdft_paw_ylm3_smoke .....................   Passed    2.14 sec
+      Start 55: sdft_paw_onecenter_smoke
+55/84 Test #55: sdft_paw_onecenter_smoke ................   Passed    2.76 sec
+      Start 56: sdft_openmp_runtime
+56/84 Test #56: sdft_openmp_runtime .....................   Passed    1.36 sec
+      Start 57: sdft_public_file_hash
+57/84 Test #57: sdft_public_file_hash ...................   Passed    2.28 sec
+      Start 58: sdft_rmm_trial_cpu1
+58/84 Test #58: sdft_rmm_trial_cpu1 .....................   Passed    3.20 sec
+      Start 59: sdft_rmm_trial_cpu8
+59/84 Test #59: sdft_rmm_trial_cpu8 .....................   Passed    0.05 sec
+      Start 60: sdft_original_residual_cpu1
+60/84 Test #60: sdft_original_residual_cpu1 .............   Passed    0.14 sec
+      Start 61: sdft_original_residual_cpu8
+61/84 Test #61: sdft_original_residual_cpu8 .............   Passed    0.03 sec
+      Start 62: sdft_pw_seed_transport_cpu1
+62/84 Test #62: sdft_pw_seed_transport_cpu1 .............   Passed    0.12 sec
+      Start 63: sdft_pw_seed_transport_cpu8
+63/84 Test #63: sdft_pw_seed_transport_cpu8 .............   Passed    0.01 sec
+      Start 64: sdft_joint_multisecant
+64/84 Test #64: sdft_joint_multisecant ..................   Passed    0.12 sec
+      Start 65: sdft_collinear_mixing_oracle
+65/84 Test #65: sdft_collinear_mixing_oracle ............   Passed    0.12 sec
+      Start 66: sdft_strict_residual_polish_oracle
+66/84 Test #66: sdft_strict_residual_polish_oracle ......   Passed    0.12 sec
+      Start 67: sdft_density_json_compatibility
+67/84 Test #67: sdft_density_json_compatibility .........   Passed    0.25 sec
+      Start 68: sdft_geometry_guess_integrity
+68/84 Test #68: sdft_geometry_guess_integrity ...........   Passed    0.12 sec
+      Start 69: sdft_frozen_core_reference
+69/84 Test #69: sdft_frozen_core_reference ..............   Passed    0.01 sec
+      Start 70: sdft_frozen_core_parallel
+70/84 Test #70: sdft_frozen_core_parallel ...............   Passed    0.01 sec
+      Start 71: sdft_triple_rotation_cpu1
+71/84 Test #71: sdft_triple_rotation_cpu1 ...............   Passed    0.16 sec
+      Start 72: sdft_triple_rotation_cpu2
+72/84 Test #72: sdft_triple_rotation_cpu2 ...............   Passed    0.05 sec
+      Start 73: sdft_triple_rotation_cpu4
+73/84 Test #73: sdft_triple_rotation_cpu4 ...............   Passed    0.05 sec
+      Start 74: sdft_triple_rotation_cpu8
+74/84 Test #74: sdft_triple_rotation_cpu8 ...............   Passed    0.05 sec
+      Start 75: sdft_fused_pbe_tiles_cpu1
+75/84 Test #75: sdft_fused_pbe_tiles_cpu1 ...............   Passed    0.11 sec
+      Start 76: sdft_fused_pbe_tiles_cpu2
+76/84 Test #76: sdft_fused_pbe_tiles_cpu2 ...............   Passed    0.08 sec
+      Start 77: sdft_fused_pbe_tiles_cpu4
+77/84 Test #77: sdft_fused_pbe_tiles_cpu4 ...............   Passed    0.06 sec
+      Start 78: sdft_fused_pbe_tiles_cpu8
+78/84 Test #78: sdft_fused_pbe_tiles_cpu8 ...............   Passed    0.06 sec
+      Start 79: sdft_spin_pbe_hubbard_smoke
+79/84 Test #79: sdft_spin_pbe_hubbard_smoke .............   Passed    1.33 sec
+      Start 80: sdft_spin_density_smoke
+80/84 Test #80: sdft_spin_density_smoke .................   Passed    1.24 sec
+      Start 81: upf_radial_poisson_math
+81/84 Test #81: upf_radial_poisson_math .................   Passed    1.73 sec
+      Start 82: sdft_indefinite_original_pencil
+82/84 Test #82: sdft_indefinite_original_pencil .........   Passed    1.70 sec
+      Start 83: sdft_paw_compensated_product_cpu1
+83/84 Test #83: sdft_paw_compensated_product_cpu1 .......   Passed    1.84 sec
+      Start 84: sdft_paw_compensated_product_cpu8
+84/84 Test #84: sdft_paw_compensated_product_cpu8 .......   Passed    0.05 sec
+
+100% tests passed, 0 tests failed out of 84
+
+Total Test time (real) =  90.96 sec

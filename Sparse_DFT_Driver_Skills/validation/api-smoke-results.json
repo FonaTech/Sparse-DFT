@@ -1,0 +1,68 @@
+[
+  {
+    "method": "structure.parse",
+    "returncode": 0,
+    "status": "PASS",
+    "errors": []
+  },
+  {
+    "method": "structure.validate",
+    "returncode": 0,
+    "status": "PASS",
+    "errors": []
+  },
+  {
+    "method": "paw.inventory",
+    "returncode": 0,
+    "status": "PASS",
+    "errors": []
+  },
+  {
+    "method": "paw.resolve",
+    "returncode": 0,
+    "status": "PASS",
+    "errors": []
+  },
+  {
+    "method": "paw.restore",
+    "returncode": 0,
+    "status": "PASS",
+    "errors": []
+  },
+  {
+    "method": "paw.parse",
+    "returncode": 0,
+    "status": "PASS",
+    "errors": []
+  },
+  {
+    "method": "kpoints.recommend",
+    "returncode": 0,
+    "status": "PASS",
+    "errors": []
+  },
+  {
+    "method": "backend.info",
+    "returncode": 0,
+    "status": "PASS",
+    "errors": []
+  },
+  {
+    "method": "job.prepare",
+    "returncode": 0,
+    "status": "PREPARED",
+    "errors": []
+  },
+  {
+    "method": "bands.compare",
+    "returncode": 0,
+    "status": "PASS",
+    "errors": []
+  },
+  {
+    "method": "bands.analyze",
+    "returncode": 0,
+    "status": "PASS",
+    "errors": []
+  }
+]

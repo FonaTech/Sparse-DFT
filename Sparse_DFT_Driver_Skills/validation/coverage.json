@@ -1,0 +1,88 @@
+{
+  "cli": {
+    "backend-info": "live --help passed through driver; numerical subset below",
+    "bands": "live --help passed through driver; numerical subset below",
+    "bands-analysis": "live --help passed through driver; numerical subset below",
+    "bands-compare": "live --help passed through driver; numerical subset below",
+    "doctor": "live --help passed through driver; numerical subset below",
+    "dos": "live --help passed through driver; numerical subset below",
+    "inspect": "live --help passed through driver; numerical subset below",
+    "make-band-path": "live --help passed through driver; numerical subset below",
+    "mp-fetch": "live --help passed through driver; numerical subset below",
+    "mp-fetch-bands": "live --help passed through driver; numerical subset below",
+    "paw-convert": "live --help passed through driver; numerical subset below",
+    "paw-inventory": "live --help passed through driver; numerical subset below",
+    "paw-resolve": "live --help passed through driver; numerical subset below",
+    "plot": "live --help passed through driver; numerical subset below",
+    "prepare": "live --help passed through driver; numerical subset below",
+    "progress": "live --help passed through driver; numerical subset below",
+    "recommend-kpoints": "live --help passed through driver; numerical subset below",
+    "relax": "live --help passed through driver; numerical subset below",
+    "scf": "live --help passed through driver; numerical subset below",
+    "suggest": "live --help passed through driver; numerical subset below",
+    "validate": "live --help passed through driver; numerical subset below",
+    "worker": "live --help passed through driver; numerical subset below"
+  },
+  "api": {
+    "backend.info": "real local success",
+    "bands.analyze": "real local success",
+    "bands.compare": "real local success",
+    "bands.run": "real local success",
+    "dos.run": "real local success",
+    "job.prepare": "real local success",
+    "job.run": "real local success",
+    "job.status": "expected unsupported/placeholder failure tested",
+    "kpoints.recommend": "real local success",
+    "mp.fetch_bands": "authenticated MP live request not run; negative/error handling tested",
+    "mp.fetch_structures": "authenticated MP live request not run; negative/error handling tested",
+    "paw.inventory": "real local success",
+    "paw.parse": "real local success",
+    "paw.resolve": "real local success",
+    "paw.restore": "real local success",
+    "relax.cell": "real local success",
+    "relax.ionic": "real local success",
+    "results.export": "expected unsupported/placeholder failure tested",
+    "results.summarize": "expected unsupported/placeholder failure tested",
+    "structure.parse": "real local success",
+    "structure.validate": "real local success"
+  },
+  "python": {
+    "discovered": 377,
+    "scope": "Public definitions/signatures catalogued, representative typed calls and actual numerical routes executed; not all 377 definitions individually run"
+  },
+  "native": {
+    "discovered_targets": 53,
+    "cpu_ctest": "84/84",
+    "metal_cpu_ctest": "84/84",
+    "metal_gpu_smokes": "4/4 outside sandbox, actual SCF GPU counters retained",
+    "mpi": "84/84 non-MPI tests passed in sandbox; 3/3 initially socket-blocked tests passed outside sandbox; real k-group and band-group SCFs converged",
+    "cuda": "not executed: no NVIDIA/CUDA runtime on this Apple host"
+  },
+  "source_python": {
+    "run": 317,
+    "skipped": 5,
+    "failed": 0,
+    "scope": "312 executed pass, 5 skipped for omitted historical fixtures/build-tree expectations; no skipped test counted as passed"
+  },
+  "driver": {
+    "bundle_tests": 33,
+    "installed_tests": 33,
+    "failed": 0
+  },
+  "sparsity": {
+    "real_scf_variants": 13,
+    "matched_energy_force_stress_gates": "all passed on Si2, cutoff 300 eV, Gamma mesh, explicitly requested 1e-8 thresholds",
+    "S6": "native real-search counters present and final certificate passed",
+    "S7": "software has no fp32 kernel; expected UnsupportedError validated",
+    "fallback": "actual auto tail-budget miss capped at factor 8; fallback=true and warning retained"
+  },
+  "limitations": [
+    "POTCAR pilot data are local and excluded from package",
+    "PAW-UPF full SCF not run without an actual UPF dataset; source mapping/parser/native mathematical routes are tested, UPF is outside upstream accuracy comparison",
+    "Live Materials Project fetches need user credentials and target IDs; no authenticated fetch was fabricated",
+    "Historical benchmark tools require omitted raw workflow/ files; reachability is not an executable benchmark result",
+    "GaAs and Al-slab lm projection accuracy gaps remain upstream limitations",
+    "Native total_energy_valid/production validity are preserved, never rewritten",
+    "The old evidence-v2 external verifier is absent; local handoff extraction/hash tests passed, no unsupported upstream-schema certification is claimed"
+  ]
+}

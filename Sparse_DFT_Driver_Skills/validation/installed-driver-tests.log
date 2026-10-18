@@ -1,0 +1,38 @@
+test_all_case_manifests_pass_upstream_design_contract (test_driver.DriverBehavior.test_all_case_manifests_pass_upstream_design_contract) ... ok
+test_cli_outputs_and_python_positional_output_are_protected (test_driver.DriverBehavior.test_cli_outputs_and_python_positional_output_are_protected) ... ok
+test_default_output_is_protected (test_driver.DriverBehavior.test_default_output_is_protected) ... ok
+test_eos_fits_explicit_synthetic_data_and_rejects_bad_points (test_driver.DriverBehavior.test_eos_fits_explicit_synthetic_data_and_rejects_bad_points) ... ok
+test_eos_prepares_actual_scaled_structures_and_recipe (test_driver.DriverBehavior.test_eos_prepares_actual_scaled_structures_and_recipe) ... ok
+test_eos_relax_uses_hash_checked_last_accepted_scf (test_driver.DriverBehavior.test_eos_relax_uses_hash_checked_last_accepted_scf) ... ok
+test_every_cli_entry_accepts_actual_help (test_driver.DriverBehavior.test_every_cli_entry_accepts_actual_help) ... ok
+test_existing_workflow_is_never_overwritten (test_driver.DriverBehavior.test_existing_workflow_is_never_overwritten) ... ok
+test_failed_and_nonfinite_result_does_not_promote_stage (test_driver.DriverBehavior.test_failed_and_nonfinite_result_does_not_promote_stage) ... ok
+test_ignored_api_control_is_rejected_before_execution (test_driver.DriverBehavior.test_ignored_api_control_is_rejected_before_execution) ... ok
+test_missing_paw_does_not_fabricate_a_success (test_driver.DriverBehavior.test_missing_paw_does_not_fabricate_a_success) ... ok
+test_monitor_keeps_partial_lines_and_unknown_liveness (test_driver.DriverBehavior.test_monitor_keeps_partial_lines_and_unknown_liveness) ... ok
+test_placeholders_and_unsupported_api_are_non_success (test_driver.DriverBehavior.test_placeholders_and_unsupported_api_are_non_success) ... ok
+test_preflight_logs_do_not_block_later_project_scaffold (test_driver.DriverBehavior.test_preflight_logs_do_not_block_later_project_scaffold) ... ok
+test_python_spacing_and_structure_object_are_usable (test_driver.DriverBehavior.test_python_spacing_and_structure_object_are_usable) ... ok
+test_real_path_generation_has_expected_endpoints (test_driver.DriverBehavior.test_real_path_generation_has_expected_endpoints) ... ok
+test_real_structure_api_records_process_and_request (test_driver.DriverBehavior.test_real_structure_api_records_process_and_request) ... ok
+test_recipe_api_and_python_modes_execute_real_calls (test_driver.DriverBehavior.test_recipe_api_and_python_modes_execute_real_calls) ... ok
+test_recipe_executes_and_resume_checks_immutable_outputs (test_driver.DriverBehavior.test_recipe_executes_and_resume_checks_immutable_outputs) ... ok
+test_recipe_stops_before_dependent_call_after_failure (test_driver.DriverBehavior.test_recipe_stops_before_dependent_call_after_failure) ... ok
+test_secret_parameter_is_redacted_from_record (test_driver.DriverBehavior.test_secret_parameter_is_redacted_from_record) ... ok
+test_source_manifest_and_interface_catalog (test_driver.DriverBehavior.test_source_manifest_and_interface_catalog) ... ok
+test_synthetic_handoff_preserves_flags_and_passes_evidence_schema (test_driver.DriverBehavior.test_synthetic_handoff_preserves_flags_and_passes_evidence_schema) ... ok
+test_migration_preserves_old_and_exact_new_copy (test_install.Installer.test_migration_preserves_old_and_exact_new_copy) ... ok
+test_missing_external_backup_leaves_old_untouched (test_install.Installer.test_missing_external_backup_leaves_old_untouched) ... ok
+test_api_indirect_spin_keys_and_omitted_controls (test_sparse_features.SparseFeatures.test_api_indirect_spin_keys_and_omitted_controls) ... ok
+test_dos_handoff_requires_immutable_parent (test_sparse_features.SparseFeatures.test_dos_handoff_requires_immutable_parent) ... ok
+test_fp32_and_conflicts_fail_in_real_software (test_sparse_features.SparseFeatures.test_fp32_and_conflicts_fail_in_real_software) ... ok
+test_frozen_profile_removes_auto_and_forbidden_density_factor (test_sparse_features.SparseFeatures.test_frozen_profile_removes_auto_and_forbidden_density_factor) ... ok
+test_prepare_writes_executable_python_calls (test_sparse_features.SparseFeatures.test_prepare_writes_executable_python_calls) ... ok
+test_public_subpackage_python_and_tool_path (test_sparse_features.SparseFeatures.test_public_subpackage_python_and_tool_path) ... ok
+test_real_profile_environment_and_parallel_validation (test_sparse_features.SparseFeatures.test_real_profile_environment_and_parallel_validation) ... ok
+test_synthetic_comparison_checks_certificate_and_dimensions (test_sparse_features.SparseFeatures.test_synthetic_comparison_checks_certificate_and_dimensions) ... ok
+
+----------------------------------------------------------------------
+Ran 33 tests in 30.650s
+
+OK

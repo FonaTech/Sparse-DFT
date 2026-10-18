@@ -1,0 +1,877 @@
+{
+  "scf": [
+    {
+      "name": "si-auto",
+      "path": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/live-tests/si-auto/scf_result.json",
+      "sha256": "4b8c8fa5d5dbb8be34af2b24514e002cb74fbf44603bd821d5fbd4059a92b47b",
+      "result_method": "simulated",
+      "converged": true,
+      "total_energy_valid": false,
+      "total_energy_ev_per_cell": 6.186860535245966,
+      "spin_channels": 1,
+      "eigensolver_max_residual_hartree": 3.114153403125503e-13,
+      "cutoff_ev": 300,
+      "density_cutoff_ev": 1200,
+      "conditions": {
+        "scf_grid": [
+          1,
+          1,
+          1
+        ],
+        "mesh_mode": "gamma",
+        "smearing_ev": 0.0,
+        "atomic_units": "codata",
+        "hubbard": null,
+        "initial_moments": null,
+        "parallel": {
+          "ranks": 1,
+          "kgroups": 1,
+          "bandgroups": 1,
+          "threads_per_rank": null,
+          "deterministic": false
+        }
+      },
+      "sparsity_ledger": {
+        "schema_version": "sparse-dft-sparsity-ledger-2",
+        "mode": "auto",
+        "density_cutoff_factor": 4.0,
+        "density_modes_ratio_vs_16x_estimate": 0.125,
+        "density_reciprocal_modes": 3767,
+        "max_xc_grid_points": 9261,
+        "max_fft_grid_points": 9261,
+        "plane_waves": 459,
+        "iterations": 24,
+        "components": {
+          "density_cutoff_factor": 4.0,
+          "xc_padding": 1,
+          "eigen_search_factor": 0.0001,
+          "block_ortho": true,
+          "paw_compensation": "blocks"
+        },
+        "rule_ids": [
+          "S1.weighted_l2.v1",
+          "S2.insulator.v1",
+          "S3.default.v1",
+          "S4.all.v1",
+          "S5.blocks.v1"
+        ],
+        "auto": {
+          "level": "balanced",
+          "controls": {},
+          "tail_metric": "weighted_compensation_l2",
+          "tail_budget": 2.5e-07,
+          "tail_budget_source": "rules x level balanced (1)",
+          "tail_at_choice": 1.56891517e-07,
+          "tails_tried": {
+            "4": 1.56891517e-07
+          },
+          "fallback": false,
+          "warnings": []
+        },
+        "counters": {
+          "operator_hamiltonian": {
+            "seconds": 0.1569986236281693,
+            "calls": 399
+          },
+          "operator_overlap": {
+            "seconds": 0.07098747976124287,
+            "calls": 991
+          },
+          "paw_block_projectors": {
+            "seconds": 0.08071963908150792,
+            "calls": 1390
+          },
+          "paw_compensated_factor_product": {
+            "seconds": 0.004139288328588009,
+            "calls": 2828
+          },
+          "fft_local_block": {
+            "seconds": 0.13466313434764743,
+            "calls": 399
+          },
+          "density_functional": {
+            "seconds": 0.04511020798236132,
+            "calls": 24
+          },
+          "scf_diagonalization": {
+            "seconds": 0.4480857099406421,
+            "calls": 24
+          },
+          "scf_total": {
+            "seconds": 0.8051813752390444,
+            "calls": 1
+          },
+          "process_compute_total": {
+            "seconds": 0.8128330833278596,
+            "calls": 1
+          },
+          "paw_compensation_density_batch": {
+            "seconds": 0.005081664305180311,
+            "calls": 24
+          },
+          "paw_compensation_adjoint": {
+            "seconds": 0.006424833554774523,
+            "calls": 24
+          }
+        }
+      }
+    },
+    {
+      "name": "si-spin-u",
+      "path": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/live-tests/si-spin-u/scf_result.json",
+      "sha256": "60c5f580dae19a286c38a083ba90c5c933ce6d3b0acfc60658fe29b27d023374",
+      "result_method": "simulated",
+      "converged": true,
+      "total_energy_valid": false,
+      "total_energy_ev_per_cell": 6.391562127787591,
+      "spin_channels": 2,
+      "eigensolver_max_residual_hartree": 5.532366398202524e-13,
+      "cutoff_ev": 300,
+      "density_cutoff_ev": 1200,
+      "conditions": {
+        "scf_grid": [
+          1,
+          1,
+          1
+        ],
+        "mesh_mode": "gamma",
+        "smearing_ev": 0.0,
+        "atomic_units": "codata",
+        "hubbard": {
+          "Si": {
+            "l": 1,
+            "ueff_ev": 0.2
+          }
+        },
+        "initial_moments": [
+          0.1,
+          -0.1
+        ],
+        "parallel": {
+          "ranks": 1,
+          "kgroups": 1,
+          "bandgroups": 1,
+          "threads_per_rank": 2,
+          "deterministic": false
+        }
+      },
+      "sparsity_ledger": {
+        "schema_version": "sparse-dft-sparsity-ledger-2",
+        "mode": "auto",
+        "density_cutoff_factor": 4.0,
+        "density_modes_ratio_vs_16x_estimate": 0.125,
+        "density_reciprocal_modes": 3767,
+        "max_xc_grid_points": 9261,
+        "max_fft_grid_points": 9261,
+        "plane_waves": 459,
+        "iterations": 154,
+        "components": {
+          "density_cutoff_factor": 4.0,
+          "xc_padding": 1,
+          "eigen_search_factor": 0.0001,
+          "block_ortho": true,
+          "paw_compensation": "blocks"
+        },
+        "rule_ids": [
+          "S1.weighted_l2.v1",
+          "S2.insulator.v1",
+          "S3.default.v1",
+          "S4.all.v1",
+          "S5.blocks.v1"
+        ],
+        "auto": {
+          "level": "balanced",
+          "controls": {},
+          "tail_metric": "weighted_compensation_l2",
+          "tail_budget": 2.5e-07,
+          "tail_budget_source": "rules x level balanced (1)",
+          "tail_at_choice": 1.56891517e-07,
+          "tails_tried": {
+            "4": 1.56891517e-07
+          },
+          "fallback": false,
+          "warnings": []
+        },
+        "counters": {
+          "operator_hamiltonian": {
+            "seconds": 4.272808731533587,
+            "calls": 3972
+          },
+          "operator_overlap": {
+            "seconds": 0.6674234946258366,
+            "calls": 10946
+          },
+          "paw_block_projectors": {
+            "seconds": 0.8913328251801431,
+            "calls": 14918
+          },
+          "paw_compensated_factor_product": {
+            "seconds": 0.04471328016370535,
+            "calls": 30452
+          },
+          "fft_local_block": {
+            "seconds": 4.028676751069725,
+            "calls": 3972
+          },
+          "density_functional": {
+            "seconds": 0.9964761226437986,
+            "calls": 154
+          },
+          "scf_diagonalization": {
+            "seconds": 7.8654455482028425,
+            "calls": 308
+          },
+          "scf_total": {
+            "seconds": 18.037022250238806,
+            "calls": 1
+          },
+          "process_compute_total": {
+            "seconds": 18.051251125056297,
+            "calls": 1
+          },
+          "paw_compensation_density_batch": {
+            "seconds": 0.06764279492199421,
+            "calls": 311
+          },
+          "paw_compensation_adjoint": {
+            "seconds": 0.08425604458898306,
+            "calls": 308
+          }
+        }
+      }
+    },
+    {
+      "name": "si-metal",
+      "path": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/live-tests/si-metal/scf_result.json",
+      "sha256": "b0df5c7c2f448b4f96d6b959698398a22d5900bcee65ba481540f3e2cd67da68",
+      "result_method": "simulated",
+      "converged": true,
+      "total_energy_valid": false,
+      "total_energy_ev_per_cell": -1.0937442495537404,
+      "spin_channels": 1,
+      "eigensolver_max_residual_hartree": 9.143145625002583e-13,
+      "cutoff_ev": 300,
+      "density_cutoff_ev": 1200,
+      "conditions": {
+        "scf_grid": [
+          1,
+          1,
+          2
+        ],
+        "mesh_mode": "gamma",
+        "smearing_ev": 0.0,
+        "atomic_units": "codata",
+        "hubbard": null,
+        "initial_moments": null,
+        "parallel": {
+          "ranks": 1,
+          "kgroups": 1,
+          "bandgroups": 1,
+          "threads_per_rank": 2,
+          "deterministic": false
+        }
+      },
+      "sparsity_ledger": {
+        "schema_version": "sparse-dft-sparsity-ledger-2",
+        "mode": "auto",
+        "density_cutoff_factor": 4.0,
+        "density_modes_ratio_vs_16x_estimate": 0.125,
+        "density_reciprocal_modes": 3767,
+        "max_xc_grid_points": 9261,
+        "max_fft_grid_points": 9261,
+        "plane_waves": 459,
+        "iterations": 24,
+        "components": {
+          "density_cutoff_factor": 4.0,
+          "xc_padding": 1,
+          "eigen_search_factor": 0.0001,
+          "block_ortho": true,
+          "paw_compensation": "blocks"
+        },
+        "rule_ids": [
+          "S1.weighted_l2.v1",
+          "S2.insulator.v1",
+          "S3.default.v1",
+          "S4.all.v1",
+          "S5.blocks.v1"
+        ],
+        "auto": {
+          "level": "balanced",
+          "controls": {},
+          "tail_metric": "weighted_compensation_l2",
+          "tail_budget": 2.5e-07,
+          "tail_budget_source": "rules x level balanced (1)",
+          "tail_at_choice": 1.56891517e-07,
+          "tails_tried": {
+            "4": 1.56891517e-07
+          },
+          "fallback": false,
+          "warnings": []
+        },
+        "counters": {
+          "operator_hamiltonian": {
+            "seconds": 0.40035653533414006,
+            "calls": 628
+          },
+          "operator_overlap": {
+            "seconds": 0.45985288079828024,
+            "calls": 1807
+          },
+          "paw_block_projectors": {
+            "seconds": 0.47364443773403764,
+            "calls": 1831
+          },
+          "paw_compensated_factor_product": {
+            "seconds": 0.005297161638736725,
+            "calls": 3758
+          },
+          "fft_local_block": {
+            "seconds": 0.2822494604624808,
+            "calls": 326
+          },
+          "density_functional": {
+            "seconds": 0.04759896220639348,
+            "calls": 24
+          },
+          "scf_diagonalization": {
+            "seconds": 2.271728207357228,
+            "calls": 48
+          },
+          "scf_total": {
+            "seconds": 1.7594016250222921,
+            "calls": 1
+          },
+          "process_compute_total": {
+            "seconds": 1.80541216628626,
+            "calls": 1
+          },
+          "paw_compensation_density_batch": {
+            "seconds": 0.005070210434496403,
+            "calls": 24
+          },
+          "paw_compensation_adjoint": {
+            "seconds": 0.006261416710913181,
+            "calls": 24
+          }
+        }
+      }
+    },
+    {
+      "name": "si-mpi-k2",
+      "path": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/live-tests/si-mpi-k2/scf_result.json",
+      "sha256": "b36d8a2f008c930aaba76e8ab48769eab357cdc266dc2570b6df9a9256cfd524",
+      "result_method": "simulated",
+      "converged": true,
+      "total_energy_valid": false,
+      "total_energy_ev_per_cell": -1.0937442495534135,
+      "spin_channels": 1,
+      "eigensolver_max_residual_hartree": 4.1463864879476136e-13,
+      "cutoff_ev": 300,
+      "density_cutoff_ev": 1200,
+      "conditions": {
+        "scf_grid": [
+          1,
+          1,
+          2
+        ],
+        "mesh_mode": "gamma",
+        "smearing_ev": 0.0,
+        "atomic_units": "codata",
+        "hubbard": null,
+        "initial_moments": null,
+        "parallel": {
+          "ranks": 2,
+          "kgroups": 2,
+          "bandgroups": 1,
+          "threads_per_rank": 1,
+          "deterministic": false
+        }
+      },
+      "sparsity_ledger": {
+        "schema_version": "sparse-dft-sparsity-ledger-2",
+        "mode": "auto",
+        "density_cutoff_factor": 4.0,
+        "density_modes_ratio_vs_16x_estimate": 0.125,
+        "density_reciprocal_modes": 3767,
+        "max_xc_grid_points": 9261,
+        "max_fft_grid_points": 9261,
+        "plane_waves": 459,
+        "iterations": 22,
+        "components": {
+          "density_cutoff_factor": 4.0,
+          "xc_padding": 1,
+          "eigen_search_factor": 0.0001,
+          "block_ortho": true,
+          "paw_compensation": "blocks"
+        },
+        "rule_ids": [
+          "S1.weighted_l2.v1",
+          "S2.insulator.v1",
+          "S3.default.v1",
+          "S4.all.v1",
+          "S5.blocks.v1"
+        ],
+        "auto": {
+          "level": "balanced",
+          "controls": {},
+          "tail_metric": "weighted_compensation_l2",
+          "tail_budget": 2.5e-07,
+          "tail_budget_source": "rules x level balanced (1)",
+          "tail_at_choice": 1.56891517e-07,
+          "tails_tried": {
+            "4": 1.56891517e-07
+          },
+          "fallback": false,
+          "warnings": []
+        },
+        "counters": {
+          "operator_hamiltonian": {
+            "seconds": 0.2565971612930298,
+            "calls": 327
+          },
+          "operator_overlap": {
+            "seconds": 0.05267463345080614,
+            "calls": 865
+          },
+          "paw_block_projectors": {
+            "seconds": 0.07072263211011887,
+            "calls": 1192
+          },
+          "paw_compensated_factor_product": {
+            "seconds": 0.0031427275389432907,
+            "calls": 2428
+          },
+          "fft_local_block": {
+            "seconds": 0.23743776278570294,
+            "calls": 327
+          },
+          "density_functional": {
+            "seconds": 0.041402623523026705,
+            "calls": 22
+          },
+          "scf_diagonalization": {
+            "seconds": 0.5234068776480854,
+            "calls": 22
+          },
+          "scf_total": {
+            "seconds": 1.1898422501981258,
+            "calls": 1
+          },
+          "process_compute_total": {
+            "seconds": 1.1969584156759083,
+            "calls": 1
+          },
+          "paw_compensation_density_batch": {
+            "seconds": 0.00469004362821579,
+            "calls": 22
+          },
+          "paw_compensation_adjoint": {
+            "seconds": 0.006095248274505138,
+            "calls": 22
+          }
+        }
+      }
+    },
+    {
+      "name": "si-mpi-b2",
+      "path": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/live-tests/si-mpi-b2/scf_result.json",
+      "sha256": "66e140f305d822a123688beab62323018c1c256d6921c6ecfc9b211e531c11ce",
+      "result_method": "simulated",
+      "converged": true,
+      "total_energy_valid": false,
+      "total_energy_ev_per_cell": -1.0937442495534135,
+      "spin_channels": 1,
+      "eigensolver_max_residual_hartree": 4.1463864879476136e-13,
+      "cutoff_ev": 300,
+      "density_cutoff_ev": 1200,
+      "conditions": {
+        "scf_grid": [
+          1,
+          1,
+          2
+        ],
+        "mesh_mode": "gamma",
+        "smearing_ev": 0.0,
+        "atomic_units": "codata",
+        "hubbard": null,
+        "initial_moments": null,
+        "parallel": {
+          "ranks": 2,
+          "kgroups": 1,
+          "bandgroups": 2,
+          "threads_per_rank": 1,
+          "deterministic": false
+        }
+      },
+      "sparsity_ledger": {
+        "schema_version": "sparse-dft-sparsity-ledger-2",
+        "mode": "auto",
+        "density_cutoff_factor": 4.0,
+        "density_modes_ratio_vs_16x_estimate": 0.125,
+        "density_reciprocal_modes": 3767,
+        "max_xc_grid_points": 9261,
+        "max_fft_grid_points": 9261,
+        "plane_waves": 459,
+        "iterations": 22,
+        "components": {
+          "density_cutoff_factor": 4.0,
+          "xc_padding": 1,
+          "eigen_search_factor": 0.0001,
+          "block_ortho": true,
+          "paw_compensation": "blocks"
+        },
+        "rule_ids": [
+          "S1.weighted_l2.v1",
+          "S2.insulator.v1",
+          "S3.default.v1",
+          "S4.all.v1",
+          "S5.blocks.v1"
+        ],
+        "auto": {
+          "level": "balanced",
+          "controls": {},
+          "tail_metric": "weighted_compensation_l2",
+          "tail_budget": 2.5e-07,
+          "tail_budget_source": "rules x level balanced (1)",
+          "tail_at_choice": 1.56891517e-07,
+          "tails_tried": {
+            "4": 1.56891517e-07
+          },
+          "fallback": false,
+          "warnings": []
+        },
+        "counters": {
+          "operator_hamiltonian": {
+            "seconds": 0.26812758576124907,
+            "calls": 600
+          },
+          "operator_overlap": {
+            "seconds": 0.08846825174987316,
+            "calls": 1574
+          },
+          "paw_block_projectors": {
+            "seconds": 0.11878170445561409,
+            "calls": 2174
+          },
+          "paw_compensated_factor_product": {
+            "seconds": 0.0037120417691767216,
+            "calls": 4436
+          },
+          "fft_local_block": {
+            "seconds": 0.2364311316050589,
+            "calls": 600
+          },
+          "density_functional": {
+            "seconds": 0.04152687406167388,
+            "calls": 22
+          },
+          "scf_diagonalization": {
+            "seconds": 0.7906514992937446,
+            "calls": 44
+          },
+          "scf_total": {
+            "seconds": 1.4239982501603663,
+            "calls": 1
+          },
+          "process_compute_total": {
+            "seconds": 1.4313094578683376,
+            "calls": 1
+          },
+          "paw_compensation_density_batch": {
+            "seconds": 0.004759540781378746,
+            "calls": 22
+          },
+          "paw_compensation_adjoint": {
+            "seconds": 0.006208708975464106,
+            "calls": 22
+          }
+        }
+      }
+    },
+    {
+      "name": "si-snapshot",
+      "path": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/live-tests/si-snapshot/scf_result.json",
+      "sha256": "b8bd0f0ac97214c7d4779e2242c5d59a26a65bb47c1d6aeee7553c6171757684",
+      "result_method": "simulated",
+      "converged": true,
+      "total_energy_valid": false,
+      "total_energy_ev_per_cell": 6.186860535245966,
+      "spin_channels": 1,
+      "eigensolver_max_residual_hartree": 3.114153403125503e-13,
+      "cutoff_ev": 300,
+      "density_cutoff_ev": 1200,
+      "conditions": {
+        "scf_grid": [
+          1,
+          1,
+          1
+        ],
+        "mesh_mode": "gamma",
+        "smearing_ev": 0.0,
+        "atomic_units": "codata",
+        "hubbard": null,
+        "initial_moments": null,
+        "parallel": {
+          "ranks": 1,
+          "kgroups": 1,
+          "bandgroups": 1,
+          "threads_per_rank": null,
+          "deterministic": false
+        }
+      },
+      "sparsity_ledger": {
+        "schema_version": "sparse-dft-sparsity-ledger-2",
+        "mode": "auto",
+        "density_cutoff_factor": 4.0,
+        "density_modes_ratio_vs_16x_estimate": 0.125,
+        "density_reciprocal_modes": 3767,
+        "max_xc_grid_points": 9261,
+        "max_fft_grid_points": 9261,
+        "plane_waves": 459,
+        "iterations": 24,
+        "components": {
+          "density_cutoff_factor": 4.0,
+          "xc_padding": 1,
+          "eigen_search_factor": 0.0001,
+          "block_ortho": true,
+          "paw_compensation": "blocks"
+        },
+        "rule_ids": [
+          "S1.weighted_l2.v1",
+          "S2.insulator.v1",
+          "S3.default.v1",
+          "S4.all.v1",
+          "S5.blocks.v1"
+        ],
+        "auto": {
+          "level": "balanced",
+          "controls": {},
+          "tail_metric": "weighted_compensation_l2",
+          "tail_budget": 2.5e-07,
+          "tail_budget_source": "rules x level balanced (1)",
+          "tail_at_choice": 1.56891517e-07,
+          "tails_tried": {
+            "4": 1.56891517e-07
+          },
+          "fallback": false,
+          "warnings": []
+        },
+        "counters": {
+          "operator_hamiltonian": {
+            "seconds": 0.21467936411499977,
+            "calls": 399
+          },
+          "operator_overlap": {
+            "seconds": 0.06428709719330072,
+            "calls": 991
+          },
+          "paw_block_projectors": {
+            "seconds": 0.07865477306768298,
+            "calls": 1390
+          },
+          "paw_compensated_factor_product": {
+            "seconds": 0.004111498594284058,
+            "calls": 2828
+          },
+          "fft_local_block": {
+            "seconds": 0.1928711235523224,
+            "calls": 399
+          },
+          "density_functional": {
+            "seconds": 0.04728770349174738,
+            "calls": 24
+          },
+          "scf_diagonalization": {
+            "seconds": 0.4999895845539868,
+            "calls": 24
+          },
+          "scf_total": {
+            "seconds": 0.9232671246863902,
+            "calls": 1
+          },
+          "process_compute_total": {
+            "seconds": 0.9301906246691942,
+            "calls": 1
+          },
+          "paw_compensation_density_batch": {
+            "seconds": 0.005081587005406618,
+            "calls": 24
+          },
+          "paw_compensation_adjoint": {
+            "seconds": 0.006312163081020117,
+            "calls": 24
+          }
+        }
+      }
+    },
+    {
+      "name": "installed-skill-scf",
+      "path": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/installed-smoke/si-installed/scf_result.json",
+      "sha256": "824c964147e71612e8526f582bf8d0e4be221cd20b96300b012bbdce60611953",
+      "result_method": "simulated",
+      "converged": true,
+      "total_energy_valid": false,
+      "cutoff_ev": 300,
+      "scf_grid": [
+        1,
+        1,
+        1
+      ],
+      "max_eigen_residual_hartree": 3.114153403125503e-13
+    }
+  ],
+  "relax": [
+    {
+      "name": "si-ionic",
+      "path": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/live-tests/si-ionic/relax_result.json",
+      "sha256": "9ef7b3a3ec2ee0aacbb3b795e87608734fded025f4ec4e3d3d2d7f3c63b32a22",
+      "status": "CONVERGED",
+      "steps": 0,
+      "residual": 8.75887053717417e-08,
+      "tolerance": 0.02,
+      "units": "eV/angstrom",
+      "total_energy_valid": false,
+      "production_validated": false
+    },
+    {
+      "name": "si-cell-mesh2",
+      "path": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/live-tests/si-cell-mesh2/relax_result.json",
+      "sha256": "2c9e244fa9eb53b27dc3ac38b9c542693139963a1a3b70bb1e8fe3c609f7d809",
+      "status": "CONVERGED",
+      "steps": 5,
+      "residual": 9.278981799232255e-05,
+      "tolerance": 0.00031207545,
+      "units": "eV/angstrom^3",
+      "total_energy_valid": false,
+      "production_validated": false
+    },
+    {
+      "name": "si-cell-api",
+      "path": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/live-tests/si-cell-api/relax_result.json",
+      "sha256": "81384d120c1a7b45b4b92e1e108dd111f779840dd26a32fbbe8db390df44c507",
+      "status": "CONVERGED",
+      "steps": 0,
+      "residual": 9.834363622851505e-05,
+      "tolerance": 0.00031207545,
+      "units": "eV/angstrom^3",
+      "total_energy_valid": false,
+      "production_validated": false
+    }
+  ],
+  "bands": {
+    "path": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/live-tests/si-bands-v2/bands.json",
+    "sha256": "799021914f857a7c167207bda35e39ad54401812840df2833f008ade630de44b",
+    "kpoints": 3,
+    "source_checkpoint": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/live-tests/si-auto/scf.json"
+  },
+  "dos": {
+    "path": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/live-tests/si-dos/dos.json",
+    "sha256": "58d235a9d7ee2e167ffd496225427eef7d1f004b9a72d4ac646215f886e7988a",
+    "metadata": {
+      "format": "Gaussian DOS from a Sparse-DFT NSCF uniform mesh",
+      "sigma_ev": 0.05,
+      "sampling": "uniform_mesh",
+      "grid": [
+        2,
+        2,
+        2
+      ],
+      "mesh_mode": "gamma",
+      "nkpoints": 8,
+      "spin_channels": [
+        "total"
+      ],
+      "spin_degeneracy": 2,
+      "normalization": "states/eV/cell",
+      "complete_below_ev": 7.0263465562804885,
+      "pdos_orbitals": [
+        "s",
+        "py",
+        "pz",
+        "px"
+      ],
+      "projection_weight_definition": "vasp_lorbit11_ae_sphere_rdep_sum_ij_conj_ci_Qij_cj",
+      "pdos_note": "augmentation-sphere projections; their sum is below the total DOS",
+      "integrated_electrons": 8.016627989921163,
+      "integrated_to": "midgap",
+      "integrated_to_ev": 6.930292867800681,
+      "kweights": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "tail_sigmas": 6.0,
+      "mesh_convergence_verified": false
+    }
+  },
+  "finite_difference": {
+    "result_method": "simulated",
+    "sample_count": 12,
+    "step_angstrom": 0.001,
+    "forces_ev_per_angstrom": [
+      [
+        -4.192202140984591e-10,
+        1.4210854715202004e-10,
+        -5.400124791776761e-10
+      ],
+      [
+        2.7000623958883807e-10,
+        1.1368683772161603e-10,
+        -1.1795009413617663e-09
+      ]
+    ],
+    "raw_log": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/fd-test.log",
+    "raw_log_sha256": "5e20b567a2e6302660de83eed368fa1f94b1ebf09c90cf5ad90b3f13014627be"
+  },
+  "replay": {
+    "schema_version": "sparse-dft-solver-replay-1",
+    "scientific_scf_result": false,
+    "passed": true,
+    "dimension": 459,
+    "roots": 6,
+    "stored_max_iterations": 256,
+    "max_iterations": 256,
+    "iterations": 9,
+    "tolerance": 0.0001,
+    "solver_converged": true,
+    "fresh_max_residual": 3.593611371626062e-05,
+    "s_normalization_error": 2.6645352591003757e-15,
+    "seconds": 0.020061791,
+    "residuals": [
+      3.593611371626062e-05,
+      1.596426080025668e-05,
+      1.9656603045037063e-05,
+      2.3569155360342274e-05,
+      1.0228412403851294e-05,
+      1.3964996014920158e-05
+    ],
+    "eigenvalues_hartree": [
+      -0.24124199240034008,
+      0.1937801902826904,
+      0.1937801903142533,
+      0.19378019038017436,
+      0.2965071084311613,
+      0.296507108450238
+    ]
+  },
+  "figures": {
+    "directory": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/live-tests/figures",
+    "png_count": 12
+  },
+  "handoffs": {
+    "handoff-scf": {
+      "path": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/live-tests/handoff-scf/handoff.json",
+      "sha256": "2864f22d3f18c51b51c9f3f68b8fef5bcd7af80ea4c631a059aea6b0c3eea65d"
+    },
+    "handoff-dos": {
+      "path": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/live-tests/handoff-dos/handoff.json",
+      "sha256": "4ecfdc579025cfe43a47cb9aebcd099bbcfdd20db09ae525d04fe21ae24be1f2"
+    }
+  },
+  "scope": "Real local execution pilots. Numerical convergence and sampled gates only; not cutoff/k-mesh convergence or all-material validation. POTCAR/numeric caches are excluded from delivery."
+}

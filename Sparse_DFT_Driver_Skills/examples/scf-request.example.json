@@ -1,0 +1,15 @@
+{
+  "structure": "/actual/path/POSCAR",
+  "paw_root": "/actual/path/potpaw_PBE.54-json",
+  "output": "runs/sparse_dft/scf-001",
+  "scf_grid": [
+    2,
+    2,
+    2
+  ],
+  "accuracy": "standard",
+  "density_tolerance": 1e-08,
+  "onecenter_density_tolerance": 1e-08,
+  "max_iterations": 240,
+  "atomic_units": "codata"
+}

@@ -1,0 +1,1 @@
+plane_wave_operator PASS application_error=8.88208e-16 search_block_error=5.21467e-14 eigen_error=5.55112e-15 S_orthogonality_error=1.60784e-15 certified_residual_error=1.11022e-16 grid=225 storage_bytes=14456

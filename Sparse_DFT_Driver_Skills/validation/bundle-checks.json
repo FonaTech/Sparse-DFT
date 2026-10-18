@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "broken_links_or_calls": [],
+  "catalog_identity_matches": true,
+  "installed_exact_match": true,
+  "packaging_excludes": [
+    "POTCAR",
+    "numeric.bin",
+    "__pycache__",
+    "*.pyc",
+    "software source/binaries",
+    "credentials"
+  ],
+  "historical_validation_declaration_reused_as_new": false
+}

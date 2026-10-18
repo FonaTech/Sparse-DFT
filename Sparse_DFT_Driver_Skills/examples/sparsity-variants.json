@@ -1,0 +1,10 @@
+{
+  "off": {"mode":"off"},
+  "auto": {"mode":"auto"},
+  "s1": {"mode":"custom","density_cutoff_factor":8},
+  "s2": {"mode":"custom","xc_padding":1},
+  "s3": {"mode":"custom","eigen_search_factor":0.0001},
+  "s4": {"mode":"custom","block_ortho":true},
+  "s5": {"mode":"custom","paw_compensation":"blocks"},
+  "s6": {"mode":"custom","eigen_search_factor":0.0001,"projector_space":"real-search","projector_radius_factor":1.5}
+}

@@ -1,0 +1,227 @@
+Test project /Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/Sparse-DFT-1.0.0/build-mpi
+      Start  1: sdft_compute_backend
+ 1/87 Test  #1: sdft_compute_backend ....................   Passed    1.67 sec
+      Start  2: sdft_fft_backend
+ 2/87 Test  #2: sdft_fft_backend ........................   Passed    0.14 sec
+      Start  3: sdft_fft_operator_cache
+ 3/87 Test  #3: sdft_fft_operator_cache .................   Passed    0.12 sec
+      Start  4: sdft_pbe_backend
+ 4/87 Test  #4: sdft_pbe_backend ........................   Passed    0.17 sec
+      Start  5: sdft_shared_paw_units
+ 5/87 Test  #5: sdft_shared_paw_units ...................   Passed    0.14 sec
+      Start  6: sdft_spectral_guards_cpu1
+ 6/87 Test  #6: sdft_spectral_guards_cpu1 ...............   Passed    0.68 sec
+      Start  7: sdft_spectral_guards_cpu8
+ 7/87 Test  #7: sdft_spectral_guards_cpu8 ...............   Passed    0.49 sec
+      Start  8: sdft_density_fft_batch_cpu1
+ 8/87 Test  #8: sdft_density_fft_batch_cpu1 .............   Passed    0.70 sec
+      Start  9: sdft_density_fft_batch_cpu2
+ 9/87 Test  #9: sdft_density_fft_batch_cpu2 .............   Passed    0.33 sec
+      Start 10: sdft_density_fft_batch_cpu4
+10/87 Test #10: sdft_density_fft_batch_cpu4 .............   Passed    0.21 sec
+      Start 11: sdft_density_fft_batch_cpu8
+11/87 Test #11: sdft_density_fft_batch_cpu8 .............   Passed    0.17 sec
+      Start 12: sdft_density_fft_batch_variational
+12/87 Test #12: sdft_density_fft_batch_variational ......   Passed    0.20 sec
+      Start 13: sdft_projector_derivative_contraction
+13/87 Test #13: sdft_projector_derivative_contraction ...   Passed    0.13 sec
+      Start 14: sdft_fused_projector_derivative_cpu2
+14/87 Test #14: sdft_fused_projector_derivative_cpu2 ....   Passed    0.01 sec
+      Start 15: sdft_fused_projector_derivative_cpu4
+15/87 Test #15: sdft_fused_projector_derivative_cpu4 ....   Passed    0.01 sec
+      Start 16: sdft_fused_projector_derivative_cpu8
+16/87 Test #16: sdft_fused_projector_derivative_cpu8 ....   Passed    0.01 sec
+      Start 17: sdft_density_flat_support_cpu1
+17/87 Test #17: sdft_density_flat_support_cpu1 ..........   Passed    0.56 sec
+      Start 18: sdft_density_flat_support_cpu8
+18/87 Test #18: sdft_density_flat_support_cpu8 ..........   Passed    0.16 sec
+      Start 19: sdft_davidson_optimization
+19/87 Test #19: sdft_davidson_optimization ..............   Passed    4.06 sec
+      Start 20: sdft_compact_ritz_spectrum
+20/87 Test #20: sdft_compact_ritz_spectrum ..............   Passed    4.23 sec
+      Start 21: sdft_parallel_context_serial
+21/87 Test #21: sdft_parallel_context_serial ............   Passed    2.57 sec
+      Start 22: sdft_parallel_context_mpi2
+22/87 Test #22: sdft_parallel_context_mpi2 ..............***Failed    0.04 sec
+[FonaMacBook-Pro.local:03511] [prterun-FonaMacBook-Pro-3511@0,0] bind() failed for port 0: Operation not permitted (1)
+[FonaMacBook-Pro.local:03511] [prterun-FonaMacBook-Pro-3511@0,0] bind() failed for port 0: Operation not permitted (1)
+[FonaMacBook-Pro.local:03511] PRTE ERROR: Fatal in file oob_tcp_component.c at line 582
+--------------------------------------------------------------------------
+No sockets were able to be opened on the available protocols
+(IPv4 and/or IPv6). Please check your network and retry.
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+No network interfaces were found for out-of-band communications. We require
+at least one available network for out-of-band messaging.
+--------------------------------------------------------------------------
+[3511] base/ptl_base_listener.c:604 bind() failed for socket 7 storage size 16: Operation not permitted
+
+      Start 23: sdft_parallel_context_mpi4
+23/87 Test #23: sdft_parallel_context_mpi4 ..............***Failed    0.03 sec
+[FonaMacBook-Pro.local:03512] [prterun-FonaMacBook-Pro-3512@0,0] bind() failed for port 0: Operation not permitted (1)
+[FonaMacBook-Pro.local:03512] [prterun-FonaMacBook-Pro-3512@0,0] bind() failed for port 0: Operation not permitted (1)
+[FonaMacBook-Pro.local:03512] PRTE ERROR: Fatal in file oob_tcp_component.c at line 582
+--------------------------------------------------------------------------
+No sockets were able to be opened on the available protocols
+(IPv4 and/or IPv6). Please check your network and retry.
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+No network interfaces were found for out-of-band communications. We require
+at least one available network for out-of-band messaging.
+--------------------------------------------------------------------------
+[3512] base/ptl_base_listener.c:604 bind() failed for socket 7 storage size 16: Operation not permitted
+
+      Start 24: sdft_parallel_context_mpi4_bandgroups
+24/87 Test #24: sdft_parallel_context_mpi4_bandgroups ...***Failed    0.02 sec
+[FonaMacBook-Pro.local:03513] [prterun-FonaMacBook-Pro-3513@0,0] bind() failed for port 0: Operation not permitted (1)
+[FonaMacBook-Pro.local:03513] [prterun-FonaMacBook-Pro-3513@0,0] bind() failed for port 0: Operation not permitted (1)
+[FonaMacBook-Pro.local:03513] PRTE ERROR: Fatal in file oob_tcp_component.c at line 582
+--------------------------------------------------------------------------
+No sockets were able to be opened on the available protocols
+(IPv4 and/or IPv6). Please check your network and retry.
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+No network interfaces were found for out-of-band communications. We require
+at least one available network for out-of-band messaging.
+--------------------------------------------------------------------------
+[3513] base/ptl_base_listener.c:604 bind() failed for socket 7 storage size 16: Operation not permitted
+
+      Start 25: sdft_sparsity_compensation_blocks
+25/87 Test #25: sdft_sparsity_compensation_blocks .......   Passed    2.82 sec
+      Start 26: sdft_sparsity_real_space_full
+26/87 Test #26: sdft_sparsity_real_space_full ...........   Passed    0.02 sec
+      Start 27: sdft_sparsity_real_space_radius
+27/87 Test #27: sdft_sparsity_real_space_radius .........   Passed    0.02 sec
+      Start 28: sdft_factored_solver_cpu
+28/87 Test #28: sdft_factored_solver_cpu ................   Passed    3.42 sec
+      Start 29: sdft_matrix_free_operator
+29/87 Test #29: sdft_matrix_free_operator ...............   Passed    3.13 sec
+      Start 30: sdft_compact_ritz_paw
+30/87 Test #30: sdft_compact_ritz_paw ...................   Passed    0.10 sec
+      Start 31: sdft_paired_projected_paw
+31/87 Test #31: sdft_paired_projected_paw ...............   Passed    0.08 sec
+      Start 32: sdft_matrix_free_block_davidson
+32/87 Test #32: sdft_matrix_free_block_davidson .........   Passed    0.08 sec
+      Start 33: sdft_bounded_band_groups
+33/87 Test #33: sdft_bounded_band_groups ................   Passed    6.42 sec
+      Start 34: sdft_bounded_paw_groups
+34/87 Test #34: sdft_bounded_paw_groups .................   Passed    0.08 sec
+      Start 35: sdft_swept_band_groups
+35/87 Test #35: sdft_swept_band_groups ..................   Passed    9.37 sec
+      Start 36: sdft_swept_paw_groups
+36/87 Test #36: sdft_swept_paw_groups ...................   Passed    0.68 sec
+      Start 37: sdft_cpu_gemm_partition
+37/87 Test #37: sdft_cpu_gemm_partition .................   Passed    0.41 sec
+      Start 38: sdft_restart_only_ritz
+38/87 Test #38: sdft_restart_only_ritz ..................   Passed    5.30 sec
+      Start 39: sdft_dgks_spectral_challenges
+39/87 Test #39: sdft_dgks_spectral_challenges ...........   Passed    4.02 sec
+      Start 40: sdft_dgks_paw_cpu8
+40/87 Test #40: sdft_dgks_paw_cpu8 ......................   Passed    0.09 sec
+      Start 41: sdft_linear_operator_setup
+41/87 Test #41: sdft_linear_operator_setup ..............   Passed    0.09 sec
+      Start 42: sdft_relax_optimizer
+42/87 Test #42: sdft_relax_optimizer ....................   Passed    1.66 sec
+      Start 43: sdft_ewald_derivatives
+43/87 Test #43: sdft_ewald_derivatives ..................   Passed    2.16 sec
+      Start 44: sdft_global_occupations
+44/87 Test #44: sdft_global_occupations .................   Passed    2.40 sec
+      Start 45: sdft_spline_smoke
+45/87 Test #45: sdft_spline_smoke .......................   Passed    3.02 sec
+      Start 46: sdft_reciprocal_density_derivative
+46/87 Test #46: sdft_reciprocal_density_derivative ......   Passed    3.22 sec
+      Start 47: sdft_core_smoke
+47/87 Test #47: sdft_core_smoke .........................   Passed    3.43 sec
+      Start 48: sdft_pw_smoke
+48/87 Test #48: sdft_pw_smoke ...........................   Passed    3.64 sec
+      Start 49: sdft_pbe_smoke
+49/87 Test #49: sdft_pbe_smoke ..........................   Passed    3.27 sec
+      Start 50: sdft_density_functionals_smoke
+50/87 Test #50: sdft_density_functionals_smoke ..........   Passed    0.01 sec
+      Start 51: sdft_density_dataflow
+51/87 Test #51: sdft_density_dataflow ...................   Passed    3.31 sec
+      Start 52: sdft_ordered_fourier_arithmetic
+52/87 Test #52: sdft_ordered_fourier_arithmetic .........   Passed    3.48 sec
+      Start 53: sdft_ordered_fourier_functional
+53/87 Test #53: sdft_ordered_fourier_functional .........   Passed    0.01 sec
+      Start 54: sdft_fast_density_grid
+54/87 Test #54: sdft_fast_density_grid ..................   Passed    0.12 sec
+      Start 55: sdft_lanczos_smoke
+55/87 Test #55: sdft_lanczos_smoke ......................   Passed    3.19 sec
+      Start 56: sdft_complex_lanczos_smoke
+56/87 Test #56: sdft_complex_lanczos_smoke ..............   Passed    3.43 sec
+      Start 57: sdft_paw_ylm3_smoke
+57/87 Test #57: sdft_paw_ylm3_smoke .....................   Passed    3.42 sec
+      Start 58: sdft_paw_onecenter_smoke
+58/87 Test #58: sdft_paw_onecenter_smoke ................   Passed    3.60 sec
+      Start 59: sdft_openmp_runtime
+59/87 Test #59: sdft_openmp_runtime .....................   Passed    3.43 sec
+      Start 60: sdft_public_file_hash
+60/87 Test #60: sdft_public_file_hash ...................   Passed    1.79 sec
+      Start 61: sdft_rmm_trial_cpu1
+61/87 Test #61: sdft_rmm_trial_cpu1 .....................   Passed    1.83 sec
+      Start 62: sdft_rmm_trial_cpu8
+62/87 Test #62: sdft_rmm_trial_cpu8 .....................   Passed    0.05 sec
+      Start 63: sdft_original_residual_cpu1
+63/87 Test #63: sdft_original_residual_cpu1 .............   Passed    1.76 sec
+      Start 64: sdft_original_residual_cpu8
+64/87 Test #64: sdft_original_residual_cpu8 .............   Passed    0.03 sec
+      Start 65: sdft_pw_seed_transport_cpu1
+65/87 Test #65: sdft_pw_seed_transport_cpu1 .............   Passed    1.51 sec
+      Start 66: sdft_pw_seed_transport_cpu8
+66/87 Test #66: sdft_pw_seed_transport_cpu8 .............   Passed    0.01 sec
+      Start 67: sdft_joint_multisecant
+67/87 Test #67: sdft_joint_multisecant ..................   Passed    1.64 sec
+      Start 68: sdft_collinear_mixing_oracle
+68/87 Test #68: sdft_collinear_mixing_oracle ............   Passed    1.88 sec
+      Start 69: sdft_strict_residual_polish_oracle
+69/87 Test #69: sdft_strict_residual_polish_oracle ......   Passed    1.73 sec
+      Start 70: sdft_density_json_compatibility
+70/87 Test #70: sdft_density_json_compatibility .........   Passed    1.61 sec
+      Start 71: sdft_geometry_guess_integrity
+71/87 Test #71: sdft_geometry_guess_integrity ...........   Passed    1.54 sec
+      Start 72: sdft_frozen_core_reference
+72/87 Test #72: sdft_frozen_core_reference ..............   Passed    0.01 sec
+      Start 73: sdft_frozen_core_parallel
+73/87 Test #73: sdft_frozen_core_parallel ...............   Passed    0.01 sec
+      Start 74: sdft_triple_rotation_cpu1
+74/87 Test #74: sdft_triple_rotation_cpu1 ...............   Passed    1.70 sec
+      Start 75: sdft_triple_rotation_cpu2
+75/87 Test #75: sdft_triple_rotation_cpu2 ...............   Passed    0.06 sec
+      Start 76: sdft_triple_rotation_cpu4
+76/87 Test #76: sdft_triple_rotation_cpu4 ...............   Passed    0.06 sec
+      Start 77: sdft_triple_rotation_cpu8
+77/87 Test #77: sdft_triple_rotation_cpu8 ...............   Passed    0.06 sec
+      Start 78: sdft_fused_pbe_tiles_cpu1
+78/87 Test #78: sdft_fused_pbe_tiles_cpu1 ...............   Passed    0.12 sec
+      Start 79: sdft_fused_pbe_tiles_cpu2
+79/87 Test #79: sdft_fused_pbe_tiles_cpu2 ...............   Passed    0.08 sec
+      Start 80: sdft_fused_pbe_tiles_cpu4
+80/87 Test #80: sdft_fused_pbe_tiles_cpu4 ...............   Passed    0.07 sec
+      Start 81: sdft_fused_pbe_tiles_cpu8
+81/87 Test #81: sdft_fused_pbe_tiles_cpu8 ...............   Passed    0.06 sec
+      Start 82: sdft_spin_pbe_hubbard_smoke
+82/87 Test #82: sdft_spin_pbe_hubbard_smoke .............   Passed    1.88 sec
+      Start 83: sdft_spin_density_smoke
+83/87 Test #83: sdft_spin_density_smoke .................   Passed    3.16 sec
+      Start 84: upf_radial_poisson_math
+84/87 Test #84: upf_radial_poisson_math .................   Passed    0.13 sec
+      Start 85: sdft_indefinite_original_pencil
+85/87 Test #85: sdft_indefinite_original_pencil .........   Passed    0.17 sec
+      Start 86: sdft_paw_compensated_product_cpu1
+86/87 Test #86: sdft_paw_compensated_product_cpu1 .......   Passed    0.17 sec
+      Start 87: sdft_paw_compensated_product_cpu8
+87/87 Test #87: sdft_paw_compensated_product_cpu8 .......   Passed    0.05 sec
+
+97% tests passed, 3 tests failed out of 87
+
+Total Test time (real) = 123.00 sec
+
+The following tests FAILED:
+	 22 - sdft_parallel_context_mpi2 (Failed)
+	 23 - sdft_parallel_context_mpi4 (Failed)
+	 24 - sdft_parallel_context_mpi4_bandgroups (Failed)
+Errors while running CTest

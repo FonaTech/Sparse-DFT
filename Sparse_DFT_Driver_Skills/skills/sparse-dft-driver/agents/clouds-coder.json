@@ -1,0 +1,63 @@
+{
+  "name": "sparse-dft-driver",
+  "description": "Operate Sparse-DFT standalone or as the Sparse-DFT engine adapter for DFT_Skills and original-result evidence handoff for Academic_Writing_Skills.",
+  "aliases": [
+    "sparse_dft",
+    "sparse-dft-engine",
+    "sparse-dft-scf"
+  ],
+  "runtime_compat": [
+    "clouds_coder.py",
+    "codex",
+    "claude-code",
+    "opencode"
+  ],
+  "triggers": [
+    "Sparse-DFT",
+    "Sparse-DFT driver",
+    "Sparse-DFT 驱动"
+  ],
+  "attachments": [
+    "references/*.md",
+    "references/*.json",
+    "scripts/*.py",
+    "agents/*.yaml",
+    "agents/*.json",
+    "case-studies/*.md",
+    "assets/*.json"
+  ],
+  "entrypoints": [
+    "references/runtime.md",
+    "references/interfaces.md",
+    "references/workflows.md",
+    "references/validation.md",
+    "references/interop.md",
+    "references/expert-tools.md",
+    "references/capability-catalog.json",
+    "scripts/sparse_dft_driver.py",
+    "scripts/research_bridge.py",
+    "case-studies/INDEX.md",
+    "scripts/case_studies.py",
+    "scripts/run_recipe.py",
+    "scripts/eos_workflow.py",
+    "references/sparsity.md",
+    "scripts/sparsity_workflow.py"
+  ],
+  "clouds_coder": {
+    "preferred_tools": [
+      "load_skill",
+      "bash",
+      "read_file",
+      "write_file",
+      "query_knowledge_library"
+    ],
+    "entrypoints": [
+      "references/runtime.md",
+      "references/interfaces.md",
+      "references/workflows.md",
+      "references/interop.md",
+      "case-studies/INDEX.md"
+    ],
+    "runtime_contract": "Keep generated projects outside the skill. Use actual Sparse-DFT source/catalogue and executable. Standalone mode performs the whole computational workflow; linked mode preserves the upstream research plan/manifest/spine. Do not confuse convergence with native or production validity. RAG is optional and follows supplied/local inputs. Preserve PAW, units, weighted sampling, hashes and evidence scope; unsupported physics remains explicit. Reuse identifiable project accuracy evidence; cases check actual run convergence and outputs, not a repeated global precision audit. Select a relevant scientific case; new sparse/spin/DOS routes have dedicated cases."
+  }
+}

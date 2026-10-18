@@ -1,0 +1,1224 @@
+{
+  "schema": "sparse-dft-matched-sparsity-comparison-1",
+  "result_method": "simulated",
+  "gates": {
+    "energy_mev_per_atom": 1,
+    "force_ev_per_angstrom": 0.001,
+    "stress_gpa": 0.01
+  },
+  "rows": [
+    {
+      "id": "off",
+      "energy_mev_per_atom": 0.0,
+      "force_max_ev_per_angstrom": 0.0,
+      "stress_max_gpa": 0.0,
+      "eigen_residual_hartree": 9.754051908099303e-13,
+      "passed": true,
+      "sparsity_ledger": {
+        "schema_version": "sparse-dft-sparsity-ledger-2",
+        "mode": "off",
+        "density_cutoff_factor": 16.0,
+        "density_modes_ratio_vs_16x_estimate": 1.0,
+        "density_reciprocal_modes": 30395,
+        "max_xc_grid_points": 636056,
+        "max_fft_grid_points": 9261,
+        "plane_waves": 459,
+        "iterations": 22,
+        "components": {},
+        "rule_ids": [],
+        "auto": null,
+        "counters": {
+          "operator_hamiltonian": {
+            "seconds": 0.4784975885413587,
+            "calls": 742
+          },
+          "operator_overlap": {
+            "seconds": 0.09133292315527797,
+            "calls": 1285
+          },
+          "paw_block_projectors": {
+            "seconds": 0.11595739936456084,
+            "calls": 2027
+          },
+          "paw_compensated_factor_product": {
+            "seconds": 0.008090498857200146,
+            "calls": 4098
+          },
+          "fft_local_block": {
+            "seconds": 0.43885828694328666,
+            "calls": 742
+          },
+          "density_functional": {
+            "seconds": 1.5266309571452439,
+            "calls": 22
+          },
+          "scf_diagonalization": {
+            "seconds": 0.8762677893973887,
+            "calls": 22
+          },
+          "scf_total": {
+            "seconds": 3.488445249851793,
+            "calls": 1
+          },
+          "process_compute_total": {
+            "seconds": 3.5369716249406338,
+            "calls": 1
+          },
+          "paw_compensation_density_batch": {
+            "seconds": 0.050433626398444176,
+            "calls": 22
+          },
+          "paw_compensation_adjoint": {
+            "seconds": 0.050460416823625565,
+            "calls": 22
+          }
+        }
+      },
+      "raw_validity": {
+        "total_energy_valid": false,
+        "force_provenance": {
+          "method": "stationary_paw_projector_overlap_compensation_nlcc_ewald",
+          "analytic": true,
+          "validated": false,
+          "onecenter_dij_reused": true,
+          "status": "diagnostic_pending_finite_difference_and_vasp"
+        },
+        "stress_provenance": {
+          "analytic": true,
+          "validated": false,
+          "convention": "dE_dstrain_over_volume_positive_tension",
+          "scope": "fixed_plane_wave_indices_paw_kinetic_local_projector_overlap_compensation_nlcc_ewald",
+          "cutoff_pulay_extrapolation": false
+        }
+      },
+      "source": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/live-tests/sparsity-sweep/runs/off/scf_result.json",
+      "sha256": "a34a8ee61c2ab6fb92ecf61182f97f6872b8ecb75655176ef3673e67c0c272dd"
+    },
+    {
+      "id": "auto",
+      "energy_mev_per_atom": 0.05775217713477332,
+      "force_max_ev_per_angstrom": 4.86239489739933e-08,
+      "stress_max_gpa": 0.0036143204911255637,
+      "eigen_residual_hartree": 3.114153403125503e-13,
+      "passed": true,
+      "sparsity_ledger": {
+        "schema_version": "sparse-dft-sparsity-ledger-2",
+        "mode": "auto",
+        "density_cutoff_factor": 4.0,
+        "density_modes_ratio_vs_16x_estimate": 0.125,
+        "density_reciprocal_modes": 3767,
+        "max_xc_grid_points": 9261,
+        "max_fft_grid_points": 9261,
+        "plane_waves": 459,
+        "iterations": 24,
+        "components": {
+          "density_cutoff_factor": 4.0,
+          "xc_padding": 1,
+          "eigen_search_factor": 0.0001,
+          "block_ortho": true,
+          "paw_compensation": "blocks"
+        },
+        "rule_ids": [
+          "S1.weighted_l2.v1",
+          "S2.insulator.v1",
+          "S3.default.v1",
+          "S4.all.v1",
+          "S5.blocks.v1"
+        ],
+        "auto": {
+          "level": "balanced",
+          "controls": {},
+          "tail_metric": "weighted_compensation_l2",
+          "tail_budget": 2.5e-07,
+          "tail_budget_source": "rules x level balanced (1)",
+          "tail_at_choice": 1.56891517e-07,
+          "tails_tried": {
+            "4": 1.56891517e-07
+          },
+          "fallback": false,
+          "warnings": []
+        },
+        "counters": {
+          "operator_hamiltonian": {
+            "seconds": 0.21392613044008613,
+            "calls": 399
+          },
+          "operator_overlap": {
+            "seconds": 0.06586733553558588,
+            "calls": 991
+          },
+          "paw_block_projectors": {
+            "seconds": 0.08079301798716187,
+            "calls": 1390
+          },
+          "paw_compensated_factor_product": {
+            "seconds": 0.0041617401875555515,
+            "calls": 2828
+          },
+          "fft_local_block": {
+            "seconds": 0.19160817610099912,
+            "calls": 399
+          },
+          "density_functional": {
+            "seconds": 0.04517662664875388,
+            "calls": 24
+          },
+          "scf_diagonalization": {
+            "seconds": 0.5013383757323027,
+            "calls": 24
+          },
+          "scf_total": {
+            "seconds": 0.9136586249805987,
+            "calls": 1
+          },
+          "process_compute_total": {
+            "seconds": 0.9207209995947778,
+            "calls": 1
+          },
+          "paw_compensation_density_batch": {
+            "seconds": 0.005075542256236076,
+            "calls": 24
+          },
+          "paw_compensation_adjoint": {
+            "seconds": 0.006145250517874956,
+            "calls": 24
+          }
+        }
+      },
+      "raw_validity": {
+        "total_energy_valid": false,
+        "force_provenance": {
+          "method": "stationary_paw_projector_overlap_compensation_nlcc_ewald",
+          "analytic": true,
+          "validated": false,
+          "onecenter_dij_reused": true,
+          "status": "diagnostic_pending_finite_difference_and_vasp"
+        },
+        "stress_provenance": {
+          "analytic": true,
+          "validated": false,
+          "convention": "dE_dstrain_over_volume_positive_tension",
+          "scope": "fixed_plane_wave_indices_paw_kinetic_local_projector_overlap_compensation_nlcc_ewald",
+          "cutoff_pulay_extrapolation": false
+        }
+      },
+      "source": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/live-tests/sparsity-sweep/runs/auto/scf_result.json",
+      "sha256": "18f1e44d6fd53448f876133207c69509e0fce6e7c56c33f81d1c6063a1cc8d2f"
+    },
+    {
+      "id": "s1",
+      "energy_mev_per_atom": 0.0064827474730577705,
+      "force_max_ev_per_angstrom": 6.66682525336178e-08,
+      "stress_max_gpa": 0.0001857489610995358,
+      "eigen_residual_hartree": 8.093748947771728e-13,
+      "passed": true,
+      "sparsity_ledger": {
+        "schema_version": "sparse-dft-sparsity-ledger-2",
+        "mode": "custom",
+        "density_cutoff_factor": 8.0,
+        "density_modes_ratio_vs_16x_estimate": 0.3535533905932738,
+        "density_reciprocal_modes": 10777,
+        "max_xc_grid_points": 238328,
+        "max_fft_grid_points": 9261,
+        "plane_waves": 459,
+        "iterations": 22,
+        "components": {
+          "density_cutoff_factor": 8
+        },
+        "rule_ids": [],
+        "auto": null,
+        "counters": {
+          "operator_hamiltonian": {
+            "seconds": 0.5044728191569448,
+            "calls": 789
+          },
+          "operator_overlap": {
+            "seconds": 0.09926328435540199,
+            "calls": 1446
+          },
+          "paw_block_projectors": {
+            "seconds": 0.1267626192420721,
+            "calls": 2235
+          },
+          "paw_compensated_factor_product": {
+            "seconds": 0.008483542129397392,
+            "calls": 4514
+          },
+          "fft_local_block": {
+            "seconds": 0.4625643719919026,
+            "calls": 789
+          },
+          "density_functional": {
+            "seconds": 0.6596161248162389,
+            "calls": 22
+          },
+          "scf_diagonalization": {
+            "seconds": 0.9297136249952018,
+            "calls": 22
+          },
+          "scf_total": {
+            "seconds": 2.131241959054023,
+            "calls": 1
+          },
+          "process_compute_total": {
+            "seconds": 2.1481872079893947,
+            "calls": 1
+          },
+          "paw_compensation_density_batch": {
+            "seconds": 0.012826582416892052,
+            "calls": 22
+          },
+          "paw_compensation_adjoint": {
+            "seconds": 0.01628879550844431,
+            "calls": 22
+          }
+        }
+      },
+      "raw_validity": {
+        "total_energy_valid": false,
+        "force_provenance": {
+          "method": "stationary_paw_projector_overlap_compensation_nlcc_ewald",
+          "analytic": true,
+          "validated": false,
+          "onecenter_dij_reused": true,
+          "status": "diagnostic_pending_finite_difference_and_vasp"
+        },
+        "stress_provenance": {
+          "analytic": true,
+          "validated": false,
+          "convention": "dE_dstrain_over_volume_positive_tension",
+          "scope": "fixed_plane_wave_indices_paw_kinetic_local_projector_overlap_compensation_nlcc_ewald",
+          "cutoff_pulay_extrapolation": false
+        }
+      },
+      "source": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/live-tests/sparsity-sweep/runs/s1/scf_result.json",
+      "sha256": "d5f4c45ea960d4b0421f00eaeed60b74db59061d608f633729b1c75538eb5365"
+    },
+    {
+      "id": "s2",
+      "energy_mev_per_atom": 2.2135289157176885e-05,
+      "force_max_ev_per_angstrom": 6.684888761113655e-08,
+      "stress_max_gpa": 2.207281107458837e-06,
+      "eigen_residual_hartree": 9.253025558282938e-13,
+      "passed": true,
+      "sparsity_ledger": {
+        "schema_version": "sparse-dft-sparsity-ledger-2",
+        "mode": "custom",
+        "density_cutoff_factor": 16.0,
+        "density_modes_ratio_vs_16x_estimate": 1.0,
+        "density_reciprocal_modes": 30395,
+        "max_xc_grid_points": 79507,
+        "max_fft_grid_points": 9261,
+        "plane_waves": 459,
+        "iterations": 23,
+        "components": {
+          "xc_padding": 1
+        },
+        "rule_ids": [],
+        "auto": null,
+        "counters": {
+          "operator_hamiltonian": {
+            "seconds": 0.4987425757572055,
+            "calls": 792
+          },
+          "operator_overlap": {
+            "seconds": 0.09528482286259532,
+            "calls": 1358
+          },
+          "paw_block_projectors": {
+            "seconds": 0.12151388265192509,
+            "calls": 2150
+          },
+          "paw_compensated_factor_product": {
+            "seconds": 0.008382550906389952,
+            "calls": 4346
+          },
+          "fft_local_block": {
+            "seconds": 0.45749974763020873,
+            "calls": 792
+          },
+          "density_functional": {
+            "seconds": 0.4074840429238975,
+            "calls": 23
+          },
+          "scf_diagonalization": {
+            "seconds": 0.9045373732224107,
+            "calls": 23
+          },
+          "scf_total": {
+            "seconds": 2.3012145827524364,
+            "calls": 1
+          },
+          "process_compute_total": {
+            "seconds": 2.346178916282952,
+            "calls": 1
+          },
+          "paw_compensation_density_batch": {
+            "seconds": 0.04449425125494599,
+            "calls": 23
+          },
+          "paw_compensation_adjoint": {
+            "seconds": 0.05221820389851928,
+            "calls": 23
+          }
+        }
+      },
+      "raw_validity": {
+        "total_energy_valid": false,
+        "force_provenance": {
+          "method": "stationary_paw_projector_overlap_compensation_nlcc_ewald",
+          "analytic": true,
+          "validated": false,
+          "onecenter_dij_reused": true,
+          "status": "diagnostic_pending_finite_difference_and_vasp"
+        },
+        "stress_provenance": {
+          "analytic": true,
+          "validated": false,
+          "convention": "dE_dstrain_over_volume_positive_tension",
+          "scope": "fixed_plane_wave_indices_paw_kinetic_local_projector_overlap_compensation_nlcc_ewald",
+          "cutoff_pulay_extrapolation": false
+        }
+      },
+      "source": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/live-tests/sparsity-sweep/runs/s2/scf_result.json",
+      "sha256": "dec655e566ea675a4a021ab5ac656149d5be06167b94bcd4dedbdd61a3e30a1e"
+    },
+    {
+      "id": "s3",
+      "energy_mev_per_atom": 5.6274984672199935e-09,
+      "force_max_ev_per_angstrom": 1.0382102291496739e-07,
+      "stress_max_gpa": 4.050125415442289e-07,
+      "eigen_residual_hartree": 9.692373090410559e-13,
+      "passed": true,
+      "sparsity_ledger": {
+        "schema_version": "sparse-dft-sparsity-ledger-2",
+        "mode": "custom",
+        "density_cutoff_factor": 16.0,
+        "density_modes_ratio_vs_16x_estimate": 1.0,
+        "density_reciprocal_modes": 30395,
+        "max_xc_grid_points": 636056,
+        "max_fft_grid_points": 9261,
+        "plane_waves": 459,
+        "iterations": 24,
+        "components": {
+          "eigen_search_factor": 0.0001
+        },
+        "rule_ids": [],
+        "auto": null,
+        "counters": {
+          "operator_hamiltonian": {
+            "seconds": 0.17933541629463434,
+            "calls": 331
+          },
+          "operator_overlap": {
+            "seconds": 0.06451907614246011,
+            "calls": 969
+          },
+          "paw_block_projectors": {
+            "seconds": 0.07650899374857545,
+            "calls": 1300
+          },
+          "paw_compensated_factor_product": {
+            "seconds": 0.003803808707743883,
+            "calls": 2648
+          },
+          "fft_local_block": {
+            "seconds": 0.1601224117912352,
+            "calls": 331
+          },
+          "density_functional": {
+            "seconds": 0.7537324945442379,
+            "calls": 24
+          },
+          "scf_diagonalization": {
+            "seconds": 0.45356970746070147,
+            "calls": 24
+          },
+          "scf_total": {
+            "seconds": 2.339084083214402,
+            "calls": 1
+          },
+          "process_compute_total": {
+            "seconds": 2.3839658750221133,
+            "calls": 1
+          },
+          "paw_compensation_density_batch": {
+            "seconds": 0.054355458822101355,
+            "calls": 24
+          },
+          "paw_compensation_adjoint": {
+            "seconds": 0.054920421447604895,
+            "calls": 24
+          }
+        }
+      },
+      "raw_validity": {
+        "total_energy_valid": false,
+        "force_provenance": {
+          "method": "stationary_paw_projector_overlap_compensation_nlcc_ewald",
+          "analytic": true,
+          "validated": false,
+          "onecenter_dij_reused": true,
+          "status": "diagnostic_pending_finite_difference_and_vasp"
+        },
+        "stress_provenance": {
+          "analytic": true,
+          "validated": false,
+          "convention": "dE_dstrain_over_volume_positive_tension",
+          "scope": "fixed_plane_wave_indices_paw_kinetic_local_projector_overlap_compensation_nlcc_ewald",
+          "cutoff_pulay_extrapolation": false
+        }
+      },
+      "source": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/live-tests/sparsity-sweep/runs/s3/scf_result.json",
+      "sha256": "a886693861c189e778fe2e5629b625487b8dc7e4dc8e5d85928538ae2c4edc7f"
+    },
+    {
+      "id": "s4",
+      "energy_mev_per_atom": 0.0,
+      "force_max_ev_per_angstrom": 0.0,
+      "stress_max_gpa": 0.0,
+      "eigen_residual_hartree": 9.754051908099303e-13,
+      "passed": true,
+      "sparsity_ledger": {
+        "schema_version": "sparse-dft-sparsity-ledger-2",
+        "mode": "custom",
+        "density_cutoff_factor": 16.0,
+        "density_modes_ratio_vs_16x_estimate": 1.0,
+        "density_reciprocal_modes": 30395,
+        "max_xc_grid_points": 636056,
+        "max_fft_grid_points": 9261,
+        "plane_waves": 459,
+        "iterations": 22,
+        "components": {
+          "block_ortho": true
+        },
+        "rule_ids": [],
+        "auto": null,
+        "counters": {
+          "operator_hamiltonian": {
+            "seconds": 0.4693287839181721,
+            "calls": 742
+          },
+          "operator_overlap": {
+            "seconds": 0.09041333198547363,
+            "calls": 1285
+          },
+          "paw_block_projectors": {
+            "seconds": 0.11517426371574402,
+            "calls": 2027
+          },
+          "paw_compensated_factor_product": {
+            "seconds": 0.00781948771327734,
+            "calls": 4098
+          },
+          "fft_local_block": {
+            "seconds": 0.43040334386751056,
+            "calls": 742
+          },
+          "density_functional": {
+            "seconds": 1.5118322502821684,
+            "calls": 22
+          },
+          "scf_diagonalization": {
+            "seconds": 0.8616600856184959,
+            "calls": 22
+          },
+          "scf_total": {
+            "seconds": 3.4503091662190855,
+            "calls": 1
+          },
+          "process_compute_total": {
+            "seconds": 3.4972496670670807,
+            "calls": 1
+          },
+          "paw_compensation_density_batch": {
+            "seconds": 0.05213845940306783,
+            "calls": 22
+          },
+          "paw_compensation_adjoint": {
+            "seconds": 0.05021958099678159,
+            "calls": 22
+          }
+        }
+      },
+      "raw_validity": {
+        "total_energy_valid": false,
+        "force_provenance": {
+          "method": "stationary_paw_projector_overlap_compensation_nlcc_ewald",
+          "analytic": true,
+          "validated": false,
+          "onecenter_dij_reused": true,
+          "status": "diagnostic_pending_finite_difference_and_vasp"
+        },
+        "stress_provenance": {
+          "analytic": true,
+          "validated": false,
+          "convention": "dE_dstrain_over_volume_positive_tension",
+          "scope": "fixed_plane_wave_indices_paw_kinetic_local_projector_overlap_compensation_nlcc_ewald",
+          "cutoff_pulay_extrapolation": false
+        }
+      },
+      "source": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/live-tests/sparsity-sweep/runs/s4/scf_result.json",
+      "sha256": "a98f62f846bef5f2e21d8264636b92f0c946495ee82d3d55ac1d4a49feae9bd4"
+    },
+    {
+      "id": "s5",
+      "energy_mev_per_atom": 0.0,
+      "force_max_ev_per_angstrom": 0.0,
+      "stress_max_gpa": 0.0,
+      "eigen_residual_hartree": 9.754051908099303e-13,
+      "passed": true,
+      "sparsity_ledger": {
+        "schema_version": "sparse-dft-sparsity-ledger-2",
+        "mode": "custom",
+        "density_cutoff_factor": 16.0,
+        "density_modes_ratio_vs_16x_estimate": 1.0,
+        "density_reciprocal_modes": 30395,
+        "max_xc_grid_points": 636056,
+        "max_fft_grid_points": 9261,
+        "plane_waves": 459,
+        "iterations": 22,
+        "components": {
+          "paw_compensation": "blocks"
+        },
+        "rule_ids": [],
+        "auto": null,
+        "counters": {
+          "operator_hamiltonian": {
+            "seconds": 0.47497415728867054,
+            "calls": 742
+          },
+          "operator_overlap": {
+            "seconds": 0.09128136653453112,
+            "calls": 1285
+          },
+          "paw_block_projectors": {
+            "seconds": 0.11557516735047102,
+            "calls": 2027
+          },
+          "paw_compensated_factor_product": {
+            "seconds": 0.007960720919072628,
+            "calls": 4098
+          },
+          "fft_local_block": {
+            "seconds": 0.4355334937572479,
+            "calls": 742
+          },
+          "density_functional": {
+            "seconds": 1.5110426684841514,
+            "calls": 22
+          },
+          "scf_diagonalization": {
+            "seconds": 0.8708323333412409,
+            "calls": 22
+          },
+          "scf_total": {
+            "seconds": 3.467175459023565,
+            "calls": 1
+          },
+          "process_compute_total": {
+            "seconds": 3.513133875094354,
+            "calls": 1
+          },
+          "paw_compensation_density_batch": {
+            "seconds": 0.04826604574918747,
+            "calls": 22
+          },
+          "paw_compensation_adjoint": {
+            "seconds": 0.050172665156424046,
+            "calls": 22
+          }
+        }
+      },
+      "raw_validity": {
+        "total_energy_valid": false,
+        "force_provenance": {
+          "method": "stationary_paw_projector_overlap_compensation_nlcc_ewald",
+          "analytic": true,
+          "validated": false,
+          "onecenter_dij_reused": true,
+          "status": "diagnostic_pending_finite_difference_and_vasp"
+        },
+        "stress_provenance": {
+          "analytic": true,
+          "validated": false,
+          "convention": "dE_dstrain_over_volume_positive_tension",
+          "scope": "fixed_plane_wave_indices_paw_kinetic_local_projector_overlap_compensation_nlcc_ewald",
+          "cutoff_pulay_extrapolation": false
+        }
+      },
+      "source": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/live-tests/sparsity-sweep/runs/s5/scf_result.json",
+      "sha256": "021357707b41a0eb315187d6145b7cf8c7ee8d02775e6a3b4695bcef3dccef1a"
+    },
+    {
+      "id": "s6",
+      "energy_mev_per_atom": 4.61142235508305e-09,
+      "force_max_ev_per_angstrom": 1.3007996113596298e-07,
+      "stress_max_gpa": 4.27866577795424e-07,
+      "eigen_residual_hartree": 5.408054835292974e-13,
+      "passed": true,
+      "sparsity_ledger": {
+        "schema_version": "sparse-dft-sparsity-ledger-2",
+        "mode": "custom",
+        "density_cutoff_factor": 16.0,
+        "density_modes_ratio_vs_16x_estimate": 1.0,
+        "density_reciprocal_modes": 30395,
+        "max_xc_grid_points": 636056,
+        "max_fft_grid_points": 9261,
+        "plane_waves": 459,
+        "iterations": 25,
+        "components": {
+          "eigen_search_factor": 0.0001,
+          "projector_space": "real-search",
+          "projector_radius_factor": 1.5
+        },
+        "rule_ids": [],
+        "auto": null,
+        "counters": {
+          "operator_hamiltonian": {
+            "seconds": 0.2911197803914547,
+            "calls": 436
+          },
+          "operator_overlap": {
+            "seconds": 0.08519686385989189,
+            "calls": 1261
+          },
+          "paw_block_projectors": {
+            "seconds": 0.09679941600188613,
+            "calls": 1617
+          },
+          "paw_compensated_factor_product": {
+            "seconds": 0.004982630722224712,
+            "calls": 3284
+          },
+          "fft_local_block": {
+            "seconds": 0.1977228452451527,
+            "calls": 356
+          },
+          "density_functional": {
+            "seconds": 0.7879152097739279,
+            "calls": 25
+          },
+          "scf_diagonalization": {
+            "seconds": 0.6956634144298732,
+            "calls": 25
+          },
+          "scf_total": {
+            "seconds": 2.6968160001561046,
+            "calls": 1
+          },
+          "process_compute_total": {
+            "seconds": 2.7470187922008336,
+            "calls": 1
+          },
+          "paw_compensation_density_batch": {
+            "seconds": 0.05805029161274433,
+            "calls": 25
+          },
+          "paw_compensation_adjoint": {
+            "seconds": 0.057909668423235416,
+            "calls": 25
+          },
+          "real_space_projector_points": {
+            "seconds": 0,
+            "calls": 179075
+          }
+        }
+      },
+      "raw_validity": {
+        "total_energy_valid": false,
+        "force_provenance": {
+          "method": "stationary_paw_projector_overlap_compensation_nlcc_ewald",
+          "analytic": true,
+          "validated": false,
+          "onecenter_dij_reused": true,
+          "status": "diagnostic_pending_finite_difference_and_vasp"
+        },
+        "stress_provenance": {
+          "analytic": true,
+          "validated": false,
+          "convention": "dE_dstrain_over_volume_positive_tension",
+          "scope": "fixed_plane_wave_indices_paw_kinetic_local_projector_overlap_compensation_nlcc_ewald",
+          "cutoff_pulay_extrapolation": false
+        }
+      },
+      "source": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/live-tests/sparsity-sweep/runs/s6/scf_result.json",
+      "sha256": "ac997da78701560eeeec22200c434bf03718a7968087e6e68b9c68d5e44f4394"
+    },
+    {
+      "id": "s4-scalar",
+      "energy_mev_per_atom": 4.817479748453479e-09,
+      "force_max_ev_per_angstrom": 6.269410433746694e-08,
+      "stress_max_gpa": 3.1057255292979257e-07,
+      "eigen_residual_hartree": 6.369700952255797e-13,
+      "passed": true,
+      "sparsity_ledger": {
+        "schema_version": "sparse-dft-sparsity-ledger-2",
+        "mode": "custom",
+        "density_cutoff_factor": 16.0,
+        "density_modes_ratio_vs_16x_estimate": 1.0,
+        "density_reciprocal_modes": 30395,
+        "max_xc_grid_points": 636056,
+        "max_fft_grid_points": 9261,
+        "plane_waves": 459,
+        "iterations": 22,
+        "components": {
+          "block_ortho": false
+        },
+        "rule_ids": [],
+        "auto": null,
+        "counters": {
+          "operator_hamiltonian": {
+            "seconds": 0.551499760709703,
+            "calls": 720
+          },
+          "operator_overlap": {
+            "seconds": 0.3286867346614599,
+            "calls": 6656
+          },
+          "paw_block_projectors": {
+            "seconds": 0.359043946955353,
+            "calls": 7376
+          },
+          "paw_compensated_factor_product": {
+            "seconds": 0.011168880388140678,
+            "calls": 14796
+          },
+          "fft_local_block": {
+            "seconds": 0.5094172586686909,
+            "calls": 720
+          },
+          "density_functional": {
+            "seconds": 1.835792750120163,
+            "calls": 22
+          },
+          "scf_diagonalization": {
+            "seconds": 1.3987067523412406,
+            "calls": 22
+          },
+          "scf_total": {
+            "seconds": 4.45843324996531,
+            "calls": 1
+          },
+          "process_compute_total": {
+            "seconds": 4.506886582821608,
+            "calls": 1
+          },
+          "paw_compensation_density_batch": {
+            "seconds": 0.06318525038659573,
+            "calls": 22
+          },
+          "paw_compensation_adjoint": {
+            "seconds": 0.06298708356916904,
+            "calls": 22
+          }
+        }
+      },
+      "raw_validity": {
+        "total_energy_valid": false,
+        "force_provenance": {
+          "method": "stationary_paw_projector_overlap_compensation_nlcc_ewald",
+          "analytic": true,
+          "validated": false,
+          "onecenter_dij_reused": true,
+          "status": "diagnostic_pending_finite_difference_and_vasp"
+        },
+        "stress_provenance": {
+          "analytic": true,
+          "validated": false,
+          "convention": "dE_dstrain_over_volume_positive_tension",
+          "scope": "fixed_plane_wave_indices_paw_kinetic_local_projector_overlap_compensation_nlcc_ewald",
+          "cutoff_pulay_extrapolation": false
+        }
+      },
+      "source": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/live-tests/sparsity-sweep/runs/s4-scalar/scf_result.json",
+      "sha256": "c4ac4e81597f2db1b4e86048316132b11ff596683496ba94b99bbb2bc45545b0"
+    },
+    {
+      "id": "s5-full",
+      "energy_mev_per_atom": 3.502975687297294e-09,
+      "force_max_ev_per_angstrom": 6.696521038144309e-08,
+      "stress_max_gpa": 2.8655434507123756e-07,
+      "eigen_residual_hartree": 9.187425976623988e-13,
+      "passed": true,
+      "sparsity_ledger": {
+        "schema_version": "sparse-dft-sparsity-ledger-2",
+        "mode": "custom",
+        "density_cutoff_factor": 16.0,
+        "density_modes_ratio_vs_16x_estimate": 1.0,
+        "density_reciprocal_modes": 30395,
+        "max_xc_grid_points": 636056,
+        "max_fft_grid_points": 9261,
+        "plane_waves": 459,
+        "iterations": 22,
+        "components": {
+          "paw_compensation": "full"
+        },
+        "rule_ids": [],
+        "auto": null,
+        "counters": {
+          "operator_hamiltonian": {
+            "seconds": 0.5478312317281961,
+            "calls": 748
+          },
+          "operator_overlap": {
+            "seconds": 0.21447113063186407,
+            "calls": 1285
+          },
+          "paw_block_projectors": {
+            "seconds": 0.30982534447684884,
+            "calls": 2033
+          },
+          "paw_compensated_factor_product": {
+            "seconds": 0.35683924332261086,
+            "calls": 7687
+          },
+          "fft_local_block": {
+            "seconds": 0.4374156570993364,
+            "calls": 748
+          },
+          "density_functional": {
+            "seconds": 1.5527722514234483,
+            "calls": 22
+          },
+          "scf_diagonalization": {
+            "seconds": 1.1039563370868564,
+            "calls": 22
+          },
+          "scf_total": {
+            "seconds": 3.760703374631703,
+            "calls": 1
+          },
+          "process_compute_total": {
+            "seconds": 3.8108641249127686,
+            "calls": 1
+          },
+          "paw_compensation_density_batch": {
+            "seconds": 0.055201667826622725,
+            "calls": 22
+          },
+          "paw_compensation_adjoint": {
+            "seconds": 0.05163087556138635,
+            "calls": 22
+          }
+        }
+      },
+      "raw_validity": {
+        "total_energy_valid": false,
+        "force_provenance": {
+          "method": "stationary_paw_projector_overlap_compensation_nlcc_ewald",
+          "analytic": true,
+          "validated": false,
+          "onecenter_dij_reused": true,
+          "status": "diagnostic_pending_finite_difference_and_vasp"
+        },
+        "stress_provenance": {
+          "analytic": true,
+          "validated": false,
+          "convention": "dE_dstrain_over_volume_positive_tension",
+          "scope": "fixed_plane_wave_indices_paw_kinetic_local_projector_overlap_compensation_nlcc_ewald",
+          "cutoff_pulay_extrapolation": false
+        }
+      },
+      "source": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/live-tests/sparsity-sweep/runs/s5-full/scf_result.json",
+      "sha256": "df5a618c71d61ae16625a2ab147fddcf9604954670d1afe25bf0bd6173893496"
+    },
+    {
+      "id": "s5-off",
+      "energy_mev_per_atom": 3.424815986363683e-09,
+      "force_max_ev_per_angstrom": 5.991816322647528e-08,
+      "stress_max_gpa": 3.083476631753527e-07,
+      "eigen_residual_hartree": 8.816343256507001e-13,
+      "passed": true,
+      "sparsity_ledger": {
+        "schema_version": "sparse-dft-sparsity-ledger-2",
+        "mode": "custom",
+        "density_cutoff_factor": 16.0,
+        "density_modes_ratio_vs_16x_estimate": 1.0,
+        "density_reciprocal_modes": 30395,
+        "max_xc_grid_points": 636056,
+        "max_fft_grid_points": 9261,
+        "plane_waves": 459,
+        "iterations": 22,
+        "components": {
+          "paw_compensation": "off"
+        },
+        "rule_ids": [],
+        "auto": null,
+        "counters": {
+          "operator_hamiltonian": {
+            "seconds": 0.4714370435103774,
+            "calls": 741
+          },
+          "operator_overlap": {
+            "seconds": 0.08869734453037381,
+            "calls": 1288
+          },
+          "paw_block_projectors": {
+            "seconds": 0.11147551564499736,
+            "calls": 2029
+          },
+          "fft_local_block": {
+            "seconds": 0.43370820209383965,
+            "calls": 741
+          },
+          "density_functional": {
+            "seconds": 1.5447058714926243,
+            "calls": 22
+          },
+          "scf_diagonalization": {
+            "seconds": 0.8659752476960421,
+            "calls": 22
+          },
+          "scf_total": {
+            "seconds": 3.5107359997928143,
+            "calls": 1
+          },
+          "process_compute_total": {
+            "seconds": 3.5562557918019593,
+            "calls": 1
+          },
+          "paw_compensation_density_batch": {
+            "seconds": 0.0520206680521369,
+            "calls": 22
+          },
+          "paw_compensation_adjoint": {
+            "seconds": 0.051585457287728786,
+            "calls": 22
+          }
+        }
+      },
+      "raw_validity": {
+        "total_energy_valid": false,
+        "force_provenance": {
+          "method": "stationary_paw_projector_overlap_compensation_nlcc_ewald",
+          "analytic": true,
+          "validated": false,
+          "onecenter_dij_reused": true,
+          "status": "diagnostic_pending_finite_difference_and_vasp"
+        },
+        "stress_provenance": {
+          "analytic": true,
+          "validated": false,
+          "convention": "dE_dstrain_over_volume_positive_tension",
+          "scope": "fixed_plane_wave_indices_paw_kinetic_local_projector_overlap_compensation_nlcc_ewald",
+          "cutoff_pulay_extrapolation": false
+        }
+      },
+      "source": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/live-tests/sparsity-sweep/runs/s5-off/scf_result.json",
+      "sha256": "de5736f393c5285003e4524899a30e2cca02865f0a7b3efcf20331462046c3db"
+    },
+    {
+      "id": "deterministic",
+      "energy_mev_per_atom": 3.0055957722652238e-09,
+      "force_max_ev_per_angstrom": 7.519635267815812e-08,
+      "stress_max_gpa": 4.7773712232897e-07,
+      "eigen_residual_hartree": 8.655047330563317e-13,
+      "passed": true,
+      "sparsity_ledger": {
+        "schema_version": "sparse-dft-sparsity-ledger-2",
+        "mode": "off",
+        "density_cutoff_factor": 16.0,
+        "density_modes_ratio_vs_16x_estimate": 1.0,
+        "density_reciprocal_modes": 30395,
+        "max_xc_grid_points": 636056,
+        "max_fft_grid_points": 9261,
+        "plane_waves": 459,
+        "iterations": 24,
+        "components": {},
+        "rule_ids": [],
+        "auto": null,
+        "counters": {
+          "operator_hamiltonian": {
+            "seconds": 0.5437256172299385,
+            "calls": 754
+          },
+          "operator_overlap": {
+            "seconds": 0.39794617658481,
+            "calls": 7074
+          },
+          "paw_block_projectors": {
+            "seconds": 0.503254028968513,
+            "calls": 7828
+          },
+          "paw_compensated_factor_product": {
+            "seconds": 0.5477632102556527,
+            "calls": 30883
+          },
+          "fft_local_block": {
+            "seconds": 0.4290533917956054,
+            "calls": 754
+          },
+          "density_functional": {
+            "seconds": 2.2764455005526543,
+            "calls": 24
+          },
+          "scf_diagonalization": {
+            "seconds": 1.4655779991298914,
+            "calls": 24
+          },
+          "scf_total": {
+            "seconds": 5.237912832759321,
+            "calls": 1
+          },
+          "process_compute_total": {
+            "seconds": 5.287664999719709,
+            "calls": 1
+          },
+          "paw_compensation_density_batch": {
+            "seconds": 0.0515292058698833,
+            "calls": 24
+          },
+          "paw_compensation_adjoint": {
+            "seconds": 0.055281626526266336,
+            "calls": 24
+          }
+        }
+      },
+      "raw_validity": {
+        "total_energy_valid": false,
+        "force_provenance": {
+          "method": "stationary_paw_projector_overlap_compensation_nlcc_ewald",
+          "analytic": true,
+          "validated": false,
+          "onecenter_dij_reused": true,
+          "status": "diagnostic_pending_finite_difference_and_vasp"
+        },
+        "stress_provenance": {
+          "analytic": true,
+          "validated": false,
+          "convention": "dE_dstrain_over_volume_positive_tension",
+          "scope": "fixed_plane_wave_indices_paw_kinetic_local_projector_overlap_compensation_nlcc_ewald",
+          "cutoff_pulay_extrapolation": false
+        }
+      },
+      "source": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/live-tests/sparsity-sweep/runs/deterministic/scf_result.json",
+      "sha256": "0a0a1b1a7067b32162e82946725b27c3c7efb91eaa0bc17edcc9fae54a306e45"
+    },
+    {
+      "id": "auto-fallback",
+      "energy_mev_per_atom": 0.006883649149358462,
+      "force_max_ev_per_angstrom": 8.268336666474381e-08,
+      "stress_max_gpa": 0.0001550304725580538,
+      "eigen_residual_hartree": 8.916489103660398e-13,
+      "passed": true,
+      "sparsity_ledger": {
+        "schema_version": "sparse-dft-sparsity-ledger-2",
+        "mode": "auto",
+        "density_cutoff_factor": 8.0,
+        "density_modes_ratio_vs_16x_estimate": 0.3535533905932738,
+        "density_reciprocal_modes": 10777,
+        "max_xc_grid_points": 29791,
+        "max_fft_grid_points": 9261,
+        "plane_waves": 459,
+        "iterations": 23,
+        "components": {
+          "density_cutoff_factor": 8.0,
+          "xc_padding": 1,
+          "eigen_search_factor": 0.0001,
+          "block_ortho": true,
+          "paw_compensation": "blocks"
+        },
+        "rule_ids": [
+          "S1.weighted_l2.v1",
+          "S2.insulator.v1",
+          "S3.default.v1",
+          "S4.all.v1",
+          "S5.blocks.v1"
+        ],
+        "auto": {
+          "level": "balanced",
+          "controls": {
+            "tail_budget": 1e-15,
+            "candidates": [
+              4.0,
+              6.0,
+              8.0
+            ],
+            "max_factor": 8.0
+          },
+          "tail_metric": "weighted_compensation_l2",
+          "tail_budget": 1e-15,
+          "tail_budget_source": "user",
+          "tail_at_choice": null,
+          "tails_tried": {
+            "4": 1.56891517e-07,
+            "6": 3.084456219e-08,
+            "8": 1.119560113e-08
+          },
+          "fallback": true,
+          "warnings": [
+            "no candidate met the S1 tail budget 1e-15; using factor 8 (below the rule fallback because of max_factor/candidates)"
+          ]
+        },
+        "counters": {
+          "operator_hamiltonian": {
+            "seconds": 0.1845894195139408,
+            "calls": 336
+          },
+          "operator_overlap": {
+            "seconds": 0.06001420598477125,
+            "calls": 905
+          },
+          "paw_block_projectors": {
+            "seconds": 0.0729496874846518,
+            "calls": 1241
+          },
+          "paw_compensated_factor_product": {
+            "seconds": 0.00368381105363369,
+            "calls": 2528
+          },
+          "fft_local_block": {
+            "seconds": 0.16526812687516212,
+            "calls": 336
+          },
+          "density_functional": {
+            "seconds": 0.12837787438184023,
+            "calls": 23
+          },
+          "scf_diagonalization": {
+            "seconds": 0.43708575051277876,
+            "calls": 23
+          },
+          "scf_total": {
+            "seconds": 1.0892260000109673,
+            "calls": 1
+          },
+          "process_compute_total": {
+            "seconds": 1.1062785000540316,
+            "calls": 1
+          },
+          "paw_compensation_density_batch": {
+            "seconds": 0.014399082865566015,
+            "calls": 23
+          },
+          "paw_compensation_adjoint": {
+            "seconds": 0.017232920043170452,
+            "calls": 23
+          }
+        }
+      },
+      "raw_validity": {
+        "total_energy_valid": false,
+        "force_provenance": {
+          "method": "stationary_paw_projector_overlap_compensation_nlcc_ewald",
+          "analytic": true,
+          "validated": false,
+          "onecenter_dij_reused": true,
+          "status": "diagnostic_pending_finite_difference_and_vasp"
+        },
+        "stress_provenance": {
+          "analytic": true,
+          "validated": false,
+          "convention": "dE_dstrain_over_volume_positive_tension",
+          "scope": "fixed_plane_wave_indices_paw_kinetic_local_projector_overlap_compensation_nlcc_ewald",
+          "cutoff_pulay_extrapolation": false
+        }
+      },
+      "source": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/live-tests/sparsity-sweep/runs/auto-fallback/scf_result.json",
+      "sha256": "4f6118413df4ee22ace6de806c50ddd806e78ef4036914593ce30c15dbd549c6"
+    }
+  ],
+  "passed": true,
+  "scope": "Matched sampled SCFs only; not an all-material accuracy certificate. Timing estimates are not measured speedups."
+}

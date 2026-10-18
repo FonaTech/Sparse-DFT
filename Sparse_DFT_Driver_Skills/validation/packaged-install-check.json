@@ -1,0 +1,14 @@
+{
+  "packaged_install": {
+    "status": "INSTALLED",
+    "skill": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/release-install-test/installed-skills/sparse-dft-driver",
+    "files": 61,
+    "retired_skill_backup": null,
+    "available": "next turn"
+  },
+  "scf_returncode": 0,
+  "converged": true,
+  "total_energy_valid": false,
+  "result": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/release-install-test/calculation/si-packaged/scf_result.json",
+  "note": "Archive unpacked, installed from its own installer, real auto SCF executed using the extracted installed helper."
+}

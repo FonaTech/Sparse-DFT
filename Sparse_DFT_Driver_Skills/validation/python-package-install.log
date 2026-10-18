@@ -1,0 +1,12 @@
+WARNING: The directory '/Users/Fona/Library/Caches/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.
+Processing ./sparse-dft-upgrade-20261018/Sparse-DFT-1.0.0
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: sparse-dft
+  Building wheel for sparse-dft (pyproject.toml): started
+  Building wheel for sparse-dft (pyproject.toml): finished with status 'done'
+  Created wheel for sparse-dft: filename=sparse_dft-1.0.0-py3-none-any.whl size=424558 sha256=24d97e3eaa1d54d57e75f887c8404baede2567194236489561039936c8476ad7
+  Stored in directory: /private/var/folders/gy/4q2f2m150pdbsq7v89xryx480000gn/T/pip-ephem-wheel-cache-_7kqa6f1/wheels/1a/13/e5/02450247464be8fb79d3a1cdbdd0552d4bc2174e6b1f040988
+Successfully built sparse-dft
+Installing collected packages: sparse-dft
+Successfully installed sparse-dft-1.0.0

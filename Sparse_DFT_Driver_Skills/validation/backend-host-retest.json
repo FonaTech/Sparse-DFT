@@ -1,0 +1,27 @@
+[
+  {
+    "name": "sdft_compute_backend_smoke",
+    "returncode": 0,
+    "log": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/Sparse-DFT-1.0.0/build-metal/sdft_compute_backend_smoke-host.log"
+  },
+  {
+    "name": "sdft_fft_backend_smoke",
+    "returncode": 0,
+    "log": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/Sparse-DFT-1.0.0/build-metal/sdft_fft_backend_smoke-host.log"
+  },
+  {
+    "name": "sdft_pbe_backend_smoke",
+    "returncode": 0,
+    "log": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/Sparse-DFT-1.0.0/build-metal/sdft_pbe_backend_smoke-host.log"
+  },
+  {
+    "name": "sdft_plane_wave_operator_smoke",
+    "returncode": 0,
+    "log": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/Sparse-DFT-1.0.0/build-metal/sdft_plane_wave_operator_smoke-host.log"
+  },
+  {
+    "name": "mpi_context_3_tests",
+    "returncode": 0,
+    "log": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/Sparse-DFT-1.0.0/build-mpi/ctest-mpi-host.log"
+  }
+]

@@ -1,0 +1,1825 @@
+{
+  "schema": "sparse-dft-case-library-1",
+  "cases": [
+    {
+      "id": "01",
+      "slug": "cpu-install",
+      "title": "CPU 安装与首个静态计算",
+      "mode": "原生",
+      "intent": "从干净源码建立可用 CPU 环境，完成用户结构的第一份静态 SCF 结果。适合迁移到新电脑或首次部署。",
+      "inputs": [
+        "源码目录和可用 C++20/CMake/FFTW 环境",
+        "Python ≥3.11 与目标安装目录",
+        "真实周期结构、用户 PAW 归档及线程预算"
+      ],
+      "strategy": "安装和计算使用不同目录。先确认结构与 PAW，再使用安装器写出的实际环境，不从旧 PATH 猜测内核。",
+      "stages": [
+        [
+          "构建并安装 CPU",
+          "tool:scripts/install.py",
+          "installation.json 和可调用的 sdft_scf"
+        ],
+        [
+          "检查编译后端和线程",
+          "backend.info",
+          "CPU/OpenMP 实际探测信息"
+        ],
+        [
+          "检查结构与势选择",
+          "structure.parse + paw.resolve",
+          "结构、元素与 record ID 一致"
+        ],
+        [
+          "执行完整静态 SCF",
+          "job.run",
+          "scf_result.json、实际输入和正常收敛记录"
+        ]
+      ],
+      "analysis": "交付执行的 cutoff、网格、电子数、能量及残差，不把安装器测试数量当作材料计算结果。安装失败定位到 installation.json 中首个失败命令。",
+      "controls": [
+        "显式 SDFT_SCF_EXE",
+        "OpenMP 与 BLAS 线程避免嵌套超配",
+        "单独运行目录及既有项目精度依据"
+      ],
+      "failures": [
+        "缺编译依赖时先补实际依赖",
+        "OpenMP 请求失败不能静默改成串行",
+        "缺 PAW 时不能伪造 numeric.bin"
+      ],
+      "handoff": "向研究流程交接环境、二进制哈希与首个 SCF 阶段；写作只引用真实输出。",
+      "done": "CPU 环境可调用，所请求静态作业收敛，输入、输出、安装日志与参数可追溯。",
+      "deliverable": "可用 CPU 安装与 SCF 结果包"
+    },
+    {
+      "id": "02",
+      "slug": "metal-compute",
+      "title": "Apple Metal 计算与实际 GPU 调度",
+      "mode": "原生",
+      "intent": "在 Apple 设备上选择 Metal 构建，完成既定 SCF/NSCF 任务并读取实际 GPU 使用证据。",
+      "inputs": [
+        "支持 Metal 的 macOS 设备",
+        "同版本源码和 Metal 构建目录",
+        "结构、PAW、计算参数及主机线程预算"
+      ],
+      "strategy": "安装器 backend 使用 metal，运行环境使用 mps。沿用项目已确认的数值方案，不因 GPU 调度变化修改物理输入。",
+      "stages": [
+        [
+          "建立 Metal 安装",
+          "tool:scripts/install.py --backend metal",
+          "可运行 Metal 内核"
+        ],
+        [
+          "检查编译功能",
+          "backend.info",
+          "metal_compiled 与实际设备条件"
+        ],
+        [
+          "执行 SCF 和冻结路径",
+          "job.run + bands.run",
+          "收敛 SCF、真实 NSCF 本征值"
+        ],
+        [
+          "汇总实际调度",
+          "project-python:read performance JSON",
+          "device、GPU 调用计数与各阶段耗时表"
+        ]
+      ],
+      "analysis": "读每次 OUTPUT.performance.json，而不是凭 macOS 平台或 backend.info 的保守 active 字段判断。嵌套计时不直接求和，CPU 最终处理属于实际混合执行。",
+      "controls": [
+        "SDFT_COMPUTE_BACKEND=mps",
+        "显式 GPU_FFT/GPU_PBE 选择与线程环境",
+        "相同输入和独立输出"
+      ],
+      "failures": [
+        "设备不可用时定位实际后端错误",
+        "小任务 GPU 调度为零时如实记 CPU 执行",
+        "冻结 SCF 来源不一致时重新选匹配结果"
+      ],
+      "handoff": "交接计算结果和设备/调度表；性能解释读取案例 29。",
+      "done": "请求计算完成，GPU 实际 dispatch 与结果来源可核实，未调用 GPU 的部分也明确记录。",
+      "deliverable": "Metal 作业与调度报告"
+    },
+    {
+      "id": "03",
+      "slug": "cuda-compute",
+      "title": "NVIDIA CUDA 构建与计算",
+      "mode": "原生，需对应硬件",
+      "intent": "在有 NVIDIA 驱动与 CUDA Toolkit 的主机完成 CUDA 构建并运行现有计算入口。",
+      "inputs": [
+        "真实 NVIDIA 设备、驱动和 toolkit",
+        "目标主机 C++/FFTW/Python 环境",
+        "用户结构、PAW 与计算资源预算"
+      ],
+      "strategy": "此案例在目标 NVIDIA 主机执行，交付真实编译与计算记录；不从另一平台的源码阅读推断已完成构建。",
+      "stages": [
+        [
+          "CUDA 构建安装",
+          "tool:scripts/install.py --backend cuda",
+          "installation.json、CUDA 二进制"
+        ],
+        [
+          "检查编译和设备",
+          "backend.info + native backend programs",
+          "目标主机实际状态"
+        ],
+        [
+          "运行请求的 SCF",
+          "job.run",
+          "真实 SCF 输出"
+        ],
+        [
+          "读取设备与性能记录",
+          "project-python:read performance JSON",
+          "实际 CUDA 调度和耗时"
+        ]
+      ],
+      "analysis": "构建、设备与一次物理任务是三个操作结果。记录完整内核路径、工具链和实际 GPU 使用，项目精度依据沿用已有验证。",
+      "controls": [
+        "SDFT_COMPUTE_BACKEND=cuda",
+        "CPU/BLAS/设备线程配置",
+        "唯一输出及目标主机二进制哈希"
+      ],
+      "failures": [
+        "缺 toolkit 先修构建环境",
+        "无设备或驱动不匹配记录运行错误",
+        "不把 CPU 回退记录为 CUDA 执行"
+      ],
+      "handoff": "交接 CUDA 主机的计算结果、环境和调度记录。",
+      "done": "在实际 NVIDIA 主机成功构建并完成请求作业，记录可重放。",
+      "deliverable": "CUDA 构建与结果包"
+    },
+    {
+      "id": "04",
+      "slug": "structure-intake",
+      "title": "多格式结构导入与坐标规范化",
+      "mode": "原生",
+      "intent": "将用户 POSCAR、已展开 CIF 或 XYZ/EXTXYZ 转为一致的结构记录，为计算准备真实几何。",
+      "inputs": [
+        "原始结构文件与出处",
+        "元素、周期条件及晶胞信息",
+        "保留的坐标约束与结构标识"
+      ],
+      "strategy": "逐一读取并保存 normalized 结构。普通 XYZ 缺晶胞时仅完成解析；周期计算所需晶胞由用户实际模型提供。一般 CIF 对称展开需输入已展开坐标，不能把不对称单元当完整晶胞。",
+      "stages": [
+        [
+          "解析每份结构",
+          "structure.parse",
+          "species、positions、lattice 与 warnings"
+        ],
+        [
+          "核查晶胞和哈希",
+          "structure.validate",
+          "natoms、volume 与结构哈希"
+        ],
+        [
+          "写标准周期结构",
+          "project-python:Structure normalization",
+          "保留约束的 POSCAR/结构 JSON"
+        ],
+        [
+          "记录来源与规范化操作",
+          "project-python:lineage record",
+          "原始文件与规范化文件哈希"
+        ]
+      ],
+      "analysis": "检查元素数、分数/笛卡尔坐标、周期性、晶胞体积和倒格子含 2π 的约定。换表示不应改变物理几何；结构哈希还包含来源字段，不能仅凭哈希不同认定几何不同。",
+      "controls": [
+        "非正交晶胞的坐标转换",
+        "Selective Dynamics 原义",
+        "原始文件保留与单位 Å"
+      ],
+      "failures": [
+        "奇异晶胞回到输入模型",
+        "未知元素标签先恢复真实元素",
+        "未展开 CIF 不直接进入 SCF"
+      ],
+      "handoff": "向研究主线交接结构 provenance 与计算就绪状态。",
+      "done": "完整结构信息、单位和约束可被驱动读入，原始来源未丢失。",
+      "deliverable": "结构库与来源记录"
+    },
+    {
+      "id": "05",
+      "slug": "paw-archive",
+      "title": "PAW 清单、选型、还原与数值缓存",
+      "mode": "原生",
+      "intent": "检查本地 PBE.54 JSON 归档，按真实元素和选择策略准备完整 PAW 缓存。",
+      "inputs": [
+        "合法本地 manifest/index/potentials 归档",
+        "结构所需元素列表",
+        "standard/semicore/gw/gw_semicore 选择依据"
+      ],
+      "strategy": "先列 inventory 和候选 record，再按策略 resolve。需要非 standard 家族计算时使用 Python run_scf 的 family，而不把 API 中被忽略的 family 当已执行。",
+      "stages": [
+        [
+          "归档清点与完整性信息",
+          "paw.inventory",
+          "文件哈希与可用记录"
+        ],
+        [
+          "按策略解析候选",
+          "paw.resolve",
+          "实际选择报告"
+        ],
+        [
+          "还原原始记录",
+          "paw.restore",
+          "指定本地目的路径"
+        ],
+        [
+          "解析完整数值数据",
+          "paw.parse",
+          "numeric.bin 与 numeric_summary"
+        ],
+        [
+          "带指定家族准备计算",
+          "sparse_dft.workflow:prepare_job 或 sparse_dft.scf:run_scf",
+          "实际 PAW report 与缓存路径"
+        ]
+      ],
+      "analysis": "保留 ENMAX、价电子、record ID 与缓存哈希；还原文件不进入公开 skill 分发包。PAW 元数据是 cutoff 起始依据，实际参数取执行输入。",
+      "controls": [
+        "所需元素必须全部匹配",
+        "选择家族与实际调用接口一致",
+        "恢复目的目录独立"
+      ],
+      "failures": [
+        "归档哈希不一致时停止使用损坏数据",
+        "缺某元素不从别的元素借用缓存",
+        "family 选项在 API 未支持时切换 Python"
+      ],
+      "handoff": "交接选型报告、哈希和本地路径，不交接受限制的势内容。",
+      "done": "目标元素的真实势记录已解析，所需缓存可供计算入口读取。",
+      "deliverable": "PAW 选择与缓存报告"
+    },
+    {
+      "id": "06",
+      "slug": "sampling",
+      "title": "k 点推荐、显式网格与任意权重",
+      "mode": "原生",
+      "intent": "把体系精度目标转换成实际执行的 SCF 采样，支持 Gamma、Monkhorst–Pack 和显式加权点列表。",
+      "inputs": [
+        "真实晶格与周期方向",
+        "金属/非金属状态和任务用途",
+        "采样密度目标与计算预算"
+      ],
+      "strategy": "用 recommend_kpoints 的 spacing/metallic 选项时调用 Python。先记录推荐，再把最终 mesh 或 points/weights 明确传给 SCF。",
+      "stages": [
+        [
+          "生成推荐",
+          "sparse_dft.kpoints:recommend_kpoints",
+          "网格、spacing 与推荐理由"
+        ],
+        [
+          "产生目标点与权重",
+          "sparse_dft.kpoints:uniform_kpoint_mesh",
+          "实际 fractional 点与 weights"
+        ],
+        [
+          "用指定采样运行 SCF",
+          "job.run",
+          "执行的 scf_kpoints 与 normalized weights"
+        ],
+        [
+          "汇总推荐和执行差别",
+          "project-python:sampling table",
+          "输入、推荐、执行三者一致记录"
+        ]
+      ],
+      "analysis": "网格与任意点列表互斥。正有限权重由内核归一化，不能将路径点等权当作均匀 Brillouin-zone 采样。查看结果 provenance 而非仅看 prepare 的建议。",
+      "controls": [
+        "scf_grid 与显式点二选一",
+        "mesh_mode 明确",
+        "三维点坐标和正权重"
+      ],
+      "failures": [
+        "自动网格预算调整需保留 reason",
+        "非法点/权重修正输入后重新运行",
+        "实际仍为单 Gamma 时修正未传入的 mesh"
+      ],
+      "handoff": "交接执行采样和项目控制矩阵。",
+      "done": "最终选定采样实际执行，点数、权重与模式有输出依据。",
+      "deliverable": "可执行采样与 SCF 采样表"
+    },
+    {
+      "id": "07",
+      "slug": "band-path",
+      "title": "高对称路径生成与标签保持",
+      "mode": "原生",
+      "intent": "将用户确定的晶体路径顶点转换成完整 NSCF 点列，保留段端点和图中标签。",
+      "inputs": [
+        "实际晶胞和 reciprocal convention",
+        "所选顶点坐标、标签与路径顺序",
+        "每段点数和是否重复公共顶点"
+      ],
+      "strategy": "路径顶点来自本项目实际晶体约定。make-band-path 只插值，标签由真实点索引写入 path mapping；不自动发明高对称路径。",
+      "stages": [
+        [
+          "验证顶点与晶格",
+          "structure.parse + project-python:path input",
+          "真实 vertices JSON"
+        ],
+        [
+          "生成显式点列",
+          "make-band-path",
+          "path.json 与实际总点数"
+        ],
+        [
+          "写标签与端点索引",
+          "project-python:path labels",
+          "与点数组同长的 labels"
+        ],
+        [
+          "执行/分析路径",
+          "bands.run + bands.analyze",
+          "实际 kpoints 与一致标注"
+        ]
+      ],
+      "analysis": "公共顶点是否重复影响索引和图中的段断点。波矢距离用实际倒格子计算，图中折线路径长度不能代替物理采样一致性。",
+      "controls": [
+        "2–32768 个有限路径点",
+        "每段点数与公共顶点规则",
+        "labels 长度和实际点列一致"
+      ],
+      "failures": [
+        "标签越界修路径输入",
+        "路径和晶格约定不一致先换算",
+        "同长度不同路径不当作等价"
+      ],
+      "handoff": "交接路径文件、标签、晶格来源与能带 artifacts。",
+      "done": "路径已实际生成并执行，标签对应真实点索引。",
+      "deliverable": "完整路径与标注能带"
+    },
+    {
+      "id": "08",
+      "slug": "weighted-scf",
+      "title": "多 k 点自洽静态计算",
+      "mode": "原生",
+      "intent": "对真实周期结构完成完整 PAW-PBE 自洽计算，输出能量、占据、密度、一中心态与导数。",
+      "inputs": [
+        "结构与本地 PAW",
+        "既定 cutoff、fine-density 与采样",
+        "电子迭代、混合和线程设置"
+      ],
+      "strategy": "使用独立 output 保存每种计算配置。完整 PAW 路线明确开启 closure；所需占据与 smearing 设置随本项目状态记录。",
+      "stages": [
+        [
+          "准备结构和 PAW",
+          "job.prepare",
+          "resolved_input、selection 与本地 cache"
+        ],
+        [
+          "运行已定采样的 SCF",
+          "job.run",
+          "scf.json 与 scf_result.json"
+        ],
+        [
+          "读取密度/占据/能量字段",
+          "project-python:SCF extraction",
+          "单位明确的静态结果表"
+        ],
+        [
+          "汇总作业记录",
+          "research_bridge.py handoff",
+          "methods、evidence 与研究阶段 sidecar"
+        ]
+      ],
+      "analysis": "报告实际总能/自由能字段、电子数、费米能、scf_kpoints 和残差；有限 smearing 的能量比较说明选择 E 还是 F。本次收敛检查仍需执行，不重复项目软件精度验收。 能量字段保持一致：internal_energy_ev 为 E，total_energy_ev 在有限展宽时为 F=E−TS。",
+      "controls": [
+        "SDFT_ENABLE_PAW_CLOSURE_DIAGNOSTIC=1",
+        "smooth/onsite 控制显式",
+        "cutoff 与 density_cutoff 独立"
+      ],
+      "failures": [
+        "内层求解错误先分析 eigen residual",
+        "smooth/onsite 未收敛保留失败",
+        "缺输出不读取旧结果冒充本次成功"
+      ],
+      "handoff": "返回可追溯 SCF 数值和实际条件。",
+      "done": "本次 SCF 收敛，真实字段和参数可定位，结果完成导出。",
+      "deliverable": "完整静态结果包"
+    },
+    {
+      "id": "09",
+      "slug": "cutoff-scan",
+      "title": "波函数与细密度截断能扫描",
+      "mode": "原生＋项目分析",
+      "intent": "针对当前观测量自动运行 cutoff 与 density_cutoff 控制矩阵，选定本材料的计算参数。",
+      "inputs": [
+        "固定结构、PAW、采样与观测量",
+        "用户指定截断能候选序列",
+        "误差阈值、参考最密设置与预算"
+      ],
+      "strategy": "先保持细密度支持足够，扫描波函数；再保持波函数基组，扫描独立 fine-density。每点运行目录和控制标识唯一。",
+      "stages": [
+        [
+          "构造两类参数矩阵",
+          "project-python:scan recipe",
+          "参数表与一一对应的 run IDs"
+        ],
+        [
+          "批量执行静态点",
+          "job.run via run_recipe.py",
+          "各点收敛结果"
+        ],
+        [
+          "读取能量/力/应力/本征值",
+          "project-python:observable table",
+          "按一致单位归一化的表"
+        ],
+        [
+          "选择满足目标的设置",
+          "project-python:scan decision",
+          "选择理由和控制图"
+        ]
+      ],
+      "analysis": "对目标量定义 ΔQ=Q_i−Q_ref。总能按 cell/atom 的归一化明确；力应使用相同原子索引，应力保持相同张量和符号。扫描是在选本任务参数，不是重做软件整体精度验证。",
+      "controls": [
+        "除扫描轴外所有控制固定",
+        "density_cutoff≥4×cutoff",
+        "自动 ENMAX 建议仅作起点"
+      ],
+      "failures": [
+        "某点未收敛不得插值为合格",
+        "归一化对象变化时重建可比表",
+        "参考点费用超预算先调整参数设计"
+      ],
+      "handoff": "交接参数选择表、原始结果与计算协议。",
+      "done": "完成指定参数网格并选出满足用户目标的设置；失败点有独立记录。",
+      "deliverable": "截断能扫描表与所选参数"
+    },
+    {
+      "id": "10",
+      "slug": "mesh-smearing-scan",
+      "title": "k 网格与金属展宽控制扫描",
+      "mode": "原生＋项目分析",
+      "intent": "以总能、自由能、费米能或目标能带边为准选择当前体系的网格与 smearing。",
+      "inputs": [
+        "固定周期结构和 PAW",
+        "网格与 Fermi–Dirac kBT 候选值",
+        "目标物理状态和选择阈值"
+      ],
+      "strategy": "先扫描 k mesh，再在合适 mesh 上检查 smearing 敏感性；保留零温与有限 kBT 的能量定义。",
+      "stages": [
+        [
+          "构造 mesh/kBT recipe",
+          "project-python:parameter matrix",
+          "有限网格与展宽表"
+        ],
+        [
+          "执行每个配置",
+          "job.run",
+          "共用费米能的加权 SCF"
+        ],
+        [
+          "分析占据与目标量",
+          "project-python:SCF analysis",
+          "occupations、E/F 与采样统计"
+        ],
+        [
+          "记录最终协议",
+          "project-python:decision export",
+          "固定 mesh 与 kBT 设置"
+        ]
+      ],
+      "analysis": "smearing_ev 是 kBT，bands-analysis 的 sigma 是 DOS 高斯宽度，两者分别记录。金属占据不能被误读成有带隙。 实际字段：internal_energy_ev=E，entropy_energy_ev=−TS，total_energy_ev=F=E−TS。",
+      "controls": [
+        "相同 cutoff/fine-density",
+        "Gamma/MP 网格模式一致",
+        "零温和有限温能量账本区分"
+      ],
+      "failures": [
+        "占据未覆盖所需 bands 时增加带数",
+        "采样上限超出时重新设计矩阵",
+        "不同 smearing 量误混时修正分析"
+      ],
+      "handoff": "向 DFT_Skills 方法控制表交接 mesh 与占据协议。",
+      "done": "完成指定扫描，最终采样和展宽对目标量的影响有数据依据。",
+      "deliverable": "网格展宽选择报告"
+    },
+    {
+      "id": "11",
+      "slug": "frozen-nscf",
+      "title": "冻结 SCF 复用与多路径 NSCF",
+      "mode": "原生",
+      "intent": "对已完成的 SCF 复用真实密度与一中心状态，计算多条能带路径或不同带数。",
+      "inputs": [
+        "实际收敛 scf.json 与可读 PAW caches",
+        "相同结构、cutoff、单位与插值约定",
+        "真实 NSCF 点列、labels 与带数"
+      ],
+      "strategy": "冻结源固定，仅改变允许的 NSCF 路径/谱设置。明确传源 cutoff 和 atomic_units，避免默认 ENMAX 与源输入不一致。",
+      "stages": [
+        [
+          "导出并校验 frozen 状态",
+          "sparse_dft.checkpoint:export_frozen_scf",
+          "frozen 格式与 SHA-256"
+        ],
+        [
+          "逐条执行 NSCF",
+          "bands.run with scf_checkpoint",
+          "bands.json 与冻结来源"
+        ],
+        [
+          "检查路径/带数/标签",
+          "project-python:band artifact inventory",
+          "实际采样和谱维度表"
+        ],
+        [
+          "分析多路径结果",
+          "bands.analyze",
+          "分析 JSON 与出版图文件"
+        ]
+      ],
+      "analysis": "冻结会核查缓存、结构、单位、投影插值和独立密度支持。该 candidate 的冻结接口要求保留源 JSON 中已有的诊断状态字段，因此不要为了外部精度验证擅改这些字段。",
+      "controls": [
+        "源 cutoff 显式",
+        "源 caches 存在且哈希一致",
+        "路径 output 独立"
+      ],
+      "failures": [
+        "cache 路径断开恢复真实文件",
+        "来源参数不符回到匹配 SCF",
+        "缺 fine-density provenance 用真实原输出而非猜值"
+      ],
+      "handoff": "交接冻结身份、各路径本征值与图。",
+      "done": "指定路径全部完成 NSCF，复用来源与谱数据可核对。",
+      "deliverable": "多路径 NSCF 结果与图"
+    },
+    {
+      "id": "12",
+      "slug": "bands-dos",
+      "title": "能带、真实网格 DOS 与联合绘图",
+      "mode": "原生",
+      "intent": "从已计算谱生成能带、真实带权网格 DOS 和联合科学图。",
+      "inputs": [
+        "实际 bands artifact 与结构",
+        "converged weighted-grid SCF 或实际 DOSCAR",
+        "费米能、显示区间与绘图风格"
+      ],
+      "strategy": "能带路径和 DOS 网格分开准备；必要时为 DOS 单独运行密网格 SCF。没有 DOS 数据时按任务补做网格计算，再绘图。",
+      "stages": [
+        [
+          "取得 DOS 网格谱",
+          "job.run 或实际 DOSCAR 输入",
+          "带权 SCF/总 DOS"
+        ],
+        [
+          "载入真实能带",
+          "sparse_dft.bands:load_bands",
+          "路径与能量列"
+        ],
+        [
+          "计算/解析 DOS",
+          "sparse_dft.bands:density_of_states_from_scf 或 parse_doscar",
+          "DOS 数组、归一化和来源"
+        ],
+        [
+          "联合分析与绘图",
+          "bands-analysis",
+          "analysis.json 和 PNG/PDF/SVG"
+        ]
+      ],
+      "analysis": "高斯 DOS 记录 sigma、积分归一化、网格和能量区间。带隙描述注明取样域；高对称路径带隙与整个 BZ 带隙不是同一个估计量。",
+      "controls": [
+        "DOS 只用真实网格/权重",
+        "费米能来源与 energy zero",
+        "实际 renderer 记录"
+      ],
+      "failures": [
+        "路径数据不冒充 DOS",
+        "matplotlib 不可用使用原生 SVG 路线",
+        "外部格式列缺失回到真实数据"
+      ],
+      "handoff": "交接 analysis.json、图和源数值，写作引用可定位图注条件。",
+      "done": "请求的能带与 DOS 有真实来源，图、归一化、显示参数完整。",
+      "deliverable": "能带 DOS 图与分析包"
+    },
+    {
+      "id": "13",
+      "slug": "import-projections",
+      "title": "外部自旋、DOS 与投影谱解析",
+      "mode": "原生解析功能",
+      "intent": "读取已有 EIGENVAL、vasprun.xml、DOSCAR 和 PROCAR，完成自旋通道与投影谱分析。",
+      "inputs": [
+        "用户提供的完整外部输出",
+        "相同作业的结构、费米能和自旋约定",
+        "所需元素/轨道/通道与图目标"
+      ],
+      "strategy": "本案例驱动的是解析与分析功能，无需把外部自旋计算改由非自旋 Sparse-DFT 内核求解。原始输入完整保存，文件关联到同一外部作业。",
+      "stages": [
+        [
+          "载入能带格式",
+          "sparse_dft.bands:load_bands",
+          "能量、占据、spin channels"
+        ],
+        [
+          "解析 DOS 和投影",
+          "sparse_dft.bands:parse_doscar + parse_procar",
+          "原始通道与投影数组"
+        ],
+        [
+          "生成带/DOS/投影报告",
+          "bands.analyze",
+          "有来源的 analysis.json"
+        ],
+        [
+          "导出图和精确数据",
+          "project-python:analysis table",
+          "元素/轨道/自旋映射表"
+        ]
+      ],
+      "analysis": "保留上下自旋的能量/占据列，记录各投影通道的来源与归一化。VASP XML 使用最终计算的谱和实际 reciprocal basis；不能把第一轮迭代当最终结果。",
+      "controls": [
+        "外部文件属于同一几何和状态",
+        "费米能一致",
+        "投影标识与原子索引一致"
+      ],
+      "failures": [
+        "损坏/截断文件回到原输出",
+        "部分占据不误判绝缘体",
+        "能量列与占据列混淆时核查解析结果"
+      ],
+      "handoff": "交接原始外部文件哈希和解析后的通道数据，保留外部引擎 provenance。",
+      "done": "所选格式解析完整，实际自旋和投影列正确传入图与表。",
+      "deliverable": "外部谱解析与投影报告"
+    },
+    {
+      "id": "14",
+      "slug": "matched-band-analysis",
+      "title": "Sparse-DFT 与现有参考能带比较",
+      "mode": "原生",
+      "intent": "对实际已有的参考谱与 Sparse-DFT 谱比较路径、带边和能量差，作为用户所需的分析输出。",
+      "inputs": [
+        "实际 reference/candidate 本征值文件",
+        "相同结构、路径、波矢约定与谱范围",
+        "raw/fermi/vbm 对齐选择"
+      ],
+      "strategy": "先检查 path geometry 和谱维度。输出 raw 与指定对齐的差异，保留对齐平移；不把不同路径强行插值成一个对照。",
+      "stages": [
+        [
+          "载入两个谱",
+          "sparse_dft.bands:load_bands",
+          "reciprocal/path metadata"
+        ],
+        [
+          "检查几何和通道",
+          "bands.compare",
+          "可比性结果或明确不匹配错误"
+        ],
+        [
+          "计算指定对齐差异",
+          "bands-compare --align none/vbm/fermi",
+          "真实误差与带边表"
+        ],
+        [
+          "生成对照图",
+          "project-python:matched plot",
+          "相同几何轴的差异图"
+        ]
+      ],
+      "analysis": "用实际算法返回的误差指标与能量窗口，记录带数与点数。对齐后的误差不能替代 raw 能量偏移信息。已有精度验证可直接引用，本案例只执行请求的谱分析。",
+      "controls": [
+        "max_energy_ev 和选取窗口",
+        "相同路径原点/段几何",
+        "spin channels 和带对应"
+      ],
+      "failures": [
+        "同长度不同路径明确拒绝",
+        "带数不一致先限定共同目标谱",
+        "缺 reciprocal 信息先取得真实晶胞"
+      ],
+      "handoff": "交接比较表与参考/candidate 哈希，可并入既有精度证据或论文分析。",
+      "done": "指定可比谱已完成差异分析，无法比较的输入给出准确原因。",
+      "deliverable": "能带对照表与图"
+    },
+    {
+      "id": "15",
+      "slug": "materials-project",
+      "title": "Materials Project 结构与谱快照",
+      "mode": "原生＋现有工具",
+      "intent": "通过可用 MP 凭据获取真实结构和原始能带，并生成离线快照与批量比较输入。",
+      "inputs": [
+        "可用 MP_API_KEY 或 MAPI_KEY",
+        "所需真实 material IDs 与 count/criteria",
+        "网络预算、目标快照和候选谱目录"
+      ],
+      "strategy": "凭据经环境提供。结构 summary 和 raw bandstructure 分别获取，原始响应与记录 ID 关联保存。",
+      "stages": [
+        [
+          "获取结构快照",
+          "mp.fetch_structures",
+          "structures、manifest 与来源 URL"
+        ],
+        [
+          "获取指定 raw bands",
+          "mp.fetch_bands",
+          "mp_bandstructures.json 与原始本征值"
+        ],
+        [
+          "准备对应 Sparse-DFT 候选",
+          "job.run + bands.run",
+          "按实际 material ID 命名的候选"
+        ],
+        [
+          "离线批量比较",
+          "tool:compare_mp_band_batch.py",
+          "逐材料比较及缺失/失败列表"
+        ]
+      ],
+      "analysis": "检查请求数与实际记录数、谱维度和真实路径。API 超时按交互需求显式设置；原始谱缺失时不使用带隙摘要替代。",
+      "controls": [
+        "凭据不写公开日志",
+        "快照 ID 与候选 ID 一致",
+        "端点/路径及实际物理条件记录"
+      ],
+      "failures": [
+        "summary-only 响应保留失败",
+        "缺 ID/候选不产生零误差",
+        "网络中断从已冻结快照继续分析"
+      ],
+      "handoff": "交接 dataset manifest、原始快照和比较结果，写作引用数据库出处而非编造论文。",
+      "done": "请求的实际数据已获取并冻结，可离线使用；未返回记录明确列出。",
+      "deliverable": "MP 数据快照与批量对照"
+    },
+    {
+      "id": "16",
+      "slug": "ionic-relax",
+      "title": "固定晶胞离子弛豫",
+      "mode": "原生",
+      "intent": "在固定晶胞下优化原子位置，包括真实 Selective Dynamics 可移动子空间。",
+      "inputs": [
+        "初始周期结构、PAW 与约束",
+        "同目录的 scf/relax_step 二进制",
+        "force tolerance、step bounds 与 SCF 设置"
+      ],
+      "strategy": "非正交晶胞中 T/F 表示 Direct 晶格方向；保留限制，不把它们当 Cartesian 轴固定。每次接受态记录真实能量与哈希。",
+      "stages": [
+        [
+          "核对初始结构和约束",
+          "structure.parse",
+          "可移动原子/方向记录"
+        ],
+        [
+          "执行解析优化",
+          "relax.ionic",
+          "relax_result 与 checkpoint"
+        ],
+        [
+          "必要时兼容重启",
+          "relax.ionic with driver --resume",
+          "从最后 accepted state 继续"
+        ],
+        [
+          "导出最终结构和轨迹",
+          "project-python:relax analysis",
+          "几何、力、能量与接受步表"
+        ]
+      ],
+      "analysis": "收敛检查采用可移动子空间的每原子力范数。line-search trial 和 accepted steps 分开，不把一次试探写成已接受结构。",
+      "controls": [
+        "force_tolerance 单位 eV/Å",
+        "max_displacement 和步数预算",
+        "smooth/onsite 和 cutoff 固定"
+      ],
+      "failures": [
+        "SCF 失败保留最近接受态",
+        "输入/PAW/二进制变化用新目录",
+        "约束导致剩余受限力不误判活动空间未收敛"
+      ],
+      "handoff": "交接最终结构作为下游静态/能带输入，并记录 initial→accepted lineage。",
+      "done": "活动空间达到用户力阈值，最终结构、历史和兼容重启信息完整。",
+      "deliverable": "离子弛豫结构与轨迹"
+    },
+    {
+      "id": "17",
+      "slug": "cell-ionic-relax",
+      "title": "晶胞优化与交替离子—晶胞收敛",
+      "mode": "原生＋项目调度",
+      "intent": "完成晶胞优化，必要时交替离子与晶胞操作直到同时满足所选停止条件。",
+      "inputs": [
+        "初始结构、目标周期条件和 PAW",
+        "force/stress tolerance 与优化预算",
+        "应变 bounds、固定/释放离子策略"
+      ],
+      "strategy": "单次 relax.cell 保持分数坐标。联合平衡用明确交替循环：cell→ionic→static gate，每轮真实结构作为下一轮输入。",
+      "stages": [
+        [
+          "晶胞解析优化",
+          "relax.cell",
+          "cell checkpoint 与晶格"
+        ],
+        [
+          "在新晶胞释放离子",
+          "relax.ionic",
+          "原子位置与力"
+        ],
+        [
+          "计算共同最终状态",
+          "job.run",
+          "同一最终几何的 force/stress"
+        ],
+        [
+          "按双条件停止并导出",
+          "project-python:alternating loop",
+          "每轮结构、应力/力与停止记录"
+        ]
+      ],
+      "analysis": "应力单位 eV/Å³且拉伸为正。六维对称应变与实际晶格统一；记录 cell-only 与交替联合结果的差别。交替循环有最大轮数和无改善停止条件。",
+      "controls": [
+        "stress 与 force 两个独立门槛",
+        "各轮独立目录与初始结构哈希",
+        "cutoff/密度支持及 mesh 的一致策略"
+      ],
+      "failures": [
+        "cell-only 结果仍有离子力时执行 ionic 阶段",
+        "几何状态不匹配时不组合两份残差",
+        "达到预算而未双收敛报告真实停止状态"
+      ],
+      "handoff": "交接最终平衡结构、晶胞与共同静态结果，用于 EOS/弹性/能带。",
+      "done": "所请求 cell-only 或双条件交替优化完成，算法路线与实际停止条件清楚。",
+      "deliverable": "优化晶胞与联合平衡记录"
+    },
+    {
+      "id": "18",
+      "slug": "finite-difference",
+      "title": "有限差分力与应变响应计算",
+      "mode": "原生＋项目结构操作",
+      "intent": "按用户需要用中心差分计算局部力或应变响应，作为可直接交付的导数量。",
+      "inputs": [
+        "真实周期结构与 PAW",
+        "实际扰动步长和导数方向",
+        "匹配 SCF 参数与差分计算预算"
+      ],
+      "strategy": "独立 ± 扰动配置不共享输出目录。原子位移可直接使用 finite_difference_forces；晶胞应变使用已有 strain validator 或生成结构后静态计算。",
+      "stages": [
+        [
+          "构造/检查扰动",
+          "project-python:displacement/strain generation",
+          "±结构及算法来源"
+        ],
+        [
+          "计算中心差分力",
+          "sparse_dft.relax:finite_difference_forces",
+          "forces 与各 SCF samples"
+        ],
+        [
+          "计算选定应变响应",
+          "tool:validate_paw_strain.py",
+          "实际导数及 basis policy"
+        ],
+        [
+          "整理响应结果",
+          "project-python:derivative extraction",
+          "导数、步长、单位和源能量表"
+        ]
+      ],
+      "analysis": "F_i=−[E(+δ)−E(−δ)]/(2δ)。应力从能量应变导数除以体积；同时变化对称 off-diagonal 元素时按实现中的双项约定处理。此案例提供请求的数值导数，不要求重复已有全软件精度验证。",
+      "controls": [
+        "step_angstrom 与 strain 分别记录",
+        "相同 PAW、SCF 和采样",
+        "固定参考/当前 cutoff 基组策略明确"
+      ],
+      "failures": [
+        "任一侧 SCF 失败则不输出该导数",
+        "cache 与扰动结构不匹配不得复用",
+        "剪切因子或单位不一致修分析后重算对应量"
+      ],
+      "handoff": "交接实际导数、原能量与坐标变换，必要时作为 elastic case 的输入。",
+      "done": "指定方向导数已按真实收敛能量算出，各项来源完整。",
+      "deliverable": "有限差分力/应变响应表"
+    },
+    {
+      "id": "19",
+      "slug": "equation-of-state",
+      "title": "体积扫描与状态方程",
+      "mode": "原生＋项目拟合",
+      "intent": "对固定组成和结构分支进行体积扫描，求平衡体积、能量曲线与体积模量。",
+      "inputs": [
+        "实际参考结构与组成",
+        "用户体积或晶格缩放序列",
+        "固定离子/内坐标弛豫选择与拟合范围"
+      ],
+      "strategy": "各晶格按保留形状的缩放或指定形变生成，记录体积和每点内坐标处理；不要把不同晶相的点拟成一个分支。",
+      "stages": [
+        [
+          "生成体积结构集合",
+          "eos_workflow.py prepare",
+          "各点 POSCAR 与 V"
+        ],
+        [
+          "执行各点 ionic/static",
+          "job.run/relax.ionic via run_recipe.py",
+          "收敛 E(V) 点"
+        ],
+        [
+          "拟合选定 EOS 或局部多项式",
+          "eos_workflow.py analyze (quadratic) 或 project-python 指定 EOS",
+          "拟合代码、参数与残差"
+        ],
+        [
+          "求极值和模量",
+          "project-python:derivative of fit",
+          "V0、E0、B0 与图"
+        ]
+      ],
+      "analysis": "在稳定极小值附近 B0=V0·d²E/dV²。拟合方程和单位换算留在代码，不在未采样区外推结论；比较拟合范围与阶数对所得参数的影响。 已附 eos_workflow.py，可生成实际缩放结构和 batch recipe，并以保存的真实输出完成二次拟合。使用 --energy-field 显式选择 total_energy_ev（F）或 internal_energy_ev（E）；零展宽下两者相等。离子弛豫时读取最后 accepted SCF，而非不存在的顶层能量字段。",
+      "controls": [
+        "统一每 cell/每 formula unit 归一化",
+        "mesh/cutoff 协议一致",
+        "固定或 relaxed-ion 分支分开"
+      ],
+      "failures": [
+        "最低点在边界时扩大实际采样",
+        "相变或优化跳支拆开分支",
+        "未收敛点不进入拟合"
+      ],
+      "handoff": "交接原始 E(V) 表、拟合公式与导出参数，derived evidence 绑定每个源点。",
+      "done": "完成指定体积网格，平衡点位于采样域且拟合方法和参数可重算。",
+      "deliverable": "E–V 曲线与体积模量"
+    },
+    {
+      "id": "20",
+      "slug": "elastic-tensor",
+      "title": "应变—应力弹性张量",
+      "mode": "原生＋项目拟合",
+      "intent": "使用 Sparse-DFT 应力计算小应变响应，得到约定清晰的弹性矩阵及所需模量。",
+      "inputs": [
+        "已优化参考晶胞和实际对称性",
+        "独立应变方向、幅度与应力单位",
+        "clamped-ion 或 relaxed-ion 定义"
+      ],
+      "strategy": "先建立实际 strain basis 和 Voigt order，再对每个方向取对称 ± 点。relaxed-ion 分支对每个应变晶胞做 ionic relax 后静态计算。",
+      "stages": [
+        [
+          "生成独立应变结构",
+          "project-python:symmetric deformation",
+          "strain matrix、参考体积与 POSCAR"
+        ],
+        [
+          "取得各点应力",
+          "job.run 或 relax.ionic→job.run",
+          "同约定 stress tensor"
+        ],
+        [
+          "拟合张量分量",
+          "project-python:stress-strain fit",
+          "Cij、残差与对称性信息"
+        ],
+        [
+          "输出模量和稳定性分析",
+          "project-python:tensor analysis",
+          "单位、约定、特征值与模量表"
+        ]
+      ],
+      "analysis": "σ_i=C_ij ε_j；工程剪切采用 γ_ij=2ε_ij 时必须一致记录。将 eV/Å³ 转为目标单位，并说明参考状态残余应力处理。只输出已由独立应变覆盖的分量。",
+      "controls": [
+        "Voigt order 和剪切定义",
+        "fixed-ion/relaxed-ion 不混用",
+        "应变幅度和各点状态记录"
+      ],
+      "failures": [
+        "应变点发生几何跳变时缩小范围或分支",
+        "秩不足的拟合不输出完整张量",
+        "应力符号不一致先纠正约定"
+      ],
+      "handoff": "交接带 basis/sign/units 的 tensor 表，可进入 DFT_Skills FEM 属性交接。",
+      "done": "所需独立分量可识别，原应变/应力与拟合输出可追溯。",
+      "deliverable": "弹性矩阵与模量表"
+    },
+    {
+      "id": "21",
+      "slug": "adsorption-endpoints",
+      "title": "闭壳层吸附与解离端点能",
+      "mode": "原生＋项目差分",
+      "intent": "比较现有 PBE 非自旋模型适用的吸附位点、分子/解离端点和几何变化。",
+      "inputs": [
+        "真实非磁性 slab、终止面和覆盖度",
+        "闭壳层吸附物及一致参照态",
+        "候选位点、约束、周期盒和参数"
+      ],
+      "strategy": "从已定 slab 生成 clean、adsorbed 和 reference 三类结构。真空中的分子参照也用用户定义的三维周期盒；不同位点保持同覆盖度和相同能量参照。",
+      "stages": [
+        [
+          "构建位点和参照集合",
+          "project-python:structure enumeration",
+          "标识明确的结构与计量表"
+        ],
+        [
+          "固定下层/优化活动原子",
+          "relax.ionic",
+          "各实际端点几何"
+        ],
+        [
+          "统一静态精修",
+          "job.run",
+          "所有参照与端点 E"
+        ],
+        [
+          "计算吸附/端点差并排序",
+          "project-python:endpoint arithmetic",
+          "Eads 与端点能差/几何表"
+        ]
+      ],
+      "analysis": "Eads=E(slab+adsorbate)−E(clean slab)−E(reference adsorbate)，计量系数按真实反应给定。解离端点差是热力学排序，不由此输出不存在的 NEB 势垒或速率。 能量字段保持一致：internal_energy_ev 为 E，total_energy_ev 在有限展宽时为 F=E−TS。",
+      "controls": [
+        "同一覆盖度与计量基准",
+        "slab/vacuum/constraints 一致",
+        "只使用本模型适用的实际闭壳层状态"
+      ],
+      "failures": [
+        "优化到另一 motif 时记录真实归属",
+        "参照计算缺失则补完整参照",
+        "需要未实现自旋/电势物理的输入不进入此闭壳层案例"
+      ],
+      "handoff": "交接端点表和归一化公式，对应 DFT_Skills 吸附/反应端点分支。",
+      "done": "请求位点与端点的真实能量和几何排序完成，参照/计量完整。",
+      "deliverable": "吸附与解离端点排序"
+    },
+    {
+      "id": "22",
+      "slug": "neutral-defects",
+      "title": "中性缺陷、掺杂与复合体结合能",
+      "mode": "原生＋项目差分",
+      "intent": "在现有非自旋中性体系范围内完成缺陷构型能量、几何和态密度比较。",
+      "inputs": [
+        "实际 pristine supercell 与缺陷构型",
+        "元素增减和用户定义 chemical potentials",
+        "中性电子状态、约束与局域谱目标"
+      ],
+      "strategy": "记录每个缺陷的父超胞、原子索引和增减计量。pristine、单缺陷和复合体采用同晶胞/方法，再执行相同弛豫与静态协议。",
+      "stages": [
+        [
+          "生成/检查缺陷结构",
+          "project-python:defect enumeration",
+          "结构 lineage 与 ni"
+        ],
+        [
+          "弛豫各构型",
+          "relax.ionic",
+          "稳定缺陷几何"
+        ],
+        [
+          "计算能量和谱",
+          "job.run + bands.run/bands.analyze",
+          "E、局域结构和谱"
+        ],
+        [
+          "计算 formation/binding",
+          "project-python:energy accounting",
+          "Ef 与复合体结合能表"
+        ]
+      ],
+      "analysis": "中性形成能 Ef=Edef−Ehost−Σni μi，约定 ni>0 表示加入原子。结合能用明确同计量反应组合；不引入源接口未提供的电荷修正或 charged-defect 费米能项。 能量字段保持一致：internal_energy_ev 为 E，total_energy_ev 在有限展宽时为 F=E−TS。",
+      "controls": [
+        "超胞和参考化学势范围",
+        "构型/自旋适用域",
+        "同计量能量归一化"
+      ],
+      "failures": [
+        "构型复合后身份改变重新标记",
+        "chemical potential 缺失则只报告原能量差",
+        "超胞大小变化不直接混入同一 binding 公式"
+      ],
+      "handoff": "交接缺陷结构、计量和能量表，对应上游中性缺陷支线。",
+      "done": "指定中性缺陷的真实几何与能量账本完成，化学势和符号明确。",
+      "deliverable": "中性缺陷与结合能表"
+    },
+    {
+      "id": "23",
+      "slug": "interface-adhesion",
+      "title": "非磁性界面结构与粘附能",
+      "mode": "原生＋项目差分",
+      "intent": "对给定非磁性、非极性界面候选完成 registry 弛豫和一致参照的粘附能分析。",
+      "inputs": [
+        "真实两相晶胞及界面匹配方案",
+        "共同 in-plane cell、面积和界面数",
+        "分离参照、约束与候选 registry"
+      ],
+      "strategy": "构造 joined 与相同应变状态 separated 参照，保持面积、原子计量和固定层规则。不同失配方案独立记录，不能把 strained constituent 参照换成 relaxed bulk。",
+      "stages": [
+        [
+          "准备 registry 和参照",
+          "project-python:interface structures",
+          "joined/separated 结构表"
+        ],
+        [
+          "优化活动界面原子",
+          "relax.ionic",
+          "各真实 registry 几何"
+        ],
+        [
+          "统一静态能量",
+          "job.run",
+          "joined 和各 constituent 能量"
+        ],
+        [
+          "计算粘附能/面积",
+          "project-python:adhesion calculation",
+          "Wad 与 registry 排序"
+        ]
+      ],
+      "analysis": "正粘附功定义 Wad=[Esep,A+Esep,B−Ejoined]/(ninterfaces·A)。面积和界面数来自实际周期模型。只做可由能量与几何完成的粘附分析，不声称已计算未实现的势 lineup 或 Bader 转移。 能量字段保持一致：internal_energy_ev 为 E，total_energy_ev 在有限展宽时为 F=E−TS。",
+      "controls": [
+        "共同应变与参照状态",
+        "面积/界面数/计量",
+        "约束和层间初始距离"
+      ],
+      "failures": [
+        "分離参照计量不符修模型",
+        "某 registry 重构则报告最终 motif",
+        "极性补偿需求超出当前接口时选择本模型可处理输入"
+      ],
+      "handoff": "交接粘附能、面积和真实几何，作为界面或 mechanics 主线输入。",
+      "done": "界面候选和匹配分离参照均完成，排序和归一化可重算。",
+      "deliverable": "界面 registry 与粘附能"
+    },
+    {
+      "id": "24",
+      "slug": "strain-band-engineering",
+      "title": "应变能带工程与有效质量",
+      "mode": "原生＋项目分析",
+      "intent": "计算非自旋材料的应变能带变化，并在孤立可追踪能带极值附近拟合有效质量。",
+      "inputs": [
+        "真实参考晶胞和 strain states",
+        "实际 band-edge 位置/带索引",
+        "局部波矢 stencil、单位和拟合范围"
+      ],
+      "strategy": "对每个应变态先确定真实最终结构，再 SCF/NSCF。质量计算使用极值附近局部点列，不从稀疏高对称整条路径猜二阶曲率。",
+      "stages": [
+        [
+          "生成应变结构与内坐标",
+          "project-python:strain structures + relax.ionic",
+          "各状态几何"
+        ],
+        [
+          "取得状态密度和能带",
+          "job.run + bands.run",
+          "各状态真实 eigenvalues"
+        ],
+        [
+          "计算局部曲率点列",
+          "bands.run with local kpoints",
+          "同一冻结状态的局部谱"
+        ],
+        [
+          "拟合曲率/质量与形变势",
+          "project-python:band curvature fit",
+          "Hessian、mass tensor 和变化表"
+        ]
+      ],
+      "analysis": "孤立带的逆质量张量为 ħ⁻²∂²E/∂ki∂kj；分数坐标先用实际 reciprocal basis 转到 Å⁻¹。能量与坐标单位换算在脚本中明确。简并/交叉不能用未经追踪的单带二次拟合。",
+      "controls": [
+        "真实 band index 与能量零点",
+        "局部 stencil 完整覆盖独立分量",
+        "应变改变后 reciprocal basis 更新"
+      ],
+      "failures": [
+        "带交叉时缩小适用域或只输出谱",
+        "极值未在采样域时扩展真实点列",
+        "不把 PBE gap 改写为实验光学 gap"
+      ],
+      "handoff": "交接应变—谱—曲率的完整派生链，可进入上游 band engineering 分支。",
+      "done": "请求应变谱与可识别的孤立带曲率完成，拟合范围和单位完整。",
+      "deliverable": "应变能带与有效质量表"
+    },
+    {
+      "id": "25",
+      "slug": "polymorph-ranking",
+      "title": "静态晶相与构型排序",
+      "mode": "原生＋项目差分",
+      "intent": "比较同组成多晶相或多构型的静态 PBE 能量，输出明确状态与计量的排序。",
+      "inputs": [
+        "真实候选结构和出处",
+        "相同化学组成与归一化单位",
+        "几何优化协议和候选预算"
+      ],
+      "strategy": "各晶相单独 cell/ionic 优化，最后按相同协议静态计算。每 formula unit 的原子数量从真实组成取得；不同组成需显式化学势账本，另用缺陷/反应案例。",
+      "stages": [
+        [
+          "登记候选与计量",
+          "project-python:candidate ledger",
+          "结构 ID 与 formula-unit 数"
+        ],
+        [
+          "优化候选几何",
+          "relax.cell + relax.ionic",
+          "最终晶格/坐标"
+        ],
+        [
+          "共同静态计算",
+          "job.run",
+          "各候选 E"
+        ],
+        [
+          "归一化并排序",
+          "project-python:relative energy table",
+          "ΔE/atom 或 ΔE/f.u. 与排名"
+        ]
+      ],
+      "analysis": "静态排序只使用该定义下 E，不加入未计算的声子/振动熵。近简并候选记录本任务参数敏感性，不用小数位数虚构误差界。 能量字段保持一致：internal_energy_ev 为 E，total_energy_ev 在有限展宽时为 F=E−TS。",
+      "controls": [
+        "统一组成与归一化",
+        "候选结构保持真实分支",
+        "同状态 E/F 选择"
+      ],
+      "failures": [
+        "弛豫合并到同相时合并候选 lineage",
+        "未收敛候选保留失败不强排行",
+        "不同 f.u. 数修归一化"
+      ],
+      "handoff": "交接相/构型排序、优化几何与源结果。",
+      "done": "所有指定可执行候选已完成或明确失败，排序的组成、状态和单位可核对。",
+      "deliverable": "静态晶相/构型相对能表"
+    },
+    {
+      "id": "26",
+      "slug": "high-throughput",
+      "title": "用户结构库批量计算与筛选",
+      "mode": "原生＋项目调度",
+      "intent": "对用户真实结构库完成统一计算协议、结果收集和按目标观测量筛选。",
+      "inputs": [
+        "真实结构列表、唯一 ID 和 provenance",
+        "统一 PAW/数值协议与筛选规则",
+        "并发、内存、线程和计算预算"
+      ],
+      "strategy": "先做数据清点和去重，再按预算生成显式 recipe。并发控制应考虑每作业内存和 OpenMP；默认串行执行器避免复用输出或超配。",
+      "stages": [
+        [
+          "建立候选 ledger",
+          "project-python:input audit",
+          "结构 ID、哈希与元素表"
+        ],
+        [
+          "生成实际作业 recipe",
+          "project-python:recipe generation",
+          "每候选唯一输出"
+        ],
+        [
+          "逐作业计算并记录状态",
+          "run_recipe.py with job.run/relax",
+          "真实成功、失败和退出记录"
+        ],
+        [
+          "汇总与筛选",
+          "project-python:result collection",
+          "目标量、条件和 shortlist"
+        ]
+      ],
+      "analysis": "排名只比较同定义/同状态的观测量；失败、缺失和未计算分别记录。筛选阈值来自用户目标，不因某候选未收敛而自动改变。",
+      "controls": [
+        "输入和 run ID 一一对应",
+        "内存/线程预算",
+        "共同物理和统计协议"
+      ],
+      "failures": [
+        "一条失败停止其依赖链但不制造结果",
+        "重复 ID 修 ledger",
+        "断点续算核查 recipe 与输出哈希"
+      ],
+      "handoff": "交接筛选表与完整结果 ledger，研究主线保留淘汰原因。",
+      "done": "指定候选的状态与目标量均有来源，shortlist 可从规则和原始表重算。",
+      "deliverable": "批量结果库与 shortlist"
+    },
+    {
+      "id": "27",
+      "slug": "solver-replay",
+      "title": "真实 H/S 快照与求解器重放",
+      "mode": "原生",
+      "intent": "捕获并重放一次实际矩阵自由 H/S 求解，用于复现运行问题或分析迭代行为。",
+      "inputs": [
+        "实际 native 输入、二进制与求解任务",
+        "唯一 snapshot 目录和目标调用序号",
+        "CPU/GPU 模式及重放迭代预算"
+      ],
+      "strategy": "先捕获实际算符，再按快照 magic 解释 PWO1/PWO2。求解调用序号不等于 SCF 外迭代号，多 k 点尤其需读取真实记录。",
+      "stages": [
+        [
+          "捕获实际求解状态",
+          "native:sdft_scf with snapshot env",
+          "pwop 与 pwop.json"
+        ],
+        [
+          "核查快照身份",
+          "tool:audit_solver_snapshot.py",
+          "哈希与算符尺寸"
+        ],
+        [
+          "按原容差重放",
+          "native:sdft_solver_replay",
+          "replay JSON 与真实 residual"
+        ],
+        [
+          "整理迭代与耗时",
+          "project-python:solver replay analysis",
+          "每根结果、归一化和重放协议"
+        ]
+      ],
+      "analysis": "可增加最大迭代数而保留原快照残差门槛。PWO1 的历史折叠矩阵与 PWO2 的实际 B/D/Q 不互换；重放结果作为本次算符分析交付。",
+      "controls": [
+        "快照目录不覆盖",
+        "native 退出码按 replay 定义",
+        "同快照 identity 与原阈值"
+      ],
+      "failures": [
+        "文件哈希/尺寸错误先修真实文件",
+        "fresh residual 失败保留报告",
+        "不能将重放输出当作完整 SCF checkpoint"
+      ],
+      "handoff": "交接真实算符状态和重放结果到计算诊断分支。",
+      "done": "目标求解可由已保存的真实算符重放，成功或失败均有可定位结果。",
+      "deliverable": "H/S 快照与重放报告"
+    },
+    {
+      "id": "28",
+      "slug": "restart-monitor",
+      "title": "作业进度、失败处理与兼容重启",
+      "mode": "原生＋驱动记录",
+      "intent": "保持长作业可观测，处理异常并从可兼容状态继续，而不重复启动已有任务。",
+      "inputs": [
+        "实际进程/session 与结果目录",
+        "driver run.json 和 iteration JSONL",
+        "用户已有任务范围与可续算 checkpoint"
+      ],
+      "strategy": "先确定实际进程身份和输出关联，再查看完整 JSONL 迭代；只对已结束/确需续算的任务发出下一次调用。",
+      "stages": [
+        [
+          "查看进度和最新完整迭代",
+          "driver monitor",
+          "残差、记录数与结果状态"
+        ],
+        [
+          "核实进程/session",
+          "host process/session tool",
+          "真实 running/ended 信息"
+        ],
+        [
+          "处理失败与兼容 checkpoint",
+          "relax.ionic/relax.cell --resume",
+          "最后接受态继续"
+        ],
+        [
+          "同步 recipe 和研究状态",
+          "run_recipe.py --resume-state",
+          "输入/输出哈希一致的状态"
+        ]
+      ],
+      "analysis": "进程退出、SCF 收敛、geometry 停止状态分别报告。只有实际 completed outputs 的哈希匹配才跳过 recipe 步骤；PID 数字本身不证明存活。",
+      "controls": [
+        "最后半行不作完成迭代",
+        "重启签名与实际源文件一致",
+        "一次任务对应一个结果目录"
+      ],
+      "failures": [
+        "进程身份未知先查 session",
+        "结果已存在不静默覆盖",
+        "改变二进制/输入时新建状态而非强续算"
+      ],
+      "handoff": "交接 current gate、branch status 和唯一 next action。",
+      "done": "本任务进度及最后结果状态明确，可续算任务恢复并保留历史。",
+      "deliverable": "可观测作业与重启记录"
+    },
+    {
+      "id": "29",
+      "slug": "backend-performance",
+      "title": "完整 SCF 的后端和线程性能表",
+      "mode": "原生＋项目统计",
+      "intent": "对同一真实任务运行指定 CPU 线程数及 GPU 配置，得到完整作业耗时与实际调度表。",
+      "inputs": [
+        "固定结构、PAW、控制和候选二进制",
+        "指定后端/线程/重复数",
+        "目标硬件、竞争负载记录及计时方法"
+      ],
+      "strategy": "将每种 mode/repeat 放入唯一目录，按既定项目协议执行。只做请求的性能测量，已有精度验证可引用；计算本身仍要真实收敛。",
+      "stages": [
+        [
+          "冻结控制与 mode 表",
+          "project-python:performance recipe",
+          "实际输入和 binary hashes"
+        ],
+        [
+          "执行各 mode/repeat",
+          "job.run with runtime environment",
+          "完整 SCF 与 performance sidecars"
+        ],
+        [
+          "收集墙钟与 dispatch",
+          "project-python:performance collection",
+          "后端、线程、耗时和负载表"
+        ],
+        [
+          "统计速度比",
+          "project-python:performance statistics",
+          "重复统计与图"
+        ]
+      ],
+      "analysis": "S=Treference/Tmode，CPU 并行效率 E=S/n。采用明确的重复聚合方式；SCF 墙钟与内部嵌套计时分开。微基准不冒充完整作业速度，竞争负载保留在样本标记中。",
+      "controls": [
+        "相同物理/数值输入",
+        "实际 OpenMP 与 BLAS 环境",
+        "GPU 调度和负载来源"
+      ],
+      "failures": [
+        "未收敛样本不给有效速度比",
+        "mode 发生 CPU-only 调度如实标记",
+        "硬件/输入变化分组比较"
+      ],
+      "handoff": "交接性能统计与原始计时记录；不把硬件性能结论扩展到未测任务。",
+      "done": "指定配置全部完成或明确失败，统计可从原计时和协议重算。",
+      "deliverable": "完整 SCF 性能与线程图"
+    },
+    {
+      "id": "30",
+      "slug": "native-kernels",
+      "title": "原生核函数、优化器与数值工具调用",
+      "mode": "原生",
+      "intent": "调用源码实际提供的 kernel smoke、XC、PAW ledger、optimizer 或 benchmark 工具，取得指定功能输出。",
+      "inputs": [
+        "对应 CMake target 的真实二进制",
+        "程序实际要求的输入/PAW cache",
+        "所选 CPU/GPU 运行环境和用途"
+      ],
+      "strategy": "按 capability catalogue 找到 target 和 C++ main，读取实际参数后调用 native 模式。与固定历史实验相关的 tool 先在隔离源码中准备真实依赖。",
+      "stages": [
+        [
+          "枚举实际程序",
+          "driver catalog",
+          "实时枚举的原生 target 与源码位置"
+        ],
+        [
+          "读取参数和数据依赖",
+          "source review",
+          "目标程序实际 argv"
+        ],
+        [
+          "调用指定原生功能",
+          "driver native",
+          "真实 stdout/JSON 与退出码"
+        ],
+        [
+          "解释输出范围",
+          "project-python:tool result extraction",
+          "指定 kernel/optimizer/ledger 数据表"
+        ]
+      ],
+      "analysis": "XC 点求值、L-BFGS 方向、FFTW/BLAS/PBE 算子测试和实际 PAW账本分别按各自输入解释。这里交付被请求的工具结果，不要求重新执行整套软件精度验收。",
+      "controls": [
+        "CMake 构建条件与实际 target 文件",
+        "工具输入单位和格式",
+        "原生退出码不套 CLI 含义"
+      ],
+      "failures": [
+        "缺 data cache 先提供真实缓存",
+        "未构建 target 回到对应构建",
+        "历史 tool 固定路径在隔离副本配置而非覆盖活跃源码"
+      ],
+      "handoff": "交接程序、参数、输入哈希及工具特定结果。",
+      "done": "请求的实际原生程序完成，输出和解释绑定真实功能与输入。",
+      "deliverable": "原生工具结果包"
+    },
+    {
+      "id": "31",
+      "slug": "research-handoff",
+      "title": "DFT_Skills 研究阶段与结果交接",
+      "mode": "驱动＋契约适配",
+      "intent": "将 Sparse-DFT 真实计算纳入现有研究主线，或独立建立相同格式的 DFT 项目并交接结果。",
+      "inputs": [
+        "实际研究问题、claim/stage IDs",
+        "已有 plan/spine/manifest 或新项目目录",
+        "Sparse-DFT 已产生的结果与项目验证依据"
+      ],
+      "strategy": "已有项目以其控制平面为权威，新项目才 init。执行阶段仍用 Sparse-DFT driver，不使用 VASP runner；sidecar 合并保留原 dependencies 和 claim_ids。",
+      "stages": [
+        [
+          "建立或读取项目权威",
+          "research_bridge.py init 或现有 workflow",
+          "schema 1.1 计划与任务"
+        ],
+        [
+          "完成 Sparse-DFT 阶段",
+          "job.run/bands.run/relax methods",
+          "真实输出"
+        ],
+        [
+          "导出结果 sidecar",
+          "research_bridge.py handoff",
+          "handoff 与 stage-proposal"
+        ],
+        [
+          "同步研究状态",
+          "project-file merge + upstream validator",
+          "一致的 plan/spine/registers"
+        ]
+      ],
+      "analysis": "外部已验证精度与本次计算的 convergence、claim interpretation 分别记录。阶段依赖、单位、适用状态和下一行动沿上游契约保存。",
+      "controls": [
+        "kind=dft engine=Sparse-DFT",
+        "原 claim/stage 关系",
+        "不覆盖另一会话 workflow"
+      ],
+      "failures": [
+        "已有 workflow 不重新 init",
+        "sidecar 不整段替换既有 stage",
+        "状态冲突先同步真实执行证据"
+      ],
+      "handoff": "本案例本身就是 dft-workflow-orchestrator 的 Sparse-DFT 适配路线；独立运行不依赖它的安装。",
+      "done": "Sparse-DFT 输出已进入一致的研究控制平面，所有交接路径与状态可定位。",
+      "deliverable": "联动研究计划与阶段记录"
+    },
+    {
+      "id": "32",
+      "slug": "writing-evidence",
+      "title": "Academic_Writing_Skills 数值、方法与图表交接",
+      "mode": "驱动＋证据适配",
+      "intent": "从实际 Sparse-DFT 输出生成学术写作可用的原始/派生证据、方法与图表来源，不改写原计算数据。",
+      "inputs": [
+        "真实 SCF/能带/弛豫及分析 artifacts",
+        "实际实体、参数和计量范围",
+        "项目已有精度验证、所需稿件证据字段"
+      ],
+      "strategy": "原始标量按 JSON locator 导出；派生量从保存的分析公式和输入证据键绑定。写作层复用已有精度依据，数据提取与稿件语义仍按真实来源核对。",
+      "stages": [
+        [
+          "导出原始证据",
+          "research_bridge.py handoff",
+          "evidence.json、methods.md"
+        ],
+        [
+          "生成派生证据与图数据",
+          "project-python:derived evidence",
+          "formula、inputs、hashes 与数据图"
+        ],
+        [
+          "绑定稿件 claim keys",
+          "Academic_Writing_Skills content contract",
+          "claims/cell_claims 与条件"
+        ],
+        [
+          "交付可用方法/图表包",
+          "project-file evidence review",
+          "原始数据、图和方法来源"
+        ]
+      ],
+      "analysis": "原计算 result_method=simulated；测试人工数据始终 synthetic。原结果不附虚构 paper/DOI/page。派生记录声明 formula、源 evidence keys 和实际代码。EN/ZH 数值和范围由同一源块绑定。",
+      "controls": [
+        "单位、conditions、accounting_scope",
+        "原始和派生来源区分",
+        "图直接使用真实数据"
+      ],
+      "failures": [
+        "缺字段保持未知而不补造",
+        "复制项目时修路径并核哈希",
+        "稿件语义和证据范围不一致修正文稿"
+      ],
+      "handoff": "交接 sci-writing-orchestrator、sci-figure-design 和 sci-manuscript-build；无 companion 安装时仍生成完整原始交接包。",
+      "done": "请求的证据、方法和图来源已导出，可通过写作仓库字段检查并追溯到原文件。",
+      "deliverable": "写作证据、方法与图表包"
+    },
+    {
+      "id": "33",
+      "slug": "sparsity-preview",
+      "title": "稀疏密度谱预览",
+      "mode": "真实接口＋可复用脚本",
+      "intent": "稀疏密度谱预览，以真实输入执行并交付可追溯结果。",
+      "inputs": [
+        "真实 PAW、结构、截断能"
+      ],
+      "strategy": "读取对应 references/sparsity.md、workflows.md 和实际接口签名，使用独立输出目录。",
+      "stages": [
+        [
+          "核对输入与契约",
+          "driver catalog",
+          "输入身份和精确参数"
+        ],
+        [
+          "执行真实功能",
+          "sparse_dft.scf:preview_sparsity",
+          "density_probe.json、sparsity_preview.json；未执行 SCF"
+        ],
+        [
+          "检查输出",
+          "project-python:artifact review",
+          "收敛、证书和适用范围"
+        ]
+      ],
+      "analysis": "确认 conservative/balanced/aggressive 的谱尾预算、候选因子、fallback 与估算模式数；不把估算当作能量或速度测量。",
+      "controls": [
+        "实际 PAW/结构与二进制哈希",
+        "保持请求的阈值与模型",
+        "记录运行与验证范围"
+      ],
+      "failures": [
+        "缺数据或硬件时报告具体缺口",
+        "未实现或忽略的控制不得宣称成功"
+      ],
+      "handoff": "交付原始字段、条件、单位、SHA-256 与限制。",
+      "done": "density_probe.json、sparsity_preview.json；未执行 SCF",
+      "deliverable": "density_probe.json、sparsity_preview.json；未执行 SCF"
+    },
+    {
+      "id": "34",
+      "slug": "sparsity-components",
+      "title": "S1–S6 稀疏化组件与 off/auto 对照",
+      "mode": "真实接口＋可复用脚本",
+      "intent": "S1–S6 稀疏化组件与 off/auto 对照，以真实输入执行并交付可追溯结果。",
+      "inputs": [
+        "匹配结构、PAW、实际采样、数值阈值与对照方案"
+      ],
+      "strategy": "读取对应 references/sparsity.md、workflows.md 和实际接口签名，使用独立输出目录。",
+      "stages": [
+        [
+          "核对输入与契约",
+          "driver catalog",
+          "输入身份和精确参数"
+        ],
+        [
+          "执行真实功能",
+          "sparsity_workflow.py prepare → run_recipe.py → compare",
+          "逐项真实 SCF、原始证书、sparsity_ledger 与偏差报告"
+        ],
+        [
+          "检查输出",
+          "project-python:artifact review",
+          "收敛、证书和适用范围"
+        ]
+      ],
+      "analysis": "S1/S2 改离散问题；S3–S6 改搜索。S7 FP32 明确不支持。比较相同观测量并保留失败点。",
+      "controls": [
+        "实际 PAW/结构与二进制哈希",
+        "保持请求的阈值与模型",
+        "记录运行与验证范围"
+      ],
+      "failures": [
+        "缺数据或硬件时报告具体缺口",
+        "未实现或忽略的控制不得宣称成功"
+      ],
+      "handoff": "交付原始字段、条件、单位、SHA-256 与限制。",
+      "done": "逐项真实 SCF、原始证书、sparsity_ledger 与偏差报告",
+      "deliverable": "逐项真实 SCF、原始证书、sparsity_ledger 与偏差报告"
+    },
+    {
+      "id": "35",
+      "slug": "spin-hubbard",
+      "title": "共线自旋与 Dudarev U",
+      "mode": "真实接口＋可复用脚本",
+      "intent": "共线自旋与 Dudarev U，以真实输入执行并交付可追溯结果。",
+      "inputs": [
+        "逐原子初始磁矩、spin_channels=2 和显式 Ueff 模型"
+      ],
+      "strategy": "读取对应 references/sparsity.md、workflows.md 和实际接口签名，使用独立输出目录。",
+      "stages": [
+        [
+          "核对输入与契约",
+          "driver catalog",
+          "输入身份和精确参数"
+        ],
+        [
+          "执行真实功能",
+          "job.run / sparse_dft.scf:run_scf",
+          "两自旋谱、磁矩、Hubbard 能量和收敛记录"
+        ],
+        [
+          "检查输出",
+          "project-python:artifact review",
+          "收敛、证书和适用范围"
+        ]
+      ],
+      "analysis": "不自动套用推荐 U；保留初始态和竞争磁态。SOC、非共线与独立 U/J 不支持。",
+      "controls": [
+        "实际 PAW/结构与二进制哈希",
+        "保持请求的阈值与模型",
+        "记录运行与验证范围"
+      ],
+      "failures": [
+        "缺数据或硬件时报告具体缺口",
+        "未实现或忽略的控制不得宣称成功"
+      ],
+      "handoff": "交付原始字段、条件、单位、SHA-256 与限制。",
+      "done": "两自旋谱、磁矩、Hubbard 能量和收敛记录",
+      "deliverable": "两自旋谱、磁矩、Hubbard 能量和收敛记录"
+    },
+    {
+      "id": "36",
+      "slug": "uniform-dos-pdos",
+      "title": "均匀 NSCF DOS 与 lm-PDOS",
+      "mode": "真实接口＋可复用脚本",
+      "intent": "均匀 NSCF DOS 与 lm-PDOS，以真实输入执行并交付可追溯结果。",
+      "inputs": [
+        "收敛 SCF、实际均匀 dos_grid、足够带数与能量窗口"
+      ],
+      "strategy": "读取对应 references/sparsity.md、workflows.md 和实际接口签名，使用独立输出目录。",
+      "stages": [
+        [
+          "核对输入与契约",
+          "driver catalog",
+          "输入身份和精确参数"
+        ],
+        [
+          "执行真实功能",
+          "dos.run / sparse_dft.scf:run_dos",
+          "dos.json、spin DOS、lm-PDOS 与完整性信息"
+        ],
+        [
+          "检查输出",
+          "project-python:artifact review",
+          "收敛、证书和适用范围"
+        ]
+      ],
+      "analysis": "冻结支持继承；不传 auto 或 density_cutoff_factor。积分电子数与 complete_below_ev 必须核查；GaAs/表面投影偏差仍须报告。",
+      "controls": [
+        "实际 PAW/结构与二进制哈希",
+        "保持请求的阈值与模型",
+        "记录运行与验证范围"
+      ],
+      "failures": [
+        "缺数据或硬件时报告具体缺口",
+        "未实现或忽略的控制不得宣称成功"
+      ],
+      "handoff": "交付原始字段、条件、单位、SHA-256 与限制。",
+      "done": "dos.json、spin DOS、lm-PDOS 与完整性信息",
+      "deliverable": "dos.json、spin DOS、lm-PDOS 与完整性信息"
+    },
+    {
+      "id": "37",
+      "slug": "upf-paw",
+      "title": "UPF v2 PAW 数据路线",
+      "mode": "真实接口＋可复用脚本",
+      "intent": "UPF v2 PAW 数据路线，以真实输入执行并交付可追溯结果。",
+      "inputs": [
+        "真实标量相对论 PBE PAW-UPF"
+      ],
+      "strategy": "读取对应 references/sparsity.md、workflows.md 和实际接口签名，使用独立输出目录。",
+      "stages": [
+        [
+          "核对输入与契约",
+          "driver catalog",
+          "输入身份和精确参数"
+        ],
+        [
+          "执行真实功能",
+          "sparse_dft.upf:read_upf_paw → run_scf",
+          "解析数据、实际 SCF 或精确的不支持错误"
+        ],
+        [
+          "检查输出",
+          "project-python:artifact review",
+          "收敛、证书和适用范围"
+        ]
+      ],
+      "analysis": "NC/USPP 必须拒绝；该路线不属于发布版 POTCAR 精度锚定范围。",
+      "controls": [
+        "实际 PAW/结构与二进制哈希",
+        "保持请求的阈值与模型",
+        "记录运行与验证范围"
+      ],
+      "failures": [
+        "缺数据或硬件时报告具体缺口",
+        "未实现或忽略的控制不得宣称成功"
+      ],
+      "handoff": "交付原始字段、条件、单位、SHA-256 与限制。",
+      "done": "解析数据、实际 SCF 或精确的不支持错误",
+      "deliverable": "解析数据、实际 SCF 或精确的不支持错误"
+    },
+    {
+      "id": "38",
+      "slug": "parallel-plot-worker",
+      "title": "并行、工作进程与结果图",
+      "mode": "真实接口＋可复用脚本",
+      "intent": "并行、工作进程与结果图，以真实输入执行并交付可追溯结果。",
+      "inputs": [
+        "实际编译 MPI/GPU 能力、线程预算、真实作业 JSON 和输出"
+      ],
+      "strategy": "读取对应 references/sparsity.md、workflows.md 和实际接口签名，使用独立输出目录。",
+      "stages": [
+        [
+          "核对输入与契约",
+          "driver catalog",
+          "输入身份和精确参数"
+        ],
+        [
+          "执行真实功能",
+          "CLI scf/dos + worker + plot",
+          "布局、进程状态、实际计数及图形来源"
+        ],
+        [
+          "检查输出",
+          "project-python:artifact review",
+          "收敛、证书和适用范围"
+        ]
+      ],
+      "analysis": "kgroups×bandgroups=ranks；只有相应构建和 launcher 可运行多进程；图来自真实结果。",
+      "controls": [
+        "实际 PAW/结构与二进制哈希",
+        "保持请求的阈值与模型",
+        "记录运行与验证范围"
+      ],
+      "failures": [
+        "缺数据或硬件时报告具体缺口",
+        "未实现或忽略的控制不得宣称成功"
+      ],
+      "handoff": "交付原始字段、条件、单位、SHA-256 与限制。",
+      "done": "布局、进程状态、实际计数及图形来源",
+      "deliverable": "布局、进程状态、实际计数及图形来源"
+    }
+  ],
+  "validation_basis": "Supplied Sparse-DFT 1.0.0 docs/ACCURACY.md is reported upstream evidence, with open projection failures. No blanket user validation declaration is inferred."
+}

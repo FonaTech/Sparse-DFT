@@ -1,0 +1,23 @@
+[
+  {
+    "name": "si-metal",
+    "returncode": 0,
+    "converged": true,
+    "result": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/live-tests/si-metal/scf_result.json",
+    "max_eigen_residual_hartree": 9.143145625002583e-13
+  },
+  {
+    "name": "si-mpi-k2",
+    "returncode": 0,
+    "converged": true,
+    "result": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/live-tests/si-mpi-k2/scf_result.json",
+    "max_eigen_residual_hartree": 4.1463864879476136e-13
+  },
+  {
+    "name": "si-mpi-b2",
+    "returncode": 0,
+    "converged": true,
+    "result": "/Users/Fona/Documents/ChatGPT/Sparse Density Function/sparse-dft-upgrade-20261018/live-tests/si-mpi-b2/scf_result.json",
+    "max_eigen_residual_hartree": 4.1463864879476136e-13
+  }
+]

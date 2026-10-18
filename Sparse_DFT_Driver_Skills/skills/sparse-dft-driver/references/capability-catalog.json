@@ -1,0 +1,4846 @@
+{
+  "schema": "sparse-dft-skill-catalog-2",
+  "identity": {
+    "sparse_dft/cli.py": "c185d0af5d8716dcaa825078c1ae0d47410a0bf032e4921257c2dac2aa426fd4",
+    "sparse_dft/api.py": "7cc0e5213d128a813746917b7d53a315469590fdff59bf91b6757f0086f48fbc",
+    "sparse_dft/scf.py": "95be0023fe508fb8ad6e3cc5f063954aaea96dca68fe18b97e0edb6d53b2cbc3",
+    "sparse_dft/settings.py": "602ef6b1abe9510897413f08aa8b407bb2b223f1de1beb4231730e1777d86ffd",
+    "sparse_dft/sparsity.py": "426eabe3413be0a567c4bc1833e2f8837089a554062b836f8c9b4fe3e5a25edd",
+    "sparse_dft/sparsity_rules.json": "4d1a2b00bd5abadefda95de4b63bb702d4124744943162993e813054118d4480",
+    "sparse_dft/spin_model.py": "507564d89ba08fbe3d0fc6865316c5286d334a80b7024e19619672234892518a",
+    "sparse_dft/parallel.py": "e304dedd0ce3573f1eaf9b632f649d308d298488b7e80ad5cc95ba5c894dd9c3",
+    "sparse_dft/runner.py": "c4721b3b3b83e2f36804253c50399854c52078c7f4886a1dafc8ab0039fa5183",
+    "CMakeLists.txt": "4cf6c6412f89b487793d12953a8cdf2884d7b6a7eb893ddf97fd6472d0b740fc",
+    "pyproject.toml": "34a50955e2a90ae6127bab2803d8aaf9a8fde8c1cb09612274911aa33154236d"
+  },
+  "cli": {
+    "backend-info": {
+      "source": "sparse_dft/cli.py",
+      "line": 79
+    },
+    "bands": {
+      "source": "sparse_dft/cli.py",
+      "line": 86
+    },
+    "bands-analysis": {
+      "source": "sparse_dft/cli.py",
+      "line": 84
+    },
+    "bands-compare": {
+      "source": "sparse_dft/cli.py",
+      "line": 83
+    },
+    "doctor": {
+      "source": "sparse_dft/cli.py",
+      "line": 78
+    },
+    "dos": {
+      "source": "sparse_dft/cli.py",
+      "line": 87
+    },
+    "inspect": {
+      "source": "sparse_dft/cli.py",
+      "line": 57
+    },
+    "make-band-path": {
+      "source": "sparse_dft/cli.py",
+      "line": 65
+    },
+    "mp-fetch": {
+      "source": "sparse_dft/cli.py",
+      "line": 81
+    },
+    "mp-fetch-bands": {
+      "source": "sparse_dft/cli.py",
+      "line": 82
+    },
+    "paw-convert": {
+      "source": "sparse_dft/cli.py",
+      "line": 72
+    },
+    "paw-inventory": {
+      "source": "sparse_dft/cli.py",
+      "line": 71
+    },
+    "paw-resolve": {
+      "source": "sparse_dft/cli.py",
+      "line": 75
+    },
+    "plot": {
+      "source": "sparse_dft/cli.py",
+      "delegated_module": "sparse_dft.plotting.cli"
+    },
+    "prepare": {
+      "source": "sparse_dft/cli.py",
+      "line": 76
+    },
+    "progress": {
+      "source": "sparse_dft/cli.py",
+      "line": 77
+    },
+    "recommend-kpoints": {
+      "source": "sparse_dft/cli.py",
+      "line": 64
+    },
+    "relax": {
+      "source": "sparse_dft/cli.py",
+      "line": 95
+    },
+    "scf": {
+      "source": "sparse_dft/cli.py",
+      "line": 85
+    },
+    "suggest": {
+      "source": "sparse_dft/cli.py",
+      "line": 58
+    },
+    "validate": {
+      "source": "sparse_dft/cli.py",
+      "line": 80
+    },
+    "worker": {
+      "source": "sparse_dft/cli.py",
+      "delegated_module": "sparse_dft.runner"
+    }
+  },
+  "api": {
+    "backend.info": {
+      "parameters": [],
+      "required": [],
+      "status": "implemented",
+      "source": "sparse_dft/api.py",
+      "line": 50
+    },
+    "bands.analyze": {
+      "parameters": [
+        "bands",
+        "dos_scf",
+        "doscar",
+        "fermi_energy_ev",
+        "output",
+        "procar",
+        "render",
+        "sigma_ev",
+        "structure"
+      ],
+      "required": [
+        "bands"
+      ],
+      "status": "implemented",
+      "source": "sparse_dft/api.py",
+      "line": 55
+    },
+    "bands.compare": {
+      "parameters": [
+        "align",
+        "candidate",
+        "max_energy_ev",
+        "reference"
+      ],
+      "required": [
+        "candidate",
+        "reference"
+      ],
+      "status": "implemented",
+      "source": "sparse_dft/api.py",
+      "line": 52
+    },
+    "bands.run": {
+      "parameters": [
+        "accuracy",
+        "atomic_units",
+        "bands",
+        "cutoff_ev",
+        "density_cutoff_ev",
+        "density_tolerance",
+        "hubbard",
+        "initial_moments",
+        "kpoint",
+        "kpoints",
+        "labels",
+        "max_iterations",
+        "mesh_mode",
+        "mixing",
+        "onecenter_density_tolerance",
+        "output",
+        "parallel",
+        "paw_root",
+        "projector_interpolation",
+        "scf_checkpoint",
+        "scf_grid",
+        "scf_kpoints",
+        "scf_weights",
+        "smearing_ev",
+        "sparsity",
+        "spin_channels",
+        "structure"
+      ],
+      "required": [
+        "kpoints",
+        "paw_root",
+        "structure"
+      ],
+      "status": "implemented",
+      "source": "sparse_dft/api.py",
+      "line": 73
+    },
+    "dos.run": {
+      "parameters": [
+        "accuracy",
+        "atomic_units",
+        "bands",
+        "cutoff_ev",
+        "density_cutoff_ev",
+        "density_tolerance",
+        "dos_grid",
+        "dos_mesh_mode",
+        "emax_ev",
+        "emin_ev",
+        "energy_step_ev",
+        "hubbard",
+        "initial_moments",
+        "kpoint",
+        "max_iterations",
+        "mesh_mode",
+        "mixing",
+        "onecenter_density_tolerance",
+        "output",
+        "parallel",
+        "paw_root",
+        "projector_interpolation",
+        "scf_checkpoint",
+        "scf_grid",
+        "sigma_ev",
+        "smearing_ev",
+        "sparsity",
+        "spin_channels",
+        "structure"
+      ],
+      "required": [
+        "dos_grid",
+        "paw_root",
+        "structure"
+      ],
+      "status": "implemented",
+      "source": "sparse_dft/api.py",
+      "line": 76
+    },
+    "job.prepare": {
+      "parameters": [
+        "accuracy",
+        "output",
+        "paw_root",
+        "structure",
+        "task"
+      ],
+      "required": [
+        "paw_root",
+        "structure"
+      ],
+      "status": "implemented",
+      "source": "sparse_dft/api.py",
+      "line": 68
+    },
+    "job.run": {
+      "parameters": [
+        "accuracy",
+        "atomic_units",
+        "bands",
+        "cutoff_ev",
+        "density_cutoff_ev",
+        "density_tolerance",
+        "hubbard",
+        "initial_moments",
+        "kpoint",
+        "max_iterations",
+        "mesh_mode",
+        "mixing",
+        "onecenter_density_tolerance",
+        "output",
+        "parallel",
+        "paw_root",
+        "projector_interpolation",
+        "scf_grid",
+        "scf_kpoints",
+        "scf_weights",
+        "smearing_ev",
+        "sparsity",
+        "spin_channels",
+        "structure"
+      ],
+      "required": [
+        "paw_root",
+        "structure"
+      ],
+      "status": "implemented",
+      "source": "sparse_dft/api.py",
+      "line": 70
+    },
+    "job.status": {
+      "parameters": [
+        "job_id"
+      ],
+      "required": [],
+      "status": "placeholder",
+      "source": "sparse_dft/api.py",
+      "line": 91
+    },
+    "kpoints.recommend": {
+      "parameters": [
+        "accuracy",
+        "structure",
+        "task"
+      ],
+      "required": [
+        "structure"
+      ],
+      "status": "implemented",
+      "source": "sparse_dft/api.py",
+      "line": 48
+    },
+    "mp.fetch_bands": {
+      "parameters": [
+        "api_key",
+        "api_root",
+        "endpoint",
+        "material_ids",
+        "output",
+        "timeout"
+      ],
+      "required": [
+        "output"
+      ],
+      "status": "implemented",
+      "source": "sparse_dft/api.py",
+      "line": 62
+    },
+    "mp.fetch_structures": {
+      "parameters": [
+        "api_key",
+        "api_root",
+        "count",
+        "criteria",
+        "output",
+        "timeout"
+      ],
+      "required": [
+        "output"
+      ],
+      "status": "implemented",
+      "source": "sparse_dft/api.py",
+      "line": 58
+    },
+    "paw.inventory": {
+      "parameters": [
+        "root"
+      ],
+      "required": [
+        "root"
+      ],
+      "status": "implemented",
+      "source": "sparse_dft/api.py",
+      "line": 38
+    },
+    "paw.parse": {
+      "parameters": [
+        "destination",
+        "record_id",
+        "root"
+      ],
+      "required": [
+        "destination",
+        "record_id",
+        "root"
+      ],
+      "status": "implemented",
+      "source": "sparse_dft/api.py",
+      "line": 44
+    },
+    "paw.resolve": {
+      "parameters": [
+        "elements",
+        "family",
+        "root"
+      ],
+      "required": [
+        "elements",
+        "root"
+      ],
+      "status": "implemented",
+      "source": "sparse_dft/api.py",
+      "line": 40
+    },
+    "paw.restore": {
+      "parameters": [
+        "destination",
+        "kind",
+        "record_id",
+        "root"
+      ],
+      "required": [
+        "destination",
+        "record_id",
+        "root"
+      ],
+      "status": "implemented",
+      "source": "sparse_dft/api.py",
+      "line": 42
+    },
+    "relax.cell": {
+      "parameters": [
+        "accuracy",
+        "atomic_units",
+        "bands",
+        "cutoff_ev",
+        "density_cutoff_ev",
+        "density_tolerance",
+        "derivative_method",
+        "hubbard",
+        "initial_moments",
+        "max_iterations",
+        "max_steps",
+        "max_strain",
+        "max_workers",
+        "mesh_mode",
+        "mixing",
+        "onecenter_density_tolerance",
+        "output",
+        "paw_root",
+        "projector_interpolation",
+        "scf_grid",
+        "scf_kpoints",
+        "scf_weights",
+        "smearing_ev",
+        "spin_channels",
+        "stress_tolerance",
+        "structure"
+      ],
+      "required": [
+        "paw_root",
+        "structure"
+      ],
+      "status": "implemented",
+      "source": "sparse_dft/api.py",
+      "line": 80
+    },
+    "relax.ionic": {
+      "parameters": [
+        "accuracy",
+        "atomic_units",
+        "bands",
+        "cutoff_ev",
+        "density_cutoff_ev",
+        "density_tolerance",
+        "derivative_method",
+        "force_tolerance",
+        "hubbard",
+        "initial_moments",
+        "max_displacement",
+        "max_iterations",
+        "max_steps",
+        "max_workers",
+        "mesh_mode",
+        "mixing",
+        "onecenter_density_tolerance",
+        "output",
+        "paw_root",
+        "projector_interpolation",
+        "scf_grid",
+        "scf_kpoints",
+        "scf_weights",
+        "smearing_ev",
+        "spin_channels",
+        "structure"
+      ],
+      "required": [
+        "paw_root",
+        "structure"
+      ],
+      "status": "implemented",
+      "source": "sparse_dft/api.py",
+      "line": 80
+    },
+    "results.export": {
+      "parameters": [],
+      "required": [],
+      "status": "unsupported",
+      "source": "sparse_dft/api.py",
+      "line": 89
+    },
+    "results.summarize": {
+      "parameters": [],
+      "required": [],
+      "status": "unsupported",
+      "source": "sparse_dft/api.py",
+      "line": 89
+    },
+    "structure.parse": {
+      "parameters": [
+        "path"
+      ],
+      "required": [
+        "path"
+      ],
+      "status": "implemented",
+      "source": "sparse_dft/api.py",
+      "line": 34
+    },
+    "structure.validate": {
+      "parameters": [
+        "path"
+      ],
+      "required": [
+        "path"
+      ],
+      "status": "implemented",
+      "source": "sparse_dft/api.py",
+      "line": 36
+    }
+  },
+  "python": {
+    "sparse_dft.analysis.common:schema_ids": {
+      "kind": "function",
+      "signature": "name: str",
+      "positional_parameters": [
+        "name"
+      ],
+      "source": "sparse_dft/analysis/common.py",
+      "line": 27
+    },
+    "sparse_dft.analysis.common:read_json": {
+      "kind": "function",
+      "signature": "path",
+      "positional_parameters": [
+        "path"
+      ],
+      "source": "sparse_dft/analysis/common.py",
+      "line": 51
+    },
+    "sparse_dft.analysis.common:read_jsonl": {
+      "kind": "function",
+      "signature": "path",
+      "positional_parameters": [
+        "path"
+      ],
+      "source": "sparse_dft/analysis/common.py",
+      "line": 68
+    },
+    "sparse_dft.analysis.common:sha256_file": {
+      "kind": "function",
+      "signature": "path",
+      "positional_parameters": [
+        "path"
+      ],
+      "source": "sparse_dft/analysis/common.py",
+      "line": 85
+    },
+    "sparse_dft.analysis.common:finite": {
+      "kind": "function",
+      "signature": "value",
+      "positional_parameters": [
+        "value"
+      ],
+      "source": "sparse_dft/analysis/common.py",
+      "line": 101
+    },
+    "sparse_dft.analysis.common:finite_list": {
+      "kind": "function",
+      "signature": "values",
+      "positional_parameters": [
+        "values"
+      ],
+      "source": "sparse_dft/analysis/common.py",
+      "line": 112
+    },
+    "sparse_dft.analysis.common:resolve_fermi": {
+      "kind": "function",
+      "signature": "data_value, override, source, *, purpose='an E - E_F axis'",
+      "positional_parameters": [
+        "data_value",
+        "override",
+        "source"
+      ],
+      "source": "sparse_dft/analysis/common.py",
+      "line": 116
+    },
+    "sparse_dft.analysis.electronic:pretty_kpoint_label": {
+      "kind": "function",
+      "signature": "label",
+      "positional_parameters": [
+        "label"
+      ],
+      "source": "sparse_dft/analysis/electronic.py",
+      "line": 27
+    },
+    "sparse_dft.analysis.electronic:join_kpoint_labels": {
+      "kind": "function",
+      "signature": "labels",
+      "positional_parameters": [
+        "labels"
+      ],
+      "source": "sparse_dft/analysis/electronic.py",
+      "line": 50
+    },
+    "sparse_dft.analysis.electronic:KPath": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/analysis/electronic.py",
+      "line": 63
+    },
+    "sparse_dft.analysis.electronic:kpath": {
+      "kind": "function",
+      "signature": "bands: BandStructure, *, jump_factor: float=6.0",
+      "positional_parameters": [
+        "bands"
+      ],
+      "source": "sparse_dft/analysis/electronic.py",
+      "line": 80
+    },
+    "sparse_dft.analysis.electronic:BandEdges": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/analysis/electronic.py",
+      "line": 153
+    },
+    "sparse_dft.analysis.electronic:channels_of": {
+      "kind": "function",
+      "signature": "bands: BandStructure",
+      "positional_parameters": [
+        "bands"
+      ],
+      "source": "sparse_dft/analysis/electronic.py",
+      "line": 171
+    },
+    "sparse_dft.analysis.electronic:band_edges": {
+      "kind": "function",
+      "signature": "bands: BandStructure, tol: float=1e-06",
+      "positional_parameters": [
+        "bands",
+        "tol"
+      ],
+      "source": "sparse_dft/analysis/electronic.py",
+      "line": 175
+    },
+    "sparse_dft.analysis.electronic:find_band_file": {
+      "kind": "function",
+      "signature": "path",
+      "positional_parameters": [
+        "path"
+      ],
+      "source": "sparse_dft/analysis/electronic.py",
+      "line": 219
+    },
+    "sparse_dft.analysis.electronic:load_band_data": {
+      "kind": "function",
+      "signature": "path, *, fermi=None, structure=None",
+      "positional_parameters": [
+        "path"
+      ],
+      "source": "sparse_dft/analysis/electronic.py",
+      "line": 231
+    },
+    "sparse_dft.analysis.electronic:orbital_l": {
+      "kind": "function",
+      "signature": "label",
+      "positional_parameters": [
+        "label"
+      ],
+      "source": "sparse_dft/analysis/electronic.py",
+      "line": 258
+    },
+    "sparse_dft.analysis.electronic:canonical_orbital": {
+      "kind": "function",
+      "signature": "label",
+      "positional_parameters": [
+        "label"
+      ],
+      "source": "sparse_dft/analysis/electronic.py",
+      "line": 268
+    },
+    "sparse_dft.analysis.electronic:parse_atom_selection": {
+      "kind": "function",
+      "signature": "selection, species=None, natoms=None",
+      "positional_parameters": [
+        "selection",
+        "species",
+        "natoms"
+      ],
+      "source": "sparse_dft/analysis/electronic.py",
+      "line": 278
+    },
+    "sparse_dft.analysis.electronic:DosCurve": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/analysis/electronic.py",
+      "line": 354
+    },
+    "sparse_dft.analysis.electronic:DosData": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/analysis/electronic.py",
+      "line": 365
+    },
+    "sparse_dft.analysis.electronic:dos_from_payload": {
+      "kind": "function",
+      "signature": "raw: dict, species=None, *, path=None",
+      "positional_parameters": [
+        "raw",
+        "species"
+      ],
+      "source": "sparse_dft/analysis/electronic.py",
+      "line": 513
+    },
+    "sparse_dft.analysis.electronic:load_dos": {
+      "kind": "function",
+      "signature": "path, *, sigma: float=0.05, npoints: int=2001, species=None",
+      "positional_parameters": [
+        "path"
+      ],
+      "source": "sparse_dft/analysis/electronic.py",
+      "line": 639
+    },
+    "sparse_dft.analysis.electronic:ProjectionSet": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/analysis/electronic.py",
+      "line": 663
+    },
+    "sparse_dft.analysis.electronic:load_projections": {
+      "kind": "function",
+      "signature": "bands: BandStructure, source=None, *, species=None, resolution: str='auto'",
+      "positional_parameters": [
+        "bands",
+        "source"
+      ],
+      "source": "sparse_dft/analysis/electronic.py",
+      "line": 731
+    },
+    "sparse_dft.analysis.electronic:bands_from_scf": {
+      "kind": "function",
+      "signature": "path",
+      "positional_parameters": [
+        "path"
+      ],
+      "source": "sparse_dft/analysis/electronic.py",
+      "line": 776
+    },
+    "sparse_dft.analysis.electronic:is_mesh": {
+      "kind": "function",
+      "signature": "bands: BandStructure",
+      "positional_parameters": [
+        "bands"
+      ],
+      "source": "sparse_dft/analysis/electronic.py",
+      "line": 811
+    },
+    "sparse_dft.analysis.electronic:BandComparison": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/analysis/electronic.py",
+      "line": 816
+    },
+    "sparse_dft.analysis.electronic:common_band_window": {
+      "kind": "function",
+      "signature": "reference: BandStructure, candidate: BandStructure, top_excluded: int=COMPARE_TOP_EXCLUDED",
+      "positional_parameters": [
+        "reference",
+        "candidate",
+        "top_excluded"
+      ],
+      "source": "sparse_dft/analysis/electronic.py",
+      "line": 831
+    },
+    "sparse_dft.analysis.electronic:compare_band_data": {
+      "kind": "function",
+      "signature": "reference: BandStructure, candidate: BandStructure, *, align='auto', max_energy_ev: float=10.0",
+      "positional_parameters": [
+        "reference",
+        "candidate"
+      ],
+      "source": "sparse_dft/analysis/electronic.py",
+      "line": 859
+    },
+    "sparse_dft.analysis.electronic:dos_like": {
+      "kind": "function",
+      "signature": "template: DosData, bands: BandStructure, proj: ProjectionSet | None=None, *, top_excluded: int=2, source=None",
+      "positional_parameters": [
+        "template",
+        "bands",
+        "proj"
+      ],
+      "source": "sparse_dft/analysis/electronic.py",
+      "line": 890
+    },
+    "sparse_dft.analysis.electronic:dos_difference": {
+      "kind": "function",
+      "signature": "candidate: DosData, reference: DosData, *, window=None",
+      "positional_parameters": [
+        "candidate",
+        "reference"
+      ],
+      "source": "sparse_dft/analysis/electronic.py",
+      "line": 936
+    },
+    "sparse_dft.analysis.electronic_atlas:reciprocal_matrix": {
+      "kind": "function",
+      "signature": "bands",
+      "positional_parameters": [
+        "bands"
+      ],
+      "source": "sparse_dft/analysis/electronic_atlas.py",
+      "line": 37
+    },
+    "sparse_dft.analysis.electronic_atlas:cartesian_k": {
+      "kind": "function",
+      "signature": "bands",
+      "positional_parameters": [
+        "bands"
+      ],
+      "source": "sparse_dft/analysis/electronic_atlas.py",
+      "line": 49
+    },
+    "sparse_dft.analysis.electronic_atlas:match_kpoints": {
+      "kind": "function",
+      "signature": "a, b, tol=K_MATCH_TOL",
+      "positional_parameters": [
+        "a",
+        "b",
+        "tol"
+      ],
+      "source": "sparse_dft/analysis/electronic_atlas.py",
+      "line": 60
+    },
+    "sparse_dft.analysis.electronic_atlas:same_path": {
+      "kind": "function",
+      "signature": "a, b, tol=K_MATCH_TOL",
+      "positional_parameters": [
+        "a",
+        "b",
+        "tol"
+      ],
+      "source": "sparse_dft/analysis/electronic_atlas.py",
+      "line": 77
+    },
+    "sparse_dft.analysis.electronic_atlas:EdgeFit": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/analysis/electronic_atlas.py",
+      "line": 86
+    },
+    "sparse_dft.analysis.electronic_atlas:interior_label": {
+      "kind": "function",
+      "signature": "bands, kp, k",
+      "positional_parameters": [
+        "bands",
+        "kp",
+        "k"
+      ],
+      "source": "sparse_dft/analysis/electronic_atlas.py",
+      "line": 139
+    },
+    "sparse_dft.analysis.electronic_atlas:fit_edge": {
+      "kind": "function",
+      "signature": "bands, kp: KPath, rows: np.ndarray, band: int, k0: int, carrier: str, *, max_window_ev=0.6, max_rel_uncertainty=0.1",
+      "positional_parameters": [
+        "bands",
+        "kp",
+        "rows",
+        "band",
+        "k0",
+        "carrier"
+      ],
+      "source": "sparse_dft/analysis/electronic_atlas.py",
+      "line": 254
+    },
+    "sparse_dft.analysis.electronic_atlas:Valley": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/analysis/electronic_atlas.py",
+      "line": 342
+    },
+    "sparse_dft.analysis.electronic_atlas:PathAnalysis": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/analysis/electronic_atlas.py",
+      "line": 349
+    },
+    "sparse_dft.analysis.electronic_atlas:analyse_path": {
+      "kind": "function",
+      "signature": "bands, *, channel=None",
+      "positional_parameters": [
+        "bands"
+      ],
+      "source": "sparse_dft/analysis/electronic_atlas.py",
+      "line": 424
+    },
+    "sparse_dft.analysis.electronic_atlas:conduction_valleys": {
+      "kind": "function",
+      "signature": "pa: PathAnalysis, *, max_valleys=3",
+      "positional_parameters": [
+        "pa"
+      ],
+      "source": "sparse_dft/analysis/electronic_atlas.py",
+      "line": 486
+    },
+    "sparse_dft.analysis.electronic_atlas:orbital_fraction": {
+      "kind": "function",
+      "signature": "proj: ProjectionSet, channel: str, which='s'",
+      "positional_parameters": [
+        "proj",
+        "channel",
+        "which"
+      ],
+      "source": "sparse_dft/analysis/electronic_atlas.py",
+      "line": 515
+    },
+    "sparse_dft.analysis.electronic_atlas:element_l_channels": {
+      "kind": "function",
+      "signature": "proj: ProjectionSet, channel: str, *, min_share=0.025",
+      "positional_parameters": [
+        "proj",
+        "channel"
+      ],
+      "source": "sparse_dft/analysis/electronic_atlas.py",
+      "line": 530
+    },
+    "sparse_dft.analysis.electronic_atlas:dominant_character": {
+      "kind": "function",
+      "signature": "proj: ProjectionSet, channel: str, rows: np.ndarray, zero_ev: float, window=(-6.0, 6.0)",
+      "positional_parameters": [
+        "proj",
+        "channel",
+        "rows",
+        "zero_ev",
+        "window"
+      ],
+      "source": "sparse_dft/analysis/electronic_atlas.py",
+      "line": 560
+    },
+    "sparse_dft.analysis.electronic_atlas:run_conditions": {
+      "kind": "function",
+      "signature": "source, bands=None",
+      "positional_parameters": [
+        "source",
+        "bands"
+      ],
+      "source": "sparse_dft/analysis/electronic_atlas.py",
+      "line": 589
+    },
+    "sparse_dft.analysis.electronic_atlas:compare_conditions": {
+      "kind": "function",
+      "signature": "cand: dict, ref: dict, cand_bands, ref_bands",
+      "positional_parameters": [
+        "cand",
+        "ref",
+        "cand_bands",
+        "ref_bands"
+      ],
+      "source": "sparse_dft/analysis/electronic_atlas.py",
+      "line": 634
+    },
+    "sparse_dft.analysis.electronic_atlas:compared_band_count": {
+      "kind": "function",
+      "signature": "cand, ref, top_excluded=2",
+      "positional_parameters": [
+        "cand",
+        "ref",
+        "top_excluded"
+      ],
+      "source": "sparse_dft/analysis/electronic_atlas.py",
+      "line": 663
+    },
+    "sparse_dft.analysis.electronic_atlas:engine_residuals": {
+      "kind": "function",
+      "signature": "cand, ref, *, align='none', zero_ev=0.0",
+      "positional_parameters": [
+        "cand",
+        "ref"
+      ],
+      "source": "sparse_dft/analysis/electronic_atlas.py",
+      "line": 670
+    },
+    "sparse_dft.analysis.electronic_atlas:projection_parity": {
+      "kind": "function",
+      "signature": "cand, cand_proj: ProjectionSet, ref, ref_proj: ProjectionSet, *, near_ev=NEAR_DEGENERATE_EV",
+      "positional_parameters": [
+        "cand",
+        "cand_proj",
+        "ref",
+        "ref_proj"
+      ],
+      "source": "sparse_dft/analysis/electronic_atlas.py",
+      "line": 706
+    },
+    "sparse_dft.analysis.electronic_atlas:bz_plane": {
+      "kind": "function",
+      "signature": "mesh, *, quantity='direct', vb=None, cb=None, zero_ev=0.0, channel=None, upsample=8",
+      "positional_parameters": [
+        "mesh"
+      ],
+      "source": "sparse_dft/analysis/electronic_atlas.py",
+      "line": 780
+    },
+    "sparse_dft.analysis.electronic_atlas:band_composition": {
+      "kind": "function",
+      "signature": "proj: ProjectionSet, bands, channel: str, *, nbands=None",
+      "positional_parameters": [
+        "proj",
+        "bands",
+        "channel"
+      ],
+      "source": "sparse_dft/analysis/electronic_atlas.py",
+      "line": 859
+    },
+    "sparse_dft.analysis.electronic_atlas:fermi_crossings": {
+      "kind": "function",
+      "signature": "pa: PathAnalysis",
+      "positional_parameters": [
+        "pa"
+      ],
+      "source": "sparse_dft/analysis/electronic_atlas.py",
+      "line": 888
+    },
+    "sparse_dft.analysis.relax:RelaxTrajectory": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/analysis/relax.py",
+      "line": 26
+    },
+    "sparse_dft.analysis.relax:find_relax_file": {
+      "kind": "function",
+      "signature": "path",
+      "positional_parameters": [
+        "path"
+      ],
+      "source": "sparse_dft/analysis/relax.py",
+      "line": 55
+    },
+    "sparse_dft.analysis.relax:is_relax_payload": {
+      "kind": "function",
+      "signature": "data",
+      "positional_parameters": [
+        "data"
+      ],
+      "source": "sparse_dft/analysis/relax.py",
+      "line": 67
+    },
+    "sparse_dft.analysis.relax:load_relax": {
+      "kind": "function",
+      "signature": "path, *, tolerance=None",
+      "positional_parameters": [
+        "path"
+      ],
+      "source": "sparse_dft/analysis/relax.py",
+      "line": 89
+    },
+    "sparse_dft.analysis.report:render_scientific_plots": {
+      "kind": "function",
+      "signature": "report: dict, output_dir: str | Path, *, basename='sparse_dft_bands', emin=None, emax=None",
+      "positional_parameters": [
+        "report",
+        "output_dir"
+      ],
+      "source": "sparse_dft/analysis/report.py",
+      "line": 201
+    },
+    "sparse_dft.analysis.report:analyze_bands": {
+      "kind": "function",
+      "signature": "bands_path: str | Path, *, dos_path: str | Path | None=None, dos_scf_path: str | Path | None=None, procar_path: str | Path | None=None, structure=None, fermi_energy: float | None=None, gaussian_sigma: float=0.05, output_dir: str | Path | None=None, render: bool=True, emin=None, emax=None",
+      "positional_parameters": [
+        "bands_path"
+      ],
+      "source": "sparse_dft/analysis/report.py",
+      "line": 269
+    },
+    "sparse_dft.analysis.scf:EnergyTerm": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/analysis/scf.py",
+      "line": 43
+    },
+    "sparse_dft.analysis.scf:EnergyTerms": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/analysis/scf.py",
+      "line": 55
+    },
+    "sparse_dft.analysis.scf:ForceSet": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/analysis/scf.py",
+      "line": 75
+    },
+    "sparse_dft.analysis.scf:StressTensor": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/analysis/scf.py",
+      "line": 108
+    },
+    "sparse_dft.analysis.scf:ScfRun": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/analysis/scf.py",
+      "line": 135
+    },
+    "sparse_dft.analysis.scf:ScfHistory": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/analysis/scf.py",
+      "line": 157
+    },
+    "sparse_dft.analysis.scf:TimerEntry": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/analysis/scf.py",
+      "line": 178
+    },
+    "sparse_dft.analysis.scf:TimingProfile": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/analysis/scf.py",
+      "line": 185
+    },
+    "sparse_dft.analysis.scf:find_scf_result": {
+      "kind": "function",
+      "signature": "path",
+      "positional_parameters": [
+        "path"
+      ],
+      "source": "sparse_dft/analysis/scf.py",
+      "line": 202
+    },
+    "sparse_dft.analysis.scf:is_scf_payload": {
+      "kind": "function",
+      "signature": "data",
+      "positional_parameters": [
+        "data"
+      ],
+      "source": "sparse_dft/analysis/scf.py",
+      "line": 214
+    },
+    "sparse_dft.analysis.scf:load_scf_run": {
+      "kind": "function",
+      "signature": "path",
+      "positional_parameters": [
+        "path"
+      ],
+      "source": "sparse_dft/analysis/scf.py",
+      "line": 247
+    },
+    "sparse_dft.analysis.scf:load_energy_terms": {
+      "kind": "function",
+      "signature": "path",
+      "positional_parameters": [
+        "path"
+      ],
+      "source": "sparse_dft/analysis/scf.py",
+      "line": 269
+    },
+    "sparse_dft.analysis.scf:load_forces": {
+      "kind": "function",
+      "signature": "path",
+      "positional_parameters": [
+        "path"
+      ],
+      "source": "sparse_dft/analysis/scf.py",
+      "line": 305
+    },
+    "sparse_dft.analysis.scf:load_stress": {
+      "kind": "function",
+      "signature": "path",
+      "positional_parameters": [
+        "path"
+      ],
+      "source": "sparse_dft/analysis/scf.py",
+      "line": 325
+    },
+    "sparse_dft.analysis.scf:iterations_file": {
+      "kind": "function",
+      "signature": "path",
+      "positional_parameters": [
+        "path"
+      ],
+      "source": "sparse_dft/analysis/scf.py",
+      "line": 366
+    },
+    "sparse_dft.analysis.scf:performance_file": {
+      "kind": "function",
+      "signature": "path",
+      "positional_parameters": [
+        "path"
+      ],
+      "source": "sparse_dft/analysis/scf.py",
+      "line": 370
+    },
+    "sparse_dft.analysis.scf:load_scf_history": {
+      "kind": "function",
+      "signature": "path",
+      "positional_parameters": [
+        "path"
+      ],
+      "source": "sparse_dft/analysis/scf.py",
+      "line": 392
+    },
+    "sparse_dft.analysis.scf:load_timing": {
+      "kind": "function",
+      "signature": "path",
+      "positional_parameters": [
+        "path"
+      ],
+      "source": "sparse_dft/analysis/scf.py",
+      "line": 441
+    },
+    "sparse_dft.analysis.sweep:gate_use": {
+      "kind": "function",
+      "signature": "row: dict",
+      "positional_parameters": [
+        "row"
+      ],
+      "source": "sparse_dft/analysis/sweep.py",
+      "line": 28
+    },
+    "sparse_dft.analysis.sweep:component_of": {
+      "kind": "function",
+      "signature": "variant: str",
+      "positional_parameters": [
+        "variant"
+      ],
+      "source": "sparse_dft/analysis/sweep.py",
+      "line": 34
+    },
+    "sparse_dft.analysis.sweep:SweepRow": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/analysis/sweep.py",
+      "line": 43
+    },
+    "sparse_dft.analysis.sweep:SweepTable": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/analysis/sweep.py",
+      "line": 73
+    },
+    "sparse_dft.analysis.sweep:is_sweep_payload": {
+      "kind": "function",
+      "signature": "data",
+      "positional_parameters": [
+        "data"
+      ],
+      "source": "sparse_dft/analysis/sweep.py",
+      "line": 88
+    },
+    "sparse_dft.analysis.sweep:load_sweep": {
+      "kind": "function",
+      "signature": "path",
+      "positional_parameters": [
+        "path"
+      ],
+      "source": "sparse_dft/analysis/sweep.py",
+      "line": 128
+    },
+    "sparse_dft.analysis.sweep:ScalingRun": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/analysis/sweep.py",
+      "line": 181
+    },
+    "sparse_dft.analysis.sweep:ScalingPoint": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/analysis/sweep.py",
+      "line": 204
+    },
+    "sparse_dft.analysis.sweep:ScalingSet": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/analysis/sweep.py",
+      "line": 219
+    },
+    "sparse_dft.analysis.sweep:is_scaling_payload": {
+      "kind": "function",
+      "signature": "data",
+      "positional_parameters": [
+        "data"
+      ],
+      "source": "sparse_dft/analysis/sweep.py",
+      "line": 262
+    },
+    "sparse_dft.analysis.sweep:load_scaling": {
+      "kind": "function",
+      "signature": "paths",
+      "positional_parameters": [
+        "paths"
+      ],
+      "source": "sparse_dft/analysis/sweep.py",
+      "line": 266
+    },
+    "sparse_dft.analytic_relax:native_direction": {
+      "kind": "function",
+      "signature": "gradient, pairs, initial_scale, max_step",
+      "positional_parameters": [
+        "gradient",
+        "pairs",
+        "initial_scale",
+        "max_step"
+      ],
+      "source": "sparse_dft/analytic_relax.py",
+      "line": 47
+    },
+    "sparse_dft.analytic_relax:analytic_relax": {
+      "kind": "function",
+      "signature": "structure, paw_root, output, *, cell=False, max_steps=20, force_tolerance=0.02, stress_tolerance=0.00031207545, move_scale=0.05, max_displacement=0.15, max_strain=0.02, history_size=8, line_search_steps=16, **kwargs",
+      "positional_parameters": [
+        "structure",
+        "paw_root",
+        "output"
+      ],
+      "source": "sparse_dft/analytic_relax.py",
+      "line": 126
+    },
+    "sparse_dft.api:dispatch": {
+      "kind": "function",
+      "signature": "method, params",
+      "positional_parameters": [
+        "method",
+        "params"
+      ],
+      "source": "sparse_dft/api.py",
+      "line": 31
+    },
+    "sparse_dft.api:main_jsonrpc": {
+      "kind": "function",
+      "signature": "",
+      "positional_parameters": [],
+      "source": "sparse_dft/api.py",
+      "line": 96
+    },
+    "sparse_dft.automatic_paw:SourceIdentity": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/automatic_paw.py",
+      "line": 13
+    },
+    "sparse_dft.automatic_paw:resolve_source_map": {
+      "kind": "function",
+      "signature": "structure, paw_root, workdir, family='standard'",
+      "positional_parameters": [
+        "structure",
+        "paw_root",
+        "workdir",
+        "family"
+      ],
+      "source": "sparse_dft/automatic_paw.py",
+      "line": 21
+    },
+    "sparse_dft.automatic_paw:resolve_upf": {
+      "kind": "function",
+      "signature": "structure, paw_root, workdir",
+      "positional_parameters": [
+        "structure",
+        "paw_root",
+        "workdir"
+      ],
+      "source": "sparse_dft/automatic_paw.py",
+      "line": 93
+    },
+    "sparse_dft.backend:backend_info": {
+      "kind": "function",
+      "signature": "",
+      "positional_parameters": [],
+      "source": "sparse_dft/backend.py",
+      "line": 61
+    },
+    "sparse_dft.backend:benchmark_summary": {
+      "kind": "function",
+      "signature": "samples=None",
+      "positional_parameters": [
+        "samples"
+      ],
+      "source": "sparse_dft/backend.py",
+      "line": 100
+    },
+    "sparse_dft.bands:BandStructure": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/bands.py",
+      "line": 23
+    },
+    "sparse_dft.bands:from_json": {
+      "kind": "function",
+      "signature": "path: str | Path",
+      "positional_parameters": [
+        "path"
+      ],
+      "source": "sparse_dft/bands.py",
+      "line": 195
+    },
+    "sparse_dft.bands:from_payload": {
+      "kind": "function",
+      "signature": "payload: dict, source: str='<memory>'",
+      "positional_parameters": [
+        "payload",
+        "source"
+      ],
+      "source": "sparse_dft/bands.py",
+      "line": 263
+    },
+    "sparse_dft.bands:parse_eigenval": {
+      "kind": "function",
+      "signature": "path: str | Path, fermi_energy: float | None=None",
+      "positional_parameters": [
+        "path",
+        "fermi_energy"
+      ],
+      "source": "sparse_dft/bands.py",
+      "line": 310
+    },
+    "sparse_dft.bands:parse_vasprun_bands": {
+      "kind": "function",
+      "signature": "path: str | Path",
+      "positional_parameters": [
+        "path"
+      ],
+      "source": "sparse_dft/bands.py",
+      "line": 381
+    },
+    "sparse_dft.bands:load_bands": {
+      "kind": "function",
+      "signature": "path: str | Path",
+      "positional_parameters": [
+        "path"
+      ],
+      "source": "sparse_dft/bands.py",
+      "line": 462
+    },
+    "sparse_dft.bands:parse_doscar": {
+      "kind": "function",
+      "signature": "path: str | Path",
+      "positional_parameters": [
+        "path"
+      ],
+      "source": "sparse_dft/bands.py",
+      "line": 486
+    },
+    "sparse_dft.bands:density_of_states_from_bands": {
+      "kind": "function",
+      "signature": "bands: BandStructure, *, emin=None, emax=None, sigma=0.05, npoints=1201",
+      "positional_parameters": [
+        "bands"
+      ],
+      "source": "sparse_dft/bands.py",
+      "line": 552
+    },
+    "sparse_dft.bands:density_of_states_from_scf": {
+      "kind": "function",
+      "signature": "path: str | Path, *, sigma=0.05, npoints=1201",
+      "positional_parameters": [
+        "path"
+      ],
+      "source": "sparse_dft/bands.py",
+      "line": 601
+    },
+    "sparse_dft.bands:gaussian_broaden": {
+      "kind": "function",
+      "signature": "energies, eigenvalues, weights, sigma, projections=None",
+      "positional_parameters": [
+        "energies",
+        "eigenvalues",
+        "weights",
+        "sigma",
+        "projections"
+      ],
+      "source": "sparse_dft/bands.py",
+      "line": 639
+    },
+    "sparse_dft.bands:parse_vasprun_projections": {
+      "kind": "function",
+      "signature": "path: str | Path",
+      "positional_parameters": [
+        "path"
+      ],
+      "source": "sparse_dft/bands.py",
+      "line": 682
+    },
+    "sparse_dft.bands:parse_procar": {
+      "kind": "function",
+      "signature": "path: str | Path",
+      "positional_parameters": [
+        "path"
+      ],
+      "source": "sparse_dft/bands.py",
+      "line": 740
+    },
+    "sparse_dft.bands:sampled_band_split": {
+      "kind": "function",
+      "signature": "bands: BandStructure, tol: float=GAP_TOLERANCE_EV",
+      "positional_parameters": [
+        "bands",
+        "tol"
+      ],
+      "source": "sparse_dft/bands.py",
+      "line": 925
+    },
+    "sparse_dft.bands:common_energy_zero": {
+      "kind": "function",
+      "signature": "reference: BandStructure, candidate: BandStructure",
+      "positional_parameters": [
+        "reference",
+        "candidate"
+      ],
+      "source": "sparse_dft/bands.py",
+      "line": 962
+    },
+    "sparse_dft.bands:band_zero": {
+      "kind": "function",
+      "signature": "reference: BandStructure, candidate: BandStructure, align='auto'",
+      "positional_parameters": [
+        "reference",
+        "candidate",
+        "align"
+      ],
+      "source": "sparse_dft/bands.py",
+      "line": 997
+    },
+    "sparse_dft.bands:compare_bands": {
+      "kind": "function",
+      "signature": "reference: BandStructure, candidate: BandStructure, *, align='auto', max_energy_ev=10.0",
+      "positional_parameters": [
+        "reference",
+        "candidate"
+      ],
+      "source": "sparse_dft/bands.py",
+      "line": 1033
+    },
+    "sparse_dft.checkpoint:canonical_projector_interpolation": {
+      "kind": "function",
+      "signature": "value",
+      "positional_parameters": [
+        "value"
+      ],
+      "source": "sparse_dft/checkpoint.py",
+      "line": 17
+    },
+    "sparse_dft.checkpoint:canonical_onecenter_radial_mode": {
+      "kind": "function",
+      "signature": "value",
+      "positional_parameters": [
+        "value"
+      ],
+      "source": "sparse_dft/checkpoint.py",
+      "line": 21
+    },
+    "sparse_dft.checkpoint:onecenter_state_field": {
+      "kind": "function",
+      "signature": "atom, name",
+      "positional_parameters": [
+        "atom",
+        "name"
+      ],
+      "source": "sparse_dft/checkpoint.py",
+      "line": 25
+    },
+    "sparse_dft.checkpoint:export_frozen_scf": {
+      "kind": "function",
+      "signature": "source, output, *, cutoff_ev=None, density_cutoff_ev=None, include_spectrum=False",
+      "positional_parameters": [
+        "source",
+        "output"
+      ],
+      "source": "sparse_dft/checkpoint.py",
+      "line": 35
+    },
+    "sparse_dft.cli:build_parser": {
+      "kind": "function",
+      "signature": "",
+      "positional_parameters": [],
+      "source": "sparse_dft/cli.py",
+      "line": 52
+    },
+    "sparse_dft.cli:main": {
+      "kind": "function",
+      "signature": "argv=None",
+      "positional_parameters": [
+        "argv"
+      ],
+      "source": "sparse_dft/cli.py",
+      "line": 159
+    },
+    "sparse_dft.errors:SparseDFTError": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/errors.py",
+      "line": 1
+    },
+    "sparse_dft.errors:InputError": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/errors.py",
+      "line": 15
+    },
+    "sparse_dft.errors:ArchiveIntegrityError": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/errors.py",
+      "line": 19
+    },
+    "sparse_dft.errors:UnsupportedError": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/errors.py",
+      "line": 23
+    },
+    "sparse_dft.geometry:element_table": {
+      "kind": "function",
+      "signature": "",
+      "positional_parameters": [],
+      "source": "sparse_dft/geometry.py",
+      "line": 36
+    },
+    "sparse_dft.geometry:element": {
+      "kind": "function",
+      "signature": "symbol: str",
+      "positional_parameters": [
+        "symbol"
+      ],
+      "source": "sparse_dft/geometry.py",
+      "line": 41
+    },
+    "sparse_dft.geometry:interplanar_spacings": {
+      "kind": "function",
+      "signature": "lattice",
+      "positional_parameters": [
+        "lattice"
+      ],
+      "source": "sparse_dft/geometry.py",
+      "line": 48
+    },
+    "sparse_dft.geometry:AxisVacuum": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/geometry.py",
+      "line": 55
+    },
+    "sparse_dft.geometry:axis_vacuum": {
+      "kind": "function",
+      "signature": "structure: Structure, threshold_angstrom: float=VACUUM_GAP_ANGSTROM",
+      "positional_parameters": [
+        "structure",
+        "threshold_angstrom"
+      ],
+      "source": "sparse_dft/geometry.py",
+      "line": 66
+    },
+    "sparse_dft.geometry:Connectivity": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/geometry.py",
+      "line": 100
+    },
+    "sparse_dft.geometry:bonded_dimensionality": {
+      "kind": "function",
+      "signature": "structure: Structure, bond_scale: float=BOND_SCALE, max_atoms: int=2000",
+      "positional_parameters": [
+        "structure",
+        "bond_scale",
+        "max_atoms"
+      ],
+      "source": "sparse_dft/geometry.py",
+      "line": 157
+    },
+    "sparse_dft.kpoints:interpolate_band_path": {
+      "kind": "function",
+      "signature": "vertices, points_per_segment=81, *, include_duplicate_vertices=True",
+      "positional_parameters": [
+        "vertices",
+        "points_per_segment"
+      ],
+      "source": "sparse_dft/kpoints.py",
+      "line": 9
+    },
+    "sparse_dft.kpoints:KPointRecommendation": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/kpoints.py",
+      "line": 38
+    },
+    "sparse_dft.kpoints:validate_kpoint_grid": {
+      "kind": "function",
+      "signature": "grid, *, task='scf'",
+      "positional_parameters": [
+        "grid"
+      ],
+      "source": "sparse_dft/kpoints.py",
+      "line": 49
+    },
+    "sparse_dft.kpoints:uniform_kpoint_mesh": {
+      "kind": "function",
+      "signature": "grid, *, mode='gamma'",
+      "positional_parameters": [
+        "grid"
+      ],
+      "source": "sparse_dft/kpoints.py",
+      "line": 72
+    },
+    "sparse_dft.kpoints:validate_kpoint_path": {
+      "kind": "function",
+      "signature": "kpoints, *, task='nscf', minimum=2",
+      "positional_parameters": [
+        "kpoints"
+      ],
+      "source": "sparse_dft/kpoints.py",
+      "line": 89
+    },
+    "sparse_dft.kpoints:recommend_kpoints": {
+      "kind": "function",
+      "signature": "structure: Structure, task='scf', accuracy='standard', spacing_inverse_angstrom=None, metallic=None",
+      "positional_parameters": [
+        "structure",
+        "task",
+        "accuracy",
+        "spacing_inverse_angstrom",
+        "metallic"
+      ],
+      "source": "sparse_dft/kpoints.py",
+      "line": 112
+    },
+    "sparse_dft.mp_data:MPRecord": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/mp_data.py",
+      "line": 27
+    },
+    "sparse_dft.mp_data:MaterialsProjectClient": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/mp_data.py",
+      "line": 40
+    },
+    "sparse_dft.mp_data:write_snapshot": {
+      "kind": "function",
+      "signature": "root: str | Path, rows: list[dict], source_url: str, *, requested_count: int",
+      "positional_parameters": [
+        "root",
+        "rows",
+        "source_url"
+      ],
+      "source": "sparse_dft/mp_data.py",
+      "line": 94
+    },
+    "sparse_dft.mp_data:load_snapshot": {
+      "kind": "function",
+      "signature": "path: str | Path",
+      "positional_parameters": [
+        "path"
+      ],
+      "source": "sparse_dft/mp_data.py",
+      "line": 117
+    },
+    "sparse_dft.mp_data:write_band_snapshot": {
+      "kind": "function",
+      "signature": "root: str | Path, rows: list[dict], source_url: str, *, requested_ids: list[str]",
+      "positional_parameters": [
+        "root",
+        "rows",
+        "source_url"
+      ],
+      "source": "sparse_dft/mp_data.py",
+      "line": 127
+    },
+    "sparse_dft.mp_data:load_band_snapshot": {
+      "kind": "function",
+      "signature": "path: str | Path",
+      "positional_parameters": [
+        "path"
+      ],
+      "source": "sparse_dft/mp_data.py",
+      "line": 154
+    },
+    "sparse_dft.parallel:ParallelLayout": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/parallel.py",
+      "line": 24
+    },
+    "sparse_dft.parallel:coerce_layout": {
+      "kind": "function",
+      "signature": "value",
+      "positional_parameters": [
+        "value"
+      ],
+      "source": "sparse_dft/parallel.py",
+      "line": 54
+    },
+    "sparse_dft.parallel:launch_command": {
+      "kind": "function",
+      "signature": "executable_args: list[str], layout: ParallelLayout",
+      "positional_parameters": [
+        "executable_args",
+        "layout"
+      ],
+      "source": "sparse_dft/parallel.py",
+      "line": 75
+    },
+    "sparse_dft.parallel:layout_environment": {
+      "kind": "function",
+      "signature": "layout: ParallelLayout, base: dict | None=None",
+      "positional_parameters": [
+        "layout",
+        "base"
+      ],
+      "source": "sparse_dft/parallel.py",
+      "line": 91
+    },
+    "sparse_dft.paw:PawCandidate": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/paw.py",
+      "line": 10
+    },
+    "sparse_dft.paw:PawDataset": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/paw.py",
+      "line": 27
+    },
+    "sparse_dft.paw:PawNonlocalChannel": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/paw.py",
+      "line": 39
+    },
+    "sparse_dft.paw:PawRadialData": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/paw.py",
+      "line": 58
+    },
+    "sparse_dft.paw:PawNumericData": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/paw.py",
+      "line": 76
+    },
+    "sparse_dft.paw:Paw54JsonArchive": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/paw.py",
+      "line": 111
+    },
+    "sparse_dft.paw:PawSelectionPolicy": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/paw.py",
+      "line": 579
+    },
+    "sparse_dft.paw_convert:classify_variant": {
+      "kind": "function",
+      "signature": "directory: str, symbol: str",
+      "positional_parameters": [
+        "directory",
+        "symbol"
+      ],
+      "source": "sparse_dft/paw_convert.py",
+      "line": 38
+    },
+    "sparse_dft.paw_convert:potcar_metadata": {
+      "kind": "function",
+      "signature": "text: str",
+      "positional_parameters": [
+        "text"
+      ],
+      "source": "sparse_dft/paw_convert.py",
+      "line": 72
+    },
+    "sparse_dft.paw_convert:psctr_metadata": {
+      "kind": "function",
+      "signature": "text: str",
+      "positional_parameters": [
+        "text"
+      ],
+      "source": "sparse_dft/paw_convert.py",
+      "line": 83
+    },
+    "sparse_dft.paw_convert:convert": {
+      "kind": "function",
+      "signature": "source, output, *, overwrite: bool=False",
+      "positional_parameters": [
+        "source",
+        "output"
+      ],
+      "source": "sparse_dft/paw_convert.py",
+      "line": 127
+    },
+    "sparse_dft.paw_library:PawLibraryPackage": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/paw_library.py",
+      "line": 69
+    },
+    "sparse_dft.paw_sources:PawSource": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/paw_sources.py",
+      "line": 18
+    },
+    "sparse_dft.paw_sources:resolve_paw_sources": {
+      "kind": "function",
+      "signature": "species: list[str], sources: dict[str, PawSource]",
+      "positional_parameters": [
+        "species",
+        "sources"
+      ],
+      "source": "sparse_dft/paw_sources.py",
+      "line": 24
+    },
+    "sparse_dft.plotting.atlas:AtlasData": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/plotting/atlas.py",
+      "line": 53
+    },
+    "sparse_dft.plotting.atlas:formula": {
+      "kind": "function",
+      "signature": "species",
+      "positional_parameters": [
+        "species"
+      ],
+      "source": "sparse_dft/plotting/atlas.py",
+      "line": 79
+    },
+    "sparse_dft.plotting.atlas:load_atlas": {
+      "kind": "function",
+      "signature": "bands, *, reference=None, mesh=None, dos=None, structure=None",
+      "positional_parameters": [
+        "bands"
+      ],
+      "source": "sparse_dft/plotting/atlas.py",
+      "line": 93
+    },
+    "sparse_dft.plotting.atlas:AtlasContext": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/plotting/atlas.py",
+      "line": 153
+    },
+    "sparse_dft.plotting.atlas:analyse_atlas": {
+      "kind": "function",
+      "signature": "data: AtlasData, *, emin=None, emax=None",
+      "positional_parameters": [
+        "data"
+      ],
+      "source": "sparse_dft/plotting/atlas.py",
+      "line": 209
+    },
+    "sparse_dft.plotting.atlas:format_mass": {
+      "kind": "function",
+      "signature": "m, u",
+      "positional_parameters": [
+        "m",
+        "u"
+      ],
+      "source": "sparse_dft/plotting/atlas.py",
+      "line": 411
+    },
+    "sparse_dft.plotting.atlas:place_callout": {
+      "kind": "function",
+      "signature": "ax, text, xy, *, placed, points, fontsize, color=None, arrow=True, prefer=(0.0, 1.0), pad_px=3.0, zorder=8",
+      "positional_parameters": [
+        "ax",
+        "text",
+        "xy"
+      ],
+      "source": "sparse_dft/plotting/atlas.py",
+      "line": 429
+    },
+    "sparse_dft.plotting.atlas:group_colors": {
+      "kind": "function",
+      "signature": "ctx, spec",
+      "positional_parameters": [
+        "ctx",
+        "spec"
+      ],
+      "source": "sparse_dft/plotting/atlas.py",
+      "line": 477
+    },
+    "sparse_dft.plotting.atlas:draw_bands": {
+      "kind": "function",
+      "signature": "ax, ctx, spec, *, header=None",
+      "positional_parameters": [
+        "ax",
+        "ctx",
+        "spec"
+      ],
+      "source": "sparse_dft/plotting/atlas.py",
+      "line": 529
+    },
+    "sparse_dft.plotting.atlas:annotate_bands": {
+      "kind": "function",
+      "signature": "ax, ctx, info, placed",
+      "positional_parameters": [
+        "ax",
+        "ctx",
+        "info",
+        "placed"
+      ],
+      "source": "sparse_dft/plotting/atlas.py",
+      "line": 632
+    },
+    "sparse_dft.plotting.atlas:draw_pdos": {
+      "kind": "function",
+      "signature": "ax, ctx, spec, colors",
+      "positional_parameters": [
+        "ax",
+        "ctx",
+        "spec",
+        "colors"
+      ],
+      "source": "sparse_dft/plotting/atlas.py",
+      "line": 654
+    },
+    "sparse_dft.plotting.atlas:draw_edges": {
+      "kind": "function",
+      "signature": "ax_e, ax_h, ctx, spec",
+      "positional_parameters": [
+        "ax_e",
+        "ax_h",
+        "ctx",
+        "spec"
+      ],
+      "source": "sparse_dft/plotting/atlas.py",
+      "line": 740
+    },
+    "sparse_dft.plotting.atlas:place_text_box": {
+      "kind": "function",
+      "signature": "ax, text, *, placed, fontsize, anchors=ANCHORS, color=None",
+      "positional_parameters": [
+        "ax",
+        "text"
+      ],
+      "source": "sparse_dft/plotting/atlas.py",
+      "line": 793
+    },
+    "sparse_dft.plotting.atlas:draw_plane": {
+      "kind": "function",
+      "signature": "ax, ctx, spec, *, cax=None",
+      "positional_parameters": [
+        "ax",
+        "ctx",
+        "spec"
+      ],
+      "source": "sparse_dft/plotting/atlas.py",
+      "line": 837
+    },
+    "sparse_dft.plotting.atlas:draw_composition": {
+      "kind": "function",
+      "signature": "ax, ctx, spec, colors",
+      "positional_parameters": [
+        "ax",
+        "ctx",
+        "spec",
+        "colors"
+      ],
+      "source": "sparse_dft/plotting/atlas.py",
+      "line": 920
+    },
+    "sparse_dft.plotting.atlas:draw_residuals": {
+      "kind": "function",
+      "signature": "ax, ctx, spec",
+      "positional_parameters": [
+        "ax",
+        "ctx",
+        "spec"
+      ],
+      "source": "sparse_dft/plotting/atlas.py",
+      "line": 971
+    },
+    "sparse_dft.plotting.atlas:residual_note": {
+      "kind": "function",
+      "signature": "ctx",
+      "positional_parameters": [
+        "ctx"
+      ],
+      "source": "sparse_dft/plotting/atlas.py",
+      "line": 1000
+    },
+    "sparse_dft.plotting.atlas:draw_parity": {
+      "kind": "function",
+      "signature": "ax, ctx, spec",
+      "positional_parameters": [
+        "ax",
+        "ctx",
+        "spec"
+      ],
+      "source": "sparse_dft/plotting/atlas.py",
+      "line": 1012
+    },
+    "sparse_dft.plotting.atlas:parity_note": {
+      "kind": "function",
+      "signature": "ctx",
+      "positional_parameters": [
+        "ctx"
+      ],
+      "source": "sparse_dft/plotting/atlas.py",
+      "line": 1043
+    },
+    "sparse_dft.plotting.atlas:best_legend": {
+      "kind": "function",
+      "signature": "ax, handles, *, fontsize, ncol=1, locs=LEGEND_LOCS, outside='right', placed=None, inside_only=False, extra_points=None, **kw",
+      "positional_parameters": [
+        "ax",
+        "handles"
+      ],
+      "source": "sparse_dft/plotting/atlas.py",
+      "line": 1060
+    },
+    "sparse_dft.plotting.atlas:render_combined": {
+      "kind": "function",
+      "signature": "ctx: AtlasContext, *, width='atlas', height_mm=None",
+      "positional_parameters": [
+        "ctx"
+      ],
+      "source": "sparse_dft/plotting/atlas.py",
+      "line": 1201
+    },
+    "sparse_dft.plotting.atlas:render_split": {
+      "kind": "function",
+      "signature": "ctx: AtlasContext",
+      "positional_parameters": [
+        "ctx"
+      ],
+      "source": "sparse_dft/plotting/atlas.py",
+      "line": 1285
+    },
+    "sparse_dft.plotting.atlas:render_atlas": {
+      "kind": "function",
+      "signature": "ctx: AtlasContext, panels='combined', *, width='atlas'",
+      "positional_parameters": [
+        "ctx",
+        "panels"
+      ],
+      "source": "sparse_dft/plotting/atlas.py",
+      "line": 1324
+    },
+    "sparse_dft.plotting.atlas:plot_electronic_atlas": {
+      "kind": "function",
+      "signature": "data, ax=None, *, emin=None, emax=None, **_opts",
+      "positional_parameters": [
+        "data",
+        "ax"
+      ],
+      "source": "sparse_dft/plotting/atlas.py",
+      "line": 1336
+    },
+    "sparse_dft.plotting.band_toolkit:element_colors": {
+      "kind": "function",
+      "signature": "elements, spec",
+      "positional_parameters": [
+        "elements",
+        "spec"
+      ],
+      "source": "sparse_dft/plotting/band_toolkit.py",
+      "line": 46
+    },
+    "sparse_dft.plotting.band_toolkit:orbital_style": {
+      "kind": "function",
+      "signature": "orbital, spec",
+      "positional_parameters": [
+        "orbital",
+        "spec"
+      ],
+      "source": "sparse_dft/plotting/band_toolkit.py",
+      "line": 53
+    },
+    "sparse_dft.plotting.band_toolkit:group_style": {
+      "kind": "function",
+      "signature": "name, by, spec, elements",
+      "positional_parameters": [
+        "name",
+        "by",
+        "spec",
+        "elements"
+      ],
+      "source": "sparse_dft/plotting/band_toolkit.py",
+      "line": 65
+    },
+    "sparse_dft.plotting.band_toolkit:brillouin_inset": {
+      "kind": "function",
+      "signature": "ax, bands: BandStructure, spec, *, bounds=(0.62, 0.56, 0.38, 0.44)",
+      "positional_parameters": [
+        "ax",
+        "bands",
+        "spec"
+      ],
+      "source": "sparse_dft/plotting/band_toolkit.py",
+      "line": 189
+    },
+    "sparse_dft.plotting.band_toolkit:decorate_bands": {
+      "kind": "function",
+      "signature": "ax, bands, kp, shift, spec, lo, hi, *, gap_arrow=True, fermi_bands=False, bz_inset=False",
+      "positional_parameters": [
+        "ax",
+        "bands",
+        "kp",
+        "shift",
+        "spec",
+        "lo",
+        "hi"
+      ],
+      "source": "sparse_dft/plotting/band_toolkit.py",
+      "line": 241
+    },
+    "sparse_dft.plotting.band_toolkit:plot_bands_spin": {
+      "kind": "function",
+      "signature": "data: BandStructure, ax=None, *, emin=None, emax=None, fermi=None, align='fermi', layout='side', gap_arrow=True, **_opts",
+      "positional_parameters": [
+        "data",
+        "ax"
+      ],
+      "source": "sparse_dft/plotting/band_toolkit.py",
+      "line": 250
+    },
+    "sparse_dft.plotting.band_toolkit:plot_fatbands": {
+      "kind": "function",
+      "signature": "data, ax=None, *, emin=None, emax=None, fermi=None, align='fermi', group='l', mode='width', atoms=None, orbitals=None, channel=None, max_width=3.2, gap_arrow=False, bz_inset=False, **_opts",
+      "positional_parameters": [
+        "data",
+        "ax"
+      ],
+      "source": "sparse_dft/plotting/band_toolkit.py",
+      "line": 377
+    },
+    "sparse_dft.plotting.band_toolkit:plot_pdos_resolved": {
+      "kind": "function",
+      "signature": "data: DosData, ax=None, *, emin=None, emax=None, fermi=None, align='fermi', group=None, atoms=None, orbitals=None, integrated=False, stacked=False, show_total=True, **_opts",
+      "positional_parameters": [
+        "data",
+        "ax"
+      ],
+      "source": "sparse_dft/plotting/band_toolkit.py",
+      "line": 491
+    },
+    "sparse_dft.plotting.band_toolkit:plot_bands_pdos": {
+      "kind": "function",
+      "signature": "data, ax=None, *, emin=None, emax=None, fermi=None, align='fermi', group=None, atoms=None, orbitals=None, stacked=True, gap_arrow=True, fermi_bands=False, bz_inset=False, **opts",
+      "positional_parameters": [
+        "data",
+        "ax"
+      ],
+      "source": "sparse_dft/plotting/band_toolkit.py",
+      "line": 583
+    },
+    "sparse_dft.plotting.band_toolkit:plot_dos_compare": {
+      "kind": "function",
+      "signature": "data, ax=None, *, emin=None, emax=None, fermi=None, align='fermi', labels=None, **_opts",
+      "positional_parameters": [
+        "data",
+        "ax"
+      ],
+      "source": "sparse_dft/plotting/band_toolkit.py",
+      "line": 664
+    },
+    "sparse_dft.plotting.band_toolkit:suite_plan": {
+      "kind": "function",
+      "signature": "sources, *, reference=None",
+      "positional_parameters": [
+        "sources"
+      ],
+      "source": "sparse_dft/plotting/band_toolkit.py",
+      "line": 734
+    },
+    "sparse_dft.plotting.band_toolkit:band_suite": {
+      "kind": "function",
+      "signature": "sources, out, *, reference=None, dos_reference=None, formats=('pdf', 'png'), dpi=600, width='single', lang='en', palette='academic', **common",
+      "positional_parameters": [
+        "sources",
+        "out"
+      ],
+      "source": "sparse_dft/plotting/band_toolkit.py",
+      "line": 769
+    },
+    "sparse_dft.plotting.cli:build_parser": {
+      "kind": "function",
+      "signature": "",
+      "positional_parameters": [],
+      "source": "sparse_dft/plotting/cli.py",
+      "line": 25
+    },
+    "sparse_dft.plotting.cli:main": {
+      "kind": "function",
+      "signature": "argv: list[str] | None=None",
+      "positional_parameters": [
+        "argv"
+      ],
+      "source": "sparse_dft/plotting/cli.py",
+      "line": 139
+    },
+    "sparse_dft.plotting.detect:SourceInfo": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/plotting/detect.py",
+      "line": 22
+    },
+    "sparse_dft.plotting.detect:classify": {
+      "kind": "function",
+      "signature": "path",
+      "positional_parameters": [
+        "path"
+      ],
+      "source": "sparse_dft/plotting/detect.py",
+      "line": 106
+    },
+    "sparse_dft.plotting.detect:scan": {
+      "kind": "function",
+      "signature": "path",
+      "positional_parameters": [
+        "path"
+      ],
+      "source": "sparse_dft/plotting/detect.py",
+      "line": 221
+    },
+    "sparse_dft.plotting.electronic_plots:resolve_auto_align": {
+      "kind": "function",
+      "signature": "bands: BandStructure | None, align, fermi=None",
+      "positional_parameters": [
+        "bands",
+        "align",
+        "fermi"
+      ],
+      "source": "sparse_dft/plotting/electronic_plots.py",
+      "line": 22
+    },
+    "sparse_dft.plotting.electronic_plots:energy_reference": {
+      "kind": "function",
+      "signature": "bands: BandStructure | None=None, dos: DosData | None=None, *, align='fermi', fermi=None",
+      "positional_parameters": [
+        "bands",
+        "dos"
+      ],
+      "source": "sparse_dft/plotting/electronic_plots.py",
+      "line": 32
+    },
+    "sparse_dft.plotting.electronic_plots:plot_bands": {
+      "kind": "function",
+      "signature": "data: BandStructure, ax=None, *, emin=None, emax=None, fermi=None, align='fermi', show_edges=True, color=None, gap_arrow=False, fermi_bands=False, bz_inset=False, **_opts",
+      "positional_parameters": [
+        "data",
+        "ax"
+      ],
+      "source": "sparse_dft/plotting/electronic_plots.py",
+      "line": 143
+    },
+    "sparse_dft.plotting.electronic_plots:plot_dos": {
+      "kind": "function",
+      "signature": "data: DosData, ax=None, *, emin=None, emax=None, fermi=None, align='fermi', **_opts",
+      "positional_parameters": [
+        "data",
+        "ax"
+      ],
+      "source": "sparse_dft/plotting/electronic_plots.py",
+      "line": 262
+    },
+    "sparse_dft.plotting.electronic_plots:plot_pdos": {
+      "kind": "function",
+      "signature": "data: DosData, ax=None, *, emin=None, emax=None, fermi=None, align='fermi', **_opts",
+      "positional_parameters": [
+        "data",
+        "ax"
+      ],
+      "source": "sparse_dft/plotting/electronic_plots.py",
+      "line": 297
+    },
+    "sparse_dft.plotting.electronic_plots:plot_bands_dos": {
+      "kind": "function",
+      "signature": "data, ax=None, *, emin=None, emax=None, fermi=None, align='fermi', **opts",
+      "positional_parameters": [
+        "data",
+        "ax"
+      ],
+      "source": "sparse_dft/plotting/electronic_plots.py",
+      "line": 360
+    },
+    "sparse_dft.plotting.electronic_plots:plot_fatbands": {
+      "kind": "function",
+      "signature": "data, ax=None, *, emin=None, emax=None, fermi=None, align='fermi', group='l', channel=None, max_width=3.2, **_opts",
+      "positional_parameters": [
+        "data",
+        "ax"
+      ],
+      "source": "sparse_dft/plotting/electronic_plots.py",
+      "line": 404
+    },
+    "sparse_dft.plotting.electronic_plots:plot_bands_compare": {
+      "kind": "function",
+      "signature": "data, ax=None, *, emin=None, emax=None, align='auto', max_energy_ev=10.0, labels=None, **_opts",
+      "positional_parameters": [
+        "data",
+        "ax"
+      ],
+      "source": "sparse_dft/plotting/electronic_plots.py",
+      "line": 486
+    },
+    "sparse_dft.plotting.export:normalize_formats": {
+      "kind": "function",
+      "signature": "formats",
+      "positional_parameters": [
+        "formats"
+      ],
+      "source": "sparse_dft/plotting/export.py",
+      "line": 21
+    },
+    "sparse_dft.plotting.export:provenance_path": {
+      "kind": "function",
+      "signature": "stem",
+      "positional_parameters": [
+        "stem"
+      ],
+      "source": "sparse_dft/plotting/export.py",
+      "line": 38
+    },
+    "sparse_dft.plotting.export:export": {
+      "kind": "function",
+      "signature": "fig, stem, formats=('pdf', 'png'), *, dpi=600, provenance=None",
+      "positional_parameters": [
+        "fig",
+        "stem",
+        "formats"
+      ],
+      "source": "sparse_dft/plotting/export.py",
+      "line": 83
+    },
+    "sparse_dft.plotting.export:export_figures": {
+      "kind": "function",
+      "signature": "figures: dict, stem, formats=('pdf', 'png'), *, dpi=600, provenance=None",
+      "positional_parameters": [
+        "figures",
+        "stem",
+        "formats"
+      ],
+      "source": "sparse_dft/plotting/export.py",
+      "line": 143
+    },
+    "sparse_dft.plotting.figures:available_kinds": {
+      "kind": "function",
+      "signature": "path",
+      "positional_parameters": [
+        "path"
+      ],
+      "source": "sparse_dft/plotting/figures.py",
+      "line": 181
+    },
+    "sparse_dft.plotting.figures:resolve_inputs": {
+      "kind": "function",
+      "signature": "kind, sources, *, reference=None",
+      "positional_parameters": [
+        "kind",
+        "sources"
+      ],
+      "source": "sparse_dft/plotting/figures.py",
+      "line": 194
+    },
+    "sparse_dft.plotting.figures:make_figures": {
+      "kind": "function",
+      "signature": "kind, sources, *, panels='combined', width=None, lang='en', palette='academic', **options",
+      "positional_parameters": [
+        "kind",
+        "sources"
+      ],
+      "source": "sparse_dft/plotting/figures.py",
+      "line": 339
+    },
+    "sparse_dft.plotting.figures:make_figure": {
+      "kind": "function",
+      "signature": "kind, sources, *, width='single', lang='en', palette='academic', **options",
+      "positional_parameters": [
+        "kind",
+        "sources"
+      ],
+      "source": "sparse_dft/plotting/figures.py",
+      "line": 365
+    },
+    "sparse_dft.plotting.labels:tr": {
+      "kind": "function",
+      "signature": "key: str, lang: str | None=None, **kwargs",
+      "positional_parameters": [
+        "key",
+        "lang"
+      ],
+      "source": "sparse_dft/plotting/labels.py",
+      "line": 134
+    },
+    "sparse_dft.plotting.qa:layout_report": {
+      "kind": "function",
+      "signature": "fig, *, overlap_px=1.5",
+      "positional_parameters": [
+        "fig"
+      ],
+      "source": "sparse_dft/plotting/qa.py",
+      "line": 122
+    },
+    "sparse_dft.plotting.qa:describe": {
+      "kind": "function",
+      "signature": "fig",
+      "positional_parameters": [
+        "fig"
+      ],
+      "source": "sparse_dft/plotting/qa.py",
+      "line": 193
+    },
+    "sparse_dft.plotting.scf_plots:plot_scf_convergence": {
+      "kind": "function",
+      "signature": "data: ScfHistory, ax=None, *, show_eigensolver=True, **_opts",
+      "positional_parameters": [
+        "data",
+        "ax"
+      ],
+      "source": "sparse_dft/plotting/scf_plots.py",
+      "line": 34
+    },
+    "sparse_dft.plotting.scf_plots:plot_magnetization": {
+      "kind": "function",
+      "signature": "data: ScfHistory, ax=None, **_opts",
+      "positional_parameters": [
+        "data",
+        "ax"
+      ],
+      "source": "sparse_dft/plotting/scf_plots.py",
+      "line": 96
+    },
+    "sparse_dft.plotting.scf_plots:plot_energy_terms": {
+      "kind": "function",
+      "signature": "data: EnergyTerms, ax=None, *, mode='auto', per_atom=False, **_opts",
+      "positional_parameters": [
+        "data",
+        "ax"
+      ],
+      "source": "sparse_dft/plotting/scf_plots.py",
+      "line": 131
+    },
+    "sparse_dft.plotting.scf_plots:plot_forces": {
+      "kind": "function",
+      "signature": "data: ForceSet, ax=None, *, tolerance=None, annotate=None, **_opts",
+      "positional_parameters": [
+        "data",
+        "ax"
+      ],
+      "source": "sparse_dft/plotting/scf_plots.py",
+      "line": 236
+    },
+    "sparse_dft.plotting.scf_plots:plot_stress": {
+      "kind": "function",
+      "signature": "data: StressTensor, ax=None, **_opts",
+      "positional_parameters": [
+        "data",
+        "ax"
+      ],
+      "source": "sparse_dft/plotting/scf_plots.py",
+      "line": 291
+    },
+    "sparse_dft.plotting.scf_plots:plot_timing": {
+      "kind": "function",
+      "signature": "data: TimingProfile, ax=None, *, top=15, log=False, **_opts",
+      "positional_parameters": [
+        "data",
+        "ax"
+      ],
+      "source": "sparse_dft/plotting/scf_plots.py",
+      "line": 334
+    },
+    "sparse_dft.plotting.style:pick_font": {
+      "kind": "function",
+      "signature": "candidates",
+      "positional_parameters": [
+        "candidates"
+      ],
+      "source": "sparse_dft/plotting/style.py",
+      "line": 85
+    },
+    "sparse_dft.plotting.style:font_stack": {
+      "kind": "function",
+      "signature": "lang: str='en'",
+      "positional_parameters": [
+        "lang"
+      ],
+      "source": "sparse_dft/plotting/style.py",
+      "line": 91
+    },
+    "sparse_dft.plotting.style:latin_font": {
+      "kind": "function",
+      "signature": "",
+      "positional_parameters": [],
+      "source": "sparse_dft/plotting/style.py",
+      "line": 113
+    },
+    "sparse_dft.plotting.style:mm": {
+      "kind": "function",
+      "signature": "value_mm: float",
+      "positional_parameters": [
+        "value_mm"
+      ],
+      "source": "sparse_dft/plotting/style.py",
+      "line": 117
+    },
+    "sparse_dft.plotting.style:width_mm": {
+      "kind": "function",
+      "signature": "width",
+      "positional_parameters": [
+        "width"
+      ],
+      "source": "sparse_dft/plotting/style.py",
+      "line": 121
+    },
+    "sparse_dft.plotting.style:palette_colors": {
+      "kind": "function",
+      "signature": "palette",
+      "positional_parameters": [
+        "palette"
+      ],
+      "source": "sparse_dft/plotting/style.py",
+      "line": 134
+    },
+    "sparse_dft.plotting.style:tint": {
+      "kind": "function",
+      "signature": "color, fraction: float=0.6",
+      "positional_parameters": [
+        "color",
+        "fraction"
+      ],
+      "source": "sparse_dft/plotting/style.py",
+      "line": 143
+    },
+    "sparse_dft.plotting.style:orbital_cmap": {
+      "kind": "function",
+      "signature": "",
+      "positional_parameters": [],
+      "source": "sparse_dft/plotting/style.py",
+      "line": 157
+    },
+    "sparse_dft.plotting.style:bz_cmap": {
+      "kind": "function",
+      "signature": "",
+      "positional_parameters": [],
+      "source": "sparse_dft/plotting/style.py",
+      "line": 162
+    },
+    "sparse_dft.plotting.style:diverging_cmap": {
+      "kind": "function",
+      "signature": "palette='okabe_ito'",
+      "positional_parameters": [
+        "palette"
+      ],
+      "source": "sparse_dft/plotting/style.py",
+      "line": 167
+    },
+    "sparse_dft.plotting.style:StyleSpec": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/plotting/style.py",
+      "line": 177
+    },
+    "sparse_dft.plotting.style:make_style": {
+      "kind": "function",
+      "signature": "width='single', *, lang='en', palette=DEFAULT_PALETTE, base_fontsize=7.0, frame: bool | None=None",
+      "positional_parameters": [
+        "width"
+      ],
+      "source": "sparse_dft/plotting/style.py",
+      "line": 269
+    },
+    "sparse_dft.plotting.style:current_style": {
+      "kind": "function",
+      "signature": "",
+      "positional_parameters": [],
+      "source": "sparse_dft/plotting/style.py",
+      "line": 283
+    },
+    "sparse_dft.plotting.style:figure_style": {
+      "kind": "function",
+      "signature": "width='single', *, lang='en', palette=DEFAULT_PALETTE, base_fontsize=7.0, frame=None",
+      "positional_parameters": [
+        "width"
+      ],
+      "source": "sparse_dft/plotting/style.py",
+      "line": 289
+    },
+    "sparse_dft.plotting.style:use_spec": {
+      "kind": "function",
+      "signature": "spec: StyleSpec | None",
+      "positional_parameters": [
+        "spec"
+      ],
+      "source": "sparse_dft/plotting/style.py",
+      "line": 305
+    },
+    "sparse_dft.plotting.style:StyledFigure": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/plotting/style.py",
+      "line": 317
+    },
+    "sparse_dft.plotting.style:style_of": {
+      "kind": "function",
+      "signature": "fig",
+      "positional_parameters": [
+        "fig"
+      ],
+      "source": "sparse_dft/plotting/style.py",
+      "line": 330
+    },
+    "sparse_dft.plotting.style:new_figure": {
+      "kind": "function",
+      "signature": "width='single', height_mm=None, nrows=1, ncols=1, **subplots_kw",
+      "positional_parameters": [
+        "width",
+        "height_mm",
+        "nrows",
+        "ncols"
+      ],
+      "source": "sparse_dft/plotting/style.py",
+      "line": 334
+    },
+    "sparse_dft.plotting.style:blank_figure": {
+      "kind": "function",
+      "signature": "width='single', height_mm=None, *, layout='constrained'",
+      "positional_parameters": [
+        "width",
+        "height_mm"
+      ],
+      "source": "sparse_dft/plotting/style.py",
+      "line": 368
+    },
+    "sparse_dft.plotting.style:panel_labels": {
+      "kind": "function",
+      "signature": "axes, start='a', *, offset_pt=(-14.0, 2.0), fontsize=None",
+      "positional_parameters": [
+        "axes",
+        "start"
+      ],
+      "source": "sparse_dft/plotting/style.py",
+      "line": 382
+    },
+    "sparse_dft.plotting.style:frame_axes": {
+      "kind": "function",
+      "signature": "ax, *, grid='y'",
+      "positional_parameters": [
+        "ax"
+      ],
+      "source": "sparse_dft/plotting/style.py",
+      "line": 395
+    },
+    "sparse_dft.plotting.style:panel_title": {
+      "kind": "function",
+      "signature": "ax, letter, text=None, *, loc='left', fontsize=None",
+      "positional_parameters": [
+        "ax",
+        "letter",
+        "text"
+      ],
+      "source": "sparse_dft/plotting/style.py",
+      "line": 409
+    },
+    "sparse_dft.plotting.style:figure_header": {
+      "kind": "function",
+      "signature": "fig, title, subtitle=None, *, top=0.985, gap=0.022",
+      "positional_parameters": [
+        "fig",
+        "title",
+        "subtitle"
+      ],
+      "source": "sparse_dft/plotting/style.py",
+      "line": 428
+    },
+    "sparse_dft.plotting.workflow_plots:plot_relax": {
+      "kind": "function",
+      "signature": "data: RelaxTrajectory, ax=None, **_opts",
+      "positional_parameters": [
+        "data",
+        "ax"
+      ],
+      "source": "sparse_dft/plotting/workflow_plots.py",
+      "line": 37
+    },
+    "sparse_dft.plotting.workflow_plots:plot_sparsity_pareto": {
+      "kind": "function",
+      "signature": "data: SweepTable, ax=None, *, metric='auto', systems=None, label_points=False, floor=0.0001, **_opts",
+      "positional_parameters": [
+        "data",
+        "ax"
+      ],
+      "source": "sparse_dft/plotting/workflow_plots.py",
+      "line": 94
+    },
+    "sparse_dft.plotting.workflow_plots:plot_scaling": {
+      "kind": "function",
+      "signature": "data: ScalingSet, ax=None, *, ideal=True, **_opts",
+      "positional_parameters": [
+        "data",
+        "ax"
+      ],
+      "source": "sparse_dft/plotting/workflow_plots.py",
+      "line": 185
+    },
+    "sparse_dft.prepared_paw_cache:sha": {
+      "kind": "function",
+      "signature": "path",
+      "positional_parameters": [
+        "path"
+      ],
+      "source": "sparse_dft/prepared_paw_cache.py",
+      "line": 18
+    },
+    "sparse_dft.prepared_paw_cache:locked": {
+      "kind": "function",
+      "signature": "path",
+      "positional_parameters": [
+        "path"
+      ],
+      "source": "sparse_dft/prepared_paw_cache.py",
+      "line": 26
+    },
+    "sparse_dft.prepared_paw_cache:prepare": {
+      "kind": "function",
+      "signature": "archive, record_id, destination",
+      "positional_parameters": [
+        "archive",
+        "record_id",
+        "destination"
+      ],
+      "source": "sparse_dft/prepared_paw_cache.py",
+      "line": 53
+    },
+    "sparse_dft.presets:StructureProfile": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/presets.py",
+      "line": 80
+    },
+    "sparse_dft.presets:nominal_oxidation_states": {
+      "kind": "function",
+      "signature": "counts: dict",
+      "positional_parameters": [
+        "counts"
+      ],
+      "source": "sparse_dft/presets.py",
+      "line": 167
+    },
+    "sparse_dft.presets:d_electrons": {
+      "kind": "function",
+      "signature": "symbol: str, oxidation: float",
+      "positional_parameters": [
+        "symbol",
+        "oxidation"
+      ],
+      "source": "sparse_dft/presets.py",
+      "line": 200
+    },
+    "sparse_dft.presets:f_electrons": {
+      "kind": "function",
+      "signature": "symbol: str, oxidation: float",
+      "positional_parameters": [
+        "symbol",
+        "oxidation"
+      ],
+      "source": "sparse_dft/presets.py",
+      "line": 205
+    },
+    "sparse_dft.presets:high_spin_moment": {
+      "kind": "function",
+      "signature": "d_count: float",
+      "positional_parameters": [
+        "d_count"
+      ],
+      "source": "sparse_dft/presets.py",
+      "line": 212
+    },
+    "sparse_dft.presets:analyze_structure": {
+      "kind": "function",
+      "signature": "structure: Structure, paw_root=None, *, paw_family: str='standard', with_symmetry: bool=True",
+      "positional_parameters": [
+        "structure",
+        "paw_root"
+      ],
+      "source": "sparse_dft/presets.py",
+      "line": 217
+    },
+    "sparse_dft.presets:classify": {
+      "kind": "function",
+      "signature": "p: StructureProfile",
+      "positional_parameters": [
+        "p"
+      ],
+      "source": "sparse_dft/presets.py",
+      "line": 257
+    },
+    "sparse_dft.presets:Item": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/presets.py",
+      "line": 410
+    },
+    "sparse_dft.presets:suggest": {
+      "kind": "function",
+      "signature": "profile: StructureProfile, task: str='scf', structure: Structure | None=None, *, accuracy: str='standard'",
+      "positional_parameters": [
+        "profile",
+        "task",
+        "structure"
+      ],
+      "source": "sparse_dft/presets.py",
+      "line": 495
+    },
+    "sparse_dft.presets:options_from_items": {
+      "kind": "function",
+      "signature": "items",
+      "positional_parameters": [
+        "items"
+      ],
+      "source": "sparse_dft/presets.py",
+      "line": 601
+    },
+    "sparse_dft.presets:suggested_hubbard": {
+      "kind": "function",
+      "signature": "p: StructureProfile",
+      "positional_parameters": [
+        "p"
+      ],
+      "source": "sparse_dft/presets.py",
+      "line": 611
+    },
+    "sparse_dft.presets:band_path": {
+      "kind": "function",
+      "signature": "structure: Structure, **kwargs",
+      "positional_parameters": [
+        "structure"
+      ],
+      "source": "sparse_dft/presets.py",
+      "line": 624
+    },
+    "sparse_dft.presets:suggest_file": {
+      "kind": "function",
+      "signature": "path, task: str='scf', paw_root=None, *, accuracy: str='standard', band_path_out=None",
+      "positional_parameters": [
+        "path",
+        "task",
+        "paw_root"
+      ],
+      "source": "sparse_dft/presets.py",
+      "line": 630
+    },
+    "sparse_dft.presets:suggested_argv": {
+      "kind": "function",
+      "signature": "payload: dict, paw_root=None",
+      "positional_parameters": [
+        "payload",
+        "paw_root"
+      ],
+      "source": "sparse_dft/presets.py",
+      "line": 648
+    },
+    "sparse_dft.progress:now": {
+      "kind": "function",
+      "signature": "",
+      "positional_parameters": [],
+      "source": "sparse_dft/progress.py",
+      "line": 14
+    },
+    "sparse_dft.progress:init_progress": {
+      "kind": "function",
+      "signature": "root='workflow'",
+      "positional_parameters": [
+        "root"
+      ],
+      "source": "sparse_dft/progress.py",
+      "line": 16
+    },
+    "sparse_dft.progress:update_task": {
+      "kind": "function",
+      "signature": "task_id, status, *, tests=None, commands=None, artifacts=None, blockers=None, next_action=None, root='workflow'",
+      "positional_parameters": [
+        "task_id",
+        "status"
+      ],
+      "source": "sparse_dft/progress.py",
+      "line": 25
+    },
+    "sparse_dft.progress:log_event": {
+      "kind": "function",
+      "signature": "event, root='workflow'",
+      "positional_parameters": [
+        "event",
+        "root"
+      ],
+      "source": "sparse_dft/progress.py",
+      "line": 41
+    },
+    "sparse_dft.progress:doctor": {
+      "kind": "function",
+      "signature": "root='workflow'",
+      "positional_parameters": [
+        "root"
+      ],
+      "source": "sparse_dft/progress.py",
+      "line": 45
+    },
+    "sparse_dft.relax:finite_difference_forces": {
+      "kind": "function",
+      "signature": "structure, paw_root, workdir, *, step_angstrom=0.001, max_workers=1, cache=None, **kwargs",
+      "positional_parameters": [
+        "structure",
+        "paw_root",
+        "workdir"
+      ],
+      "source": "sparse_dft/relax.py",
+      "line": 87
+    },
+    "sparse_dft.relax:ionic_relax": {
+      "kind": "function",
+      "signature": "structure, paw_root, output, *, derivative_method='analytic', max_workers=1, step_angstrom=0.001, **kwargs",
+      "positional_parameters": [
+        "structure",
+        "paw_root",
+        "output"
+      ],
+      "source": "sparse_dft/relax.py",
+      "line": 287
+    },
+    "sparse_dft.relax:cell_relax": {
+      "kind": "function",
+      "signature": "structure, paw_root, output, *, derivative_method='analytic', max_workers=1, step_angstrom=0.001, **kwargs",
+      "positional_parameters": [
+        "structure",
+        "paw_root",
+        "output"
+      ],
+      "source": "sparse_dft/relax.py",
+      "line": 297
+    },
+    "sparse_dft.resources:project_paw_archive": {
+      "kind": "function",
+      "signature": "",
+      "positional_parameters": [],
+      "source": "sparse_dft/resources.py",
+      "line": 30
+    },
+    "sparse_dft.resources:is_frozen": {
+      "kind": "function",
+      "signature": "",
+      "positional_parameters": [],
+      "source": "sparse_dft/resources.py",
+      "line": 43
+    },
+    "sparse_dft.resources:resource_root": {
+      "kind": "function",
+      "signature": "",
+      "positional_parameters": [],
+      "source": "sparse_dft/resources.py",
+      "line": 48
+    },
+    "sparse_dft.resources:platform_tag": {
+      "kind": "function",
+      "signature": "",
+      "positional_parameters": [],
+      "source": "sparse_dft/resources.py",
+      "line": 64
+    },
+    "sparse_dft.resources:executable_name": {
+      "kind": "function",
+      "signature": "name: str",
+      "positional_parameters": [
+        "name"
+      ],
+      "source": "sparse_dft/resources.py",
+      "line": 74
+    },
+    "sparse_dft.resources:executable_candidates": {
+      "kind": "function",
+      "signature": "name: str",
+      "positional_parameters": [
+        "name"
+      ],
+      "source": "sparse_dft/resources.py",
+      "line": 86
+    },
+    "sparse_dft.resources:find_executable": {
+      "kind": "function",
+      "signature": "name: str",
+      "positional_parameters": [
+        "name"
+      ],
+      "source": "sparse_dft/resources.py",
+      "line": 105
+    },
+    "sparse_dft.resources:user_data_dir": {
+      "kind": "function",
+      "signature": "",
+      "positional_parameters": [],
+      "source": "sparse_dft/resources.py",
+      "line": 140
+    },
+    "sparse_dft.resources:paw_search_paths": {
+      "kind": "function",
+      "signature": "",
+      "positional_parameters": [],
+      "source": "sparse_dft/resources.py",
+      "line": 155
+    },
+    "sparse_dft.resources:fonts_dir": {
+      "kind": "function",
+      "signature": "",
+      "positional_parameters": [],
+      "source": "sparse_dft/resources.py",
+      "line": 164
+    },
+    "sparse_dft.resources:translations_dir": {
+      "kind": "function",
+      "signature": "",
+      "positional_parameters": [],
+      "source": "sparse_dft/resources.py",
+      "line": 169
+    },
+    "sparse_dft.result_io:write_augmented_result": {
+      "kind": "function",
+      "signature": "path, native_text, native_keys, result, added_keys",
+      "positional_parameters": [
+        "path",
+        "native_text",
+        "native_keys",
+        "result",
+        "added_keys"
+      ],
+      "source": "sparse_dft/result_io.py",
+      "line": 6
+    },
+    "sparse_dft.runner:JobError": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/runner.py",
+      "line": 48
+    },
+    "sparse_dft.runner:JobCancelled": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/runner.py",
+      "line": 52
+    },
+    "sparse_dft.runner:now_iso": {
+      "kind": "function",
+      "signature": "",
+      "positional_parameters": [],
+      "source": "sparse_dft/runner.py",
+      "line": 58
+    },
+    "sparse_dft.runner:validate_job": {
+      "kind": "function",
+      "signature": "job",
+      "positional_parameters": [
+        "job"
+      ],
+      "source": "sparse_dft/runner.py",
+      "line": 62
+    },
+    "sparse_dft.runner:make_job": {
+      "kind": "function",
+      "signature": "argv=None, *, kind='cli', env=None, cwd=None, label=None, method=None, params=None",
+      "positional_parameters": [
+        "argv"
+      ],
+      "source": "sparse_dft/runner.py",
+      "line": 99
+    },
+    "sparse_dft.runner:load_job": {
+      "kind": "function",
+      "signature": "path",
+      "positional_parameters": [
+        "path"
+      ],
+      "source": "sparse_dft/runner.py",
+      "line": 113
+    },
+    "sparse_dft.runner:atomic_write_json": {
+      "kind": "function",
+      "signature": "path, payload",
+      "positional_parameters": [
+        "path",
+        "payload"
+      ],
+      "source": "sparse_dft/runner.py",
+      "line": 121
+    },
+    "sparse_dft.runner:write_job": {
+      "kind": "function",
+      "signature": "path, job",
+      "positional_parameters": [
+        "path",
+        "job"
+      ],
+      "source": "sparse_dft/runner.py",
+      "line": 145
+    },
+    "sparse_dft.runner:read_status": {
+      "kind": "function",
+      "signature": "path",
+      "positional_parameters": [
+        "path"
+      ],
+      "source": "sparse_dft/runner.py",
+      "line": 149
+    },
+    "sparse_dft.runner:default_status_path": {
+      "kind": "function",
+      "signature": "job_path",
+      "positional_parameters": [
+        "job_path"
+      ],
+      "source": "sparse_dft/runner.py",
+      "line": 157
+    },
+    "sparse_dft.runner:mask_argv": {
+      "kind": "function",
+      "signature": "argv",
+      "positional_parameters": [
+        "argv"
+      ],
+      "source": "sparse_dft/runner.py",
+      "line": 162
+    },
+    "sparse_dft.runner:output_dir_for": {
+      "kind": "function",
+      "signature": "job, cwd=None",
+      "positional_parameters": [
+        "job",
+        "cwd"
+      ],
+      "source": "sparse_dft/runner.py",
+      "line": 191
+    },
+    "sparse_dft.runner:iteration_log_names": {
+      "kind": "function",
+      "signature": "command: str",
+      "positional_parameters": [
+        "command"
+      ],
+      "source": "sparse_dft/runner.py",
+      "line": 216
+    },
+    "sparse_dft.runner:latest_iteration_log": {
+      "kind": "function",
+      "signature": "root",
+      "positional_parameters": [
+        "root"
+      ],
+      "source": "sparse_dft/runner.py",
+      "line": 222
+    },
+    "sparse_dft.runner:IterationTail": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/runner.py",
+      "line": 238
+    },
+    "sparse_dft.runner:configure_stdio": {
+      "kind": "function",
+      "signature": "",
+      "positional_parameters": [],
+      "source": "sparse_dft/runner.py",
+      "line": 334
+    },
+    "sparse_dft.runner:cancel_request_path": {
+      "kind": "function",
+      "signature": "status_path",
+      "positional_parameters": [
+        "status_path"
+      ],
+      "source": "sparse_dft/runner.py",
+      "line": 360
+    },
+    "sparse_dft.runner:base_status": {
+      "kind": "function",
+      "signature": "job, *, state, status_path=None",
+      "positional_parameters": [
+        "job"
+      ],
+      "source": "sparse_dft/runner.py",
+      "line": 464
+    },
+    "sparse_dft.runner:main": {
+      "kind": "function",
+      "signature": "argv=None",
+      "positional_parameters": [
+        "argv"
+      ],
+      "source": "sparse_dft/runner.py",
+      "line": 473
+    },
+    "sparse_dft.runner:WindowsJobObject": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/runner.py",
+      "line": 557
+    },
+    "sparse_dft.runner:frozen_worker_executable": {
+      "kind": "function",
+      "signature": "",
+      "positional_parameters": [],
+      "source": "sparse_dft/runner.py",
+      "line": 646
+    },
+    "sparse_dft.runner:worker_command": {
+      "kind": "function",
+      "signature": "job_path, status_path=None",
+      "positional_parameters": [
+        "job_path",
+        "status_path"
+      ],
+      "source": "sparse_dft/runner.py",
+      "line": 658
+    },
+    "sparse_dft.runner:worker_environment": {
+      "kind": "function",
+      "signature": "base=None, extra=None",
+      "positional_parameters": [
+        "base",
+        "extra"
+      ],
+      "source": "sparse_dft/runner.py",
+      "line": 667
+    },
+    "sparse_dft.runner:popen_platform_kwargs": {
+      "kind": "function",
+      "signature": "",
+      "positional_parameters": [],
+      "source": "sparse_dft/runner.py",
+      "line": 685
+    },
+    "sparse_dft.runner:request_cancel": {
+      "kind": "function",
+      "signature": "status_path",
+      "positional_parameters": [
+        "status_path"
+      ],
+      "source": "sparse_dft/runner.py",
+      "line": 694
+    },
+    "sparse_dft.runner:signal_tree": {
+      "kind": "function",
+      "signature": "pid: int",
+      "positional_parameters": [
+        "pid"
+      ],
+      "source": "sparse_dft/runner.py",
+      "line": 702
+    },
+    "sparse_dft.runner:kill_tree": {
+      "kind": "function",
+      "signature": "pid: int, job_object=None",
+      "positional_parameters": [
+        "pid",
+        "job_object"
+      ],
+      "source": "sparse_dft/runner.py",
+      "line": 710
+    },
+    "sparse_dft.runner:group_alive": {
+      "kind": "function",
+      "signature": "pgid: int",
+      "positional_parameters": [
+        "pgid"
+      ],
+      "source": "sparse_dft/runner.py",
+      "line": 724
+    },
+    "sparse_dft.runner:terminate_tree": {
+      "kind": "function",
+      "signature": "pid: int, *, grace: float=3.0, job_object=None, poll=None, status_path=None",
+      "positional_parameters": [
+        "pid"
+      ],
+      "source": "sparse_dft/runner.py",
+      "line": 735
+    },
+    "sparse_dft.runner:finalize_status": {
+      "kind": "function",
+      "signature": "status_path, job, returncode, *, cancelled=False",
+      "positional_parameters": [
+        "status_path",
+        "job",
+        "returncode"
+      ],
+      "source": "sparse_dft/runner.py",
+      "line": 757
+    },
+    "sparse_dft.runner:JobProcess": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/runner.py",
+      "line": 772
+    },
+    "sparse_dft.scf:PreparedPawSession": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/scf.py",
+      "line": 187
+    },
+    "sparse_dft.scf:preview_sparsity": {
+      "kind": "function",
+      "signature": "structure: str | Path | Structure, paw_root: str | Path, output: str | Path, *, cutoff_ev=None, accuracy='standard', scf_grid=None, mesh_mode='gamma', smearing_ev=0.0, spin_channels=1, initial_moments=None, atomic_units='codata', family='standard', controls=None",
+      "positional_parameters": [
+        "structure",
+        "paw_root",
+        "output"
+      ],
+      "source": "sparse_dft/scf.py",
+      "line": 252
+    },
+    "sparse_dft.scf:run_scf": {
+      "kind": "function",
+      "signature": "structure: str | Path | Structure, paw_root: str | Path, output: str | Path, *, cutoff_ev=None, max_iterations=240, density_tolerance=1e-06, onecenter_density_tolerance=1e-06, mixing=DEFAULT_SCF_MIXING, bands=0, family='standard', accuracy='standard', kpoint=(0.0, 0.0, 0.0), scf_kpoints=None, scf_weights=None, scf_grid=None, mesh_mode='gamma', smearing_ev=0.0, atomic_units='codata', density_cutoff_ev=None, projector_interpolation='cubic', basis_reference_lattice_bohr=None, _paw_session=None, geometry_guess=None, save_geometry_guess=False, spin_channels=1, initial_moments=None, hubbard=None, sparsity=None, parallel=None, solver=None",
+      "positional_parameters": [
+        "structure",
+        "paw_root",
+        "output"
+      ],
+      "source": "sparse_dft/scf.py",
+      "line": 330
+    },
+    "sparse_dft.scf:run_bands": {
+      "kind": "function",
+      "signature": "structure: str | Path | Structure, paw_root: str | Path, output: str | Path, kpoints: list[tuple[float, float, float]], *, cutoff_ev=None, max_iterations=240, density_tolerance=1e-06, onecenter_density_tolerance=1e-06, mixing=DEFAULT_SCF_MIXING, bands=0, family='standard', accuracy='standard', scf_kpoint=(0.0, 0.0, 0.0), scf_kpoints=None, scf_weights=None, scf_grid=None, mesh_mode='gamma', smearing_ev=0.0, atomic_units='codata', scf_checkpoint=None, path_labels=None, density_cutoff_ev=None, projector_interpolation=None, spin_channels=None, initial_moments=None, hubbard=None, sparsity=None, parallel=None, solver=None",
+      "positional_parameters": [
+        "structure",
+        "paw_root",
+        "output",
+        "kpoints"
+      ],
+      "source": "sparse_dft/scf.py",
+      "line": 426
+    },
+    "sparse_dft.scf:run_dos": {
+      "kind": "function",
+      "signature": "structure: str | Path | Structure, paw_root: str | Path, output: str | Path, dos_grid, *, dos_mesh_mode='gamma', sigma_ev=0.05, npoints=None, energy_step_ev=0.005, emin_ev=None, emax_ev=None, **bands_options",
+      "positional_parameters": [
+        "structure",
+        "paw_root",
+        "output",
+        "dos_grid"
+      ],
+      "source": "sparse_dft/scf.py",
+      "line": 551
+    },
+    "sparse_dft.settings:validate_cutoff": {
+      "kind": "function",
+      "signature": "value: float | None, *, name: str='cutoff_ev'",
+      "positional_parameters": [
+        "value"
+      ],
+      "source": "sparse_dft/settings.py",
+      "line": 43
+    },
+    "sparse_dft.settings:validate_density_cutoff": {
+      "kind": "function",
+      "signature": "value: float | None, cutoff_ev: float",
+      "positional_parameters": [
+        "value",
+        "cutoff_ev"
+      ],
+      "source": "sparse_dft/settings.py",
+      "line": 55
+    },
+    "sparse_dft.settings:recommended_cutoff": {
+      "kind": "function",
+      "signature": "candidates: Mapping | None=None",
+      "positional_parameters": [
+        "candidates"
+      ],
+      "source": "sparse_dft/settings.py",
+      "line": 70
+    },
+    "sparse_dft.settings:resolve_cutoff": {
+      "kind": "function",
+      "signature": "value: float | None, candidates: Mapping | None=None",
+      "positional_parameters": [
+        "value",
+        "candidates"
+      ],
+      "source": "sparse_dft/settings.py",
+      "line": 94
+    },
+    "sparse_dft.settings:automatic_cutoff": {
+      "kind": "function",
+      "signature": "enmax_values, accuracy: str='standard'",
+      "positional_parameters": [
+        "enmax_values",
+        "accuracy"
+      ],
+      "source": "sparse_dft/settings.py",
+      "line": 101
+    },
+    "sparse_dft.settings:validate_nscf_path": {
+      "kind": "function",
+      "signature": "kpoints, *, maximum: int=KPOINT_GRID_LIMITS['nscf']",
+      "positional_parameters": [
+        "kpoints"
+      ],
+      "source": "sparse_dft/settings.py",
+      "line": 118
+    },
+    "sparse_dft.settings:validate_max_iterations": {
+      "kind": "function",
+      "signature": "value: int, *, name: str='max_iterations'",
+      "positional_parameters": [
+        "value"
+      ],
+      "source": "sparse_dft/settings.py",
+      "line": 135
+    },
+    "sparse_dft.settings:validate_timeout": {
+      "kind": "function",
+      "signature": "value: float | None",
+      "positional_parameters": [
+        "value"
+      ],
+      "source": "sparse_dft/settings.py",
+      "line": 151
+    },
+    "sparse_dft.sparsity:SparsityProfile": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/sparsity.py",
+      "line": 66
+    },
+    "sparse_dft.sparsity:validate_auto_controls": {
+      "kind": "function",
+      "signature": "controls: dict",
+      "positional_parameters": [
+        "controls"
+      ],
+      "source": "sparse_dft/sparsity.py",
+      "line": 101
+    },
+    "sparse_dft.sparsity:validate_profile": {
+      "kind": "function",
+      "signature": "profile: SparsityProfile",
+      "positional_parameters": [
+        "profile"
+      ],
+      "source": "sparse_dft/sparsity.py",
+      "line": 135
+    },
+    "sparse_dft.sparsity:profile_environment": {
+      "kind": "function",
+      "signature": "profile: SparsityProfile, base: dict | None=None",
+      "positional_parameters": [
+        "profile",
+        "base"
+      ],
+      "source": "sparse_dft/sparsity.py",
+      "line": 180
+    },
+    "sparse_dft.sparsity:validate_solver_controls": {
+      "kind": "function",
+      "signature": "controls: dict | None",
+      "positional_parameters": [
+        "controls"
+      ],
+      "source": "sparse_dft/sparsity.py",
+      "line": 230
+    },
+    "sparse_dft.sparsity:solver_environment": {
+      "kind": "function",
+      "signature": "controls: dict | None, base: dict | None=None",
+      "positional_parameters": [
+        "controls",
+        "base"
+      ],
+      "source": "sparse_dft/sparsity.py",
+      "line": 261
+    },
+    "sparse_dft.sparsity:resolved_density_cutoff": {
+      "kind": "function",
+      "signature": "profile: SparsityProfile, cutoff_ev: float, explicit_density_cutoff_ev: float | None",
+      "positional_parameters": [
+        "profile",
+        "cutoff_ev",
+        "explicit_density_cutoff_ev"
+      ],
+      "source": "sparse_dft/sparsity.py",
+      "line": 273
+    },
+    "sparse_dft.sparsity:load_rules": {
+      "kind": "function",
+      "signature": "path: Path=RULES_PATH",
+      "positional_parameters": [
+        "path"
+      ],
+      "source": "sparse_dft/sparsity.py",
+      "line": 282
+    },
+    "sparse_dft.sparsity:run_probe": {
+      "kind": "function",
+      "signature": "executable: Path, input_path: Path, output_path: Path, candidates=None",
+      "positional_parameters": [
+        "executable",
+        "input_path",
+        "output_path",
+        "candidates"
+      ],
+      "source": "sparse_dft/sparsity.py",
+      "line": 302
+    },
+    "sparse_dft.sparsity:probe_factors": {
+      "kind": "function",
+      "signature": "probe: dict",
+      "positional_parameters": [
+        "probe"
+      ],
+      "source": "sparse_dft/sparsity.py",
+      "line": 312
+    },
+    "sparse_dft.sparsity:probe_environment": {
+      "kind": "function",
+      "signature": "candidates, base: dict | None=None",
+      "positional_parameters": [
+        "candidates",
+        "base"
+      ],
+      "source": "sparse_dft/sparsity.py",
+      "line": 339
+    },
+    "sparse_dft.sparsity:system_features": {
+      "kind": "function",
+      "signature": "probe: dict, *, natoms: int, smearing_ev: float, spin_channels: int, vacuum_fraction: float",
+      "positional_parameters": [
+        "probe"
+      ],
+      "source": "sparse_dft/sparsity.py",
+      "line": 357
+    },
+    "sparse_dft.sparsity:auto_candidates": {
+      "kind": "function",
+      "signature": "controls: dict, rules: dict | None=None",
+      "positional_parameters": [
+        "controls",
+        "rules"
+      ],
+      "source": "sparse_dft/sparsity.py",
+      "line": 369
+    },
+    "sparse_dft.sparsity:resolve_auto": {
+      "kind": "function",
+      "signature": "probe: dict, features: dict, rules: dict | None=None, controls: dict | None=None",
+      "positional_parameters": [
+        "probe",
+        "features",
+        "rules",
+        "controls"
+      ],
+      "source": "sparse_dft/sparsity.py",
+      "line": 383
+    },
+    "sparse_dft.sparsity:with_overrides": {
+      "kind": "function",
+      "signature": "profile: SparsityProfile, **overrides",
+      "positional_parameters": [
+        "profile"
+      ],
+      "source": "sparse_dft/sparsity.py",
+      "line": 483
+    },
+    "sparse_dft.sparsity:coerce_profile": {
+      "kind": "function",
+      "signature": "value",
+      "positional_parameters": [
+        "value"
+      ],
+      "source": "sparse_dft/sparsity.py",
+      "line": 492
+    },
+    "sparse_dft.sparsity:vacuum_fraction": {
+      "kind": "function",
+      "signature": "structure",
+      "positional_parameters": [
+        "structure"
+      ],
+      "source": "sparse_dft/sparsity.py",
+      "line": 512
+    },
+    "sparse_dft.sparsity:sparsity_ledger": {
+      "kind": "function",
+      "signature": "result: dict, profile: SparsityProfile, performance_path: Path",
+      "positional_parameters": [
+        "result",
+        "profile",
+        "performance_path"
+      ],
+      "source": "sparse_dft/sparsity.py",
+      "line": 536
+    },
+    "sparse_dft.spin_model:validate_spin_model": {
+      "kind": "function",
+      "signature": "species, spin_channels=1, initial_moments=None, hubbard=None, zvals=None",
+      "positional_parameters": [
+        "species",
+        "spin_channels",
+        "initial_moments",
+        "hubbard",
+        "zvals"
+      ],
+      "source": "sparse_dft/spin_model.py",
+      "line": 6
+    },
+    "sparse_dft.spin_model:parse_cli_hubbard": {
+      "kind": "function",
+      "signature": "values",
+      "positional_parameters": [
+        "values"
+      ],
+      "source": "sparse_dft/spin_model.py",
+      "line": 44
+    },
+    "sparse_dft.structure:Structure": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/structure.py",
+      "line": 24
+    },
+    "sparse_dft.structure:read_poscar": {
+      "kind": "function",
+      "signature": "path",
+      "positional_parameters": [
+        "path"
+      ],
+      "source": "sparse_dft/structure.py",
+      "line": 86
+    },
+    "sparse_dft.structure:poscar_text": {
+      "kind": "function",
+      "signature": "structure, title='Sparse-DFT structure'",
+      "positional_parameters": [
+        "structure",
+        "title"
+      ],
+      "source": "sparse_dft/structure.py",
+      "line": 115
+    },
+    "sparse_dft.structure:write_poscar": {
+      "kind": "function",
+      "signature": "structure, path, title='Sparse-DFT structure'",
+      "positional_parameters": [
+        "structure",
+        "path",
+        "title"
+      ],
+      "source": "sparse_dft/structure.py",
+      "line": 127
+    },
+    "sparse_dft.structure:read_xyz": {
+      "kind": "function",
+      "signature": "path",
+      "positional_parameters": [
+        "path"
+      ],
+      "source": "sparse_dft/structure.py",
+      "line": 131
+    },
+    "sparse_dft.structure:read_cif": {
+      "kind": "function",
+      "signature": "path",
+      "positional_parameters": [
+        "path"
+      ],
+      "source": "sparse_dft/structure.py",
+      "line": 154
+    },
+    "sparse_dft.structure:read_structure": {
+      "kind": "function",
+      "signature": "path",
+      "positional_parameters": [
+        "path"
+      ],
+      "source": "sparse_dft/structure.py",
+      "line": 192
+    },
+    "sparse_dft.symmetry:cell_tuple": {
+      "kind": "function",
+      "signature": "structure: Structure",
+      "positional_parameters": [
+        "structure"
+      ],
+      "source": "sparse_dft/symmetry.py",
+      "line": 40
+    },
+    "sparse_dft.symmetry:analyze": {
+      "kind": "function",
+      "signature": "structure: Structure, symprec: float=DEFAULT_SYMPREC",
+      "positional_parameters": [
+        "structure",
+        "symprec"
+      ],
+      "source": "sparse_dft/symmetry.py",
+      "line": 47
+    },
+    "sparse_dft.symmetry:crystal_system": {
+      "kind": "function",
+      "signature": "number: int",
+      "positional_parameters": [
+        "number"
+      ],
+      "source": "sparse_dft/symmetry.py",
+      "line": 71
+    },
+    "sparse_dft.symmetry:standard_primitive": {
+      "kind": "function",
+      "signature": "structure: Structure, symprec: float=DEFAULT_SYMPREC",
+      "positional_parameters": [
+        "structure",
+        "symprec"
+      ],
+      "source": "sparse_dft/symmetry.py",
+      "line": 79
+    },
+    "sparse_dft.symmetry:choose_symprec": {
+      "kind": "function",
+      "signature": "structure: Structure, ladder=SYMPREC_LADDER",
+      "positional_parameters": [
+        "structure",
+        "ladder"
+      ],
+      "source": "sparse_dft/symmetry.py",
+      "line": 105
+    },
+    "sparse_dft.symmetry:auto_band_path": {
+      "kind": "function",
+      "signature": "structure: Structure, *, symprec: float | None=None, spacing: float=DEFAULT_SPACING, restrict_periodic: bool=True, export_primitive=None",
+      "positional_parameters": [
+        "structure"
+      ],
+      "source": "sparse_dft/symmetry.py",
+      "line": 129
+    },
+    "sparse_dft.symmetry:high_symmetry_path": {
+      "kind": "function",
+      "signature": "structure: Structure, *, spacing: float=DEFAULT_SPACING, min_points: int=5, symprec: float=DEFAULT_SYMPREC, with_time_reversal: bool=True, periodic_axes=None",
+      "positional_parameters": [
+        "structure"
+      ],
+      "source": "sparse_dft/symmetry.py",
+      "line": 195
+    },
+    "sparse_dft.upf:UpfArray": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/upf.py",
+      "line": 24
+    },
+    "sparse_dft.upf:UpfPawDataset": {
+      "kind": "class",
+      "signature": "inspect constructor",
+      "positional_parameters": [],
+      "source": "sparse_dft/upf.py",
+      "line": 31
+    },
+    "sparse_dft.upf:read_upf_paw": {
+      "kind": "function",
+      "signature": "source: bytes | str | Path",
+      "positional_parameters": [
+        "source"
+      ],
+      "source": "sparse_dft/upf.py",
+      "line": 62
+    },
+    "sparse_dft.upf_native:encode_native_upf": {
+      "kind": "function",
+      "signature": "source",
+      "positional_parameters": [
+        "source"
+      ],
+      "source": "sparse_dft/upf_native.py",
+      "line": 21
+    },
+    "sparse_dft.upf_native:export_native_upf": {
+      "kind": "function",
+      "signature": "source, destination",
+      "positional_parameters": [
+        "source",
+        "destination"
+      ],
+      "source": "sparse_dft/upf_native.py",
+      "line": 76
+    },
+    "sparse_dft.upf_storage:encode_upf": {
+      "kind": "function",
+      "signature": "raw: bytes",
+      "positional_parameters": [
+        "raw"
+      ],
+      "source": "sparse_dft/upf_storage.py",
+      "line": 41
+    },
+    "sparse_dft.upf_storage:decode_upf": {
+      "kind": "function",
+      "signature": "encoded: bytes, *, max_original_bytes: int=64 * 1024 ** 2",
+      "positional_parameters": [
+        "encoded"
+      ],
+      "source": "sparse_dft/upf_storage.py",
+      "line": 86
+    },
+    "sparse_dft.workflow:prepare_job": {
+      "kind": "function",
+      "signature": "structure, task='scf', paw_root=None, output='job', accuracy='standard', kpoints=None, paw_family='standard'",
+      "positional_parameters": [
+        "structure",
+        "task",
+        "paw_root",
+        "output",
+        "accuracy",
+        "kpoints",
+        "paw_family"
+      ],
+      "source": "sparse_dft/workflow.py",
+      "line": 13
+    },
+    "sparse_dft.workflow:progress_snapshot": {
+      "kind": "function",
+      "signature": "root='workflow'",
+      "positional_parameters": [
+        "root"
+      ],
+      "source": "sparse_dft/workflow.py",
+      "line": 28
+    }
+  },
+  "tools": {
+    "scripts/build_element_table.py": {
+      "source": "scripts/build_element_table.py",
+      "sha256": "da78ea68ecbed0802bee92664aeed631063a5ed3fa4671f787e1ad6282528b26",
+      "arguments": [
+        "--out"
+      ],
+      "has_argparse": true,
+      "review_required": true,
+      "source_relative_writes_possible": true
+    },
+    "scripts/install.py": {
+      "source": "scripts/install.py",
+      "sha256": "0c54eb189357e94b4de8c69017ee18ced75559a19884044216e420f36115feed",
+      "arguments": [
+        "--backend",
+        "--build-dir",
+        "--cmake-arg",
+        "--index-url",
+        "--jobs",
+        "--no-plots",
+        "--no-python",
+        "--prefix",
+        "--serial",
+        "--venv"
+      ],
+      "has_argparse": true,
+      "review_required": true,
+      "source_relative_writes_possible": true
+    },
+    "benchmarks/scripts/anchor_report.py": {
+      "source": "benchmarks/scripts/anchor_report.py",
+      "sha256": "c25a2dfa63974c51845aa64dd083c997f9356fed60ad048651a505c20ee74b1e",
+      "arguments": [],
+      "has_argparse": false,
+      "review_required": true,
+      "source_relative_writes_possible": true
+    },
+    "benchmarks/scripts/check_docs_numbers.py": {
+      "source": "benchmarks/scripts/check_docs_numbers.py",
+      "sha256": "2fa535d8406995477714e4fc40ff8dda2e67aa75d0ce1288f6c36a9e9966f71f",
+      "arguments": [
+        "--forbid",
+        "--json",
+        "--release-root",
+        "--root"
+      ],
+      "has_argparse": true,
+      "review_required": true,
+      "source_relative_writes_possible": true
+    },
+    "benchmarks/scripts/compare_vasp_dos.py": {
+      "source": "benchmarks/scripts/compare_vasp_dos.py",
+      "sha256": "4887f16333ae256c6b3806e07000a6fe35071a400cd0a030fb337975678fa01f",
+      "arguments": [
+        "--out",
+        "sparse_dft",
+        "vasp"
+      ],
+      "has_argparse": true,
+      "review_required": true,
+      "source_relative_writes_possible": true
+    },
+    "benchmarks/scripts/report_sparsity.py": {
+      "source": "benchmarks/scripts/report_sparsity.py",
+      "sha256": "055be73f36e7d0f3d33269c01d8c12e1b1cdff7e4bed7ecacc6859fef56b65e9",
+      "arguments": [
+        "--out",
+        "sweeps"
+      ],
+      "has_argparse": true,
+      "review_required": true,
+      "source_relative_writes_possible": true
+    },
+    "benchmarks/scripts/sweep_sparsity.py": {
+      "source": "benchmarks/scripts/sweep_sparsity.py",
+      "sha256": "43601ae40a0a64c16aeed495735295f545f5db1b4f4634ff1eb692363d7d3af7",
+      "arguments": [
+        "--only",
+        "campaign",
+        "out"
+      ],
+      "has_argparse": true,
+      "review_required": true,
+      "source_relative_writes_possible": true
+    },
+    "benchmarks/scripts/validate_scf_reference.py": {
+      "source": "benchmarks/scripts/validate_scf_reference.py",
+      "sha256": "a4f034ea736bae1b2440a31713d835733700601743573ce9616c0d84fb1afd96",
+      "arguments": [
+        "--candidate",
+        "--input",
+        "--output",
+        "--reference"
+      ],
+      "has_argparse": true,
+      "review_required": true,
+      "source_relative_writes_possible": true
+    },
+    "benchmarks/scripts/vasp_anchor.py": {
+      "source": "benchmarks/scripts/vasp_anchor.py",
+      "sha256": "54d144341e16d33fbcd570da87a1f03ce6ffd06680811ad8f6c7e68d87ec0a8b",
+      "arguments": [
+        "--out",
+        "--ranks",
+        "--systems",
+        "--threads",
+        "--tier",
+        "command"
+      ],
+      "has_argparse": true,
+      "review_required": true,
+      "source_relative_writes_possible": true
+    },
+    "packaging/make_manifest.py": {
+      "source": "packaging/make_manifest.py",
+      "sha256": "cdc5f4278c3e9f9f3e804cd18ecd2ac9874b4ac7dbbe9f44c8cf93c71e4f7947",
+      "arguments": [
+        "--check",
+        "--layout-only",
+        "--platform-tag",
+        "--write",
+        "bundle"
+      ],
+      "has_argparse": true,
+      "review_required": true,
+      "source_relative_writes_possible": true
+    },
+    "packaging/sparse_dft_gui_entry.py": {
+      "source": "packaging/sparse_dft_gui_entry.py",
+      "sha256": "53b6f399613f2c1bd3b58bed46b3cea2cd1008e5b29dc02961283c6230aa52ee",
+      "arguments": [],
+      "has_argparse": false,
+      "review_required": true,
+      "source_relative_writes_possible": true
+    }
+  },
+  "native": [
+    "sdft_collinear_mixing_smoke",
+    "sdft_compact_compensation_smoke",
+    "sdft_compensation_blas_smoke",
+    "sdft_complex_lanczos_smoke",
+    "sdft_compute_backend_smoke",
+    "sdft_core_smoke",
+    "sdft_davidson_optimization_smoke",
+    "sdft_density_dataflow_smoke",
+    "sdft_density_fft_batch_smoke",
+    "sdft_density_functionals_smoke",
+    "sdft_density_json_smoke",
+    "sdft_ewald_smoke",
+    "sdft_factored_gpu_solver_smoke",
+    "sdft_fft_backend_smoke",
+    "sdft_fft_operator_cache_smoke",
+    "sdft_file_hash_smoke",
+    "sdft_geometry_guess_smoke",
+    "sdft_indefinite_pencil_oracle",
+    "sdft_joint_multisecant_smoke",
+    "sdft_lanczos_smoke",
+    "sdft_occupations_smoke",
+    "sdft_openmp_probe",
+    "sdft_ordered_fourier_smoke",
+    "sdft_original_residual_smoke",
+    "sdft_parallel_context_smoke",
+    "sdft_paw_augmentation_smoke",
+    "sdft_paw_compensated_product_smoke",
+    "sdft_paw_compensation_smoke",
+    "sdft_paw_hubbard_radial_oracle",
+    "sdft_paw_onecenter_smoke",
+    "sdft_paw_reference_smoke",
+    "sdft_paw_ylm3_smoke",
+    "sdft_pbe_backend_smoke",
+    "sdft_pbe_smoke",
+    "sdft_plane_wave_operator_smoke",
+    "sdft_projector_derivative_smoke",
+    "sdft_pw_seed_transport_smoke",
+    "sdft_pw_smoke",
+    "sdft_reciprocal_density_smoke",
+    "sdft_relax_optimizer_smoke",
+    "sdft_relax_step",
+    "sdft_rmm_trial_smoke",
+    "sdft_scf",
+    "sdft_shared_paw_units_smoke",
+    "sdft_solver_replay",
+    "sdft_sparsity_operator_smoke",
+    "sdft_spectral_guard_smoke",
+    "sdft_spin_density_paw_smoke",
+    "sdft_spin_pbe_hubbard_smoke",
+    "sdft_spline_smoke",
+    "sdft_strict_residual_polish_smoke",
+    "sdft_triple_rotation_smoke",
+    "sdft_upf_radial_poisson_smoke"
+  ],
+  "environment_identifiers": {
+    "SDFT_ENABLE_PAW_CLOSURE_DIAGNOSTIC": [
+      "sparse_dft/analytic_relax.py",
+      "src/scf_core.cpp",
+      "src/upf_scf.cpp",
+      "scripts/install.py"
+    ],
+    "SDFT_GEOMETRY_PREDICTOR": [
+      "sparse_dft/analytic_relax.py"
+    ],
+    "SDFT_LBFGS_V1": [
+      "sparse_dft/analytic_relax.py",
+      "src/relax_step.cpp"
+    ],
+    "SDFT_REUSE_PAW_PREPARATION": [
+      "sparse_dft/analytic_relax.py"
+    ],
+    "SDFT_SCF_VALIDATION_OUTPUT": [
+      "sparse_dft/analytic_relax.py"
+    ],
+    "SDFT_ENABLE_OPENMP": [
+      "sparse_dft/backend.py"
+    ],
+    "SDFT_OPENMP_PROBE": [
+      "sparse_dft/backend.py",
+      "scripts/install.py"
+    ],
+    "SDFT_OPERATOR": [
+      "sparse_dft/backend.py",
+      "src/scf_core.cpp"
+    ],
+    "SDFT_FROZEN_SCF_V10": [
+      "sparse_dft/checkpoint.py",
+      "src/scf_core.cpp"
+    ],
+    "SDFT_FROZEN_SCF_V3": [
+      "sparse_dft/checkpoint.py",
+      "src/scf_core.cpp"
+    ],
+    "SDFT_FROZEN_SCF_V4": [
+      "sparse_dft/checkpoint.py",
+      "src/scf_core.cpp"
+    ],
+    "SDFT_FROZEN_SCF_V5": [
+      "sparse_dft/checkpoint.py",
+      "src/scf_core.cpp"
+    ],
+    "SDFT_FROZEN_SCF_V6": [
+      "sparse_dft/checkpoint.py",
+      "src/scf_core.cpp"
+    ],
+    "SDFT_FROZEN_SCF_V7": [
+      "sparse_dft/checkpoint.py",
+      "src/scf_core.cpp"
+    ],
+    "SDFT_FROZEN_SCF_V8": [
+      "sparse_dft/checkpoint.py",
+      "src/scf_core.cpp"
+    ],
+    "SDFT_FROZEN_SCF_V9": [
+      "sparse_dft/checkpoint.py",
+      "src/scf_core.cpp"
+    ],
+    "SDFT_DETERMINISTIC": [
+      "sparse_dft/cli.py",
+      "sparse_dft/parallel.py",
+      "sparse_dft/sparsity.py",
+      "src/compute_metal.mm",
+      "src/density_functionals.cpp",
+      "src/ordered_fourier.hpp",
+      "src/plane_wave_operator.cpp",
+      "src/pw_core.cpp",
+      "src/scf_core.cpp",
+      "src/thread_budget.hpp"
+    ],
+    "SDFT_ENABLE_MPI": [
+      "sparse_dft/cli.py",
+      "src/parallel_context.cpp",
+      "src/parallel_context.hpp"
+    ],
+    "SDFT_MPI_LAUNCHER": [
+      "sparse_dft/cli.py",
+      "sparse_dft/parallel.py"
+    ],
+    "SDFT_ERROR": [
+      "sparse_dft/errors.py",
+      "src/scf_cli.cpp"
+    ],
+    "SDFT_BANDGROUPS": [
+      "sparse_dft/parallel.py",
+      "src/parallel_context.cpp",
+      "src/parallel_context.hpp"
+    ],
+    "SDFT_KGROUPS": [
+      "sparse_dft/parallel.py",
+      "src/parallel_context.cpp",
+      "src/parallel_context.hpp"
+    ],
+    "SDFT_PAW_PREPARED_CACHE": [
+      "sparse_dft/prepared_paw_cache.py"
+    ],
+    "SDFT_PERSISTENT_PAW_CACHE": [
+      "sparse_dft/prepared_paw_cache.py"
+    ],
+    "SDFT_PAW_ARCHIVE": [
+      "sparse_dft/resources.py"
+    ],
+    "SDFT_PAW_ROOT": [
+      "sparse_dft/resources.py"
+    ],
+    "SDFT_RELAX_STEP_EXE": [
+      "sparse_dft/resources.py"
+    ],
+    "SDFT_SCF_EXE": [
+      "sparse_dft/resources.py",
+      "sparse_dft/scf.py",
+      "scripts/install.py"
+    ],
+    "SDFT_USER_DATA_DIR": [
+      "sparse_dft/resources.py"
+    ],
+    "SDFT_WORKER_PARENT_PID": [
+      "sparse_dft/runner.py"
+    ],
+    "SDFT_SCF_INPUT_V1": [
+      "sparse_dft/scf.py",
+      "src/scf_cli.cpp"
+    ],
+    "SDFT_ADAPTIVE_SEARCH": [
+      "sparse_dft/sparsity.py",
+      "src/scf_core.cpp",
+      "src/upf_scf.cpp"
+    ],
+    "SDFT_BLOCK_ORTHOGONALIZE": [
+      "sparse_dft/sparsity.py",
+      "src/pw_core.cpp",
+      "scripts/install.py"
+    ],
+    "SDFT_DAVIDSON_SUBSPACE_FACTOR": [
+      "sparse_dft/sparsity.py",
+      "src/pw_core.cpp"
+    ],
+    "SDFT_FAST_DENSITY_GRID": [
+      "sparse_dft/sparsity.py",
+      "src/density_functionals.cpp"
+    ],
+    "SDFT_FFT_OVERSAMPLING": [
+      "sparse_dft/sparsity.py",
+      "src/density_functionals.cpp"
+    ],
+    "SDFT_INCREMENTAL_RITZ": [
+      "sparse_dft/sparsity.py",
+      "src/pw_core.cpp"
+    ],
+    "SDFT_PAW_COMPENSATED_ACCUMULATION": [
+      "sparse_dft/sparsity.py",
+      "src/plane_wave_operator.cpp"
+    ],
+    "SDFT_PAW_COMPENSATION_SCOPE": [
+      "sparse_dft/sparsity.py",
+      "src/plane_wave_operator.cpp"
+    ],
+    "SDFT_PROJECTOR_RADIUS_FACTOR": [
+      "sparse_dft/sparsity.py",
+      "src/plane_wave_operator.cpp"
+    ],
+    "SDFT_PROJECTOR_SPACE": [
+      "sparse_dft/sparsity.py",
+      "src/plane_wave_operator.cpp"
+    ],
+    "SDFT_RITZ_SOLVER": [
+      "sparse_dft/sparsity.py",
+      "src/pw_core.cpp"
+    ],
+    "SDFT_SCF_ACCEPTANCE_MARGIN": [
+      "sparse_dft/sparsity.py",
+      "src/scf_core.cpp"
+    ],
+    "SDFT_SCF_SEARCH_FACTOR": [
+      "sparse_dft/sparsity.py",
+      "src/scf_core.cpp",
+      "src/upf_scf.cpp"
+    ],
+    "SDFT_SEARCH_OPERATOR_FLOOR": [
+      "sparse_dft/sparsity.py",
+      "src/scf_core.cpp"
+    ],
+    "SDFT_SEARCH_PRECISION": [
+      "sparse_dft/sparsity.py"
+    ],
+    "SDFT_SPARSITY_PROBE_FACTORS": [
+      "sparse_dft/sparsity.py",
+      "src/scf_core.cpp"
+    ],
+    "SDFT_WARM_GUARD_VECTORS": [
+      "sparse_dft/sparsity.py",
+      "src/band_group_solver.cpp",
+      "src/pw_core.cpp"
+    ],
+    "SDFT_BAND_GROUP_IMAGE_REUSE": [
+      "src/band_group_solver.cpp"
+    ],
+    "SDFT_BAND_GROUP_LOCAL_STEPS": [
+      "src/band_group_solver.cpp"
+    ],
+    "SDFT_BAND_GROUP_SIZE": [
+      "src/band_group_solver.cpp"
+    ],
+    "SDFT_BAND_GROUP_SWEEP": [
+      "src/band_group_solver.cpp"
+    ],
+    "SDFT_HAS_LAPACK": [
+      "src/band_group_solver.cpp",
+      "src/indefinite_pencil_davidson.cpp",
+      "src/pw_core.cpp",
+      "src/rmm_trial.cpp"
+    ],
+    "SDFT_SOLVER_TRACE": [
+      "src/band_group_solver.cpp"
+    ],
+    "SDFT_COMPUTE_BACKEND": [
+      "src/compute_backend.cpp",
+      "src/density_functionals.cpp",
+      "scripts/install.py"
+    ],
+    "SDFT_CPU_BLAS_INTERFACE": [
+      "src/compute_backend.cpp"
+    ],
+    "SDFT_CPU_GEMM_PARTITION": [
+      "src/compute_backend.cpp"
+    ],
+    "SDFT_ENABLE_CUDA": [
+      "src/compute_backend.cpp"
+    ],
+    "SDFT_ENABLE_MPS": [
+      "src/compute_backend.cpp"
+    ],
+    "SDFT_GPU_FFT": [
+      "src/compute_backend.cpp",
+      "scripts/install.py"
+    ],
+    "SDFT_GPU_FFT_IMMUTABLE_CACHE": [
+      "src/compute_backend.cpp"
+    ],
+    "SDFT_GPU_FFT_MIN_POINTS": [
+      "src/compute_backend.cpp",
+      "scripts/install.py"
+    ],
+    "SDFT_GPU_MIN_WORK": [
+      "src/compute_backend.cpp",
+      "scripts/install.py"
+    ],
+    "SDFT_GPU_PAW_CHAIN": [
+      "src/compute_backend.cpp",
+      "src/plane_wave_operator.cpp",
+      "src/pw_core.cpp",
+      "scripts/install.py"
+    ],
+    "SDFT_GPU_PBE": [
+      "src/compute_backend.cpp",
+      "src/density_functionals.cpp",
+      "src/scf_core.cpp",
+      "scripts/install.py"
+    ],
+    "SDFT_GPU_RESIDENT_PROJECTORS": [
+      "src/compute_backend.cpp"
+    ],
+    "SDFT_HAS_APPLE_MODERN_BLAS": [
+      "src/compute_backend.cpp",
+      "src/indefinite_pencil_davidson.cpp",
+      "src/pw_core.cpp"
+    ],
+    "SDFT_HAS_CBLAS": [
+      "src/compute_backend.cpp"
+    ],
+    "SDFT_HAS_CUDA": [
+      "src/compute_backend.cpp"
+    ],
+    "SDFT_HAS_MPS": [
+      "src/compute_backend.cpp"
+    ],
+    "SDFT_HAS_OPENMP": [
+      "src/compute_backend.cpp",
+      "src/compute_metal.mm",
+      "src/density_functionals.cpp",
+      "src/fft_planning.hpp",
+      "src/openmp_probe.cpp",
+      "src/paw_augmentation.cpp",
+      "src/paw_compensated_product.hpp",
+      "src/paw_compensation.cpp",
+      "src/plane_wave_operator.cpp",
+      "src/scf_core.cpp",
+      "src/thread_budget.hpp",
+      "src/upf_beta_cache.hpp",
+      "src/upf_onecenter_fast.cpp",
+      "src/upf_scf.cpp",
+      "scripts/install.py"
+    ],
+    "SDFT_FFT_GRID": [
+      "src/compute_metal.mm",
+      "src/plane_wave_operator.cpp"
+    ],
+    "SDFT_METAL_FFT_FUSE_PERMUTE": [
+      "src/compute_metal.mm"
+    ],
+    "SDFT_METAL_PACK": [
+      "src/compute_metal.mm",
+      "scripts/install.py"
+    ],
+    "SDFT_METAL_PRECISION": [
+      "src/compute_metal.mm",
+      "src/scf_cli.cpp"
+    ],
+    "SDFT_METAL_TILE": [
+      "src/compute_metal.mm"
+    ],
+    "SDFT_DENSITY_BAND_THREADS": [
+      "src/density_functionals.cpp"
+    ],
+    "SDFT_DENSITY_BATCHED_FFT": [
+      "src/density_functionals.cpp"
+    ],
+    "SDFT_DENSITY_FFT_PLAN": [
+      "src/density_functionals.cpp"
+    ],
+    "SDFT_DENSITY_FLAT_SUPPORT": [
+      "src/density_functionals.cpp"
+    ],
+    "SDFT_DENSITY_FUSE_PBE_TILES": [
+      "src/density_functionals.cpp"
+    ],
+    "SDFT_DENSITY_MEMORY_PARALLEL": [
+      "src/density_functionals.cpp"
+    ],
+    "SDFT_DENSITY_TILED_REDUCTION": [
+      "src/density_functionals.cpp"
+    ],
+    "SDFT_FROZEN_CORE_FFT_REUSE": [
+      "src/density_functionals.cpp"
+    ],
+    "SDFT_PAIRED_REAL_FFT": [
+      "src/density_functionals.cpp"
+    ],
+    "SDFT_DENSITY_FFT_THREADS": [
+      "src/fft_planning.hpp"
+    ],
+    "SDFT_HAS_FFTW_THREADS": [
+      "src/fft_planning.hpp"
+    ],
+    "SDFT_HAS_EIGEN": [
+      "src/indefinite_pencil_davidson.cpp",
+      "src/pw_core.cpp"
+    ],
+    "SDFT_MIXER": [
+      "src/joint_paw_mixer.hpp",
+      "src/scf_core.cpp"
+    ],
+    "SDFT_MULTISECANT_BACKTRACK": [
+      "src/joint_paw_mixer.hpp",
+      "src/scf_core.cpp"
+    ],
+    "SDFT_MULTISECANT_TRUST_RADIUS": [
+      "src/joint_paw_mixer.hpp",
+      "src/scf_core.cpp"
+    ],
+    "SDFT_ORDERED_FOURIER": [
+      "src/ordered_fourier.hpp"
+    ],
+    "SDFT_HAS_MPI": [
+      "src/parallel_context.cpp"
+    ],
+    "SDFT_LCOMPAT": [
+      "src/paw_augmentation.cpp"
+    ],
+    "SDFT_MESH_COMPENSATION_NORM": [
+      "src/paw_augmentation.cpp"
+    ],
+    "SDFT_COMPENSATED_NEON": [
+      "src/paw_compensated_product.hpp"
+    ],
+    "SDFT_BATCH_COMPENSATION_GEOMETRY": [
+      "src/paw_compensation.cpp"
+    ],
+    "SDFT_COMPACT_COMPENSATION": [
+      "src/paw_compensation.cpp"
+    ],
+    "SDFT_COMPENSATION_BLAS": [
+      "src/paw_compensation.cpp"
+    ],
+    "SDFT_PAW_SHARED_KERNEL": [
+      "src/paw_framework.hpp"
+    ],
+    "SDFT_TRACE_ONECENTER_DETAIL": [
+      "src/paw_onecenter.cpp"
+    ],
+    "SDFT_TRACE_NONFINITE_PBE": [
+      "src/pbe_xc.cpp"
+    ],
+    "SDFT_LINEAR_OPERATOR_SETUP": [
+      "src/plane_wave_operator.cpp"
+    ],
+    "SDFT_PAW_PAIR_BACKPROJECT": [
+      "src/plane_wave_operator.cpp"
+    ],
+    "SDFT_ADAPTIVE_REORTHOGONALIZE": [
+      "src/pw_core.cpp"
+    ],
+    "SDFT_BAND_GROUP_SOLVER": [
+      "src/pw_core.cpp"
+    ],
+    "SDFT_CACHED_METRIC_ORTHO": [
+      "src/pw_core.cpp"
+    ],
+    "SDFT_CERTIFY_ONCE": [
+      "src/pw_core.cpp"
+    ],
+    "SDFT_CPU_LAPACK_INTERFACE": [
+      "src/pw_core.cpp"
+    ],
+    "SDFT_FRESH_RESIDUAL_POLISH": [
+      "src/pw_core.cpp"
+    ],
+    "SDFT_GPU_BLOCK_ORTHO": [
+      "src/pw_core.cpp"
+    ],
+    "SDFT_GPU_FACTORED_METRIC": [
+      "src/pw_core.cpp"
+    ],
+    "SDFT_JOINT_HS": [
+      "src/pw_core.cpp"
+    ],
+    "SDFT_PRECONDITIONER": [
+      "src/pw_core.cpp"
+    ],
+    "SDFT_PROJECTED_PAIR": [
+      "src/pw_core.cpp"
+    ],
+    "SDFT_PROJECTOR_METRIC": [
+      "src/pw_core.cpp"
+    ],
+    "SDFT_PROJECTOR_STATE": [
+      "src/pw_core.cpp"
+    ],
+    "SDFT_RECYCLE_SPECTRAL_GUARDS": [
+      "src/pw_core.cpp"
+    ],
+    "SDFT_RESTART_IMAGES": [
+      "src/pw_core.cpp"
+    ],
+    "SDFT_RITZ_RESTART_ONLY": [
+      "src/pw_core.cpp"
+    ],
+    "SDFT_RITZ_TRIPLE_ROTATION": [
+      "src/pw_core.cpp"
+    ],
+    "SDFT_ROOT_METRIC_AUDIT": [
+      "src/pw_core.cpp"
+    ],
+    "SDFT_SCF_RMM_TRIAL": [
+      "src/pw_core.cpp",
+      "src/scf_core.cpp"
+    ],
+    "SDFT_STRICT_ROOT_MANIFOLD": [
+      "src/pw_core.cpp"
+    ],
+    "SDFT_TRACE_ROOT_METRIC": [
+      "src/pw_core.cpp"
+    ],
+    "SDFT_TRACE_STRICT_POLISH": [
+      "src/pw_core.cpp"
+    ],
+    "SDFT_WARM_START_PERTURBATION": [
+      "src/pw_core.cpp"
+    ],
+    "SDFT_BATCH_COMPENSATION_ADJOINT": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_BATCH_ONSITE_DENSITY": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_CHARGE_KERKER": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_DENSE_LIMIT": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_DERIVATIVE_CONTRACTION": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_DERIVATIVE_FUSED_CONTRACTION": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_DERIVATIVE_PROJECTOR_REUSE": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_DISABLE_AUGMENTATION": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_DISABLE_COULOMB_TAIL": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_DISABLE_DGRID": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_DISABLE_HARTREE_XC": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_DISABLE_LOCAL": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_DISABLE_NONLOCAL": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_DISABLE_ONECENTER_CHF": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_DISABLE_OVERLAP": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_DISABLE_SPHERICAL_ONECENTER": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_D_SCALE": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_ENABLE_AUGMENTATION": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_ENABLE_EXACT_AUG_MOMENTS": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_ENABLE_EXACT_QPAW": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_ENABLE_FULL_AUGMENTATION": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_ENABLE_ONECENTER_CHF": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_ENABLE_SPHERICAL_ONECENTER": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_FORCE_ATOM_PARALLEL": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_FROZEN_SCF_V1": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_FROZEN_SCF_V2": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_GEOMETRY_ATOMIC_DIFFERENCE": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_GPU_KPOINT_MEMORY_MB": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_ITERATIVE_MAX_ITERS": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_ITERATIVE_TOL": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_KPOINT_THREADS": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_LINEAR_FOURIER_MIXER": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_LOCAL_Q_BOHR": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_LOCAL_SCALE": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_NSCF_CACHE_IDENTICAL_K": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_NSCF_FROZEN_FIELDS": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_NSCF_FROZEN_SETUP": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_NSCF_WARM_START": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_PAW_XC_MODE": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_PROJECTOR_GEOMETRY_REUSE": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_PROJECTOR_Q_BOHR": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_PROJECTOR_SCALE": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_PULAY_WEIGHT": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_RECIPROCAL_EVAL_BATCH": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_RECIPROCAL_LINEAR": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_SCF_PROJECTOR_RESIDENCY": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_SHARED_COMPACT_AUGMENTATION": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_SHARE_COMPENSATION": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_SHARE_PAW_RADIAL": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_SOLVER": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_SOLVER_SNAPSHOT_CALL": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_SOLVER_SNAPSHOT_DIR": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_SPIN_BASIN_GUARD": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_SPIN_KERKER": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_SPIN_MIXING": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_STATIONARY_RECIPROCAL": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_TRACE_AUGMENTATION": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_TRACE_BANDS": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_TRACE_ONECENTER": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_TRACE_PAW_CLOSURE": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_TRACE_POTENTIAL": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_TRACE_PROJECTOR": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_TRACE_SCF": [
+      "src/scf_core.cpp"
+    ],
+    "SDFT_GEOMETRY_GUESS_1": [
+      "src/scf_geometry_guess.hpp"
+    ],
+    "SDFT_GEOMETRY_GUESS_2": [
+      "src/scf_geometry_guess.hpp"
+    ],
+    "SDFT_GEOMETRY_GUESS_3": [
+      "src/scf_geometry_guess.hpp"
+    ],
+    "SDFT_REPLAY_ERROR": [
+      "src/solver_replay_cli.cpp"
+    ],
+    "SDFT_SHARED_SNAPSHOT_ITERATION": [
+      "src/upf_scf.cpp"
+    ],
+    "SDFT_UPF_ATOMIC_GUESS": [
+      "src/upf_scf.cpp"
+    ]
+  },
+  "note": "Static reachability only; not runtime execution or numerical validation. Environment index includes compile macros. Tool keys are source-relative paths."
+}
